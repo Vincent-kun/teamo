@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>儿童AI运动陪伴机器人 产品需求文档 PRD V3.0</title>
+<style>
+:root{--ink:#12243e;--muted:#5f738d;--line:#d7e2ee;--blue:#1769e0;--blue2:#edf5ff;--green:#087443;--green2:#e8f7f0;--amber:#995508;--amber2:#fff4dc;--red:#b42318;--red2:#fff0ef;--purple:#6941a5;--purple2:#f1ebff;--bg:#edf2f7}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.7 "Microsoft YaHei","PingFang SC",Arial,sans-serif}.doc{max-width:1380px;margin:24px auto;background:#fff;box-shadow:0 12px 42px #18395c1c}.hero{padding:58px 68px 44px;border-top:7px solid var(--blue);background:linear-gradient(135deg,#fff 42%,#eef6ff)}.eyebrow{color:var(--blue);font-size:13px;font-weight:800;letter-spacing:.14em}.hero h1{font-size:38px;line-height:1.28;margin:14px 0}.lead{max-width:1140px;color:#425771;font-size:17px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:19px}.chip,.tag{display:inline-block;border-radius:999px;padding:3px 10px;font-size:12px;font-weight:800}.chip{background:#eaf2ff;color:#0b4dac}.tag.confirm{background:var(--green2);color:var(--green)}.tag.pending{background:var(--red2);color:var(--red)}.tag.review{background:var(--purple2);color:var(--purple)}.tag.assume{background:var(--amber2);color:var(--amber)}.nav{padding:13px 68px;border-block:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;background:#fbfdff;position:sticky;top:0;z-index:2}.nav a{color:#355170;text-decoration:none;font-size:12px;padding:4px 7px;border-radius:6px}.nav a:hover{color:var(--blue);background:var(--blue2)}main{padding:38px 68px 76px}section{margin-bottom:50px;scroll-margin-top:75px}h2{font-size:28px;line-height:1.35;margin:0 0 18px;padding-bottom:10px;border-bottom:2px solid var(--line)}h2 small{font-size:14px;color:var(--blue);margin-right:10px}h3{font-size:19px;line-height:1.4;margin:24px 0 9px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.card{border:1px solid var(--line);border-radius:13px;padding:16px;background:#fff}.card h3{margin-top:0}.call{border-left:5px solid var(--blue);background:#f3f7fd;padding:14px 17px;margin:15px 0}.call.green{border-left-color:var(--green);background:#f1faf6}.call.amber{border-left-color:#d48a11;background:#fff9ea}.muted{font-size:13px;color:var(--muted)}.small{font-size:12px;color:var(--muted)}.flow{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:16px 0}.node{padding:8px 11px;border:1px solid #bfd2e9;border-radius:9px;background:#fff;font-weight:800}.arr{font-weight:900;color:var(--blue)}table{width:100%;border-collapse:collapse;margin:14px 0 22px;font-size:12.5px}th,td{border:1px solid var(--line);padding:8px 9px;text-align:left;vertical-align:top}th{background:#eaf3ff;color:#173b68;white-space:nowrap}tr:nth-child(even) td{background:#fbfdff}.req-table th:first-child{width:15%}.req-table td:first-child{font-weight:800;color:#173b68;width:15%}.state{display:inline-flex;gap:4px;flex-wrap:wrap}.bullet{margin:0;padding-left:20px}.bullet li{padding:2px 0}.mono{font-family:Consolas,"Courier New",monospace;background:#f5f7fa;border:1px solid var(--line);border-radius:7px;padding:10px;white-space:pre-wrap;font-size:12px}.matrix{font-size:12px}.matrix th:nth-child(1){width:13%}.matrix th:nth-child(2){width:24%}.matrix th:nth-child(3){width:20%}.matrix th:nth-child(4){width:24%}.footer{padding:25px 68px;background:var(--ink);color:#dce6f2}.footer small{color:#aebed0}@media(max-width:980px){.doc{margin:0}.hero,main,.nav,.footer{padding-left:20px;padding-right:20px}.hero h1{font-size:29px}.grid,.grid3{grid-template-columns:1fr}.nav{position:static}.matrix{min-width:1000px;display:block;overflow-x:auto}}
+@media print{@page{size:A4 landscape;margin:10mm}body{background:#fff;font-size:9pt}.doc{max-width:none;margin:0;box-shadow:none}.hero{padding:18mm 12mm;min-height:145mm}.nav{display:none}main{padding:0}section{break-before:page;margin:0 0 9mm}section:first-child{break-before:auto}h2{font-size:18pt}.card,table{break-inside:avoid}.footer{padding:8mm 12mm}}
+</style>
+</head>
+<body>
+<div class="doc">
+<header class="hero">
+  <div class="eyebrow">PRODUCT REQUIREMENTS DOCUMENT · REVIEW</div>
+  <h1>儿童AI运动陪伴机器人<br>产品需求文档 PRD V3.0</h1>
+  <p class="lead">本PRD定义第一版产品需要提供的用户体验、功能边界、输入输出、异常处理和验收方式，供产品、UI/UE、算法、软件、硬件、App、后台和测试团队评审。它不是技术实现说明书，不锁定尚未评审的硬件规格或研发时间。</p>
+  <div class="chips"><span class="chip">状态：REVIEW</span><span class="chip">目标儿童：6～15岁</span><span class="chip">购买决策者：家长</span><span class="chip">To C为主</span><span class="chip">七种动作全部纳入第一版</span></div>
+</header>
+<nav class="nav"><a href="#goal">目标</a><a href="#non-goal">非目标</a><a href="#users">用户</a><a href="#arch">产品架构</a><a href="#loop">核心闭环</a><a href="#state">状态机</a><a href="#shared">共享能力</a><a href="#actions">七种动作</a><a href="#task">任务系统</a><a href="#parent">家长App</a><a href="#school">家校</a><a href="#posture">体态</a><a href="#companion">陪伴激励</a><a href="#plan">AI训练计划</a><a href="#data">数据对象</a><a href="#offline">离线</a><a href="#privacy">隐私</a><a href="#hardware">硬件</a><a href="#accept">验收</a><a href="#map">映射</a></nav>
+<main>
+
+<section id="goal">
+  <h2><small>01</small>产品目标与统一定位</h2>
+  <div class="call"><b>一句话定位：</b>一款面向6～15岁儿童青少年的家庭AI运动陪伴机器人，通过视觉运动识别、自动计数与反馈、家庭与学校任务、陪伴式交互和成长记录，让孩子更愿意主动运动，让家长更省心，并持续形成可理解的运动成长数据。</div>
+  <div class="grid grid3"><div class="card"><h3>核心Goal</h3><p>让儿童在较少家长监督的情况下完成一次运动，并让运动可以被识别、计数、反馈和记录。</p></div><div class="card"><h3>家长得到什么</h3><p>家长能布置任务、看到清楚结果，不必全程陪练或人工计数。</p></div><div class="card"><h3>学校得到什么</h3><p>老师能发布体育任务、回收Session结果和查看基础班级完成情况。</p></div></div>
+  <table><thead><tr><th>统一口径</th><th>第一版要求</th><th>状态</th></tr></thead><tbody>
+    <tr><td>产品主次</td><td>运动训练是绝对核心；陪伴和激励服务于开始与坚持；家校联动是第一版完整能力；体态陪伴重要但不压过运动；AI个性化训练是长期能力。</td><td><span class="tag confirm">已确认</span></td></tr>
+    <tr><td>七种动作</td><td>双脚跳绳、开合跳、高抬腿、深蹲起、俯卧撑、仰卧起坐、平板支撑。平板支撑按有效保持时长，其余主要按动作周期和次数。</td><td><span class="tag confirm">已确认</span></td></tr>
+    <tr><td>硬件与时间</td><td>Camera形式、屏幕尺寸、Mic、电池、充电、FOV、主控、外壳及研发周期均不在本文拍板。</td><td><span class="tag review">待硬件/项目评审</span></td></tr>
+  </tbody></table>
+</section>
+
+<section id="non-goal">
+  <h2><small>02</small>Non-Goals｜第一版不做什么</h2>
+  <div class="grid grid3"><div class="card"><h3>不是开放聊天机器人</h3><p>语音只支持运动流程、简单体育问答和固定陪伴话术；不承诺万能开放式对话。</p></div><div class="card"><h3>不是医疗体态设备</h3><p>体态只做非医疗提醒与结构化记录，不输出诊断、治疗或专业处方。</p></div><div class="card"><h3>不是大型游戏机</h3><p>运动游戏只服务于轻量激励，第一版不承诺大型游戏库、多关卡或复杂内容。</p></div><div class="card"><h3>不是专业运动医疗设备</h3><p>动作评价用于儿童友好反馈，不代替医生、教练或学校专业评价。</p></div><div class="card"><h3>不是复杂机器人平台</h3><p>不要求自主移动、机械臂或复杂外设；设备围绕Camera、屏幕、音频、联网和运动流程工作。</p></div><div class="card"><h3>不增加未确认动作</h3><p>除七种确定动作外，不纳入其他动作。新增动作须经过版本评审。</p></div></div>
+</section>
+
+<section id="users">
+  <h2><small>03</small>用户与权限角色</h2>
+  <table><thead><tr><th>角色</th><th>主要任务</th><th>可查看/可操作</th><th>关键体验要求</th></tr></thead><tbody>
+    <tr><td>儿童｜6～15岁</td><td>查看任务、选择运动、完成动作、接受反馈、查看个人结果。</td><td>自己的任务、Session结果、PB、运动星和宠物反馈。</td><td>少文字、大按钮、短流程、正向表达；不展示不必要的他人敏感数据。</td></tr>
+    <tr><td>家长｜购买决策者</td><td>绑定设备、创建家庭任务、查看记录、管理权限和隐私。</td><td>已授权儿童的任务、结果、成长和设备设置。</td><td>三步创建任务；结果先看；离线、失败和未完成状态透明。</td></tr>
+    <tr><td>老师/学校</td><td>维护班级和学生关系、发布体育任务、查看基础完成情况。</td><td>仅查看被授权班级的任务状态和基础完成数据。</td><td>低管理成本；不默认查看原始视频、敏感体态或家庭信息。</td></tr>
+    <tr><td>运营/客服</td><td>处理设备、账号和服务问题。</td><td>按权限查看必要的诊断信息。</td><td>儿童原始视频默认不长期保存；权限可追溯。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="arch">
+  <h2><small>04</small>产品架构与职责</h2>
+  <div class="flow"><span class="node">机器人端</span><span class="arr">↔</span><span class="node">App/家长端</span><span class="arr">↔</span><span class="node">服务端</span><span class="arr">↔</span><span class="node">学校端</span></div>
+  <table><thead><tr><th>层</th><th>主要职责</th><th>不负责什么</th><th>依赖</th></tr></thead><tbody>
+    <tr><td>机器人端</td><td>宠物首页、任务入口、Camera调用、站位引导、倒计时、动作反馈、结果展示、必要的本地缓存。</td><td>不承担复杂后台管理和老师运营。</td><td>Camera、显示、音频、主控、联网能力<span class="tag review">待硬件评审</span>。</td></tr>
+    <tr><td>App/家长端</td><td>账号绑定、家庭任务、记录、成长、设备与隐私设置。</td><td>不替代机器人实时识别和运动中反馈。</td><td>账号、任务、Session同步。</td></tr>
+    <tr><td>服务端</td><td>账号、设备、任务、Session、权限、同步、数据留存和删除。</td><td>不把未授权儿童数据提供给学校或其他家庭。</td><td>网络、权限、数据策略。</td></tr>
+    <tr><td>学校端</td><td>老师账号、班级、学生、任务发布、基础完成统计。</td><td>不直接控制家庭Camera，不查看原始视频。</td><td>学校合作、家长授权、权限评审。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="loop">
+  <h2><small>05</small>MVP/第一版核心闭环</h2>
+  <div class="flow"><span class="node">老师/家长发布任务</span><span class="arr">→</span><span class="node">任务同步与提醒</span><span class="arr">→</span><span class="node">孩子选择运动</span><span class="arr">→</span><span class="node">Camera看到孩子</span><span class="arr">→</span><span class="node">动作识别与计数</span><span class="arr">→</span><span class="node">语音/屏幕/宠物反馈</span><span class="arr">→</span><span class="node">完成并生成Session</span><span class="arr">→</span><span class="node">家长/老师查看结果</span></div>
+  <table><thead><tr><th>闭环节点</th><th>必须留下的结果</th><th>失败时用户看到什么</th></tr></thead><tbody>
+    <tr><td>任务</td><td>来源、动作、目标、提醒、状态。</td><td>任务未同步、已撤销、重复任务等原因清楚可见。</td></tr>
+    <tr><td>运动</td><td>动作、有效次数或时长、开始/结束时间、状态。</td><td>入镜、识别或Camera异常有具体提示，不丢失已完成部分。</td></tr>
+    <tr><td>Session</td><td>一次完整运动记录，包含结果和数据状态。</td><td>上传失败标记“待同步”，不伪装为已完成回传。</td></tr>
+    <tr><td>查看</td><td>儿童看简单结果，家长/老师看授权范围内的基础结果。</td><td>空状态、未完成和网络异常均有明确说明。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="state">
+  <h2><small>06</small>机器人运动状态机</h2>
+  <div class="mono">Idle
+  ↓
+Task / Action Select
+  ↓
+Entry（入镜准备）
+  ↓
+Ready（站位满足）
+  ↓
+Countdown（3、2、1）
+  ↓
+Running（识别、计数、反馈）
+  ├─ Pause（触摸/语音/离画）→ Resume → Running
+  ├─ 识别异常 → Low Confidence / 引导后继续
+  └─ 提前结束 → Result
+  ↓
+Complete（达到目标）
+  ↓
+Result（保存Session）
+  ↓
+Idle</div>
+  <table><thead><tr><th>状态</th><th>进入条件</th><th>用户可做什么</th><th>退出条件</th><th>异常分支</th></tr></thead><tbody>
+    <tr><td>Idle</td><td>无运动流程。</td><td>摸宠物、查看任务、开始自主运动。</td><td>选择任务或运动。</td><td>设备离线仍可展示本地首页。</td></tr>
+    <tr><td>Entry</td><td>已选择运动。</td><td>按提示调整位置、返回。</td><td>检测到人体并进入Ready。</td><td>No Person、Too Close、Too Far、Body Incomplete。</td></tr>
+    <tr><td>Ready/Countdown</td><td>人体和站位满足要求。</td><td>等待倒计时、取消。</td><td>倒计时结束进入Running。</td><td>Camera Off、人体离开则回Entry。</td></tr>
+    <tr><td>Running</td><td>动作识别正常。</td><td>运动、暂停、提前结束。</td><td>达到目标或用户结束。</td><td>Low Confidence、Leave Frame、网络断开。</td></tr>
+    <tr><td>Pause/Resume</td><td>儿童主动暂停或系统因离画暂停。</td><td>继续、结束；已计数保留。</td><td>继续进入Running，结束进入Result。</td><td>长时间未回来提示保存已完成部分。</td></tr>
+    <tr><td>Complete/Result</td><td>达到次数或有效时长。</td><td>查看结果、去装扮/返回首页。</td><td>保存Session并回Idle。</td><td>上传失败进入待同步队列。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="shared">
+  <h2><small>07</small>七种动作共享能力</h2>
+  <table class="req-table"><thead><tr><th>共享能力</th><th>功能目的</th><th>输入/输出</th><th>正常流程与交互</th><th>异常与权限</th><th>验收标准</th></tr></thead><tbody>
+    <tr><td>Camera</td><td>看到孩子并提供动作识别输入。</td><td>输入：视频帧。输出：人体状态、关键点、画面工作状态。</td><td>进入Entry时开启；Ready和Running显示Camera状态提示；离开流程关闭。</td><td>Camera Off、遮挡、权限关闭时不可开始；家长可控制权限。</td><td>状态对儿童和家长可理解；具体能力<span class="tag review">待硬件评审</span>。</td></tr>
+    <tr><td>Pose/姿态</td><td>判断站位、动作阶段和明显异常。</td><td>输出：人体完整性、关键点、动作阶段、置信度。</td><td>先判断是否能看全身，再进入动作识别；不显示模型术语。</td><td>Low Confidence时提示调整或重试，不计入无效次数。</td><td>能在正式测试集达到算法评审冻结标准<span class="tag pending">待算法验证</span>。</td></tr>
+    <tr><td>Ready</td><td>避免孩子未站好就开始。</td><td>输入：人体状态。输出：Ready/未Ready及原因。</td><td>提示人体轮廓、距离和脚部；满足后绿色确认。</td><td>No Person、Too Close、Too Far、Body Incomplete。</td><td>提示具体、儿童能按提示调整<span class="tag pending">待用户验证</span>。</td></tr>
+    <tr><td>动作阶段</td><td>把连续动作拆成可理解阶段。</td><td>输出：起始、进行中、完成或保持中。</td><td>每个动作定义起始姿态、动作阶段和结束条件。</td><td>阶段不完整不计数；置信度不足提示一次。</td><td>七种动作的阶段规则通过算法与体育专业评审。</td></tr>
+    <tr><td>有效动作/计数</td><td>只记录达到规则的动作。</td><td>输出：动作类型、有效次数或有效秒数、置信度。</td><td>动作周期完成→有效判断→次数+1；平板支撑按有效保持时长。</td><td>不完整、重复触发、离画不计；不删除已确认结果。</td><td>差异指标和阈值<span class="tag pending">待算法评审冻结</span>。</td></tr>
+    <tr><td>倒计时/反馈</td><td>让孩子知道何时开始和进度。</td><td>输出：3、2、1、开始音、当前次数、目标、阶段话术。</td><td>屏幕突出“当前/目标”；宠物和语音低频配合。</td><td>禁止负面词；同一时刻只播一个提示。</td><td>视觉、语音、宠物状态一致。</td></tr>
+    <tr><td>暂停/离画/恢复</td><td>保留孩子已经完成的努力。</td><td>输出：暂停原因、已完成次数/时长、恢复状态。</td><td>触摸/语音暂停；离画自动暂停；回来后可继续。</td><td>网络断开不影响本地继续和保存；Camera关闭则停止识别。</td><td>暂停后结果不归零，Session状态可追踪。</td></tr>
+    <tr><td>Session</td><td>把一次运动保存为可查看和回传的记录。</td><td>字段概念：sessionId、childId、taskId、动作、目标、实际、用时、状态、同步状态。</td><td>开始创建草稿；完成/结束生成结果；联网后同步。</td><td>上传失败标待同步；重复上传不产生重复记录。</td><td>一次运动可在儿童、家长和授权学校端看到一致结果。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="actions">
+  <h2><small>08</small>七种动作详细需求</h2>
+  <div class="call">以下每个动作都使用共享Camera、Pose、Ready、阶段判断、有效动作、暂停/恢复、离画和Session能力；本节只补充该动作的输入、阶段、计数/计时和特有异常。所有算法阈值统一为<span class="tag pending">待算法验证</span>，动作表达统一为<span class="tag review">待体育专业评审</span>。</div>
+
+  <h3>08.1 双脚跳绳｜SPORT-JUMP-001</h3>
+  <table class="req-table"><thead><tr><th>字段</th><th>需求定义</th></tr></thead><tbody>
+    <tr><td>使用者/目的</td><td>儿童完成双脚连续跳跃训练；家长和老师查看次数与用时。帮助孩子不用分心数数。</td></tr>
+    <tr><td>前置条件</td><td>设备在线或允许本地运动；Camera开启；全身和脚部可见；已选择双脚跳绳和次数目标。</td></tr>
+    <tr><td>起始与阶段</td><td>双脚站稳→双脚同时离地→落地→进入下一周期。是否需要真实绳具由动作规则评审确认。</td></tr>
+    <tr><td>计数/无效</td><td>以完整跳跃周期计1次；单脚、脚部被截断、未完成落地或重复触发不计数；计数规则<span class="tag pending">待算法验证</span>。</td></tr>
+    <tr><td>正常流程/交互</td><td>选择→入镜→3、2、1→屏幕显示“当前/目标”→每次有效跳跃更新次数→阶段鼓励→达到目标庆祝→结果页。</td></tr>
+    <tr><td>状态/异常</td><td>支持Idle、Entry、Ready、Countdown、Running、Pause、Resume、Complete、Result。脚部离画、绳具遮挡、Low Confidence时暂停或提示调整。</td></tr>
+    <tr><td>权限/数据</td><td>儿童可开始和暂停；家长可设置任务和查看结果；保存动作、目标、有效次数、用时、Session状态。</td></tr>
+    <tr><td>验收标准</td><td>在正式测试集和家庭场景中能完成识别、计数、暂停恢复、结果保存；指标由算法与测试评审冻结。</td></tr>
+  </tbody></table>
+
+  <h3>08.2 开合跳｜SPORT-JJ-002</h3>
+  <table class="req-table"><thead><tr><th>字段</th><th>需求定义</th></tr></thead><tbody>
+    <tr><td>使用者/目的</td><td>儿童完成开合跳次数目标；系统给出简单幅度提醒。</td></tr>
+    <tr><td>前置条件</td><td>全身入镜，手臂和双脚活动区域可见；已选择次数目标。</td></tr>
+    <tr><td>起始与阶段</td><td>双脚并拢、手臂下垂→双脚打开且手臂上举/打开→回到并拢起始。</td></tr>
+    <tr><td>计数/无效</td><td>完成“打开＋回收”一个周期计1次；手臂或双脚幅度明显不足、周期未闭合不计；阈值<span class="tag pending">待算法验证</span>。</td></tr>
+    <tr><td>正常流程/交互</td><td>倒计时后计数；屏幕突出“23/50”；连续达到阶段进度时宠物鼓励；明显连续问题时只提示“下一次手臂再打开一点”。</td></tr>
+    <tr><td>状态/异常</td><td>支持共享状态；手脚被遮挡、偏左/偏右、动作过快导致Low Confidence时引导重新站位或短暂停。</td></tr>
+    <tr><td>权限/数据</td><td>按共享权限；保存次数、目标、用时、提示次数、完成状态和Session同步状态。</td></tr>
+    <tr><td>验收标准</td><td>可完成从任务开始到结果的闭环；有效计数、无效动作和离画恢复符合算法评审标准。</td></tr>
+  </tbody></table>
+
+  <h3>08.3 高抬腿｜SPORT-KNEE-003</h3>
+  <table class="req-table"><thead><tr><th>字段</th><th>需求定义</th></tr></thead><tbody>
+    <tr><td>使用者/目的</td><td>儿童完成交替高抬腿；系统记录有效次数并保持正向反馈。</td></tr>
+    <tr><td>前置条件</td><td>全身入镜，左右腿可区分；站位满足Ready。</td></tr>
+    <tr><td>起始与阶段</td><td>站立→单侧膝盖抬起至规则范围→落下→另一侧完成；左右各一次或双侧一轮的口径<span class="tag review">待体育专业评审</span>。</td></tr>
+    <tr><td>计数/无效</td><td>按确认的左右腿完整周期计数；膝盖抬起不足、未落地、同侧重复或脚部离画不计。</td></tr>
+    <tr><td>正常流程/交互</td><td>倒计时→屏幕显示次数/目标→低频鼓励保持节奏→阶段反馈→完成庆祝与结果。</td></tr>
+    <tr><td>状态/异常</td><td>身体偏侧、腿部遮挡、节奏过快、Low Confidence时只提示一个最明显问题；离画进入Pause。</td></tr>
+    <tr><td>权限/数据</td><td>儿童操作运动流程；家长/老师按授权查看；保存动作、有效次数、用时、异常原因和Session。</td></tr>
+    <tr><td>验收标准</td><td>左右腿识别、有效周期计数和异常恢复达到算法评审冻结标准。</td></tr>
+  </tbody></table>
+
+  <h3>08.4 深蹲起｜SPORT-SQUAT-004</h3>
+  <table class="req-table"><thead><tr><th>字段</th><th>需求定义</th></tr></thead><tbody>
+    <tr><td>使用者/目的</td><td>儿童完成深蹲起次数；系统在幅度明显不足时给一次友好提醒。</td></tr>
+    <tr><td>前置条件</td><td>全身入镜，躯干、髋部、膝部可观察；已选择目标。</td></tr>
+    <tr><td>起始与阶段</td><td>站立→下蹲阶段→达到有效下蹲范围→起身回站立，完整回站立计1次。</td></tr>
+    <tr><td>计数/无效</td><td>下蹲未达到规则范围、未回到站立、连续抖动或视线不完整不计；具体范围<span class="tag pending">待算法/体育专业评审</span>。</td></tr>
+    <tr><td>正常流程/交互</td><td>屏幕显示次数/目标和动作状态；连续明显浅蹲后提示“下一次再蹲低一点就更棒啦”；不使用“错误/不合格”。</td></tr>
+    <tr><td>状态/异常</td><td>膝部/躯干遮挡、离画、姿态置信度低时暂停或重新入镜；儿童提前结束则保存已完成次数。</td></tr>
+    <tr><td>权限/数据</td><td>按共享能力；保存动作次数、目标、用时、基础提示事件和Session。</td></tr>
+    <tr><td>验收标准</td><td>孩子能理解开始、计数、提醒、暂停和结果；算法测试通过评审冻结标准。</td></tr>
+  </tbody></table>
+
+  <h3>08.5 俯卧撑｜SPORT-PUSH-005</h3>
+  <table class="req-table"><thead><tr><th>字段</th><th>需求定义</th></tr></thead><tbody>
+    <tr><td>使用者/目的</td><td>儿童完成俯卧撑次数；系统识别身体起始姿态和完整上下周期。</td></tr>
+    <tr><td>前置条件</td><td>Camera能看到身体侧面或经评审确认的可识别角度；身体和手臂未被遮挡；安全空间满足要求。</td></tr>
+    <tr><td>起始与阶段</td><td>支撑准备→身体下降→达到有效下探范围→推回起始支撑，完整周期计1次。</td></tr>
+    <tr><td>计数/无效</td><td>起始姿态不稳定、下降或推起未完成、身体关键部位遮挡不计；规则<span class="tag pending">待算法验证</span>。</td></tr>
+    <tr><td>正常流程/交互</td><td>入镜提示后倒计时；屏幕突出次数/目标；语音只在开始、阶段和完成播报；宠物保持鼓励状态。</td></tr>
+    <tr><td>状态/异常</td><td>身体不完整、动作过快或Camera角度不适配时提示调整；离画自动Pause，返回后保留已计数。</td></tr>
+    <tr><td>权限/数据</td><td>儿童开始/暂停/结束；家长和老师查看授权结果；保存次数、目标、用时、状态和Session。</td></tr>
+    <tr><td>验收标准</td><td>在已评审的家庭拍摄角度下可稳定完成流程；识别边界与安全提示通过评审。</td></tr>
+  </tbody></table>
+
+  <h3>08.6 仰卧起坐｜SPORT-SIT-006</h3>
+  <table class="req-table"><thead><tr><th>字段</th><th>需求定义</th></tr></thead><tbody>
+    <tr><td>使用者/目的</td><td>儿童完成仰卧起坐次数；系统识别躺下与起身的完整周期。</td></tr>
+    <tr><td>前置条件</td><td>地面空间安全；全身和躯干可见；起始姿态及是否需要固定脚部由体育专业评审确定。</td></tr>
+    <tr><td>起始与阶段</td><td>仰卧准备→起身阶段→达到有效起身范围→回到仰卧准备，完整周期计1次。</td></tr>
+    <tr><td>计数/无效</td><td>起身不足、未回到起始、身体被遮挡或连续抖动不计；有效范围<span class="tag pending">待算法/体育专业评审</span>。</td></tr>
+    <tr><td>正常流程/交互</td><td>准备提示→3、2、1→屏幕次数/目标→低频鼓励→完成庆祝→结果和Session。</td></tr>
+    <tr><td>状态/异常</td><td>身体不完整、离画、Camera关闭、识别置信度低时暂停；系统不能把未确认的动作计入结果。</td></tr>
+    <tr><td>权限/数据</td><td>按共享能力；保存动作、次数、用时、暂停原因、完成状态和同步状态。</td></tr>
+    <tr><td>验收标准</td><td>能在评审通过的姿态和家庭空间完成闭环；结果页能区分完成、未完成和待同步。</td></tr>
+  </tbody></table>
+
+  <h3>08.7 平板支撑｜SPORT-PLANK-007</h3>
+  <table class="req-table"><thead><tr><th>字段</th><th>需求定义</th></tr></thead><tbody>
+    <tr><td>使用者/目的</td><td>儿童保持平板支撑目标时长；系统记录有效保持时间，不按次数计。</td></tr>
+    <tr><td>前置条件</td><td>安全空间和身体完整入镜；已选择目标时长；Camera能观察支撑姿态。</td></tr>
+    <tr><td>起始与阶段</td><td>准备支撑→姿态满足规则后开始计时→保持中→姿态明显失效或达到目标结束。</td></tr>
+    <tr><td>计时/无效</td><td>只累计有效保持时长；未Ready、明显塌腰/抬臀或身体离画不累计；具体姿态边界<span class="tag pending">待算法/体育专业评审</span>。</td></tr>
+    <tr><td>正常流程/交互</td><td>屏幕显示“已保持/目标时长”；宠物低频鼓励；达到目标后庆祝并显示有效时长。</td></tr>
+    <tr><td>状态/异常</td><td>姿态短暂波动按规则进入提醒或冷却；离画自动Pause；暂停后可恢复累计，不归零。</td></tr>
+    <tr><td>权限/数据</td><td>儿童开始/暂停/结束；家长/老师查看目标时长、有效时长、完成状态和Session。</td></tr>
+    <tr><td>验收标准</td><td>结果明确区分目标时长与有效保持时长；算法阈值经评审冻结，未通过时不宣称准确率。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="task">
+  <h2><small>09</small>任务系统 Task</h2>
+  <div class="grid"><div class="card"><h3>任务来源</h3><p>家庭任务、学校任务、AI建议、自主运动。来源必须显示，孩子知道“为什么今天要做”。</p></div><div class="card"><h3>任务概念字段</h3><p>taskId、来源、发布者、child/class、动作（七种之一）、目标、目标类型（次数/时长）、提醒、开始/截止条件、状态、授权范围。</p></div></div>
+  <table><thead><tr><th>状态</th><th>进入条件</th><th>儿童端表现</th><th>家长/学校端表现</th><th>异常</th></tr></thead><tbody>
+    <tr><td>未开始</td><td>任务已创建、尚未到提醒或开始。</td><td>显示动作、目标和提醒时间。</td><td>可编辑或取消（权限内）。</td><td>任务重复需合并或明确区分。</td></tr>
+    <tr><td>已提醒</td><td>到达提醒条件。</td><td>宠物主动提醒，可开始或延后。</td><td>看到已提醒，不代表已完成。</td><td>夜间模式或家长关闭提醒时不主动播报。</td></tr>
+    <tr><td>延期</td><td>儿童选择稍后或家长调整时间。</td><td>显示新的提醒时间。</td><td>可查看延期原因/次数（不羞辱儿童）。</td><td>超过截止条件转未完成。</td></tr>
+    <tr><td>进行中</td><td>已进入Running并创建Session。</td><td>显示当前/目标和暂停入口。</td><td>可看到进行中，不显示未完成为完成。</td><td>离画、Camera失败、网络断开可暂存。</td></tr>
+    <tr><td>完成</td><td>达到目标并生成结果。</td><td>庆祝、运动星、PB和结果。</td><td>记录完成时间、次数/时长和用时。</td><td>Session上传失败显示待同步。</td></tr>
+    <tr><td>未完成</td><td>截止时未达目标或提前结束。</td><td>鼓励下次继续，不显示失败羞辱。</td><td>明确实际完成与目标差异。</td><td>不可把未完成标为完成。</td></tr>
+    <tr><td>取消</td><td>发布者撤销或权限操作。</td><td>说明任务已取消，不再提醒。</td><td>保留取消记录和操作者。</td><td>学校任务撤销需同步到家庭。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="parent">
+  <h2><small>10</small>家长App信息架构与需求</h2>
+  <div class="flow"><span class="node">今日</span><span class="arr">·</span><span class="node">任务</span><span class="arr">·</span><span class="node">成长</span><span class="arr">·</span><span class="node">我的</span></div>
+  <table><thead><tr><th>页面</th><th>目的</th><th>核心信息</th><th>核心动作</th><th>空状态</th><th>异常状态</th></tr></thead><tbody>
+    <tr><td>今日</td><td>让家长一眼知道今天完成了什么。</td><td>今日任务数、已完成/未完成、运动时间、最近结果、设备在线状态。</td><td>查看详情、创建任务、进入任务管理。</td><td>“今天还没有任务，可创建一个运动任务。”</td><td>设备离线显示离线及最后同步时间，不假装实时。</td></tr>
+    <tr><td>任务</td><td>创建和管理家庭/学校任务。</td><td>来源、动作、目标、提醒、状态、截止条件。</td><td>创建、编辑、取消、延期、查看历史。</td><td>“还没有任务，选择一个动作开始。”</td><td>学校任务撤销、重复任务、同步失败有原因和重试。</td></tr>
+    <tr><td>成长</td><td>看懂孩子的运动积累，不堆复杂图表。</td><td>七种动作记录、累计次数/时长、PB、运动星、坚持情况。</td><td>查看单次结果、按动作筛选、查看进步。</td><td>“完成第一次运动后，这里会出现记录。”</td><td>数据待同步时标注来源和时间，不合并重复记录。</td></tr>
+    <tr><td>我的</td><td>管理孩子、设备、权限和隐私。</td><td>儿童账号、设备绑定、Camera状态、家长授权、使用时段、数据删除。</td><td>绑定/解绑、权限开关、音量设置、删除数据、查看帮助。</td><td>未绑定时引导绑定设备。</td><td>解绑确认、权限拒绝、OTA/网络失败需可重试。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="school">
+  <h2><small>11</small>家校第一版完整定义</h2>
+  <div class="flow"><span class="node">老师/学校账号</span><span class="arr">→</span><span class="node">班级与学生</span><span class="arr">→</span><span class="node">发布七种动作任务</span><span class="arr">→</span><span class="node">家长授权与同步</span><span class="arr">→</span><span class="node">孩子在家执行</span><span class="arr">→</span><span class="node">Session生成</span><span class="arr">→</span><span class="node">结果回传</span><span class="arr">→</span><span class="node">老师查看</span></div>
+  <table><thead><tr><th>对象/环节</th><th>需求定义</th><th>权限与数据边界</th><th>异常处理</th><th>验收标准</th></tr></thead><tbody>
+    <tr><td>老师/学校账号</td><td>账号登录、学校归属、角色和状态。</td><td>只能管理授权学校和班级。</td><td>账号失效、转班、解绑后停止新任务发布。</td><td>账号权限可识别、可追溯。</td></tr>
+    <tr><td>班级/学生</td><td>班级包含学生关系；学生与家长授权设备关联。</td><td>老师看到班级基础数据，不默认看到家庭信息、原始视频或敏感体态。</td><td>学生重复加入、家长拒绝授权、转班需提示。</td><td>关系变更不影响历史Session归属。</td></tr>
+    <tr><td>任务发布</td><td>老师选择七种动作、目标次数/时长、开始/截止条件和提醒策略，确认后发布。</td><td>学校任务写明发布者和班级范围。</td><td>目标缺失、截止早于开始、动作不支持时阻止发布。</td><td>老师能完成发布并看到发布结果。</td></tr>
+    <tr><td>任务同步</td><td>学校任务进入家长/孩子任务列表，来源标识为学校。</td><td>家长在授权后允许孩子设备执行。</td><td>网络失败进入待同步；撤销任务回传取消状态。</td><td>不出现“已同步”假状态。</td></tr>
+    <tr><td>家庭执行</td><td>孩子按统一运动状态机完成任务，家长不需重新配置。</td><td>学校不能远程开启Camera或改变家庭设置。</td><td>Camera关闭、离画、提前结束均保留真实状态。</td><td>学校任务和家庭任务使用同一运动流程。</td></tr>
+    <tr><td>Session与回传</td><td>完成或提前结束生成一次Session，网络可用时回传结果。</td><td>回传字段为动作、目标、实际、用时、状态等必要信息。</td><td>重复上传幂等；上传失败显示待同步。</td><td>家庭与学校看到的授权结果一致。</td></tr>
+    <tr><td>基础班级数据</td><td>任务发布数、完成数、未完成数、完成率、按动作的基础统计。</td><td>只呈现必要的班级汇总或授权范围，不公开儿童敏感数据。</td><td>数据不足时显示样本范围和更新时间。</td><td>老师可理解、可导出与否<span class="tag review">待学校评审</span>。</td></tr>
+    <tr><td>排行榜/PK保护</td><td>如启用，只使用个人PB、进步、坚持或班级共同目标等友好维度。</td><td>默认不公开儿童真实身份和敏感数据；是否启用<span class="tag review">待隐私/合作评审</span>。</td><td>儿童退出、家长关闭或任务撤销后不再参与新挑战。</td><td>不以单一输赢制造挫败。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="posture">
+  <h2><small>12</small>体态陪伴｜重要但不压过运动主线</h2>
+  <div class="call amber"><b>边界：</b>体态能力是非医疗提醒，不输出诊断、治疗或专业结论；它不能打断正在进行的运动主线。</div>
+  <table><thead><tr><th>可观察问题</th><th>发现方式</th><th>体验流程</th><th>提醒表达</th><th>记录与验收</th></tr></thead><tbody>
+    <tr><td>低头、含胸、偏斜、趴桌、距离过近、久坐</td><td>Camera/姿态在获得家长授权且处于对应场景时观察。</td><td>发现→持续确认→温和提醒→冷却→结构化记录。</td><td>“抬头休息一下吧”“坐直一点会更舒服哦”，不说“异常/不合格”。</td><td>记录类型、时间、是否提醒、冷却状态；是否进入第一版深度<span class="tag review">待用户/体育专业评审</span>。</td></tr>
+    <tr><td>与运动的关系</td><td>运动中只保留安全相关的必要提醒。</td><td>一次只提示一个问题，提示后进入冷却。</td><td>不能频繁播报，不能遮挡次数和目标。</td><td>不影响运动启动率、完成率和退出率。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="companion">
+  <h2><small>13</small>陪伴与激励系统</h2>
+  <div class="grid grid3"><div class="card"><h3>AI眼睛</h3><p>通过屏幕角色关注、等待、鼓励和庆祝；状态由真实运动、任务和互动事件触发。</p></div><div class="card"><h3>语音</h3><p>固定/规则话术用于开始、进度、纠错、暂停和完成；不把语音包装成开放聊天。</p></div><div class="card"><h3>主动提醒</h3><p>到点提醒任务，支持延后；夜间和家长控制生效时不主动打扰。</p></div><div class="card"><h3>运动星</h3><p>完成真实运动后获得，用于基础激励和宠物装扮/成长展示；不通过无运动点击获得。</p></div><div class="card"><h3>PB/成就</h3><p>记录个人最好成绩、首次完成、坚持和累计运动等；不要求与他人比较。</p></div><div class="card"><h3>角色反馈</h3><p>开始、阶段、暂停、完成分别对应表情、动作和短语；同一时刻只输出一个主要提示。</p></div></div>
+  <table><thead><tr><th>事件</th><th>儿童看到/听到</th><th>宠物状态</th><th>数据联动</th><th>边界</th></tr></thead><tbody>
+    <tr><td>任务提醒</td><td>“今天还有一个运动任务哦。”</td><td>期待/Excited。</td><td>任务状态变为已提醒。</td><td>可延后，不连续催促。</td></tr>
+    <tr><td>开始</td><td>“看到你啦，3、2、1，开始！”</td><td>Happy/Encourage。</td><td>创建Session。</td><td>Ready前不倒计时。</td></tr>
+    <tr><td>阶段进度</td><td>“已经一半啦！”</td><td>鼓励。</td><td>记录阶段事件。</td><td>低频触发，避免打断。</td></tr>
+    <tr><td>完成</td><td>“完成啦！今天运动记录好了。”</td><td>Celebrate/Proud。</td><td>运动星、PB、Session完成。</td><td>先庆祝，再进入结果。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="plan">
+  <h2><small>14</small>AI个性化训练计划｜Target Product能力</h2>
+  <div class="flow"><span class="node">用户运动数据</span><span class="arr">→</span><span class="node">能力判断</span><span class="arr">→</span><span class="node">规则层</span><span class="arr">→</span><span class="node">七种运动原子</span><span class="arr">→</span><span class="node">训练组合</span><span class="arr">→</span><span class="node">安全检查</span><span class="arr">→</span><span class="node">执行</span><span class="arr">→</span><span class="node">Session回流</span></div>
+  <table><thead><tr><th>环节</th><th>产品要求</th><th>输入/输出</th><th>限制</th><th>状态</th></tr></thead><tbody>
+    <tr><td>数据</td><td>使用已授权的历史Session、动作完成情况和个人PB。</td><td>输入：次数、时长、完成状态、动作事件。</td><td>数据不足时给出“继续积累记录”，不强行生成计划。</td><td><span class="tag pending">待数据验证</span></td></tr>
+    <tr><td>能力判断</td><td>形成可理解的能力标签或趋势，不做医疗诊断。</td><td>输出：适合的动作组合范围和难度建议。</td><td>不能把模型结果说成专业测评结论。</td><td><span class="tag review">待体育专业评审</span></td></tr>
+    <tr><td>规则与选择</td><td>只能从七种动作原子中选择，生成次数或时长目标。</td><td>规则输入→训练组合输出。</td><td>未经体育专业规则约束，大模型不得自由生成儿童运动处方。</td><td><span class="tag review">待规则评审</span></td></tr>
+    <tr><td>安全检查</td><td>检查动作数量、连续强度、年龄和历史异常提示。</td><td>输出：通过、需要调整或不生成。</td><td>不替代专业人员；安全规则优先于个性化。</td><td><span class="tag pending">待体育专业评审</span></td></tr>
+    <tr><td>执行与回流</td><td>计划进入任务系统，使用统一状态机执行并回写Session。</td><td>计划→任务→Session。</td><td>第一版是否完整开放给用户<span class="tag review">待产品评审</span>。</td><td><span class="tag pending">后续能力</span></td></tr>
+  </tbody></table>
+</section>
+
+<section id="data">
+  <h2><small>15</small>数据对象与关系</h2>
+  <p class="muted">本节定义产品对象和关系，不设计数据库表，不规定接口字段全集。</p>
+  <table><thead><tr><th>对象</th><th>含义</th><th>关键关系</th><th>最小记录内容</th></tr></thead><tbody>
+    <tr><td>Child</td><td>儿童使用者。</td><td>属于Parent授权，可关联Device、Class。</td><td>账号标识、年龄段、授权状态、个人设置。</td></tr>
+    <tr><td>Parent</td><td>家长/购买决策者。</td><td>管理Child、Device、Task和权限。</td><td>账号、授权关系、设置。</td></tr>
+    <tr><td>Teacher</td><td>老师/学校任务使用者。</td><td>属于School，可管理Class和School Task。</td><td>角色、学校、班级权限。</td></tr>
+    <tr><td>School</td><td>学校组织。</td><td>包含Teacher、Class、Student关系。</td><td>组织标识、合作状态。</td></tr>
+    <tr><td>Class</td><td>班级。</td><td>包含Student，承载学校任务与基础统计。</td><td>班级标识、年级、成员关系。</td></tr>
+    <tr><td>Device</td><td>机器人设备。</td><td>绑定Parent/Child，承载运动Session。</td><td>设备标识、在线状态、权限状态。</td></tr>
+    <tr><td>Training Atom</td><td>七种动作中的一个可执行运动原子。</td><td>被Task、Workout Plan引用。</td><td>动作名称、目标类型、动作规则版本。</td></tr>
+    <tr><td>Task</td><td>家庭、学校、AI建议或自主运动目标。</td><td>关联发布者、Child、Training Atom、Session。</td><td>来源、动作、目标、提醒、状态、授权。</td></tr>
+    <tr><td>Session</td><td>一次运动记录。</td><td>由Task或自主运动产生，回传家长/学校。</td><td>动作、目标、实际、用时、完成状态、同步状态。</td></tr>
+    <tr><td>Workout Plan</td><td>由规则约束的训练组合。</td><td>由历史Session和七种Training Atom生成。</td><td>目标组合、适用条件、规则版本、审核状态。</td></tr>
+    <tr><td>Posture Event</td><td>非医疗体态提醒事件。</td><td>关联Child、Device和时间，不与运动结果混为一谈。</td><td>类型、开始/结束、提醒、冷却、授权范围。</td></tr>
+    <tr><td>Ability Profile</td><td>基于历史运动数据形成的能力趋势摘要。</td><td>关联Child、Session和Workout Plan。</td><td>趋势标签、数据来源、评审状态。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="offline">
+  <h2><small>16</small>离线与同步</h2>
+  <table><thead><tr><th>场景</th><th>离线时仍可做</th><th>暂时不能做</th><th>保存与恢复</th><th>验收标准</th></tr></thead><tbody>
+    <tr><td>家庭任务已同步、网络断开</td><td>打开已同步任务；Camera识别、计数、暂停、完成；播放本地固定反馈。</td><td>不能保证实时上传、学校即时查看和跨设备同步。</td><td>本地保存Session草稿/结果和同步状态；联网后自动补传。</td><td>离线运动不归零、不伪造上传成功。</td></tr>
+    <tr><td>新任务尚未同步</td><td>查看已缓存任务或自主运动。</td><td>不能确认新任务已下发。</td><td>显示待同步，不重复创建。</td><td>用户能区分本地和服务端状态。</td></tr>
+    <tr><td>Session上传失败</td><td>继续查看本地结果。</td><td>家长/老师暂时看不到最新回传。</td><td>队列重试、幂等上传、显示最后同步时间。</td><td>不产生重复记录，失败原因可理解。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="privacy">
+  <h2><small>17</small>儿童隐私与家长控制</h2>
+  <table><thead><tr><th>主题</th><th>产品要求</th><th>儿童端可见</th><th>家长端控制/查看</th><th>学校边界</th></tr></thead><tbody>
+    <tr><td>Camera开启</td><td>仅在入镜、运动识别及经授权的体态场景开启；离开场景关闭。</td><td>屏幕明确显示Camera工作状态和关闭状态。</td><td>可查看状态、授权和使用记录，可关闭权限。</td><td>学校不能远程开启家庭Camera。</td></tr>
+    <tr><td>原始视频</td><td>默认不长期保存；优先在设备/受控流程中完成识别。</td><td>不要求儿童处理复杂数据说明。</td><td>可查看数据说明、删除可删除记录。</td><td>不向学校提供原始视频。</td></tr>
+    <tr><td>运动结果</td><td>保存动作、目标、实际、用时、状态和必要事件。</td><td>看自己的结果。</td><td>查看已授权儿童的结果。</td><td>看任务完成和基础班级数据，不看家庭无关信息。</td></tr>
+    <tr><td>权限与授权</td><td>家长授权后才能绑定儿童、学校任务和相关数据回传。</td><td>拒绝或关闭时，儿童仍可使用允许的本地自主运动。</td><td>授权、撤回、解绑和删除入口清楚。</td><td>权限最小化、可追溯。</td></tr>
+    <tr><td>排行榜/PK</td><td>若启用，默认使用昵称或匿名、PB、进步和坚持维度。</td><td>可退出、不以输赢羞辱。</td><td>可关闭儿童参与。</td><td>班级数据最小化、公开范围<span class="tag review">待隐私评审</span>。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="hardware">
+  <h2><small>18</small>硬件能力需求｜规格待评审</h2>
+  <div class="call amber">硬件方案尚未冻结。以下只定义产品必须具备的能力，固定/自动转动Camera、屏幕尺寸、Mic、电池、充电形式、Camera FOV、主控规格和外壳方案统一标记为<span class="tag review">待硬件评审</span>。</div>
+  <table><thead><tr><th>硬件能力</th><th>产品用途</th><th>最低体验要求</th><th>依赖与风险</th><th>状态</th></tr></thead><tbody>
+    <tr><td>Camera</td><td>人体检测、全身入镜、七种动作识别、必要体态观察。</td><td>能覆盖家庭运动区域，状态可见，遮挡/关闭可识别。</td><td>FOV、安装高度、光线和姿态角度影响算法。</td><td><span class="tag review">待硬件评审</span></td></tr>
+    <tr><td>显示</td><td>宠物、任务、次数/目标、入镜提示、结果和隐私状态。</td><td>儿童能看清核心信息，运动中次数优先。</td><td>尺寸、亮度、触控与角色素材适配。</td><td><span class="tag review">待硬件评审</span></td></tr>
+    <tr><td>Speaker</td><td>开始、进度、提醒、纠错、暂停和完成语音。</td><td>短语音清楚，支持低频播放和音量控制。</td><td>家庭环境噪声、音量和儿童听感。</td><td><span class="tag review">待硬件评审</span></td></tr>
+    <tr><td>Mic</td><td>语音暂停、继续、延后和必要的简单问答（如配置）。</td><td>若未配置Mic，触摸仍可完成主流程。</td><td>是否有Mic及能力范围未定。</td><td><span class="tag review">待硬件评审</span></td></tr>
+    <tr><td>联网</td><td>任务同步、Session回传、账号和学校结果。</td><td>断网可完成已同步的本地运动并标记待同步。</td><td>网络稳定性、账号和数据策略。</td><td><span class="tag pending">待技术/硬件评审</span></td></tr>
+    <tr><td>本地算力/存储</td><td>支持必要的识别、UI、固定语音和离线Session缓存。</td><td>能力以可完成体验为准，不在PRD写死规格。</td><td>算法端侧方案、功耗和成本。</td><td><span class="tag review">待算法/硬件评审</span></td></tr>
+    <tr><td>供电/触控</td><td>保证家庭常驻和儿童可操作。</td><td>供电和触控状态安全、可理解。</td><td>是否有电池、充电形式和触控方案未定。</td><td><span class="tag review">待硬件评审</span></td></tr>
+  </tbody></table>
+</section>
+
+<section id="exception">
+  <h2><small>19</small>核心异常状态清单</h2>
+  <table><thead><tr><th>异常</th><th>触发</th><th>用户可见反馈</th><th>系统处理</th><th>记录</th></tr></thead><tbody>
+    <tr><td>No Person</td><td>未检测到人体。</td><td>“我还没看到你呢～请站到我前面。”</td><td>停留Entry，允许重试/返回。</td><td>异常次数、时间。</td></tr>
+    <tr><td>Too Close/Too Far</td><td>距离不满足识别条件。</td><td>“再往后一点，我想看到你的脚。”或“靠近一点点。”</td><td>不进入倒计时。</td><td>原因类型、恢复结果。</td></tr>
+    <tr><td>Body Incomplete</td><td>身体或脚部被截断/遮挡。</td><td>提示具体缺失部位。</td><td>回到Entry，不计无效动作。</td><td>原因类型。</td></tr>
+    <tr><td>Low Confidence</td><td>动作无法可靠判断。</td><td>“我没看清，再做一次就好啦。”</td><td>冷却后重试，不增加次数。</td><td>置信度状态、是否重试。</td></tr>
+    <tr><td>Leave Frame</td><td>运动中人体离开画面。</td><td>“我先帮你记住已经完成的，回来再继续。”</td><td>自动Pause，保留已计数/时长。</td><td>暂停原因、恢复时间。</td></tr>
+    <tr><td>Camera Off/失败</td><td>权限关闭、设备故障或被遮挡。</td><td>显示Camera状态和解决建议。</td><td>停止识别；允许返回或联系家长。</td><td>设备诊断状态。</td></tr>
+    <tr><td>Network Offline</td><td>网络不可用。</td><td>“先把这次运动完成，联网后会同步。”</td><td>本地保存，联网补传。</td><td>同步状态、最后同步时间。</td></tr>
+    <tr><td>任务重复/撤销</td><td>相同任务重复或学校任务已撤销。</td><td>合并/区分说明；已撤销任务不再提醒。</td><td>保留历史，不重复计任务。</td><td>任务版本和操作者。</td></tr>
+    <tr><td>账号解绑/授权撤回</td><td>家长解绑、学校关系解除或关闭权限。</td><td>说明哪些功能停止、哪些本地功能仍可用。</td><td>停止新数据回传，按策略处理历史数据。</td><td>授权变更记录。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="accept">
+  <h2><small>20</small>验收标准与产品指标</h2>
+  <h3>20.1 功能验收</h3>
+  <table><thead><tr><th>验收域</th><th>通过条件</th><th>证据</th><th>状态</th></tr></thead><tbody>
+    <tr><td>七种动作</td><td>七种动作都能进入统一流程；次数/时长、暂停、离画、完成和Session逻辑可验证。</td><td>算法测试集、端到端测试记录。</td><td><span class="tag pending">指标待算法评审冻结</span></td></tr>
+    <tr><td>机器人交互</td><td>能显示宠物、任务、入镜、倒计时、次数/目标、反馈、结果和Camera状态。</td><td>交互走查、家庭场景录屏/记录。</td><td><span class="tag pending">待测试</span></td></tr>
+    <tr><td>任务系统</td><td>家庭任务和学校任务均能创建/发布、同步、执行、生成Session和查看状态。</td><td>任务链路测试、权限测试。</td><td><span class="tag review">待产品/学校评审</span></td></tr>
+    <tr><td>家长App</td><td>今日、任务、成长、我的四个入口可完成核心操作，空状态和异常可理解。</td><td>可用性测试、端到端测试。</td><td><span class="tag pending">待用户验证</span></td></tr>
+    <tr><td>隐私与权限</td><td>Camera状态可见；原始视频默认不长期保存；家长授权、撤回和删除可操作；学校数据最小化。</td><td>权限测试、隐私评审记录。</td><td><span class="tag review">待隐私评审</span></td></tr>
+    <tr><td>离线</td><td>已同步任务在断网时可完成；Session本地保存并在联网后补传；不产生重复记录。</td><td>断网/恢复网络测试。</td><td><span class="tag pending">待技术验证</span></td></tr>
+  </tbody></table>
+  <h3>20.2 只定义、不虚构目标的产品指标</h3>
+  <table><thead><tr><th>指标</th><th>定义</th><th>观察节点</th><th>目标状态</th></tr></thead><tbody>
+    <tr><td>首次运动启动率</td><td>首次看到任务后进入Running的比例。</td><td>提醒/任务→开始。</td><td><span class="tag pending">待用户测试后冻结</span></td></tr>
+    <tr><td>入镜成功率</td><td>进入Entry后在规定流程内Ready的比例。</td><td>Entry→Ready。</td><td><span class="tag pending">待算法/用户测试</span></td></tr>
+    <tr><td>任务完成率</td><td>进入任务的Session中达到目标的比例。</td><td>Task→Complete。</td><td><span class="tag pending">待用户测试</span></td></tr>
+    <tr><td>计数差异</td><td>AI有效计数与人工真值的差异。</td><td>算法测试集和家庭试用。</td><td><span class="tag pending">待算法评审</span></td></tr>
+    <tr><td>中途退出率</td><td>Running未达到目标且提前结束的比例。</td><td>Running→Result。</td><td><span class="tag pending">待用户测试</span></td></tr>
+    <tr><td>家长查看率</td><td>有完成/未完成记录后家长查看详情的比例。</td><td>Session→App详情。</td><td><span class="tag pending">待用户测试</span></td></tr>
+    <tr><td>学校任务完成率</td><td>已授权学校任务中达到目标的比例。</td><td>学校Task→回传。</td><td><span class="tag review">待合作试点</span></td></tr>
+    <tr><td>重复使用率</td><td>完成一次运动后再次打开并开始运动的比例。</td><td>一次Session→下一次运动。</td><td><span class="tag pending">待用户测试</span></td></tr>
+  </tbody></table>
+</section>
+
+<section id="pending">
+  <h2><small>21</small>待确认项</h2>
+  <table><thead><tr><th>类别</th><th>待确认问题</th><th>影响模块</th><th>状态</th></tr></thead><tbody>
+    <tr><td>硬件</td><td>Camera固定还是自动转动；屏幕尺寸；是否有Mic；是否有电池；充电形式；Camera FOV；主控规格；外壳方案。</td><td>Camera、显示、语音、离线和成本。</td><td><span class="tag review">待硬件评审</span></td></tr>
+    <tr><td>算法</td><td>七种动作的识别边界、计数口径、置信度处理、真值集和评审指标。</td><td>七种动作、结果、反馈。</td><td><span class="tag pending">待算法评审冻结</span></td></tr>
+    <tr><td>体育专业</td><td>动作阶段、有效范围、提醒表达、平板支撑时长规则和安全规则。</td><td>动作库、体态、AI训练计划。</td><td><span class="tag review">待体育专业评审</span></td></tr>
+    <tr><td>家校</td><td>学校账号、班级/学生关系、家长授权、基础统计、排行榜/PK是否启用。</td><td>学校端、权限、数据回传。</td><td><span class="tag review">待合作/隐私评审</span></td></tr>
+    <tr><td>商业</td><td>售价、订阅、内容收费、学校服务和渠道均未冻结。</td><td>商业模式，不改变本PRD运动主线。</td><td><span class="tag pending">待商业验证</span></td></tr>
+    <tr><td>AI计划</td><td>能力评分口径、规则层、审核责任和开放范围。</td><td>Workout Plan、Ability Profile。</td><td><span class="tag review">待产品/体育专业评审</span></td></tr>
+    <tr><td>时间</td><td>阶段顺序、人员配置、并行关系和交付周期。</td><td>全部研发计划。</td><td><span class="tag review">待项目排期评审</span></td></tr>
+  </tbody></table>
+</section>
+
+<section id="map">
+  <h2><small>22</small>功能大纲 → PRD映射表</h2>
+  <p class="muted">功能大纲 V1.1 是功能范围基线。本表确保每个一级功能都有对应PRD章节；本PRD未新增一级产品功能。</p>
+  <table class="matrix"><thead><tr><th>功能大纲一级功能</th><th>PRD对应章节</th><th>第一版覆盖内容</th><th>明确边界/状态</th><th>主要验收证据</th></tr></thead><tbody>
+    <tr><td>A 智能运动训练</td><td>05核心闭环、06状态机、07共享能力、08七种动作、20验收</td><td>入镜、Ready、倒计时、七种动作识别、计数/计时、反馈、暂停、结果。</td><td>动作阈值与硬件规格待评审；不增加其他动作。</td><td>算法测试集、端到端Session。</td></tr>
+    <tr><td>B 任务与训练计划</td><td>09任务系统、14 AI个性化训练计划、15数据对象</td><td>家庭任务、学校任务、AI建议、自主运动、任务状态和规则约束计划。</td><td>AI计划是Target Product；不自由生成儿童运动处方。</td><td>任务状态测试、规则评审。</td></tr>
+    <tr><td>C 陪伴与激励</td><td>13陪伴与激励、05核心闭环</td><td>AI眼睛、语音、主动提醒、运动星、PB、成就、角色反馈。</td><td>响应真实运动事件；不做开放聊天。</td><td>事件触发走查、用户测试。</td></tr>
+    <tr><td>D 体态陪伴</td><td>12体态陪伴</td><td>低头、含胸、偏斜、趴桌、距离过近、久坐的非医疗提醒。</td><td>发现→确认→提醒→冷却→记录；不做医疗诊断。</td><td>隐私与体育专业评审。</td></tr>
+    <tr><td>E 家长端</td><td>10家长App、17隐私</td><td>今日、任务、成长、我的；设备、权限、记录和数据删除。</td><td>结果先看，复杂分析后续。</td><td>可用性与权限测试。</td></tr>
+    <tr><td>F 家校协同</td><td>11家校第一版完整定义</td><td>账号、班级、学生、发布、同步、执行、Session、回传、基础统计和儿童保护。</td><td>学校合作、授权和公开范围待评审。</td><td>角色权限、任务回传测试。</td></tr>
+    <tr><td>G 设备与硬件</td><td>04产品架构、18硬件能力、16离线</td><td>Camera、显示、Speaker、Mic（如有）、联网、本地能力、供电、触控。</td><td>所有规格待硬件评审。</td><td>样机能力与整机联调。</td></tr>
+    <tr><td>H 数据同步</td><td>05核心闭环、15数据对象、16离线、20验收</td><td>Task、Session、同步状态、补传和幂等。</td><td>不设计数据库表；数据保留待隐私评审。</td><td>断网/恢复网络测试。</td></tr>
+    <tr><td>I 隐私与儿童安全</td><td>03用户权限、11家校、17隐私、19异常</td><td>Camera状态、原始视频原则、家长授权、学校边界、排行榜保护、删除。</td><td>具体合规清单待隐私/法务评审。</td><td>权限、审计和删除测试。</td></tr>
+  </tbody></table>
+  <div class="call green"><b>映射结论：</b>功能大纲的九个一级功能均已在本PRD中找到对应章节；七种动作全部覆盖；未引入其他运动或新的一级产品模块。未冻结的技术、体育、隐私、家校、商业和时间事项均已明确标注状态。</div>
+</section>
+
+</main>
+<footer class="footer"><b>儿童AI运动陪伴机器人｜产品需求文档 PRD V3.0｜状态：REVIEW</b><br><small>本文供产品、UI/UE、算法、软件、硬件、App、后台和测试团队评审。所有未确认事项以【待评审】或【待验证】为准，具体研发周期统一为【待项目排期评审】。</small></footer>
+</div>
+</body>
+</html>

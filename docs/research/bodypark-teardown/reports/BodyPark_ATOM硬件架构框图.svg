@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1700" viewBox="0 0 2400 1700" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <style>
+      text{font-family:"Microsoft YaHei","微软雅黑",sans-serif;fill:#000}
+      .title{font-size:42px;font-weight:700}.sub{font-size:21px}.h1{font-size:27px;font-weight:700}
+      .h2{font-size:22px;font-weight:700}.body{font-size:18px}.small{font-size:16px}.tiny{font-size:14px}
+      .box{fill:#fff;stroke:#000;stroke-width:2}.strong{fill:#fff;stroke:#000;stroke-width:4}
+      .dash{fill:#fff;stroke:#000;stroke-width:2;stroke-dasharray:12 8}.line{fill:none;stroke:#000;stroke-width:3}
+      .thin{fill:none;stroke:#000;stroke-width:2}.dline{fill:none;stroke:#000;stroke-width:2;stroke-dasharray:10 7}
+    </style>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#000"/>
+    </marker>
+  </defs>
+
+  <rect width="2400" height="1700" fill="#fff"/>
+  <text x="70" y="72" class="title">BodyPark ATOM（BPK A1）详细硬件与数据链路框图</text>
+  <text x="70" y="112" class="sub">FCC ID：2BQWZ-BPKA1　｜　主板板号：5800-2AHX00E　｜　输入：5V / 2A　｜　电池：3.7V / 2000mAh / 7.4Wh</text>
+  <line x1="70" y1="140" x2="2330" y2="140" class="thin"/>
+
+  <!-- CAMERA AND AI -->
+  <rect x="70" y="190" width="500" height="535" rx="18" class="box"/>
+  <text x="95" y="232" class="h1">视觉采集链路</text>
+  <rect x="105" y="270" width="430" height="105" rx="12" class="box"/>
+  <text x="320" y="305" text-anchor="middle" class="h2">人体动作与训练场景</text>
+  <text x="320" y="340" text-anchor="middle" class="body">姿态、距离、光照与运动范围</text>
+  <path d="M320 375V420" class="line" marker-end="url(#arr)"/>
+  <rect x="105" y="420" width="430" height="135" rx="12" class="box"/>
+  <text x="320" y="455" text-anchor="middle" class="h2">5MP 超广角摄像头模组</text>
+  <text x="320" y="487" text-anchor="middle" class="body">1/2.8 英寸 CMOS · 160°【官方声明】</text>
+  <text x="320" y="520" text-anchor="middle" class="body">模组 PCB：H9M6167B00300Q01</text>
+  <text x="320" y="545" text-anchor="middle" class="small">Sensor 具体型号未知【待确认】</text>
+  <path d="M320 555V600" class="line" marker-end="url(#arr)"/>
+  <rect x="105" y="600" width="430" height="85" rx="12" class="dash"/>
+  <text x="320" y="632" text-anchor="middle" class="h2">FPC → UP2 摄像头接口</text>
+  <text x="320" y="663" text-anchor="middle" class="body">MIPI CSI-2【高概率推定】</text>
+
+  <!-- SOC -->
+  <rect x="650" y="190" width="760" height="850" rx="24" class="strong"/>
+  <text x="1030" y="242" text-anchor="middle" class="h1">U1000　Rockchip RV1106B【实物确认】</text>
+  <text x="1030" y="280" text-anchor="middle" class="body">AI Vision SoC｜系统控制、图像处理、视频处理与边缘 AI 推理</text>
+
+  <rect x="690" y="320" width="310" height="120" rx="12" class="box"/>
+  <text x="845" y="357" text-anchor="middle" class="h2">计算与控制</text>
+  <text x="845" y="390" text-anchor="middle" class="body">单核 Cortex-A7 + MCU</text>
+  <text x="845" y="418" text-anchor="middle" class="small">CPU 架构【厂商资料确认】</text>
+
+  <rect x="1060" y="320" width="310" height="120" rx="12" class="box"/>
+  <text x="1215" y="357" text-anchor="middle" class="h2">内置运行内存</text>
+  <text x="1215" y="390" text-anchor="middle" class="body">512Mbit～2Gbit DDR</text>
+  <text x="1215" y="418" text-anchor="middle" class="small">本机容量档位【待确认】</text>
+
+  <rect x="690" y="480" width="310" height="145" rx="12" class="box"/>
+  <text x="845" y="518" text-anchor="middle" class="h2">ISP 图像处理</text>
+  <text x="845" y="551" text-anchor="middle" class="body">RAW / Camera Image</text>
+  <text x="845" y="580" text-anchor="middle" class="body">3A、降噪、校正、缩放等能力</text>
+  <text x="845" y="607" text-anchor="middle" class="small">具体启用功能由驱动/固件决定</text>
+
+  <rect x="1060" y="480" width="310" height="145" rx="12" class="box"/>
+  <text x="1215" y="518" text-anchor="middle" class="h2">NPU 推理单元</text>
+  <text x="1215" y="551" text-anchor="middle" class="body">最高 0.5 TOPS【厂商资料】</text>
+  <text x="1215" y="580" text-anchor="middle" class="body">检测 / Pose / 动作分析条件</text>
+  <text x="1215" y="607" text-anchor="middle" class="small">实际模型与端云边界【待确认】</text>
+
+  <rect x="690" y="665" width="310" height="135" rx="12" class="box"/>
+  <text x="845" y="702" text-anchor="middle" class="h2">视频与显示</text>
+  <text x="845" y="735" text-anchor="middle" class="body">H.264 / H.265 视频处理能力</text>
+  <text x="845" y="765" text-anchor="middle" class="body">SPI Display 等接口能力</text>
+
+  <rect x="1060" y="665" width="310" height="135" rx="12" class="box"/>
+  <text x="1215" y="702" text-anchor="middle" class="h2">音频与常用外设</text>
+  <text x="1215" y="735" text-anchor="middle" class="body">Audio Codec · USB 2.0</text>
+  <text x="1215" y="765" text-anchor="middle" class="body">SDIO / SDMMC / SPI / UART / GPIO</text>
+
+  <rect x="690" y="840" width="680" height="155" rx="12" class="box"/>
+  <text x="1030" y="878" text-anchor="middle" class="h2">端侧业务处理条件</text>
+  <text x="1030" y="912" text-anchor="middle" class="body">人体检测 → 姿态估计 → 动作识别 → 计数 / ROM / 动作质量等业务逻辑</text>
+  <text x="1030" y="945" text-anchor="middle" class="body">输出：显示提示、语音反馈、本地存储、无线同步</text>
+  <text x="1030" y="975" text-anchor="middle" class="small">不能仅依据硬件宣称“所有 AI 均在本地运行”【待断网与日志验证】</text>
+
+  <path d="M535 642H620V545H690" class="line" marker-end="url(#arr)"/>
+  <text x="590" y="620" text-anchor="middle" class="small">Camera Data</text>
+  <path d="M1000 552H1060" class="line" marker-end="url(#arr)"/>
+  <text x="1030" y="535" text-anchor="middle" class="small">图像前处理</text>
+
+  <!-- OUTPUT / IO -->
+  <rect x="1490" y="190" width="840" height="850" rx="18" class="box"/>
+  <text x="1518" y="232" class="h1">存储、连接与人机交互</text>
+
+  <rect x="1530" y="270" width="350" height="125" rx="12" class="box"/>
+  <text x="1705" y="307" text-anchor="middle" class="h2">U1201　F35SQB004G</text>
+  <text x="1705" y="339" text-anchor="middle" class="body">FORESEE · 4Gbit SPI NAND</text>
+  <text x="1705" y="368" text-anchor="middle" class="small">约 512MB 原始容量【确认】</text>
+
+  <rect x="1940" y="270" width="350" height="125" rx="12" class="box"/>
+  <text x="2115" y="307" text-anchor="middle" class="h2">CN04　microSD / TF</text>
+  <text x="2115" y="339" text-anchor="middle" class="body">可扩展本地存储【PCB 确认】</text>
+  <text x="2115" y="368" text-anchor="middle" class="small">媒体 / 缓存 / 日志用途待验证</text>
+
+  <rect x="1530" y="435" width="350" height="145" rx="12" class="box"/>
+  <text x="1705" y="470" text-anchor="middle" class="h2">UW01　NL-H853-SSA1</text>
+  <text x="1705" y="502" text-anchor="middle" class="body">AI-Link · 2.4GHz 无线模组</text>
+  <text x="1705" y="532" text-anchor="middle" class="body">产品声明：Wi-Fi + Bluetooth 5.0</text>
+  <text x="1705" y="560" text-anchor="middle" class="small">BT 实现及 SDIO/UART 关系待确认</text>
+
+  <rect x="1940" y="435" width="350" height="145" rx="12" class="dash"/>
+  <text x="2115" y="470" text-anchor="middle" class="h2">移动端 / 云端服务</text>
+  <text x="2115" y="502" text-anchor="middle" class="body">账号、训练记录、内容与更新</text>
+  <text x="2115" y="532" text-anchor="middle" class="body">Cloud-based LLM 等联网能力</text>
+  <text x="2115" y="560" text-anchor="middle" class="small">实际数据对象与任务边界待验证</text>
+
+  <rect x="1530" y="620" width="350" height="135" rx="12" class="box"/>
+  <text x="1705" y="657" text-anchor="middle" class="h2">CN06　圆形显示屏</text>
+  <text x="1705" y="689" text-anchor="middle" class="body">1.43 英寸 · 466×466【官方】</text>
+  <text x="1705" y="723" text-anchor="middle" class="small">OLED / AMOLED、驱动 IC 与总线待确认</text>
+
+  <rect x="1940" y="620" width="350" height="135" rx="12" class="box"/>
+  <text x="2115" y="657" text-anchor="middle" class="h2">音频输入 / 输出</text>
+  <text x="2115" y="689" text-anchor="middle" class="body">UM01 MEMS Mic → RV1106B</text>
+  <text x="2115" y="723" text-anchor="middle" class="small">RV1106B → AMP（未知）→ JA1 Speaker</text>
+
+  <rect x="1530" y="795" width="350" height="150" rx="12" class="box"/>
+  <text x="1705" y="832" text-anchor="middle" class="h2">CN01　USB 2.0</text>
+  <text x="1705" y="864" text-anchor="middle" class="body">GND / DP / DM / 5V → USB-C 子板</text>
+  <text x="1705" y="896" text-anchor="middle" class="body">物理数据链路【PCB 确认】</text>
+  <text x="1705" y="925" text-anchor="middle" class="small">ADB / 文件 / 刷机 / Gadget 均待枚举</text>
+
+  <rect x="1940" y="795" width="350" height="150" rx="12" class="box"/>
+  <text x="2115" y="832" text-anchor="middle" class="h2">按键与调试</text>
+  <text x="2115" y="864" text-anchor="middle" class="body">Power / Action / SW0 → GPIO/PMIC</text>
+  <text x="2115" y="896" text-anchor="middle" class="body">UART：GND / RX / TX 测试焊盘</text>
+  <text x="2115" y="925" text-anchor="middle" class="small">另组“主板串口”是否同路待导通确认</text>
+
+  <path d="M1410 355H1530" class="line" marker-end="url(#arr)"/><text x="1470" y="338" text-anchor="middle" class="small">SPI</text>
+  <path d="M1410 390H1460V250H2115V270" class="line" marker-end="url(#arr)"/><text x="1830" y="242" class="small">SD/SDIO/SDMMC【待验证】</text>
+  <path d="M1410 510H1530" class="line" marker-end="url(#arr)"/><text x="1470" y="492" text-anchor="middle" class="small">SDIO/控制【待验证】</text>
+  <path d="M1880 508H1940" class="dline" marker-end="url(#arr)"/>
+  <path d="M1410 690H1530" class="line" marker-end="url(#arr)"/><text x="1470" y="672" text-anchor="middle" class="small">Display</text>
+  <path d="M1410 735H1470V775H1900V688H1940" class="line" marker-end="url(#arr)"/><text x="1870" y="768" class="small">Audio</text>
+  <path d="M1410 865H1530" class="line" marker-end="url(#arr)"/><text x="1470" y="847" text-anchor="middle" class="small">USB 2.0</text>
+  <path d="M1410 920H1470V970H1900V870H1940" class="line" marker-end="url(#arr)"/><text x="1685" y="963" text-anchor="middle" class="small">GPIO / UART</text>
+
+  <!-- POWER TREE -->
+  <rect x="70" y="1090" width="2260" height="430" rx="18" class="box"/>
+  <text x="95" y="1132" class="h1">供电、充电与启动链路</text>
+  <rect x="105" y="1175" width="260" height="100" rx="12" class="box"/>
+  <text x="235" y="1212" text-anchor="middle" class="h2">USB-C 输入</text><text x="235" y="1248" text-anchor="middle" class="body">5V / 2A</text>
+  <rect x="450" y="1175" width="340" height="100" rx="12" class="dash"/>
+  <text x="620" y="1207" text-anchor="middle" class="h2">充电 / Power Path</text><text x="620" y="1238" text-anchor="middle" class="body">UP1 · Top Marking E1831</text><text x="620" y="1263" text-anchor="middle" class="small">完整型号与功能待确认</text>
+  <rect x="875" y="1175" width="300" height="100" rx="12" class="box"/>
+  <text x="1025" y="1210" text-anchor="middle" class="h2">1S Li-ion 电池</text><text x="1025" y="1247" text-anchor="middle" class="body">3.7V · 2000mAh · 7.4Wh</text>
+  <rect x="1260" y="1175" width="350" height="100" rx="12" class="box"/>
+  <text x="1435" y="1207" text-anchor="middle" class="h2">多路 DC-DC / LDO</text><text x="1435" y="1238" text-anchor="middle" class="body">U2001 / U2003 / U2004 / U2005</text><text x="1435" y="1263" text-anchor="middle" class="small">UP4 / UP5 与 4R7、2R2 电感区域</text>
+  <path d="M365 1225H450" class="line" marker-end="url(#arr)"/><path d="M790 1225H875" class="line" marker-end="url(#arr)"/><path d="M1175 1225H1260" class="line" marker-end="url(#arr)"/>
+  <text x="832" y="1204" text-anchor="middle" class="small">BAT / GND / NTC</text>
+
+  <rect x="1700" y="1155" width="570" height="145" rx="12" class="box"/>
+  <text x="1985" y="1190" text-anchor="middle" class="h2">负载电源域（实际电压均待测）</text>
+  <text x="1985" y="1223" text-anchor="middle" class="body">RV1106B Core / I/O / DDR · Camera · SPI NAND</text>
+  <text x="1985" y="1255" text-anchor="middle" class="body">Wireless · Display · Audio · microSD · USB 外围</text>
+  <text x="1985" y="1283" text-anchor="middle" class="small">不得按典型值直接指定 0.8V / 1.0V / 1.2V / 1.8V / 3.3V 对象</text>
+  <path d="M1610 1225H1700" class="line" marker-end="url(#arr)"/>
+
+  <rect x="105" y="1340" width="2165" height="130" rx="12" class="box"/>
+  <text x="135" y="1375" class="h2">启动与系统初始化（逻辑链路）</text>
+  <text x="135" y="1412" class="body">Power ON → RV1106B BootROM → 读取 F35SQB004G SPI NAND → Bootloader → 系统/固件初始化 → Camera / Display / Wireless / Audio 初始化</text>
+  <text x="135" y="1445" class="body">→ BodyPark 应用 → AI 模型加载 → 正常运行；NAND 预计可包含 Bootloader、Kernel/Firmware、RootFS、应用、模型与配置，真实分区待读取确认。</text>
+
+  <!-- LEGEND -->
+  <rect x="70" y="1560" width="2260" height="95" rx="12" class="box"/>
+  <rect x="105" y="1585" width="70" height="38" class="box"/><text x="190" y="1611" class="body">实线框：【实物确认 / 厂商资料确认 / 产品官方声明】</text>
+  <rect x="760" y="1585" width="70" height="38" class="dash"/><text x="845" y="1611" class="body">虚线框：【高概率推定 / 待确认】</text>
+  <line x1="1240" y1="1604" x2="1320" y2="1604" class="line" marker-end="url(#arr)"/><text x="1340" y="1611" class="body">已知或典型硬件链路</text>
+  <line x1="1710" y1="1604" x2="1790" y2="1604" class="dline" marker-end="url(#arr)"/><text x="1810" y="1611" class="body">软件功能 / 端云关系待验证</text>
+</svg>

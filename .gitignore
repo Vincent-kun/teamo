@@ -1,0 +1,8 @@
+.DS_Store
+**/.DS_Store
+Thumbs.db
+Desktop.ini
+__MACOSX/
+*.tmp
+*.bak
+

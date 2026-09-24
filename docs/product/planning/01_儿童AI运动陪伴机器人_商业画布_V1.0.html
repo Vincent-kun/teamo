@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>儿童AI运动陪伴机器人——商业模式画布 V1.0</title>
+<style>
+:root{--ink:#12243e;--muted:#5f738d;--line:#d8e3ef;--blue:#1769e0;--blue2:#edf5ff;--green:#087443;--green2:#e8f7f0;--amber:#995508;--amber2:#fff4dc;--red:#b42318;--red2:#fff0ef;--purple:#6941a5;--purple2:#f1ebff;--bg:#edf2f7}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.72 "Microsoft YaHei","PingFang SC",Arial,sans-serif}.doc{max-width:1320px;margin:24px auto;background:#fff;box-shadow:0 12px 40px #18395c1a}.hero{padding:58px 68px 44px;border-top:7px solid var(--blue);background:linear-gradient(135deg,#fff 42%,#eef6ff)}.eyebrow{color:var(--blue);font-size:13px;font-weight:800;letter-spacing:.14em}.hero h1{font-size:38px;line-height:1.28;margin:14px 0}.lead{max-width:1120px;color:#425771;font-size:17px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.chip,.tag{display:inline-block;border-radius:999px;padding:3px 10px;font-size:12px;font-weight:800}.chip{background:#eaf2ff;color:#0b4dac}.tag.confirm{background:var(--green2);color:var(--green)}.tag.assume{background:var(--amber2);color:var(--amber)}.tag.pending{background:var(--red2);color:var(--red)}.tag.review{background:var(--purple2);color:var(--purple)}.nav{padding:13px 68px;border-block:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;background:#fbfdff;position:sticky;top:0;z-index:2}.nav a{color:#355170;text-decoration:none;font-size:13px;padding:4px 7px;border-radius:6px}.nav a:hover{color:var(--blue);background:var(--blue2)}main{padding:38px 68px 72px}section{margin-bottom:52px;scroll-margin-top:75px}h2{font-size:29px;line-height:1.35;margin:0 0 18px;padding-bottom:11px;border-bottom:2px solid var(--line)}h2 small{font-size:14px;color:var(--blue);margin-right:10px}h3{font-size:20px;line-height:1.4;margin:25px 0 9px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.card{border:1px solid var(--line);border-radius:14px;padding:17px;background:#fff}.card h3{margin-top:0}.call{border-left:5px solid var(--blue);background:#f3f7fd;padding:15px 18px;margin:15px 0}.call.green{border-left-color:var(--green);background:#f1faf6}.call.amber{border-left-color:#d48a11;background:#fff9ea}.muted{color:var(--muted);font-size:13px}.small{font-size:12px;color:var(--muted)}table{width:100%;border-collapse:collapse;margin:14px 0 23px;font-size:13px}th,td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}th{background:#eaf3ff;color:#173b68;white-space:nowrap}tr:nth-child(even) td{background:#fbfdff}.flow{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:16px 0}.node{padding:9px 12px;border:1px solid #bfd2e9;border-radius:10px;background:#fff;font-weight:800}.arr{color:var(--blue);font-weight:900}.bmc{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:auto auto;gap:10px}.bmc .cell{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfdff;min-height:170px}.bmc .cell h3{font-size:17px;color:#174d92;margin:0 0 8px}.bmc .cell p{font-size:13px;margin:6px 0}.bmc .wide{grid-column:span 2}.bmc .center{background:#f3f8ff;border-color:#bed4ef}.legend{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 15px}.bullet{margin:0;padding-left:20px}.bullet li{padding:3px 0}.footer{padding:25px 68px;background:var(--ink);color:#dce6f2}.footer small{color:#aebed0}@media(max-width:980px){.doc{margin:0}.hero,main,.nav,.footer{padding-left:20px;padding-right:20px}.hero h1{font-size:29px}.grid,.grid3{grid-template-columns:1fr}.nav{position:static}.bmc{grid-template-columns:1fr}.bmc .wide{grid-column:auto}}
+@media print{@page{size:A4 landscape;margin:10mm}body{background:#fff;font-size:9pt}.doc{margin:0;max-width:none;box-shadow:none}.hero{padding:18mm 12mm;min-height:145mm}.nav{display:none}main{padding:0}section{break-before:page;margin:0 0 9mm}section:first-child{break-before:auto}h2{font-size:18pt}.card,table,.bmc .cell{break-inside:avoid}.bmc{grid-template-columns:repeat(5,1fr)}.footer{padding:8mm 12mm}}
+</style>
+</head>
+<body>
+<div class="doc">
+<header class="hero">
+  <div class="eyebrow">BUSINESS MODEL CANVAS · DECISION DOCUMENT</div>
+  <h1>儿童AI运动陪伴机器人<br>商业模式画布 V1.0</h1>
+  <p class="lead">本文件用于讨论儿童AI运动陪伴机器人的商业成立条件。内容先回答“为谁创造什么价值、如何触达和持续使用”，再进入九宫格；价格、订阅、学校收费和硬件规格均不作为已确定事实。</p>
+  <div class="chips"><span class="chip">正式商业讨论版</span><span class="chip">目标儿童：6～15岁</span><span class="chip">购买决策者：家长</span><span class="chip">To C为主</span><span class="chip">商业状态：部分待验证</span></div>
+</header>
+<nav class="nav">
+  <a href="#home">首页结论</a><a href="#segments">客户细分</a><a href="#value">价值主张</a><a href="#jobs">Jobs/Pains/Gains</a><a href="#channels">渠道</a><a href="#relationship">客户关系</a><a href="#revenue">收入假设</a><a href="#resources">资源与活动</a><a href="#cost">成本结构</a><a href="#moat">竞争护城河</a><a href="#validation">商业验证</a><a href="#bmc">九宫格</a><a href="#conclusion">一页结论</a>
+</nav>
+<main>
+
+<section id="home">
+  <h2><small>01</small>首页先回答：为什么是这个产品</h2>
+  <div class="call"><b>一句话定位：</b>一款面向6～15岁儿童青少年的家庭AI运动陪伴机器人，通过视觉运动识别、自动计数与反馈、家庭与学校任务、陪伴式交互和成长记录，让孩子更愿意主动运动，让家长更省心，并持续形成可理解的运动成长数据。</div>
+  <div class="grid grid3">
+    <div class="card"><h3>为谁做？</h3><p>主要为6～15岁儿童青少年及其家庭做。儿童是日常使用者，家长是购买决策者；体育老师和学校是重要影响者与合作场景。</p></div>
+    <div class="card"><h3>解决什么问题？</h3><p>孩子不容易开始、运动过程枯燥、计数不可信；家长反复提醒和人工监督；学校体育任务难下发、难回收、难看懂。</p></div>
+    <div class="card"><h3>为什么需要独立硬件？</h3><p><span class="tag assume">商业假设</span> 常驻桌面、打开即见宠物、运动时少受手机内容干扰，并把识别、提示和结果集中在家庭固定场景中。是否足以超过手机App价值，<span class="tag pending">待用户验证</span>。</p></div>
+    <div class="card"><h3>家长为什么可能买？</h3><p><span class="tag assume">商业假设</span> 家长愿意为“少提醒、少计数、知道真实完成情况、学校任务更易执行”付费；支付意愿、价格区间和购买触发点<span class="tag pending">待商业验证</span>。</p></div>
+    <div class="card"><h3>孩子为什么可能持续用？</h3><p><span class="tag assume">商业假设</span> 宠物即时回应、可见进步、个人最好成绩和运动奖励能把一次运动变成可重复的轻任务；持续使用需通过真实试用验证。</p></div>
+    <div class="card"><h3>学校为什么形成差异化？</h3><p>第一版定义老师发布任务→学校下发→家庭执行→生成Session→结果回传→老师查看的链路。学校能力是场景壁垒，不把产品改成纯To B产品。</p></div>
+  </div>
+  <div class="call green"><b>长期方向：</b>家庭常驻AI运动成长伙伴。运动训练是绝对核心；陪伴和激励服务于开始与坚持；家校联动进入第一版完整能力；体态陪伴不压过运动主线；AI个性化训练建立在真实数据、七种动作库和体育规则之上。</div>
+  <table><thead><tr><th>口径状态</th><th>当前结论</th><th>不能当作什么</th></tr></thead><tbody>
+    <tr><td><span class="tag confirm">已确认</span></td><td>产品名称、6～15岁目标儿童、家长购买决策、To C为主、运动主线、七种动作和家校闭环范围。</td><td>不能把用户规模、转化率或收入规模写成事实。</td></tr>
+    <tr><td><span class="tag assume">商业假设</span></td><td>独立硬件、宠物陪伴和学校任务可能提高运动执行率与持续使用。</td><td>不能视为已完成用户研究或商业验证。</td></tr>
+    <tr><td><span class="tag pending">待评审/验证</span></td><td>硬件形态、售价、订阅、内容收费、学校合作方式和渠道组合。</td><td>不输出价格、利润或日历交付承诺。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="segments">
+  <h2><small>02</small>客户细分 Customer Segments</h2>
+  <div class="grid">
+    <div class="card"><h3>核心购买者｜家长</h3><p>为6～15岁儿童购买并管理设备。细分为：关注体育成绩、关注体能、希望少玩手机多运动、没有时间监督、需要体育作业管理、关注体态和久坐的人群。</p><p class="small"><span class="tag assume">以上为客户假设</span> 需用访谈、试用和购买意愿测试确认。</p></div>
+    <div class="card"><h3>核心使用者｜儿童青少年</h3><p>独立查看任务、选择运动、完成识别、接受反馈、查看记录和使用宠物互动。6～9岁更依赖图形和语音；10～12岁关注挑战与进步；13～15岁可能更关注自主目标和隐私。</p><p class="small"><span class="tag pending">年龄段体验差异待用户验证</span></p></div>
+    <div class="card"><h3>影响者｜体育老师与学校</h3><p>老师可发布体育任务、查看基础完成情况；学校提供任务来源和合作场景。学校不是默认首要付费方，权限和授权必须清楚。</p></div>
+    <div class="card"><h3>家庭共同决策</h3><p>孩子影响“喜不喜欢、用不用”；家长决定“买不买、是否允许使用”；老师影响“任务是否进入家庭”。三者价值感受不一致时，产品容易闲置。</p></div>
+  </div>
+  <table><thead><tr><th>细分假设</th><th>主要任务</th><th>主要痛点</th><th>可能被什么打动</th><th>验证状态</th></tr></thead><tbody>
+    <tr><td>体育成绩关注型家长</td><td>让孩子按要求训练、完成体育作业。</td><td>不知道是否做够、动作是否有效。</td><td>自动计数、任务结果、个人进步。</td><td><span class="tag pending">待用户验证</span></td></tr>
+    <tr><td>体能与健康关注型家长</td><td>形成规律运动，减少久坐。</td><td>孩子开始难、家长监督累。</td><td>常驻提醒、陪伴反馈、成长记录。</td><td><span class="tag pending">待用户验证</span></td></tr>
+    <tr><td>少手机倡导型家庭</td><td>让孩子在家庭固定空间运动。</td><td>手机容易被其他内容分散。</td><td>独立设备、短流程、宠物入口。</td><td><span class="tag pending">待商业验证</span></td></tr>
+    <tr><td>学校任务承接型家庭</td><td>接收、完成并回传体育任务。</td><td>通知分散、记录和证明麻烦。</td><td>家校任务状态、Session结果回传。</td><td><span class="tag review">待合作评审</span></td></tr>
+  </tbody></table>
+</section>
+
+<section id="value">
+  <h2><small>03</small>价值主张 Value Proposition</h2>
+  <div class="call"><b>核心价值主张：</b>让孩子更愿意运动，让家长少监督，让家庭运动真正被执行和记录。</div>
+  <div class="grid grid3">
+    <div class="card"><h3>儿童价值</h3><ul class="bullet"><li>更容易开始，不需要先学复杂设置。</li><li>机器人自动识别和计数，运动时不用分心记数。</li><li>过程有短语音、宠物表情和阶段反馈。</li><li>完成后看到运动星、个人最好成绩和进步。</li></ul></div>
+    <div class="card"><h3>家长价值</h3><ul class="bullet"><li>设置一次任务，减少反复催促。</li><li>不用全程陪练或人工计数。</li><li>知道项目、目标、实际次数、用时和状态。</li><li>学校任务在家庭有明确执行与回传结果。</li></ul></div>
+    <div class="card"><h3>学校价值</h3><ul class="bullet"><li>体育任务可下发到家庭。</li><li>Session结果可回传并按班级查看基础完成情况。</li><li>减少人工统计，不引入不必要的儿童公开数据。</li><li>排行榜/PK采用进步和坚持等儿童友好维度。</li></ul></div>
+  </div>
+  <table><thead><tr><th>独立硬件的价值假设</th><th>相较手机App可能新增的体验</th><th>边界</th><th>状态</th></tr></thead><tbody>
+    <tr><td>常驻可见</td><td>回家即可看到宠物和今日任务，减少寻找入口。</td><td>需验证是否真的比手机提醒更容易开始。</td><td><span class="tag assume">商业假设</span></td></tr>
+    <tr><td>运动专用</td><td>识别、计数、语音和宠物反馈围绕运动，不被其他内容打断。</td><td>体验不能退化为通用聊天或娱乐设备。</td><td><span class="tag confirm">产品方向已确认</span></td></tr>
+    <tr><td>家庭固定空间</td><td>形成固定运动位置和重复习惯。</td><td>Camera视场、屏幕、Mic、主控等硬件方案<span class="tag review">待硬件评审</span>。</td><td><span class="tag pending">待技术验证</span></td></tr>
+  </tbody></table>
+</section>
+
+<section id="jobs">
+  <h2><small>04</small>Customer Jobs / Pains / Gains</h2>
+  <p class="muted">用“客户要完成的事 → 产品能力 → 结果价值”检查商业逻辑，不把功能本身当作价值。</p>
+  <table><thead><tr><th>客户</th><th>Customer Job｜要完成的事</th><th>Pain｜当前困难</th><th>产品能力</th><th>Gain｜得到的结果</th><th>状态</th></tr></thead><tbody>
+    <tr><td>家长</td><td>让孩子按时完成体育任务。</td><td>每天催，孩子仍可能拖延。</td><td>家长创建任务＋机器人到点提醒＋任务状态。</td><td>家长少做重复提醒，孩子有明确入口。</td><td><span class="tag assume">价值假设</span></td></tr>
+    <tr><td>家长</td><td>确认孩子是否真的完成。</td><td>口头说完成，家长难判断。</td><td>动作识别＋Session＋结果页。</td><td>看到项目、次数、用时、完成状态。</td><td><span class="tag confirm">功能方向已确认</span></td></tr>
+    <tr><td>儿童</td><td>完成运动而不觉得枯燥。</td><td>动作重复，容易中途放弃。</td><td>宠物陪伴、阶段鼓励、运动星、个人PB。</td><td>运动有回应，进步可见，完成有成就感。</td><td><span class="tag pending">待用户验证</span></td></tr>
+    <tr><td>儿童</td><td>准确知道自己做了多少。</td><td>自己数错，无法判断是否达标。</td><td>七种动作识别、自动计数、简单纠错。</td><td>不用分心记数，结果更清楚。</td><td><span class="tag pending">待技术验证</span></td></tr>
+    <tr><td>老师</td><td>布置体育任务并查看完成。</td><td>群里通知分散，人工统计费时。</td><td>班级、学生、体育任务、完成情况、基础班级数据。</td><td>任务下发和结果回收更集中。</td><td><span class="tag review">待合作评审</span></td></tr>
+    <tr><td>家庭</td><td>保护儿童隐私并管理设备。</td><td>不清楚Camera何时工作，数据边界不明。</td><td>Camera状态可见、家长授权、权限和删除机制。</td><td>使用边界可理解、可管理。</td><td><span class="tag review">待硬件/隐私评审</span></td></tr>
+  </tbody></table>
+</section>
+
+<section id="channels">
+  <h2><small>05</small>渠道 Channels</h2>
+  <div class="call amber"><b>渠道原则：</b>当前不把任何渠道写成既定事实。先验证“哪种渠道能带来高质量家庭试用和持续使用”，再决定投入顺序。</div>
+  <table><thead><tr><th>渠道候选</th><th>触达谁</th><th>适合承担的任务</th><th>优点</th><th>主要风险</th><th>当前状态</th></tr></thead><tbody>
+    <tr><td>To C电商平台</td><td>家长</td><td>展示、购买、售后和评价沉淀。</td><td>覆盖面广，可量化转化。</td><td>需要清楚解释硬件相较手机的价值，退货风险高。</td><td><span class="tag assume">优先候选</span></td></tr>
+    <tr><td>自有渠道/官网</td><td>已有用户与品牌关注者</td><td>产品教育、预约试用、服务承接。</td><td>信息可控，便于收集反馈。</td><td>流量和运营能力要求高。</td><td><span class="tag pending">待验证渠道</span></td></tr>
+    <tr><td>短视频与内容种草</td><td>家长、儿童影响者</td><td>展示真实运动过程和宠物反馈。</td><td>容易让用户直观看到体验。</td><td>内容热度不等于长期使用或购买。</td><td><span class="tag pending">待验证渠道</span></td></tr>
+    <tr><td>学校合作触达家庭</td><td>老师、家长、学生</td><td>体育任务试点、家校闭环验证。</td><td>任务频率和场景真实。</td><td>合作周期、隐私授权和教师负担。</td><td><span class="tag review">待合作评审</span></td></tr>
+    <tr><td>体育老师推荐/社群</td><td>有明确体育需求的家长</td><td>试用招募、动作和任务反馈。</td><td>信任度可能更高。</td><td>依赖老师意愿，覆盖有限。</td><td><span class="tag pending">待验证渠道</span></td></tr>
+    <tr><td>线下教育/体育渠道</td><td>培训机构、体育场馆家庭</td><td>体验展示和场景试用。</td><td>可现场演示Camera识别和宠物反馈。</td><td>渠道分成、售后和场地成本。</td><td><span class="tag pending">待商业验证</span></td></tr>
+    <tr><td>经销渠道</td><td>区域家庭用户</td><td>规模销售和本地服务。</td><td>扩展速度可能较快。</td><td>渠道控制力、价格体系和服务一致性。</td><td><span class="tag pending">后续评估</span></td></tr>
+  </tbody></table>
+</section>
+
+<section id="relationship">
+  <h2><small>06</small>客户关系 Customer Relationships</h2>
+  <div class="grid grid3">
+    <div class="card"><h3>儿童线：持续陪伴</h3><p>宠物主动问候→提示今日任务→运动中低频鼓励→完成庆祝→运动星和个人进步→再次邀请。陪伴只服务于运动，不替代运动主线。</p></div>
+    <div class="card"><h3>家长线：轻管理</h3><p>家长设置任务→收到同步状态→查看今日结果→查看成长变化→调整任务。原则是“三步创建、结果先看、异常透明”。</p></div>
+    <div class="card"><h3>学校线：低负担合作</h3><p>老师发布任务→查看基础班级完成情况→必要时发起友好挑战。默认不公开儿童敏感数据，不以排名制造挫败。</p></div>
+  </div>
+  <h3>用户生命周期</h3>
+  <div class="flow"><span class="node">认知</span><span class="arr">→</span><span class="node">购买/试用</span><span class="arr">→</span><span class="node">首次开机</span><span class="arr">→</span><span class="node">第一次运动</span><span class="arr">→</span><span class="node">连续使用</span><span class="arr">→</span><span class="node">长期运动成长</span><span class="arr">→</span><span class="node">内容/服务扩展</span></div>
+  <table><thead><tr><th>阶段</th><th>用户要看到的价值</th><th>减少“吃灰”的设计</th><th>需要验证的信号</th></tr></thead><tbody>
+    <tr><td>首次使用</td><td>开机即看到宠物，能在短流程内完成一次运动。</td><td>默认任务、快速开始、清楚的入镜提示。</td><td>首次任务完成、从提醒到开始的转化。</td></tr>
+    <tr><td>重复使用</td><td>每次都能看到结果和小奖励。</td><td>个人PB、运动星、阶段鼓励、低频主动提醒。</td><td>7日再次使用、运动退出率。</td></tr>
+    <tr><td>长期使用</td><td>看到能力变化，学校任务不需重新学习流程。</td><td>成长记录、家校任务复用、个性化建议逐步增加。</td><td>持续完成、家长留存、学校任务参与。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="revenue">
+  <h2><small>07</small>收入来源 Revenue Streams｜收入假设池</h2>
+  <div class="call amber">商业模式尚未冻结。下表只列可讨论的收入假设，不代表定价、收费对象或收入结构已经确定。</div>
+  <table><thead><tr><th>收入来源</th><th>谁付钱</th><th>为什么可能付</th><th>收费形式（不定价）</th><th>前置条件</th><th>主要风险</th><th>验证方式</th><th>状态</th></tr></thead><tbody>
+    <tr><td>A 硬件一次性销售</td><td>家长</td><td>获得常驻运动设备、识别计数、陪伴和家庭记录。</td><td>一次性购买</td><td>独立硬件价值被用户认可，硬件成本和售后可控。</td><td>与手机App相比增量价值不足；退货和售后压力。</td><td>概念测试、可用样机试用、购买意愿和退款原因。</td><td><span class="tag assume">商业假设</span></td></tr>
+    <tr><td>B AI个性化训练</td><td>家长</td><td>希望基于七种动作记录获得更合适的训练建议。</td><td>可选服务/订阅</td><td>真实数据积累、规则和体育专业评审。</td><td>效果难证明；儿童训练建议边界和持续内容成本。</td><td>训练建议原型、留存对照、付费意愿访谈。</td><td><span class="tag pending">待商业验证</span></td></tr>
+    <tr><td>C 运动课程/内容包</td><td>家长</td><td>需要更多有指导的运动任务和玩法。</td><td>单次内容或组合包</td><td>内容质量、动作安全和持续更新能力。</td><td>内容制作成本；孩子可能只使用免费基础功能。</td><td>预约、内容试用、内容偏好与支付意愿测试。</td><td><span class="tag pending">待商业验证</span></td></tr>
+    <tr><td>D 宠物/IP/主题内容</td><td>家长</td><td>孩子希望更换表情、装扮和主题陪伴内容。</td><td>内容包或解锁</td><td>不影响运动公平，且符合儿童消费保护。</td><td>变成只追求装扮；内容与运动脱节。</td><td>装扮使用率、运动后进入装扮比例、家长接受度。</td><td><span class="tag pending">待用户/商业验证</span></td></tr>
+    <tr><td>E 配件/外壳</td><td>家长</td><td>个性化外观或替换需求。</td><td>配件销售</td><td>外观方案、供应链和安全标准。</td><td>库存、成本和儿童安全风险。</td><td>样品偏好、预购意愿、售后数据。</td><td><span class="tag review">待硬件评审</span></td></tr>
+    <tr><td>F 学校相关服务</td><td>学校或合作方</td><td>需要任务发布、结果回收和基础班级数据。</td><td>服务费/项目合作等形式待定</td><td>学校合作、权限、家长授权和管理流程。</td><td>采购周期长；老师负担；儿童数据合规。</td><td>小范围合作试点、教师访谈、管理成本对照。</td><td><span class="tag review">待合作/商业验证</span></td></tr>
+    <tr><td>G 联名或生态合作</td><td>合作品牌或用户</td><td>共同提供儿童运动内容或主题体验。</td><td>合作分成等形式待定</td><td>IP匹配、内容审查和合作资源。</td><td>品牌依赖、权益复杂、运动主线被稀释。</td><td>合作意向、联名原型和用户偏好测试。</td><td><span class="tag pending">后续评估</span></td></tr>
+  </tbody></table>
+</section>
+
+<section id="resources">
+  <h2><small>08</small>核心资源、关键活动与合作伙伴</h2>
+  <div class="grid">
+    <div class="card"><h3>核心资源 Key Resources</h3><ul class="bullet"><li>视觉运动识别经验与七种动作模型/规则。</li><li>儿童运动数据、Session记录和成长模型。</li><li>儿童友好的机器人角色、交互和内容。</li><li>家庭任务与学校任务的产品流程。</li><li>体育专业知识、动作安全边界和评审机制。</li><li>硬件整机能力、Camera/屏幕/音频/主控适配能力。</li><li>儿童隐私、家长授权和数据安全能力。</li></ul></div>
+    <div class="card"><h3>关键活动 Key Activities</h3><ul class="bullet"><li>七种动作识别、计数和简单反馈研发。</li><li>动作库维护、体育专业评审和用户测试。</li><li>设备、机器人端、小程序和结果同步联调。</li><li>任务内容、宠物陪伴和激励机制设计。</li><li>家校任务试点、权限和数据边界验证。</li><li>可靠性、隐私、售后和用户运营。</li></ul></div>
+  </div>
+  <table><thead><tr><th>候选合作伙伴</th><th>合作价值</th><th>第一版是否必须</th><th>合作边界/前置条件</th></tr></thead><tbody>
+    <tr><td>体育老师、学校</td><td>任务来源、真实场景、完成反馈。</td><td><span class="tag review">目标场景必须评审</span></td><td>班级、学生、任务权限和家长授权清楚；不增加教师无谓工作。</td></tr>
+    <tr><td>体育专业人员</td><td>动作规则、训练表达和安全边界。</td><td><span class="tag confirm">建议必须纳入</span></td><td>结论不写成医疗或科学诊断。</td></tr>
+    <tr><td>Camera/屏幕/音频/主控器件与制造伙伴</td><td>整机实现与量产支持。</td><td><span class="tag review">待硬件评审</span></td><td>固定/转动Camera、屏幕尺寸、Mic、电池、充电、FOV、主控和外壳均未冻结。</td></tr>
+    <tr><td>ID/结构与生产伙伴</td><td>儿童友好外观、可靠性和制造。</td><td><span class="tag review">待硬件评审</span></td><td>安全、成本、可维护性和合规需共同确认。</td></tr>
+    <tr><td>家长/儿童测试家庭</td><td>验证开始率、完成率、持续使用和购买意愿。</td><td><span class="tag confirm">用户验证必须</span></td><td>数据使用需家长授权，样本结论不夸大。</td></tr>
+    <tr><td>内容/IP合作伙伴与渠道</td><td>补充运动内容、主题和触达。</td><td><span class="tag pending">可选/后续</span></td><td>不能让内容和渠道决定核心运动逻辑。</td></tr>
+  </tbody></table>
+</section>
+
+<section id="cost">
+  <h2><small>09</small>成本结构 Cost Structure</h2>
+  <div class="call">只列成本类型，不编造BOM、售价或毛利。具体金额统一标记为<span class="tag review">待项目评审</span>。</div>
+  <table><thead><tr><th>成本类型</th><th>主要内容</th><th>成本受什么影响</th><th>当前认识</th></tr></thead><tbody>
+    <tr><td>硬件与制造</td><td>Camera、屏幕、Mic/Speaker、主控、网络、结构、模具、组装、认证、包装。</td><td>硬件方案、采购量、可靠性和认证要求。</td><td><span class="tag review">待硬件评审</span></td></tr>
+    <tr><td>算法与软件研发</td><td>人体检测、七种动作识别与计数、机器人端、家长端、家校服务、数据同步。</td><td>算法复用程度、端侧能力、联调复杂度。</td><td><span class="tag pending">待技术验证</span></td></tr>
+    <tr><td>服务与运维</td><td>数据服务、消息同步、设备管理、隐私与安全维护、售后支持。</td><td>在线功能范围、设备规模和数据保留策略。</td><td><span class="tag pending">待技术/商业验证</span></td></tr>
+    <tr><td>体育与内容</td><td>动作评审、训练规则、语音、宠物内容、主题和课程制作。</td><td>专业审核深度、内容更新频率和版权。</td><td><span class="tag pending">待体育专业评审</span></td></tr>
+    <tr><td>渠道与运营</td><td>试用招募、内容传播、电商服务、线下体验、合作维护。</td><td>渠道组合、转化效率和服务范围。</td><td><span class="tag pending">待商业验证</span></td></tr>
+  </tbody></table>
+</section>
+
+<section id="moat">
+  <h2><small>10</small>竞争护城河：不只说“AI技术领先”</h2>
+  <div class="grid grid3">
+    <div class="card"><h3>运动算法与动作资产</h3><p>七种动作的识别、计数、错误提示、数据记录和长期迭代经验。核心是“儿童能看懂且结果可信”，不是模型名词。</p><span class="tag pending">需技术与真实数据验证</span></div>
+    <div class="card"><h3>儿童专用硬件体验</h3><p>设备常驻、少干扰、宠物入口和运动专用反馈形成完整场景。是否明显优于手机，决定购买理由。</p><span class="tag review">待硬件评审/用户验证</span></div>
+    <div class="card"><h3>陪伴机制</h3><p>宠物把提醒、鼓励、纠错、庆祝与运动结果连起来；陪伴不独立发展为通用聊天。</p><span class="tag pending">待用户验证</span></div>
+    <div class="card"><h3>家校系统</h3><p>老师任务→家庭执行→Session→结果回传→基础班级数据，是进入真实体育作业场景的能力壁垒。</p><span class="tag review">待合作评审</span></div>
+    <div class="card"><h3>长期运动数据</h3><p>在授权前提下积累运动记录、PB、坚持和动作问题，为后续个性化训练提供基础。</p><span class="tag pending">待数据与隐私评审</span></div>
+    <div class="card"><h3>儿童安全与可信度</h3><p>Camera状态可见、家长控制、儿童数据边界、排行榜保护和异常透明，是长期信任的基础。</p><span class="tag review">待隐私/合规评审</span></div>
+  </div>
+  <div class="call green"><b>护城河判断：</b>真正难复制的不是单一功能，而是“七种动作能力＋儿童交互＋家庭任务＋家校闭环＋长期数据”长期协同后的体验和信任。</div>
+</section>
+
+<section id="validation">
+  <h2><small>11</small>最大的商业假设与验证地图</h2>
+  <table><thead><tr><th>商业假设</th><th>重要性</th><th>当前证据</th><th>需要怎样验证</th><th>验证后影响什么</th><th>状态</th></tr></thead><tbody>
+    <tr><td>孩子愿意持续使用独立设备。</td><td>高</td><td>已有产品方向与功能设想，无持续使用数据。</td><td>连续试用，对比“有宠物/无宠物”“设备/手机入口”的再次使用。</td><td>决定硬件形态、陪伴投入和留存策略。</td><td><span class="tag pending">待用户验证</span></td></tr>
+    <tr><td>家长愿意为减少监督和运动成长买硬件。</td><td>高</td><td>来自定位和客户问题假设。</td><td>访谈、概念测试、样机试用、购买意愿和价格敏感度测试。</td><td>决定To C产品边界、渠道和硬件成本目标。</td><td><span class="tag pending">待商业验证</span></td></tr>
+    <tr><td>自动计数能带来明显价值。</td><td>高</td><td>七种动作已有公司经验，但本产品场景仍需验证。</td><td>技术准确性测试＋家长结果理解测试＋孩子运动完成对照。</td><td>决定算法投入、结果页和首版动作范围。</td><td><span class="tag pending">待技术/用户验证</span></td></tr>
+    <tr><td>学校任务能增强家庭使用频率。</td><td>高</td><td>已定义家校闭环，尚无合作结果。</td><td>学校小范围试点，测老师操作成本、家长授权率、任务完成和回传。</td><td>决定家校模块深度与合作模式。</td><td><span class="tag review">待合作评审</span></td></tr>
+    <tr><td>陪伴机制提升运动意愿。</td><td>中高</td><td>角色与反馈设计已形成方向。</td><td>中性反馈与宠物反馈对照，观察开始率、完成率和再次打开。</td><td>决定宠物内容、语音频率和激励设计。</td><td><span class="tag pending">待用户验证</span></td></tr>
+    <tr><td>体态能力能增加购买理由。</td><td>中</td><td>体态是重要能力，但不能压过运动训练。</td><td>概念访谈，不把非医疗提醒包装成诊断；评估是否影响购买决策。</td><td>决定体态能力进入顺序与表达边界。</td><td><span class="tag pending">待用户/体育专业评审</span></td></tr>
+    <tr><td>订阅或内容收费能够成立。</td><td>中</td><td>暂无收费验证。</td><td>内容原型、预约、付费意愿测试和取消原因追踪。</td><td>决定收入结构，不以订阅作为产品成立前提。</td><td><span class="tag pending">待商业验证</span></td></tr>
+    <tr><td>独立硬件相较手机有足够增量价值。</td><td>高</td><td>来自常驻设备和运动专用场景的价值假设。</td><td>同一家庭内设备与手机入口对照，比较开始速度、干扰、完成和留存。</td><td>决定硬件是否继续、形态和成本。</td><td><span class="tag review">待硬件/用户评审</span></td></tr>
+  </tbody></table>
+  <div class="call"><b>时间口径：</b>商业验证按阶段推进，具体周期和人员配置<span class="tag review">待项目排期评审</span>；本文不输出日历时间。</div>
+</section>
+
+<section id="bmc">
+  <h2><small>12</small>Business Model Canvas 九宫格最终版</h2>
+  <div class="legend"><span class="tag confirm">已确认</span><span class="tag assume">商业假设</span><span class="tag pending">待验证</span><span class="tag review">待评审</span></div>
+  <div class="bmc">
+    <div class="cell"><h3>关键伙伴</h3><p><span class="tag confirm">已确认方向</span> 体育老师、学校、体育专业人员、硬件与算法团队、测试家庭。</p><p><span class="tag review">待评审</span> 内容/IP与渠道伙伴。</p></div>
+    <div class="cell"><h3>关键活动</h3><p>七种动作识别与计数、运动闭环、宠物陪伴、家庭与学校任务、Session回传、用户与体育专业验证、隐私维护。</p></div>
+    <div class="cell"><h3>核心资源</h3><p>七种动作经验与数据、动作库、儿童角色、家校流程、运动成长记录、软硬件整合和安全能力。</p></div>
+    <div class="cell center"><h3>价值主张</h3><p><span class="tag confirm">核心主张</span> 让孩子更愿意运动，让家长少监督，让家庭运动真正被执行和记录。</p><p>运动训练为核心，陪伴激励和家校能力围绕运动服务。</p></div>
+    <div class="cell"><h3>客户关系</h3><p>儿童：宠物持续陪伴与低频提醒。</p><p>家长：任务、结果、成长和隐私管理。</p><p>学校：任务下发、结果查看和儿童保护。</p></div>
+    <div class="cell"><h3>渠道</h3><p><span class="tag assume">优先候选</span> To C电商、线下体验、内容触达。</p><p><span class="tag review">待验证</span> 学校合作、老师推荐、体育渠道、经销渠道。</p></div>
+    <div class="cell"><h3>客户细分</h3><p>主要购买者：6～15岁儿童家长。</p><p>使用者：儿童青少年。</p><p>影响与合作：体育老师、学校。</p></div>
+    <div class="cell wide"><h3>成本结构</h3><p>硬件制造、结构/认证、算法与软件、服务维护、内容与体育专业、渠道运营、售后。金额与成本目标<span class="tag review">待硬件和项目评审</span>。</p></div>
+    <div class="cell wide"><h3>收入来源</h3><p><span class="tag assume">收入假设池</span> 硬件一次性销售、个性化训练、内容/主题、配件、学校服务、联名合作。具体收费对象、形式和价格<span class="tag pending">待商业验证</span>。</p></div>
+  </div>
+</section>
+
+<section id="conclusion">
+  <h2><small>13</small>一页结论：当前商业讨论应聚焦什么</h2>
+  <div class="grid grid3">
+    <div class="card"><h3>1｜首先卖给谁？</h3><p><span class="tag confirm">已确认方向</span> 以6～15岁儿童家庭为主，家长是购买决策者，To C为主。</p></div>
+    <div class="card"><h3>2｜家长为什么可能买？</h3><p><span class="tag assume">核心假设</span> 少提醒、少监督、看得到真实结果，并让学校任务更容易在家庭执行。</p></div>
+    <div class="card"><h3>3｜真正差异是什么？</h3><p>七种动作运动识别＋儿童宠物陪伴＋家庭任务＋家校结果闭环，而不是单一计数器或普通聊天宠物。</p></div>
+    <div class="card"><h3>4｜确定了什么？</h3><p>产品定位、年龄、购买者、运动主线、七种动作、第一版家校范围和长期方向。</p></div>
+    <div class="card"><h3>5｜还没有确定什么？</h3><p>硬件方案、收费和收入结构、渠道组合、学校合作方式、体态与AI计划投入深度。</p></div>
+    <div class="card"><h3>6｜下一步最重要的验证？</h3><p>用可测试样机验证：孩子能否开始并完成运动、计数是否可信、陪伴是否提升再次使用、家长是否认可结果和省心价值。</p></div>
+  </div>
+  <div class="call green"><b>决策顺序：</b>先证明家庭运动闭环有价值，再决定硬件投入和商业化组合；先验证真实使用和购买理由，再讨论收费方式。所有未确认事项统一标记为<span class="tag review">待项目评审/验证</span>。</div>
+  <h3>第一版能力边界（统一口径）</h3>
+  <table><thead><tr><th>纳入第一版</th><th>说明</th><th>暂不作为商业承诺</th></tr></thead><tbody>
+    <tr><td>七种动作：双脚跳绳、开合跳、高抬腿、深蹲起、俯卧撑、仰卧起坐、平板支撑</td><td>平板支撑主要按有效保持时长，其余动作主要按动作周期和次数。</td><td>不增加其他动作；算法效果<span class="tag pending">待技术验证</span>。</td></tr>
+    <tr><td>家庭与学校任务闭环</td><td>老师发布→学校下发→家庭查看→机器人执行→生成Session→结果回传→老师查看。</td><td>学校收费、规模化采购和班级公开排名<span class="tag review">待合作/隐私评审</span>。</td></tr>
+    <tr><td>陪伴、激励、成长记录和隐私控制</td><td>服务于运动开始、完成和持续使用。</td><td>复杂开放式AI、复杂宠物成长和长期人格记忆不作为当前商业前提。</td></tr>
+  </tbody></table>
+</section>
+
+</main>
+<footer class="footer"><b>儿童AI运动陪伴机器人｜商业模式画布 V1.0</b><br><small>本文件为产品商业讨论底稿。商业假设需经用户、技术、体育专业、硬件、隐私与合作评审后更新；具体周期统一为【待项目排期评审】。</small></footer>
+</div>
+</body>
+</html>
