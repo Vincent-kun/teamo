@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>儿童AI运动陪伴机器人 MVP硬件技术需求说明书 V2.0</title>
+  <style>
+    :root{--navy:#103a55;--navy2:#174b69;--green:#1f9275;--ink:#163247;--muted:#667c8c;--line:#d7e2e8;--pale:#f3f7f9;--blue:#eaf4f8;--amber:#fff4d9;--red:#b8433c;--white:#fff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#edf3f6;color:var(--ink);font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif;line-height:1.75}
+    header{background:linear-gradient(135deg,#0e344d,#164d68);color:#fff;padding:30px 24px}.wrap{width:min(1180px,calc(100% - 32px));margin:auto}h1{margin:0;font-size:32px;line-height:1.25}header p{margin:8px 0 0;color:#d6e6ed}.meta{margin-top:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#ffffff35;border:1px solid #ffffff35;border-radius:12px;overflow:hidden}.meta div{background:#ffffff12;padding:11px 14px}.meta b{display:block;font-size:12px;color:#bcd2dd}.meta span{font-size:14px}
+    nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 3px 12px #1233 08}.navlinks{display:flex;gap:22px;white-space:nowrap;overflow:auto;padding:12px 0}.navlinks a{color:var(--navy);text-decoration:none;font-size:14px;font-weight:700}
+    main{padding:24px 0 48px}section{background:#fff;border:1px solid var(--line);border-radius:18px;margin:0 0 22px;padding:26px;box-shadow:0 8px 24px #17415b0d}.section-title{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px}.num{flex:0 0 46px;height:46px;border-radius:14px;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800}.section-title h2{margin:0;font-size:26px;line-height:1.35;color:var(--navy)}.section-title p{margin:4px 0 0;color:var(--muted);font-size:14px}h3{color:var(--navy);font-size:19px;margin:20px 0 8px}p{margin:8px 0}.lead{font-size:17px}.summary{padding:16px 18px;background:var(--blue);border-left:5px solid var(--green);border-radius:10px}.warning{padding:14px 18px;background:var(--amber);border-left:5px solid #e4a31a;border-radius:10px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#fff}.card h3{margin-top:0}.card ul{margin:8px 0 0;padding-left:22px}
+    .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:13px;margin:12px 0 18px}table{border-collapse:collapse;width:100%;min-width:780px;background:#fff;font-size:14px}th{background:var(--navy2);color:#fff;text-align:left;padding:11px 12px;white-space:nowrap}td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even){background:#f7fafb}.short{text-align:center;white-space:nowrap}.p0,.p1,.pending,.target{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:700}.p0{background:#ffe6e2;color:#a83730}.p1{background:#fff0cf;color:#8b6212}.pending{background:#fff0cf;color:#8b6212}.target{background:#dff4ed;color:#14745f}
+    .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:center;margin:18px 0}.flow .box{background:#e8f4f0;border:1px solid #b9ddd3;border-radius:13px;padding:16px;text-align:center;min-height:112px;display:flex;flex-direction:column;justify-content:center}.flow b{color:var(--navy)}.arrow{font-size:26px;color:var(--green);font-weight:800}.toc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0 22px}.toc-grid a{display:flex;align-items:center;gap:10px;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:#f8fbfc;color:var(--navy);text-decoration:none}.toc-grid a:hover{border-color:var(--green);background:#eef8f5}.toc-grid b{color:var(--green);font-size:13px}.figure{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}.figure img{width:100%;display:block}.caption{padding:10px 14px;color:var(--muted);font-size:13px}.feature{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:14px 0}.feature-title{background:var(--pale);padding:12px 16px;font-weight:800;color:var(--navy)}.feature-grid{display:grid;grid-template-columns:150px 1fr}.feature-grid div{padding:10px 14px;border-top:1px solid var(--line)}.feature-grid div:nth-child(odd){font-weight:700;color:#36566b;background:#fbfcfd}.checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.check{border:1px solid var(--line);border-radius:10px;padding:11px 13px}.check::before{content:"✓";display:inline-grid;place-items:center;width:23px;height:23px;border-radius:50%;background:var(--green);color:#fff;margin-right:8px;font-weight:800}.footer{color:#cfe0e7;background:var(--navy);padding:22px 0;font-size:13px}
+    @media(max-width:760px){h1{font-size:25px}.meta,.grid2,.checklist,.toc-grid{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg);text-align:center}.section-title h2{font-size:22px}section{padding:20px 16px}.wrap{width:min(100% - 20px,1180px)}.feature-grid{grid-template-columns:110px 1fr}.navlinks{gap:16px}.meta{gap:0}.meta div{border-bottom:1px solid #ffffff25}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>儿童AI运动陪伴机器人 MVP硬件技术需求说明书</h1>
+    <p>用于硬件方案评审与样机选型 · V2.0</p>
+    <div class="meta">
+      <div><b>文档状态</b><span>需求讨论稿</span></div>
+      <div><b>提出部门</b><span>产品部</span></div>
+      <div><b>文档用途</b><span>硬件方案评审与样机选型</span></div>
+      <div><b>当前结论</b><span>明确能力需求，具体型号待硬件评审</span></div>
+    </div>
+  </div>
+</header>
+<nav><div class="wrap navlinks"><a href="#intro">文档介绍</a><a href="#definition">产品定义</a><a href="#scenario">使用场景</a><a href="#architecture">系统架构</a><a href="#form">产品形态</a><a href="#hardware">硬件配置</a><a href="#interface">接口开孔</a><a href="#functions">功能需求</a><a href="#quality">性能质量</a><a href="#acceptance">样机验收</a><a href="#decisions">待确认项</a></div></nav>
+<main class="wrap">
+
+ <section id="intro">
+   <div class="section-title"><div class="num">01</div><div><h2>文档介绍</h2><p>先明确这份文件要解决什么问题</p></div></div>
+  <h3>目录</h3>
+  <div class="toc-grid">
+    <a href="#intro"><b>01</b><span>文档介绍</span></a>
+    <a href="#definition"><b>02</b><span>MVP产品定义</span></a>
+    <a href="#scenario"><b>03</b><span>使用场景与流程</span></a>
+    <a href="#architecture"><b>04</b><span>系统硬件架构</span></a>
+    <a href="#form"><b>05</b><span>MVP产品形态</span></a>
+    <a href="#hardware"><b>06</b><span>硬件配置需求</span></a>
+    <a href="#interface"><b>07</b><span>接口与开孔</span></a>
+    <a href="#functions"><b>08</b><span>功能需求</span></a>
+    <a href="#quality"><b>09</b><span>性能与质量</span></a>
+    <a href="#acceptance"><b>10</b><span>样机验收</span></a>
+    <a href="#decisions"><b>11</b><span>待确认项</span></a>
+  </div>
+  <h3>1.1 文档目的</h3>
+  <p class="lead">本文件用于向硬件部门说明儿童AI运动陪伴机器人 MVP 要完成的产品功能、使用环境和硬件能力要求，为主控、摄像头、显示、音频、通信、供电和结构方案的选型提供依据。</p>
+  <p>本文件描述的是产品需求，不直接指定芯片品牌、电路实现和最终量产参数。硬件部门需要根据这些需求提出可行方案、候选器件、风险和验证方法，再由产品、硬件、设备端、算法和测试共同评审。</p>
+  <h3>1.2 文档范围</h3>
+  <div class="grid2">
+    <div class="card"><h3>本文件包含</h3><ul><li>MVP 功能闭环和设备在系统中的角色</li><li>家庭运动场景与核心使用流程</li><li>各硬件部件需要提供的能力</li><li>接口、结构、供电、散热和安全要求</li><li>样机阶段的性能要求与验收方法</li></ul></div>
+    <div class="card"><h3>本文件不包含</h3><ul><li>原理图、PCB 和详细电路设计</li><li>最终芯片型号、供应商和量产 BOM</li><li>完整 ID 设计和全套角色外壳</li><li>算法模型、App 页面和服务端实现细节</li><li>生产计划、认证计划和量产排期</li></ul></div>
+  </div>
+  <h3>1.3 硬件部门需要输出</h3>
+  <div class="checklist"><div class="check">整机硬件架构与主备选方案</div><div class="check">关键器件候选清单及选择理由</div><div class="check">接口、电源和散热初步方案</div><div class="check">结构布局和安装空间建议</div><div class="check">关键风险及需要联合验证的指标</div><div class="check">样机验证结果和已知限制</div></div>
+</section>
+
+<section id="definition">
+  <div class="section-title"><div class="num">02</div><div><h2>MVP产品定义</h2><p>硬件选型必须围绕这条产品闭环展开</p></div></div>
+  <div class="summary"><b>一句话定义：</b>这是一台放在家庭桌面或矮柜上的小型儿童运动陪伴设备。家长通过手机 App 下发运动任务，设备引导孩子站到合适位置，采集全身画面，配合算法完成动作识别、有效计数和基础姿态提醒，并把真实结果同步回 App。</div>
+  <h3>2.1 MVP必须完成的核心闭环</h3>
+  <div class="flow">
+    <div class="box"><b>家长下发任务</b><span>动作、目标次数、儿童信息</span></div><div class="arrow">→</div>
+    <div class="box"><b>设备引导并采集</b><span>联网、站位、倒计时、全身画面</span></div><div class="arrow">→</div>
+    <div class="box"><b>识别反馈与记录</b><span>有效计数、姿态提醒、结果同步</span></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>设备端承担</h3><ul><li>接收、确认并保存一条运动任务</li><li>通过像素屏、状态灯和语音完成必要引导</li><li>稳定采集儿童全身运动画面</li><li>向动作与姿态算法提供连续图像和状态</li><li>维护次数、暂停、离画、恢复和完成状态</li><li>网络异常时保留进度，恢复后补传结果</li></ul></div>
+    <div class="card"><h3>App和算法承担</h3><ul><li>家长创建任务、设置动作和目标次数</li><li>展示完整任务信息、运动记录和分析结果</li><li>提供 AI 运动分析和后续建议</li><li>判断动作是否有效并输出姿态结果</li><li>算法部署位置由技术评审确定，硬件需提供稳定输入和及时反馈能力</li></ul></div>
+  </div>
+  <h3>2.2 首版功能边界</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>类别</th><th>首版纳入</th><th>首版不做或暂不冻结</th></tr></thead>
+    <tbody>
+      <tr><td>运动动作</td><td>开合跳、深蹲起；保留扩展动作能力</td><td>动作库规模化扩充；高抬腿是否纳入由算法评审</td></tr>
+      <tr><td>姿态能力</td><td>入镜、距离、身体完整性、明显偏移，以及约定场景下的基础姿态提醒</td><td>医疗诊断、精细康复评估和复杂动作纠错</td></tr>
+      <tr><td>本地显示</td><td>像素表情、状态、倒计时、简短次数和异常图标</td><td>大尺寸触控 UI、课程视频和完整报告</td></tr>
+      <tr><td>产品形态</td><td>固定胶囊核心机身，验证 1 至 2 套磁吸角色外壳</td><td>完整角色体系、量产外观和最终材料工艺</td></tr>
+      <tr><td>供电</td><td>USB-C 稳定供电为必须能力，预留移动使用方案评审</td><td>内置电池容量、续航和充电策略暂不冻结</td></tr>
+      <tr><td>其他</td><td>Wi-Fi、基础蓝牙、状态灯、扬声器、麦克风预留</td><td>4G、NFC、移动底盘、自动云台、云端大模型必选能力</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="scenario">
+  <div class="section-title"><div class="num">03</div><div><h2>典型使用场景与操作流程</h2><p>硬件部门先理解孩子和家长实际怎么使用</p></div></div>
+  <h3>3.1 使用环境</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>项目</th><th>场景说明</th><th>对硬件的影响</th></tr></thead>
+    <tbody>
+      <tr><td>摆放位置</td><td>家庭桌面、矮柜或稳定台面，儿童在设备前约 1.5 至 3 米运动</td><td>固定前置摄像头需覆盖全身；机身平底防滑，镜头角度不能轻易偏移</td></tr>
+      <tr><td>光照</td><td>普通室内光、背光、较暗房间，可能存在电视或窗户干扰</td><td>摄像头需要基本宽容度和稳定帧率，算法联合测试后冻结参数</td></tr>
+      <tr><td>声音</td><td>家庭日常噪声，孩子与设备保持运动距离</td><td>提示音需听清但不能刺耳；出声孔不被角色外壳遮挡</td></tr>
+      <tr><td>网络</td><td>家庭 Wi-Fi 质量不稳定，可能短时断网或路由器重启</td><td>任务和结果需本地缓存；断网不应导致当前运动进度丢失</td></tr>
+      <tr><td>儿童接触</td><td>孩子可能按压、碰撞、拉线或拆装外壳</td><td>无尖锐边缘、夹手点和易吞咽小件；磁吸外壳需防误脱落</td></tr>
+    </tbody>
+  </table></div>
+  <h3>3.2 一次完整使用流程</h3>
+  <div class="feature">
+    <div class="feature-title">从家长下发任务到结果同步</div>
+    <div class="feature-grid">
+      <div>1 任务到达</div><div>设备收到动作、目标次数和任务 ID，保存后通过像素屏、状态灯和声音确认。</div>
+      <div>2 隐私确认</div><div>设备确认摄像头处于允许采集状态，隐私状态与状态灯、App 一致。</div>
+      <div>3 入镜与站位</div><div>摄像头检测儿童是否完整入镜、距离是否合适，语音提示前后移动或调整方向。</div>
+      <div>4 准备开始</div><div>准备条件满足后显示并播报倒计时，防止孩子尚未站稳就开始计数。</div>
+      <div>5 运动执行</div><div>连续采集图像，算法输出动作阶段、有效动作和姿态事件，设备只对有效动作加一。</div>
+      <div>6 过程反馈</div><div>像素屏显示简短次数或状态，扬声器提供计数、鼓励和不过度频繁的姿态提醒。</div>
+      <div>7 暂停恢复</div><div>孩子离画或主动暂停时保存进度；重新入镜并满足条件后继续，不从零开始。</div>
+      <div>8 完成同步</div><div>设备先在本地保存结果，再回传 App；断网时等待重连补传，避免重复记录。</div>
+    </div>
+  </div>
+</section>
+
+<section id="architecture">
+  <div class="section-title"><div class="num">04</div><div><h2>系统角色与硬件架构</h2><p>说明数据从哪里来、在设备内经过什么、最后输出到哪里</p></div></div>
+  <div class="flow">
+    <div class="box"><b>输入与感知</b><span>App任务<br>前置摄像头<br>本地操作<br>电源与温度状态</span></div><div class="arrow">→</div>
+    <div class="box"><b>设备核心</b><span>主控与系统<br>任务状态机<br>算法接口<br>存储与日志</span></div><div class="arrow">→</div>
+    <div class="box"><b>输出与连接</b><span>像素屏与状态灯<br>扬声器<br>Wi-Fi与蓝牙<br>结果回传App</span></div>
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>模块</th><th>主要职责</th><th>与其他模块的关系</th></tr></thead>
+    <tbody>
+      <tr><td>主控与操作系统</td><td>同时管理摄像头、显示、音频、通信、存储、状态机和算法接口</td><td>决定所有外设接口、性能余量、驱动适配和升级恢复能力</td></tr>
+      <tr><td>视觉采集</td><td>稳定提供儿童全身运动画面，支持入镜、动作和姿态判断</td><td>与算法共同确定分辨率、帧率、视场角、安装高度和距离</td></tr>
+      <tr><td>人机反馈</td><td>通过像素屏、状态灯和声音表达任务状态、倒计时、次数与异常</td><td>小屏不承担复杂文字，完整内容由 App 展示</td></tr>
+      <tr><td>无线通信</td><td>接收任务、同步状态和结果，支持配网、重连、重试与去重</td><td>网络异常不能破坏设备内真实状态和当前进度</td></tr>
+      <tr><td>本地存储</td><td>保存系统、任务、进度、结果、配置和故障日志</td><td>需要支持断电恢复、升级回滚和问题定位</td></tr>
+      <tr><td>供电与热管理</td><td>为摄像头、主控、显示、音频和无线模块稳定供电并控制温升</td><td>必须考虑满负载、外壳遮挡和儿童可触区域安全</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="form">
+  <div class="section-title"><div class="num">05</div><div><h2>MVP产品形态要求</h2><p>按参考形态明确结构边界，不把概念图当作冻结尺寸</p></div></div>
+  <div class="figure">
+    <img src="assets/MVP胶囊形态硬件示意图_V2.0.png" alt="胶囊核心设备、家庭运动视场和磁吸角色外壳示意">
+    <div class="caption">形态方向：小型圆角胶囊核心、上部固定前置摄像头、正面像素状态屏、平底防滑、顶部及侧背磁吸角色外壳接口。图片用于辅助选型和结构讨论，不代表最终 ID、尺寸和材料。</div>
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>结构区域</th><th>产品要求</th><th>硬件与结构需要确认</th><th>验证重点</th></tr></thead>
+    <tbody>
+      <tr><td>固定核心机身</td><td>主控、相机、像素屏、音频、通信、供电和散热固定在核心机身内，不随角色外壳更换</td><td>内部空间、维护拆装、线缆、天线、散热和器件替换路径</td><td>连续运行、拆装维护、跌落后功能和外观状态</td></tr>
+      <tr><td>前置摄像头</td><td>固定在机身正面上部，角色外壳不能遮挡镜头或改变安装角度</td><td>镜头开窗、固定方式、隐私遮挡或硬件断电方案</td><td>1.5 至 3 米全身覆盖、背光、弱光、左右偏移</td></tr>
+      <tr><td>像素状态屏</td><td>正面显示表情、状态、倒计时和简短数字，不承担复杂界面</td><td>显示技术、尺寸、亮度、点阵密度、视角和盖板</td><td>不同距离、亮度和角度下能否辨识关键状态</td></tr>
+      <tr><td>平底与重心</td><td>机身自然直立，不设置独立宽大底座；装上最重外壳后仍稳定</td><td>底部面积、内部配重、防滑材料和电源线出口</td><td>按键操作、轻碰和拉线时不倾倒、不明显滑移</td></tr>
+      <tr><td>磁吸角色外壳</td><td>顶部、侧面和背部采用统一连接点，基础外壳可快速装卸</td><td>磁吸方向、吸力、卡扣、防呆、寿命和儿童拆装安全</td><td>不遮挡视场、屏幕、音频、天线、散热和接口</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="hardware">
+  <div class="section-title"><div class="num">06</div><div><h2>硬件配置需求</h2><p>以下是硬件部门进行选型时需要逐项响应的核心内容</p></div></div>
+  <div class="warning"><b>参数使用原则：</b>“建议范围”用于缩小候选方案，不是已经冻结的技术规格。硬件部门应给出能否满足、候选方案、风险和验证方法；最终数值由样机联合测试后确认。</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th style="width:11%">硬件部分</th><th style="width:24%">产品需要它完成什么</th><th style="width:27%">选型要求与建议范围</th><th style="width:23%">需重点确认</th><th style="width:8%">优先级</th></tr></thead>
+    <tbody>
+      <tr><td><b>主控平台</b></td><td>同时承担系统运行、摄像头采集、像素屏刷新、音频、通信、存储、状态机及动作/姿态算法接口</td><td>应有足够 CPU、内存和存储余量；能稳定处理不低于 720p/30fps 视频流；是否需要 NPU 或独立算力模块由算法评审</td><td>驱动成熟度、连续运行、启动时间、功耗、散热、升级回滚和后续扩展</td><td><span class="p0">P0</span></td></tr>
+      <tr><td><b>前置摄像头</b></td><td>在家庭运动距离下持续看到儿童全身，支持入镜、动作识别和基础姿态检测</td><td>参考不低于 720p/30fps，优先比较 500 万像素广角方案；水平视场、畸变和弱光表现需实测，不直接照搬竞品参数</td><td>1.5 至 3 米覆盖、儿童不同身高、背光/弱光、边缘畸变、固定角度和隐私状态</td><td><span class="p0">P0</span></td></tr>
+      <tr><td><b>像素状态屏</b></td><td>表达眼睛表情、联网、任务、倒计时、简短次数、暂停、完成和异常状态</td><td>小型 OLED、LED 点阵或同类低功耗显示均可；不要求大触控屏，关键状态在运动距离下可辨认</td><td>尺寸、点阵密度、亮度、视角、刷新、功耗、寿命和外壳开窗</td><td><span class="p0">P0</span></td></tr>
+      <tr><td><b>本地按键或触控区</b></td><td>完成确认/开始、暂停/继续和返回等少量核心操作</td><td>优先使用明确、可靠且适合儿童的操作方式；不依赖复杂手势，关键操作有防误触</td><td>操作位置、按压力度、干湿手、连续操作、误触和机身稳定性</td><td><span class="p0">P0</span></td></tr>
+      <tr><td><b>扬声器</b></td><td>播放站位、倒计时、计数、姿态提醒、鼓励、完成和错误短提示</td><td>内置全频扬声器；音量可调，在普通家庭噪声下听清，不先冻结功率</td><td>腔体、出声方向、音量上限、破音、与麦克风同时工作时的回声和啸叫</td><td><span class="p0">P0</span></td></tr>
+      <tr><td><b>麦克风</b></td><td>为后续语音唤醒或简单语音输入预留，首版不作为核心闭环阻断项</td><td>预留近场收音能力和接口；不要求云端大模型作为硬件验收条件</td><td>安装位置、扬声器回声、噪声、隐私指示和默认录音策略</td><td><span class="p1">P1</span></td></tr>
+      <tr><td><b>Wi-Fi</b></td><td>接收任务、同步状态和结果、支持升级与日志上传</td><td>支持家庭常见 2.4GHz 网络，建议 Wi-Fi 5 或以上；是否增加 5GHz 由成本与天线评审</td><td>配网、穿墙、断网重连、吞吐、外壳对天线的影响和无线合规</td><td><span class="p0">P0</span></td></tr>
+      <tr><td><b>蓝牙</b></td><td>用于近距离发现、辅助配网或维护，不承担核心结果同步</td><td>参考蓝牙 5.0 或以上，具体角色由通信方案确定</td><td>与 Wi-Fi 共存、配对安全、距离、断开恢复和功耗</td><td><span class="p1">P1</span></td></tr>
+      <tr><td><b>本地存储</b></td><td>保存系统、当前任务、已确认次数、未同步结果、配置和故障日志</td><td>容量应覆盖系统、应用、升级回滚和不少于约定数量的未同步记录；默认不长期保存原始视频</td><td>断电写保护、寿命、日志增长、升级空间和异常恢复</td><td><span class="p0">P0</span></td></tr>
+      <tr><td><b>供电与USB-C</b></td><td>在摄像头、算法、屏幕、音频和联网同时工作时稳定供电</td><td>MVP 必须支持 USB-C 外接供电及常见 C-to-C 线缆；适配器功率按峰值负载留余量</td><td>峰值功耗、掉电、反复插拔、过流/过压/过温保护和接口固定</td><td><span class="p0">P0</span></td></tr>
+      <tr><td><b>电池预留</b></td><td>支持后续短时移动使用或断电保护</td><td>是否内置电池待评审；如采用，可参考 2000mAh 以上候选并以实际续航、重量和安全为准</td><td>续航、充电、温升、循环寿命、运输安全、重心和维护更换</td><td><span class="p1">P1</span></td></tr>
+      <tr><td><b>状态灯</b></td><td>让家长看懂电源、联网、采集和异常状态，尤其是摄像头是否工作</td><td>正面或顶部可见，亮度不过强；隐私相关指示不能被软件静默关闭</td><td>颜色和闪烁定义、导光结构、角色外壳遮挡和断电后的真实状态</td><td><span class="p0">P0</span></td></tr>
+      <tr><td><b>温度检测与散热</b></td><td>连续运动识别时性能不因过热明显下降，儿童可触区域无危险温升</td><td>主控和关键热源需要温度监测或等效保护；优先低噪声散热方案</td><td>满载温升、外壳遮挡、降频、噪声、儿童触摸区域和异常退出</td><td><span class="p0">P0</span></td></tr>
+      <tr><td><b>调试维护接口</b></td><td>支持日志导出、固件升级、恢复、版本查看和样机问题定位</td><td>预留 USB、串口或等效调试方式；量产前再评估隐藏与权限控制</td><td>升级失败回滚、恢复入口、接口位置、误操作保护和日志完整性</td><td><span class="p1">P1</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="interface">
+  <div class="section-title"><div class="num">07</div><div><h2>对外接口与结构开孔要求</h2><p>便于硬件和结构一起确认接口数量、位置与用途</p></div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>接口或开孔</th><th>建议数量</th><th>主要用途</th><th>位置要求</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td>摄像头窗口</td><td class="short">1</td><td>全身运动画面采集</td><td>正面上部，外壳不得遮挡</td><td>需同步考虑隐私遮挡或硬件开关</td></tr>
+      <tr><td>像素显示窗口</td><td class="short">1</td><td>表情、状态和简短数字</td><td>正面，运动距离下可见</td><td>盖板与机身齐平或内嵌</td></tr>
+      <tr><td>本地操作区</td><td class="short">1组</td><td>开始、暂停、继续、返回</td><td>儿童容易触达且不易误触</td><td>可用按键或小范围触控区</td></tr>
+      <tr><td>扬声器出声孔</td><td class="short">1组</td><td>语音与提示音输出</td><td>不贴近桌面，不被外壳遮挡</td><td>需兼顾防尘与腔体效果</td></tr>
+      <tr><td>麦克风孔</td><td class="short">1组</td><td>语音能力预留</td><td>远离扬声器并避免被外壳覆盖</td><td>首版可作为预留</td></tr>
+      <tr><td>USB-C</td><td class="short">1</td><td>供电，按方案可兼顾调试</td><td>插线后不顶起机身、不易拉倒</td><td>需确认 C-to-C 兼容和固定强度</td></tr>
+      <tr><td>复位或恢复入口</td><td class="short">1</td><td>异常恢复或进入维护模式</td><td>隐藏式，避免儿童误触</td><td>与恢复策略共同定义</td></tr>
+      <tr><td>状态灯窗口</td><td class="short">1组</td><td>电源、网络、采集、异常提示</td><td>正面或顶部清楚可见</td><td>隐私指示不可被角色外壳遮挡</td></tr>
+      <tr><td>磁吸外壳接口</td><td class="short">多处</td><td>安装顶部、侧面和背部角色外壳</td><td>位置统一、防呆，不侵入功能安全区</td><td>是否增加物理卡扣由结构评审</td></tr>
+      <tr><td>散热孔或散热面</td><td class="short">按方案</td><td>连续运行散热</td><td>不能被桌面或角色外壳堵塞</td><td>避免儿童手指伸入和液体直入</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="functions">
+  <div class="section-title"><div class="num">08</div><div><h2>关键功能需求</h2><p>统一采用功能描述、输入、处理、输出和异常规则</p></div></div>
+  <div class="feature"><div class="feature-title">F01 接收与保存运动任务 <span class="p0">P0</span></div><div class="feature-grid"><div>功能描述</div><div>设备接收 App 下发的动作、目标次数和任务 ID，校验后本地保存并确认任务已生效。</div><div>输入</div><div>App 任务数据、设备网络状态、当前设备状态。</div><div>处理</div><div>校验必填字段；相同任务 ID 去重；正在运动时按约定拒绝或排队新任务。</div><div>输出</div><div>像素屏、状态灯或声音确认；向 App 返回“已收到”或明确错误。</div><div>异常规则</div><div>断网时不显示虚假接收；格式错误不进入任务；重复任务不能创建两条记录。</div><div>硬件关联</div><div>Wi-Fi、主控、本地存储、像素屏、状态灯、扬声器。</div></div></div>
+  <div class="feature"><div class="feature-title">F02 入镜与站位引导 <span class="p0">P0</span></div><div class="feature-grid"><div>功能描述</div><div>设备判断画面中是否有人、身体是否完整、距离和左右位置是否适合运动，并给出调整提示。</div><div>输入</div><div>固定前置摄像头连续图像帧。</div><div>处理</div><div>算法输出无人、过近、过远、身体不完整、偏左或偏右等状态；连续满足准备条件后才允许开始。</div><div>输出</div><div>语音为主，像素状态和 App 为辅。</div><div>异常规则</div><div>镜头被遮挡、画面过暗或采集失败时不进入运动状态，并给出可理解提示。</div><div>硬件关联</div><div>摄像头、主控/算法接口、扬声器、像素屏、状态灯。</div></div></div>
+  <div class="feature"><div class="feature-title">F03 动作识别与有效计数 <span class="p0">P0</span></div><div class="feature-grid"><div>功能描述</div><div>开合跳、深蹲起完成一个有效动作后次数加一；半个动作、幅度不足或动作不确定时不计数。</div><div>输入</div><div>连续图像帧、动作类型、算法阶段与置信结果。</div><div>处理</div><div>状态机保证一次完整动作只计一次，并保留已确认次数。</div><div>输出</div><div>简短次数、计数音效或鼓励提示，并同步 App。</div><div>异常规则</div><div>画面丢失、帧率不足或算法状态异常时暂停确认，不补造次数。</div><div>硬件关联</div><div>摄像头、主控/算法算力、内存、存储、显示、音频。</div></div></div>
+  <div class="feature"><div class="feature-title">F04 基础姿态检测与提醒 <span class="p0">P0</span></div><div class="feature-grid"><div>功能描述</div><div>在约定场景下识别明显的身体偏移、距离异常、动作幅度不足或姿态问题，并提供非医疗化提醒。</div><div>输入</div><div>摄像头图像、动作阶段、姿态关键点或算法事件。</div><div>处理</div><div>持续达到触发条件后提醒；短暂变化不频繁打扰；提醒间隔可配置。</div><div>输出</div><div>语音提示为主，像素图标和 App 摘要为辅。</div><div>异常规则</div><div>置信度不足时不做确定性判断；不得把算法不确定结果描述成医学结论。</div><div>硬件关联</div><div>摄像头、主控/算法算力、扬声器、像素屏、通信。</div></div></div>
+  <div class="feature"><div class="feature-title">F05 暂停 离画与恢复 <span class="p0">P0</span></div><div class="feature-grid"><div>功能描述</div><div>孩子主动暂停或暂时离开画面后，设备保留已完成次数；重新入镜并确认后继续。</div><div>输入</div><div>本地按键/触控、App 指令、离画事件、电源与系统状态。</div><div>处理</div><div>保存任务 ID、已确认次数和暂停原因；恢复时重新执行入镜检查。</div><div>输出</div><div>暂停/恢复状态和语音提示，同步 App。</div><div>异常规则</div><div>重启或异常断电后不得把未完成任务标成完成，也不得重复生成结果。</div><div>硬件关联</div><div>本地输入、存储、主控、摄像头、显示、音频。</div></div></div>
+  <div class="feature"><div class="feature-title">F06 结果保存与同步 <span class="p0">P0</span></div><div class="feature-grid"><div>功能描述</div><div>任务完成后保存动作、目标、有效次数、用时、完成状态和姿态事件摘要，并同步 App。</div><div>输入</div><div>任务状态机、计数结果、姿态事件、设备时间和网络状态。</div><div>处理</div><div>结果先本地落盘，再发送；按记录 ID 去重；失败时缓存并重试。</div><div>输出</div><div>设备给出完成反馈，App 展示完整结果。</div><div>异常规则</div><div>断网、重连或重复发送时只形成一条主记录；未同步记录不得静默丢失。</div><div>硬件关联</div><div>本地存储、Wi-Fi、主控、像素屏、扬声器。</div></div></div>
+  <div class="feature"><div class="feature-title">F07 隐私与采集状态 <span class="p0">P0</span></div><div class="feature-grid"><div>功能描述</div><div>家长能从物理状态和指示灯判断摄像头是否允许采集，设备不得仅通过软件页面宣称已关闭。</div><div>输入</div><div>物理遮挡片或硬件开关状态、摄像头供电和驱动状态。</div><div>处理</div><div>只有硬件状态明确且允许采集时才进入视觉流程。</div><div>输出</div><div>状态灯、像素屏和 App 保持一致。</div><div>异常规则</div><div>状态不明、机构未到位或硬件关闭时禁止采集并记录错误。</div><div>硬件关联</div><div>固定摄像头、物理隐私方案、状态灯、主控 GPIO/电源控制。</div></div></div>
+</section>
+
+<section id="quality">
+  <div class="section-title"><div class="num">09</div><div><h2>性能与质量要求</h2><p>让“可以使用”变成可测量、可复现的判断</p></div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>质量属性</th><th>产品要求</th><th>当前建议口径</th><th>验证方式</th></tr></thead>
+    <tbody>
+      <tr><td>启动与恢复</td><td>正常上电后进入可联网、可显示状态；异常重启后能恢复任务或明确提示</td><td>具体启动时间由硬件方案实测后冻结</td><td>冷启动、断电重启、升级失败和恢复测试</td></tr>
+      <tr><td>视觉稳定性</td><td>家庭目标距离下连续提供算法可用画面，不明显掉帧、卡死或自动改变角度</td><td>参考不低于 720p/30fps；最终以算法效果为准</td><td>连续运动、弱光、背光、边缘站位和遮挡测试</td></tr>
+      <tr><td>反馈时效</td><td>有效动作后次数和声音反馈连续，不让孩子因明显延迟重复动作</td><td>具体端到端时延由联合测试后冻结</td><td>记录动作发生、算法输出和设备反馈时间</td></tr>
+      <tr><td>网络恢复</td><td>短时断网不丢任务和结果；恢复后自动重连并补传</td><td>支持缓存、重试和记录去重</td><td>断网、换网、路由器重启和重复上报测试</td></tr>
+      <tr><td>连续运行</td><td>摄像头、算法、显示、音频和联网同时运行时不死机、不异常重启</td><td>样机至少完成持续运行与重复任务测试</td><td>连续满负载运行，记录温度、帧率、内存和异常</td></tr>
+      <tr><td>温升与噪声</td><td>儿童可触区域无危险温升；散热噪声不明显影响语音提示</td><td>限值由结构、硬件和安全评审后冻结</td><td>装壳前后满负载温升与噪声对比</td></tr>
+      <tr><td>结构安全</td><td>无锐利边缘、明显夹手点和易吞咽小件；磁吸外壳不因轻碰脱落</td><td>角色外壳按儿童接触场景评审</td><td>装卸循环、轻碰、拉扯、跌落和小件检查</td></tr>
+      <tr><td>数据与隐私</td><td>默认不长期保存原始视频；任务、结果和日志按最小必要原则处理</td><td>摄像头工作状态必须可见，敏感数据传输需受保护</td><td>待机、隐私关闭、日志、断网缓存和恢复检查</td></tr>
+      <tr><td>维护升级</td><td>支持版本查看、日志导出、升级和失败恢复</td><td>调试权限和量产入口后续收口</td><td>正常升级、断电升级、错误包和回滚测试</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="acceptance">
+  <div class="section-title"><div class="num">10</div><div><h2>MVP样机验收场景</h2><p>样机能否进入联调，以完整场景结果判断</p></div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>编号</th><th>验收场景</th><th>操作</th><th>通过标准</th><th>记录</th></tr></thead>
+    <tbody>
+      <tr><td>AC-01</td><td>任务接收</td><td>连续发送、重复发送同一任务</td><td>设备只形成一条有效任务，并明确反馈已收到</td><td>视频、设备日志、App记录</td></tr>
+      <tr><td>AC-02</td><td>全身入镜</td><td>不同身高、距离、左右偏移、背光和弱光站位</td><td>能给出正确站位提示，准备条件不满足时不开始</td><td>样本记录、截图、日志</td></tr>
+      <tr><td>AC-03</td><td>开合跳计数</td><td>有效、半程、不确定动作混合执行</td><td>有效动作逐次计数，无明显跳数和重复计数</td><td>人工真值与设备结果</td></tr>
+      <tr><td>AC-04</td><td>深蹲起计数</td><td>有效、幅度不足和中途停顿混合执行</td><td>仅完整有效动作计数，错误动作不补造次数</td><td>人工真值与设备结果</td></tr>
+      <tr><td>AC-05</td><td>姿态提醒</td><td>构造约定的距离、偏移或姿态问题</td><td>持续异常后提醒，短暂变化不过度打扰，提示内容易理解</td><td>视频、事件日志</td></tr>
+      <tr><td>AC-06</td><td>暂停和恢复</td><td>做到 12/20 后暂停、离画、重新入镜</td><td>恢复后下一次有效动作是 13，进度不丢失</td><td>设备与App记录</td></tr>
+      <tr><td>AC-07</td><td>断网补传</td><td>完成任务时断网，随后恢复网络</td><td>本地结果保留，恢复后只同步一条完整记录</td><td>网络日志、记录ID</td></tr>
+      <tr><td>AC-08</td><td>断电恢复</td><td>运动中和写结果时分别断电</td><td>重启后不产生虚假完成，任务和记录可按策略恢复</td><td>日志、存储检查</td></tr>
+      <tr><td>AC-09</td><td>隐私状态</td><td>切换物理隐私状态并重启设备</td><td>采集、状态灯、像素屏和 App 显示一致；关闭时不能采集</td><td>视频、电气/状态检查</td></tr>
+      <tr><td>AC-10</td><td>装壳后功能</td><td>分别安装基础角色外壳并连续运行</td><td>不遮挡镜头、显示、声音、收音、天线、散热和USB-C</td><td>装壳前后对比</td></tr>
+      <tr><td>AC-11</td><td>结构稳定</td><td>安装最重外壳，按键操作、轻碰并轻拉电源线</td><td>机身不倾倒、不明显滑移，外壳不脱落，镜头角度不变化</td><td>结构视频与测量</td></tr>
+      <tr><td>AC-12</td><td>连续运行</td><td>循环执行任务并保持摄像头、算法、显示、音频和联网同时工作</td><td>无死机、异常重启和明显性能下降；温升在评审范围内</td><td>运行日志与温度记录</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="decisions">
+  <div class="section-title"><div class="num">11</div><div><h2>硬件选型前待确认事项</h2><p>这些问题需要硬件部门在方案评审中给出结论</p></div></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>待确认项</th><th>为什么必须确认</th><th>希望硬件部门给出的内容</th></tr></thead>
+    <tbody>
+      <tr><td>主控和算法部署方式</td><td>决定摄像头接口、算力、内存、功耗、散热和系统复杂度</td><td>主方案、备选方案、能力余量、限制和验证方法</td></tr>
+      <tr><td>摄像头规格与固定角度</td><td>直接影响全身入镜、动作识别和姿态检测范围</td><td>候选摄像头、视场与安装建议、样张和算法联合测试方案</td></tr>
+      <tr><td>像素屏方案</td><td>需要兼顾表情效果、远距离辨识、功耗和机身开窗</td><td>显示技术、候选尺寸、亮度、点阵密度和驱动接口</td></tr>
+      <tr><td>固定相机隐私方案</td><td>家长必须能判断摄像头是否真正关闭</td><td>物理遮挡、硬件断电或其他方案对比及默认安全状态</td></tr>
+      <tr><td>USB-C供电与电池预留</td><td>影响适配器、峰值功耗、结构空间、重量和使用方式</td><td>功率预算、适配器建议、电池是否必要及预留方式</td></tr>
+      <tr><td>磁吸接口与防脱</td><td>关系到外壳兼容、儿童安全、视场、散热和重心</td><td>接口数量、位置、吸力、辅助卡扣和装卸寿命建议</td></tr>
+      <tr><td>散热与可触温升</td><td>胶囊机身紧凑，角色外壳可能进一步影响散热</td><td>热源分布、散热路径、温度监测和降频/保护策略</td></tr>
+      <tr><td>样机调试与恢复</td><td>联调阶段需要快速定位摄像头、算法、网络和供电问题</td><td>调试接口、日志、升级、复位和回滚方案</td></tr>
+    </tbody>
+  </table></div>
+  <div class="summary"><b>评审结论要求：</b>硬件选型不只提交器件型号，还需要说明该方案如何满足本文件中的场景、功能和验收要求；无法确认的指标应标为“待联合验证”，并给出验证条件。</div>
+</section>
+</main>
+<footer class="footer"><div class="wrap">儿童AI运动陪伴机器人 MVP硬件技术需求说明书 V2.0 · 本文件作为硬件方案讨论和样机选型输入，不替代原理图、PCB设计文件和量产规格书。</div></footer>
+</body>
+</html>
