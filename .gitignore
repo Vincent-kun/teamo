@@ -11,3 +11,25 @@ node_modules/
 .env.*
 !.env.example
 
+# 工具/缓存/部署目录（不上传）
+.workbuddy/
+.sites-deploy/
+.docx-review/
+.playwright-cli/
+
+# 构建产物
+dist/
+site-dist/
+
+# 内部状态/产物
+*.genie
+.wbapp_*
+
+# 日志与编辑器杂项
+*.log
+*.swp
+*.swo
+
+# 大文件/压缩包
+*.zip
+

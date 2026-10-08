@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teamo · 双端联动交互演示</title>
+<style>
+/* ═══════════ 基础(ui-flow 视觉体系) ═══════════ */
+:root{
+  font-family:Inter,'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;
+  --accent:#c6ff45; --blue:#39baff;
+}
+*{box-sizing:border-box} button{font:inherit;cursor:pointer}
+html,body{margin:0;height:100%;color:#eef2f5;background:#080b0e;-webkit-font-smoothing:antialiased}
+body{background:radial-gradient(circle at 50% -20%,#26313a 0,#131a20 43%,#0d1216 100%)}
+
+/* ═══════════ 顶栏 ═══════════ */
+.topbar{height:64px;display:flex;align-items:center;gap:16px;padding:0 26px;
+  background:rgba(7,10,13,.92);border-bottom:1px solid #242b32;box-shadow:0 8px 25px #0008}
+.topbar .robot{width:40px;height:40px;object-fit:contain}
+.topbar .tb-name{display:grid}
+.topbar .tb-name b{font-size:16px;letter-spacing:.2px}
+.topbar .tb-name small{color:#88939f;font-size:11px}
+.topbar .grow{flex:1}
+.tb-btn{border:1px solid #303941;background:#161c21;color:#aab4bd;border-radius:10px;padding:9px 16px;font-size:13px}
+.tb-btn.primary{background:var(--accent);border-color:var(--accent);color:#101507;font-weight:700}
+
+/* ═══════════ 舞台 ═══════════ */
+.stage{height:calc(100vh - 64px);display:grid;grid-template-columns:auto auto;align-items:center;justify-content:center;gap:8vw;padding:10px 3vw}
+
+/* ═══════════ 手机(ui-flow 深色家长端 ×2.3) ═══════════ */
+.phone-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
+.phone{position:relative;width:372px;height:798px;padding:11px;border-radius:54px;background:#c8c9ca;
+  box-shadow:0 12px 40px #000a,inset 0 0 0 2px #aeb0b2}
+.notch{position:absolute;z-index:3;top:22px;left:50%;transform:translateX(-50%);width:94px;height:25px;border-radius:0 0 17px 17px;background:#000}
+.p-status{position:absolute;z-index:3;top:27px;left:27px;right:27px;display:flex;justify-content:space-between;font-size:11px;color:#fff;font-weight:600}
+.p-screen{position:relative;width:100%;height:100%;overflow:hidden;border-radius:44px;
+  padding:52px 17px 30px;display:flex;flex-direction:column;
+  background:linear-gradient(160deg,#11161a,#080a0c)}
+.p-view{display:flex;flex-direction:column;gap:15px;min-height:0;overflow-y:auto;scrollbar-width:none;flex:1;padding-bottom:6px}
+.p-view::-webkit-scrollbar{width:0}
+.homebar{position:absolute;z-index:3;bottom:13px;left:50%;transform:translateX(-50%);width:96px;height:5px;border-radius:5px;background:#fff;opacity:.9}
+
+/* 手机内组件 */
+.p-top{display:grid;grid-template-columns:28px 1fr 28px;align-items:center;text-align:center;min-height:34px;font-size:19px;font-weight:700}
+.p-top svg{width:20px;height:20px}
+.p-top button{border:0;background:none;color:#fff;padding:4px;display:grid;place-items:center;border-radius:8px}
+.lead{font-size:14px;color:#929ca5;margin:0;line-height:1.6;text-align:left}
+.lead.center{text-align:center}
+.card{display:flex;gap:12px;align-items:center;text-align:left;border:1.5px solid transparent;border-radius:15px;
+  background:#1b2125;padding:15px;font-size:14.5px;line-height:1.9;color:#e8ecef}
+.card.block{display:block}
+.card svg{width:26px;height:26px;flex:none}
+.card>div{display:grid;flex:1}
+.card small{display:block;font-size:12px;color:#929ca5}
+.card em{margin-left:auto;color:var(--accent);font-style:normal;font-size:13px}
+.card.selected{border-color:var(--accent)}
+.card .dot{margin-left:auto;width:18px;height:18px;border-radius:50%;border:2px solid #5a646d;flex:none}
+.card.selected .dot{border-color:var(--accent);background:radial-gradient(circle,var(--accent) 0 5px,#0000 6px)}
+.action{margin-top:auto;min-height:52px;display:flex;align-items:center;justify-content:center;gap:10px;
+  font-size:17px;font-weight:700;border:0;border-radius:30px;background:var(--accent);color:#11170a}
+.action svg{width:18px;height:18px}
+.phone h2{margin:2px 0;font-size:27px}
+.phone h3{font-size:19px;margin:6px 0 0}
+.phone h4{font-size:15px;margin:4px 0;color:#c9d1d7}
+.phone p{font-size:14px;color:#929ca5;margin:0;line-height:1.7}
+.phone .date{font-size:13px;color:#7c8790;margin:-10px 0 0}
+.today{display:flex;justify-content:space-between;align-items:center}
+.today button{border:0;background:#222a30;color:#fff;width:30px;height:30px;border-radius:10px;font-size:18px;display:grid;place-items:center}
+.kid{display:flex;gap:12px;align-items:center}
+.kid>span{font-size:38px}
+.kid b{font-size:17px}
+.green{color:#76d92b}
+.p-ring{--p:120deg;align-self:center;width:216px;height:216px;border-radius:50%;display:grid;place-items:center;
+  background:conic-gradient(var(--accent) 0 var(--p),#334039 var(--p));padding:14px;margin:8px 0}
+.p-ring-core{width:100%;height:100%;border-radius:50%;background:#0a0d0f;display:grid;place-items:center}
+.p-ring-core .robot{width:118px;height:118px}
+.checklist{display:grid;gap:12px;font-size:14.5px}
+.checklist div{display:flex;gap:11px;align-items:center}
+.checklist .ck,.checklist .un{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;flex:none}
+.checklist .ck{background:var(--accent);color:#111}
+.checklist .un{border:1.5px solid #83909a}
+.checklist svg{width:15px;height:15px}
+.celebrate{position:relative;margin:auto;padding:16px 0}
+.paused-robot{position:relative;align-self:center;margin:18px 0}
+.paused-robot .robot{width:140px;height:140px}
+.paused-robot i{position:absolute;right:-10px;bottom:0;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--accent);color:#111;font-style:normal;font-size:18px}
+.party{display:grid;place-items:center;color:var(--accent);font-size:30px;margin:auto;padding:12px 0}
+.party .robot{width:160px;height:160px}
+.target-icon{display:grid;place-items:center;gap:7px;font-size:56px;margin:4px 0}
+.target-icon b{font-size:17px}
+.segment,.quick{display:flex;background:#20262b;border-radius:14px;padding:5px}
+.segment>*{flex:1;padding:10px;border-radius:10px;text-align:center;font-size:15px;color:#aab4bd}
+.segment b,.quick b{background:var(--accent);color:#111;font-weight:700}
+.quick{justify-content:space-around;font-size:14px}
+.quick>*{padding:9px 14px;border-radius:12px;color:#aab4bd}
+.quick>.qsel{background:var(--accent);color:#111;font-weight:700}
+.number{display:flex;align-items:center;justify-content:space-around;padding:4px 0}
+.number b{font-size:56px}
+.number small{font-size:16px;color:#929ca5;margin-left:4px}
+.number button{border:0;width:46px;height:46px;border-radius:50%;background:#222a30;color:#fff;display:grid;place-items:center}
+.number svg{width:20px;height:20px}
+.sport-sym{font-size:30px;width:44px;text-align:center;flex:none}
+.sending-h2{align-self:center;font-size:24px;margin:8px 0 0}
+.dev-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#76d92b;margin-right:7px}
+.dev-dot.warn{background:#e8b93c}
+
+/* ═══════════ 设备(ui-flow 深色 orb 18 态 ×1.8) ═══════════ */
+.device-wrap{display:flex;flex-direction:column;align-items:center;gap:16px}
+.device-shell{position:relative;width:430px;padding:26px 30px 22px;border-radius:44px;
+  background:linear-gradient(170deg,#fdfdfd,#e7e9ea 60%,#d4d7d9);
+  box-shadow:0 18px 50px #000b,inset 0 2px 3px #fff,inset 0 -3px 6px #b9bec1}
+.shell-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.slider-wrap{position:relative}
+.slider{width:66px;height:36px;border-radius:99px;background:#2a2f31;border:0;position:relative;overflow:hidden;transition:.2s;box-shadow:inset 0 2px 5px #0009}
+.slider i{position:absolute;top:4px;left:4px;width:30px;height:28px;border-radius:99px;background:linear-gradient(160deg,#ffd23e,#ff9357);transition:.25s;box-shadow:0 1px 3px #0007}
+.slider.closed i{left:32px;background:linear-gradient(160deg,#b7bdc2,#8a9095)}
+.slider-tip{position:absolute;top:-30px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:12px;color:#5c6873;opacity:0;transition:.15s;pointer-events:none}
+.slider-wrap:hover .slider-tip{opacity:1}
+.cam-label{font-size:13px;font-weight:700;color:#3d4245;letter-spacing:.06em}
+.cam-label.off{color:#a15b1e}
+.home-btn{border:0;width:46px;height:46px;border-radius:50%;background:linear-gradient(170deg,#f4f5f6,#cfd3d6);box-shadow:0 2px 5px #0006,inset 0 1px 2px #fff;font-size:15px;color:#8a9095}
+.home-btn:active{transform:translateY(1px)}
+
+.device-orb{--orb-safe:30px;position:relative;width:340px;height:340px;margin:0 auto;border-radius:50%;
+  border:3px solid #687481;overflow:hidden;user-select:none;
+  background:radial-gradient(circle at 68% 25%,#151c21,#050607 58%,#000);
+  box-shadow:inset 0 0 0 9px #0e1113,0 10px 30px #000a;cursor:pointer}
+.device-orb::before{content:"";position:absolute;z-index:1;inset:var(--orb-safe);border-radius:50%;
+  border:1px solid rgba(255,255,255,.075);box-shadow:0 0 22px rgba(198,255,69,.025) inset;pointer-events:none}
+.device-content{position:absolute;z-index:2;inset:var(--orb-safe);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px;color:#fff;text-align:center}
+.eyes{display:flex;gap:52px}
+.eyes i{width:30px;height:86px;border-radius:20px;background:#fff;box-shadow:0 0 26px #fff9}
+.orbit-icons{display:grid;grid-template-columns:repeat(2,72px);gap:10px}
+.orbit-icons span{display:grid;place-items:center;width:72px;height:72px;border-radius:50%;background:#222a30;font-size:32px}
+.orbit-icons span:first-child{color:var(--accent);border:3px solid var(--accent)}
+.device-content small{font-size:22px;letter-spacing:.14em;color:#c9d2d9}
+.sport-tabs{display:flex;gap:28px;color:#69747c;font-size:32px}
+.sport-choice{display:grid;place-items:center;width:88px;height:88px;border:3px solid var(--accent);border-radius:50%;color:var(--accent);font-size:43px}
+.eyebrow{font-size:25px;font-weight:700}
+.goal-line{display:flex;align-items:center;gap:14px}
+.goal-line button{width:48px;height:48px;border-radius:50%;border:0;background:#1d2429;color:#fff;font-size:23px;display:grid;place-items:center}
+.goal-line strong{font-size:52px;color:var(--accent)}
+.goal-line small{font-size:17px;color:#8fa89a}
+.pill{border:0;border-radius:36px;background:var(--accent);color:#11170a;font-weight:700;font-size:18px;min-width:128px;padding:12px 25px}
+.pill.soft{background:#1e2429;color:#fff}
+.pill-row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.d-ring{--p:120deg;width:218px;height:218px;border-radius:50%;display:grid;place-items:center;
+  background:conic-gradient(var(--ring,#c6ff45) 0 var(--p),#334039 var(--p));padding:13px}
+.d-ring-core{width:100%;height:100%;border-radius:50%;background:#090b0c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.giant{font-size:76px;line-height:.95;font-weight:800}
+.go{font-size:56px;color:var(--accent);font-weight:800;letter-spacing:.04em}
+.pixel{font-size:76px}
+.robot{width:124px;height:124px;object-fit:contain;filter:drop-shadow(0 5px 16px #0008)}
+.robot.small{width:86px;height:86px}
+.hud{position:absolute;top:6px;left:50%;transform:translateX(-50%);width:166px;display:flex;justify-content:space-between;font-size:15px;color:#c9d2d9}
+.count-no{font-size:68px}
+.hud-pause{position:absolute;right:2px;bottom:2px;width:46px;height:46px;border-radius:50%;border:2px solid #4c585f;background:#14191dcc;color:#fff;font-size:18px;display:grid;place-items:center}
+.lime-title{font-size:38px;color:var(--accent);font-weight:800}
+.spark-row,.confetti{color:var(--accent);font-size:31px;letter-spacing:.25em}
+.statline{width:210px;display:flex;gap:14px;align-items:center;font-size:23px}
+.statline small{color:#aeb8c0;font-size:19px}
+.achievement{font-size:37px;font-weight:800}
+.trophy{font-size:78px}
+.sleep{font-size:48px}
+.invite-card{display:grid;gap:6px;justify-items:center;padding:0 8px;text-align:center;transform:translateY(-14px)}
+.invite-card .from{font-size:15px;color:#9fb4a5}
+.invite-card .what{font-size:27px;font-weight:800}
+.invite-card .what small{font-size:17px;color:#9fb4a5;font-weight:400}
+.invite-card .robot.small{width:56px;height:56px}
+.invite-card .pill-row{gap:12px}
+.invite-card .pill{min-width:108px;padding:10px 22px;font-size:17px}
+
+/* 设备下方说明 */
+.device-caption{display:flex;gap:26px;font-size:12.5px;color:#8f9aa4}
+.device-caption b{color:#dfe5ea;font-weight:600}
+
+/* toast */
+#toast{position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);z-index:99;max-width:520px;
+  background:#1b2125;border:1px solid #34404a;color:#e8ecef;padding:12px 22px;border-radius:14px;font-size:14px;
+  opacity:0;transition:.25s;pointer-events:none;box-shadow:0 10px 30px #000a}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:980px){.stage{grid-template-columns:1fr;height:auto;padding:26px 0 60px;gap:44px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <img class="robot" src="assets/teamo-face.png" alt="Teamo">
+  <div class="tb-name"><b>Teamo · 双端联动交互演示</b><small>左:家长 App(真可点) · 右:设备圆屏(真可交互) · UI 按 ui-flow 视觉稿还原</small></div>
+  <div class="grow"></div>
+  <button class="tb-btn primary" id="autoBtn">▶ 自动演示</button>
+  <button class="tb-btn" id="resetBtn">重置</button>
+</div>
+
+<div class="stage">
+  <!-- ═══ 手机 ═══ -->
+  <div class="phone-wrap">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="p-status"><span>9:41</span><span>▮▮ Wi-Fi ▰</span></div>
+      <div class="p-screen" id="pScreen"></div>
+      <i class="homebar"></i>
+    </div>
+    <div class="device-caption"><span>📱 <b>家长端 App</b>(按钮可点)</span></div>
+  </div>
+
+  <!-- ═══ 设备 ═══ -->
+  <div class="device-wrap">
+    <div class="device-shell">
+      <div class="shell-top">
+        <div class="slider-wrap">
+          <button class="slider" id="slider" aria-label="摄像头物理滑盖"><i></i></button>
+          <span class="slider-tip">物理滑盖:点击开/关摄像头</span>
+        </div>
+        <span class="cam-label" id="camLabel">CAM ON</span>
+      </div>
+      <div class="device-orb" id="dOrb"></div>
+      <div class="shell-top" style="margin:18px 0 0;justify-content:center">
+        <button class="home-btn" id="homeBtn" title="实体键:待机/菜单">⬤</button>
+      </div>
+    </div>
+    <div class="device-caption"><span>🖥 <b>设备圆屏</b>(可点击)</span><span>⬤ <b>实体键</b></span><span>🎚 <b>滑盖</b>=物理隐私</span></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* ═══════════ 数据 ═══════════ */
+const SPORTS=[
+  {id:'rope',  sym:'◉', name:'跳绳',  target:100, step:10,  hint:'协调性 · 心肺'},
+  {id:'jump',  sym:'⚝', name:'开合跳',target:50,  step:5,   hint:'全身 · 热身'},
+  {id:'squat', sym:'♟', name:'深蹲',  target:30,  step:5,   hint:'下肢力量'},
+  {id:'stretch',sym:'⟋',name:'拉伸',  target:5,   step:1,   hint:'放松 · 柔韧', unit:'分钟'},
+];
+const CHEERS=['做得很棒,今天坚持完成了跳绳!','太厉害了!继续加油!','坚持就是胜利!💪','运动让你更棒!🌟'];
+const sport=id=>SPORTS.find(s=>s.id===id);
+const $=s=>document.querySelector(s);
+
+/* SVG 图标(phosphor 风) */
+const IC={
+  left:'<svg viewBox="0 0 256 256" fill="currentColor"><path d="M224 128a8 8 0 0 1-8 8H72.97l43.52 43.51a8 8 0 0 1-11.32 11.32l-57-57a8 8 0 0 1 0-11.32l57-57a8 8 0 0 1 11.32 11.32L72.97 120H216a8 8 0 0 1 8 8Z"/></svg>',
+  right:'<svg viewBox="0 0 256 256" fill="currentColor"><path d="M32 128a8 8 0 0 1 8-8h143.03l-43.52-43.51a8 8 0 0 1 11.32-11.32l57 57a8 8 0 0 1 0 11.32l-57 57a8 8 0 0 1-11.32-11.32L183.03 136H40a8 8 0 0 1-8-8Z"/></svg>',
+  check:'<svg viewBox="0 0 256 256" fill="currentColor"><path d="M227.32 73.37 104.31 196.31a16 16 0 0 1-22.63 0l-52.99-53a8 8 0 0 1 11.32-11.31L92.99 184.98 216.01 62.05a8 8 0 0 1 11.31 11.32Z"/></svg>',
+  plus:'<svg viewBox="0 0 256 256" fill="currentColor"><path d="M224 128a8 8 0 0 1-8 8h-80v80a8 8 0 0 1-16 0v-80H40a8 8 0 0 1 0-16h80V40a8 8 0 0 1 16 0v80h80a8 8 0 0 1 8 8Z"/></svg>',
+  minus:'<svg viewBox="0 0 256 256" fill="currentColor"><path d="M224 128a8 8 0 0 1-8 8H40a8 8 0 0 1 0-16h176a8 8 0 0 1 8 8Z"/></svg>',
+  share:'<svg viewBox="0 0 256 256" fill="currentColor" style="width:70px;height:70px;color:#39baff"><path d="M176 152a27.94 27.94 0 0 0-20.42 8.85l-46.2-26.1a28.08 28.08 0 0 0 0-15.5l46.2-26.1A28 28 0 1 0 145.44 83l-46.2 26.1a28 28 0 1 0 0 37.84l46.2 26.11A28 28 0 1 0 176 152Z"/></svg>',
+};
+
+/* ═══════════ 状态 ═══════════ */
+let S, cntT=null, flashT=null, chainT=[];
+function fresh(){return{
+  dmode:'idle',          /* idle|invite|menu|select|goal|countdown|start|count|rest|complete|summary|achievement|options */
+  flash:null,            /* milestone|final|encourage 运动中临时覆盖 */
+  action:SPORTS[0], target:100, count:0, elapsed:0, cd:3,
+  invite:null, started:null,
+  cam:true,
+  pview:'home',          /* home|running|paused|finished|result */
+  stack:[],              /* sports|target|confirm|send|cheer */
+  sel:{sport:'rope',target:100},
+  sendState:'sending',
+  cheerSel:0,
+  lastResult:null,
+}}
+S=fresh();
+function clearTimers(){ if(cntT){clearInterval(cntT);cntT=null} if(flashT){clearTimeout(flashT);flashT=null}
+  chainT.forEach(t=>clearTimeout(t)); chainT=[]; }
+const wait=(ms,fn)=>{const t=setTimeout(fn,ms);chainT.push(t);return t};
+const mmss=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+const nowHM=()=>new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'});
+
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove('show'),2600)}
+
+/* ═══════════ 渲染:手机 ═══════════ */
+function renderPhone(){
+  const el=$('#pScreen');
+  if(S.stack.length){el.innerHTML={sports:pSports,target:pTarget,confirm:pConfirm,send:pSend,cheer:pCheer}[S.stack[S.stack.length-1]]();return}
+  el.innerHTML={home:pHome,running:pRunning,paused:pPaused,finished:pFinished,result:pResult}[S.pview]();
+}
+function pTop(title,back){return `<div class="p-top"><button onclick="${back}">${IC.left}</button><b>${title}</b><span></span></div>`}
+
+function pHome(){
+  const r=S.lastResult;
+  const busy=S.dmode==='count'||S.dmode==='rest'||S.dmode==='countdown'||S.dmode==='start';
+  const dev= busy?`<span class="dev-dot warn"></span><b>运动中</b> <small>· ${S.action.name}${S.dmode==='rest'?'(暂停)':''}</small>`
+    : S.dmode==='invite'?`<span class="dev-dot warn"></span><b>收到邀请</b> <small>· 等待孩子确认</small>`
+    : `<span class="dev-dot"></span><b>已连接</b> <small>· 电量 80%${S.cam?'':' · CAM OFF'}</small>`;
+  return `<div class="p-view">
+    <div>
+      <h2 class="today">今天 <button onclick="go('sports')">＋</button></h2>
+      <span class="date">3月12日 星期二</span>
+    </div>
+    <div class="card"><div class="kid"><span>👦</span><div><b>小宇</b><small>${busy?'正在运动 · '+nowHM()+' 开始':'今天还没有运动'}</small></div></div></div>
+    <div>
+      <h3>今日还未运动</h3>
+      <p>运动让孩子更健康、更自信</p>
+    </div>
+    <button class="action" onclick="go('sports')">➤ 邀请运动</button>
+    <h4>最近一次运动</h4>
+    ${r?`<div class="card block">${r.action.name} <b style="float:right">${r.count} ${r.action.unit||'次'}</b><small>${r.time}　${mmss(r.elapsed)}</small></div>`
+       :`<div class="card block">跳绳 <b style="float:right">100 次</b><small>03月10日 15:20　08:24</small></div>`}
+    <div class="card block" id="devCard">${dev}</div>
+  </div>`;
+}
+
+function pSports(){
+  return `<div class="p-view">
+    ${pTop('邀请运动','close()')}
+    <p class="lead">选择一项运动</p>
+    ${SPORTS.map(x=>`<div class="card ${S.sel.sport===x.id?'selected':''}" onclick="S.sel.sport='${x.id}';S.sel.target=${x.target};renderPhone()" style="cursor:pointer">
+      <span class="sport-sym">${x.sym}</span><div><b>${x.name}</b><small>${x.hint}</small></div><i class="dot"></i></div>`).join('')}
+    <button class="action" onclick="go('target')">下一步 ${IC.right}</button>
+  </div>`;
+}
+
+function clampStep(d){const sp=sport(S.sel.sport);
+  const max=sp.unit?15:500;
+  return Math.max(1,Math.min(max,S.sel.target+d*sp.step))}
+
+function pTarget(){
+  const sp=sport(S.sel.sport); const unit=sp.unit||'次';
+  const quik=sp.unit?[3,5,8,12]:[50,100,200,500];
+  return `<div class="p-view">
+    ${pTop('设置目标',"go('sports')")}
+    <div class="target-icon">${sp.sym}<b>${sp.name}</b></div>
+    <div class="segment"><b>次数</b><span>时长</span></div>
+    <div class="number">
+      <button onclick="S.sel.target=clampStep(-1);renderPhone()">${IC.minus}</button>
+      <div><b>${S.sel.target}</b><small>${unit}</small></div>
+      <button onclick="S.sel.target=clampStep(1);renderPhone()">${IC.plus}</button>
+    </div>
+    <div class="quick">${quik.map(v=>`<span class="${S.sel.target===v?'qsel':''}" onclick="S.sel.target=${v};renderPhone()" style="cursor:pointer">${v}</span>`).join('')}</div>
+    <div class="card block">💡 建议根据孩子的年龄和体能选择合适的目标</div>
+    <button class="action" onclick="go('confirm')">下一步</button>
+  </div>`;
+}
+function pConfirm(){
+  const sp=sport(S.sel.sport);
+  return `<div class="p-view">
+    ${pTop('确认发送',"go('target')")}
+    <div class="target-icon">${sp.sym}<b>${sp.name}</b></div>
+    <div class="card block">运动内容　<b>${sp.name}</b><br>目标　　　<b>${S.sel.target} ${sp.unit||'次'}</b><br>发送到　　<b>小宇的 Teamo</b></div>
+    <div class="card block">➤ 发送后,孩子将在设备上收到运动任务。</div>
+    <button class="action" onclick="sendInvite()">发送到设备</button>
+  </div>`;
+}
+function pSend(){
+  const done=S.sendState==='done';
+  const row=(ck,txt)=>`<div>${ck?'<span class="ck">'+IC.check+'</span>':'<span class="un"></span>'}${txt}</div>`;
+  return `<div class="p-view">
+    ${pTop('发送到设备','')}
+    <div class="p-ring" style="--p:${done?'360deg':'160deg'}"><div class="p-ring-core">${done?'<span style="font-size:52px">✅</span>':IC.share}</div></div>
+    <h2 class="sending-h2">${done?'已送达':'正在发送'}</h2>
+    <p class="lead center">${done?'设备已收到运动任务':'请保持设备在线'}</p>
+    <div class="checklist">
+      ${row(1,'已连接设备')}
+      ${row(done,'发送运动任务')}
+      ${row(done,'等待设备确认')}
+      ${row(done,'完成')}
+    </div>
+  </div>`;
+}
+function pRunning(){
+  const pct=Math.min(100,Math.round(S.count/S.target*100));
+  return `<div class="p-view">
+    ${pTop('运动状态','')}
+    <div class="p-ring" style="--p:${Math.max(8,pct*3.6)}deg"><div class="p-ring-core"><img class="robot" src="assets/teamo-face.png" alt=""></div></div>
+    <h2 style="text-align:center">孩子已开始运动</h2>
+    <p style="text-align:center;color:#76d92b;font-weight:700">${S.dmode==='rest'?'已暂停 · 进度保留':'运动中'}</p>
+    <div class="card block">开始时间　今天 ${S.started}<br>目标　　　${S.target} ${S.action.unit||'次'}</div>
+    <div class="card block">ⓘ 为保护孩子隐私,App 不会显示实时画面</div>
+  </div>`;
+}
+function pPaused(){
+  return `<div class="p-view">
+    ${pTop('运动状态','')}
+    <div class="paused-robot"><img class="robot" src="assets/teamo-face.png" alt=""><i>⏸</i></div>
+    <h2 style="text-align:center">已暂停</h2>
+    <p class="lead center">孩子暂时离开,进度已保留<br>可以稍后继续运动。</p>
+    <div class="card block">暂停时间　今天 ${nowHM()}<br>已完成　　约 ${S.count} ${S.action.unit||'次'}</div>
+    <button class="action" onclick="dResumeFromPhone()">➤ 让设备继续</button>
+  </div>`;
+}
+function pFinished(){
+  return `<div class="p-view">
+    ${pTop('运动完成','')}
+    <div class="party"><img class="robot" src="assets/teamo-face.png" alt="">✦ ✦ ✦</div>
+    <h2 style="text-align:center">${S.action.name}已完成!</h2>
+    <p class="lead center">太棒了!<br>孩子已经完成了本次运动</p>
+    <button class="action" onclick="S.pview='result';renderPhone()">查看运动结果</button>
+  </div>`;
+}
+function pResult(){
+  const r=S.lastResult;
+  return `<div class="p-view">
+    ${pTop('运动结果','')}
+    <div class="card"><span style="font-size:34px">👦</span><div><b>小宇</b><small>3月12日 ${r?r.time:''}</small></div></div>
+    <div class="card block">动作　　<b>${r.action.name}</b><br>目标　　<b>${r.target} ${r.action.unit||'次'}</b><br>实际　　<b>${r.count} ${r.action.unit||'次'}</b><br>用时　　<b>${mmss(r.elapsed)}</b><br>状态　　<b class="green">${r.status==='done'?'完成':'提前结束'}</b><br>孩子感受　🙂 刚好</div>
+    <div class="card block">“好棒!坚持就是进步!”</div>
+    <button class="action" onclick="go('cheer')">👍 发送鼓励</button>
+  </div>`;
+}
+function pCheer(){
+  return `<div class="p-view">
+    ${pTop('发送鼓励',"S.pview='result';close()")}
+    <img class="robot" style="align-self:center" src="assets/teamo-face.png" alt="">
+    <h2 style="text-align:center;font-size:22px">给孩子一点鼓励吧!</h2>
+    <div class="segment"><b>快捷鼓励</b><span>自定义</span></div>
+    ${CHEERS.map((t,i)=>`<div class="card ${S.cheerSel===i?'selected':''}" onclick="S.cheerSel=${i};renderPhone()" style="cursor:pointer"><div>${t}</div><i class="dot"></i></div>`).join('')}
+    <button class="action" onclick="sendCheer()">发送鼓励</button>
+  </div>`;
+}
+function go(page){S.stack=[page];renderPhone()}
+function close(){S.stack=[];renderPhone()}
+
+/* ═══════════ 渲染:设备 ═══════════ */
+function renderDevice(){
+  const el=$('#dOrb');
+  const M=S.flash||S.dmode;
+  el.innerHTML=DEVICE_VIEWS[M]?DEVICE_VIEWS[M]():'';
+}
+const DEVICE_VIEWS={
+  idle:()=>`<div class="device-content"><div class="eyes"><i></i><i></i></div><small style="font-size:15px;color:#5c6873;letter-spacing:.2em">TEAMO</small></div>`,
+  invite:()=>{const v=S.invite;return `<div class="device-content invite-card">
+    <span class="from">📩 来自${v.from}的邀请</span>
+    <img class="robot small" src="assets/teamo-face.png" alt="">
+    <div class="what">${v.action.name} · ${v.target}<small> ${v.action.unit||'次'}</small></div>
+    <div class="pill-row"><button class="pill" onclick="dAcceptInvite()">开始</button>
+    <button class="pill soft" onclick="dDecline()">稍后</button></div></div>`},
+  menu:()=>`<div class="device-content"><div class="orbit-icons"><span>🦶</span><span>🏋️</span><span>🏆</span><span>⚙️</span></div><small>Workout</small></div>`,
+  select:()=>`<div class="device-content">
+    <div class="sport-tabs">${SPORTS.map(x=>`<span style="${x.id===S.action.id?'':'opacity:.35'}" onclick="dPick('${x.id}')">${x.sym}</span>`).join('')}</div>
+    <div class="sport-choice" onclick="dToGoal()">${S.action.sym}</div>
+    <small>${S.action.name}</small></div>`,
+  goal:()=>`<div class="device-content">
+    <b class="eyebrow">目标${S.action.unit?'时长':'次数'}</b>
+    <div class="goal-line">
+      <button onclick="dGoal(-1)">−</button>
+      <strong>${S.target}</strong><small>${S.action.unit||'次'}</small>
+      <button onclick="dGoal(1)">＋</button>
+    </div>
+    <div class="pill-row"><button class="pill" onclick="dConfirmGoal()">开始</button>
+    <button class="pill soft" onclick="dmodeTo('select')">换动作</button></div></div>`,
+  countdown:()=>`<div class="device-content"><b class="eyebrow">准备开始!</b>
+    <div class="d-ring" style="--p:${(4-S.cd)*120}deg"><div class="d-ring-core"><strong class="giant">${S.cd}</strong></div></div></div>`,
+  start:()=>`<div class="device-content"><div class="pixel">🤖</div><strong class="go">GO!</strong></div>`,
+  count:()=>`<div class="device-content">
+    <div class="hud"><span>${nowHM()}</span><span>▰</span></div>
+    <img class="robot small" src="assets/teamo-face.png" alt="">
+    <strong class="giant count-no" onclick="demoAdd()" style="cursor:pointer">${S.count}</strong>
+    <small style="font-size:24px;color:#8fa89a">/${S.target}</small>
+    <div class="hud-pause" onclick="dPause()">⏸</div></div>`,
+  rest:()=>`<div class="device-content"><b class="eyebrow">休息一下</b>
+    <div class="sleep">💤</div>
+    <img class="robot small" src="assets/teamo-face.png" alt="">
+    <button class="pill" onclick="dResume()">继续</button></div>`,
+  milestone:()=>`<div class="device-content"><strong class="giant">${S.count}!</strong>
+    <img class="robot" src="assets/teamo-face.png" alt=""><div class="confetti">✦　•　✦</div></div>`,
+  final:()=>`<div class="device-content"><b class="eyebrow">接近完成!</b>
+    <img class="robot" src="assets/teamo-face.png" alt=""><div class="spark-row">✦　✦</div></div>`,
+  encourage:()=>`<div class="device-content"><b class="lime-title">加油!</b>
+    <img class="robot" src="assets/teamo-face.png" alt=""><div class="spark-row">✦　✦　✦</div></div>`,
+  complete:()=>`<div class="device-content"><b class="eyebrow">完成!</b>
+    <div class="trophy">🏆</div><div class="spark-row">✦　✦</div></div>`,
+  summary:()=>`<div class="device-content"><b class="eyebrow">本次成绩</b>
+    <div class="statline">🛼 <b>${S.count}</b><small>/${S.target}</small></div>
+    <div class="statline">⏱ <b>${mmss(S.elapsed)}</b></div>
+    <div class="statline">❤ <b>128</b><small>bpm</small></div>
+    <div class="statline">🔥 <b>12</b><small>kcal</small></div></div>`,
+  achievement:()=>`<div class="device-content"><div class="spark-row">✦　✦</div>
+    <img class="robot" src="assets/teamo-face.png" alt=""><b class="achievement">太棒了!</b></div>`,
+  options:()=>`<div class="device-content"><div class="pill-row">
+    <button class="pill" onclick="dAgain()">再来一次</button>
+    <button class="pill soft" onclick="dHome()">⌂ 回首页</button></div></div>`,
+};
+function dmodeTo(m){S.dmode=m;renderDevice()}
+
+/* ═══════════ 设备交互 ═══════════ */
+function dAcceptInvite(){
+  const v=S.invite;S.action=v.action;S.target=v.target;S.invite=null;
+  S.started=nowHM();S.dmode='goal';renderDevice();renderPhone();
+  toast('设备已接受邀请 → 设置目标');
+}
+function dDecline(){S.invite=null;S.dmode='idle';renderDevice();renderPhone();toast('孩子选择稍后再运动')}
+function dPick(id){S.action=sport(id);S.target=S.action.target;renderDevice()}
+function dToGoal(){S.dmode='goal';renderDevice()}
+function dGoal(d){const sp=S.action;const max=sp.unit?15:500;
+  S.target=Math.max(1,Math.min(max,S.target+d*sp.step));renderDevice()}
+function dConfirmGoal(){
+  if(!S.cam){toast('摄像头被物理滑盖关闭,请先打开滑盖');return}
+  S.count=0;S.elapsed=0;S.cd=3;S.dmode='countdown';renderDevice();renderPhone();
+  const tick=()=>{S.cd--;renderDevice();
+    if(S.cd<=0){S.dmode='start';renderDevice();
+      wait(900,()=>{S.dmode='count';renderDevice();renderPhone();startCounter()})}
+    else wait(800,tick)};
+  wait(800,tick);
+}
+function startCounter(){
+  cntT=setInterval(()=>{
+    S.elapsed++;
+    if(S.elapsed%2===0)bump(true);
+    else renderDevice();
+  },1000);
+}
+function bump(silent){
+  if(S.dmode!=='count')return;
+  S.count++;
+  const pct=S.count/S.target;
+  if(S.count>=S.target){finish();return}
+  if(!S.flash){
+    if(pct>=.9){flash('final')}
+    else if(S.count===Math.round(S.target/2)){flash('milestone')}
+  }
+  renderDevice();
+  if(!silent)toast('+1 有效动作');
+}
+function demoAdd(){ if(S.dmode==='count')bump(false) }
+function flash(kind){
+  S.flash=kind;renderDevice();
+  flashT=setTimeout(()=>{S.flash=null;
+    if(S.dmode==='count')renderDevice();
+  },1900);
+}
+function dPause(){
+  if(S.dmode!=='count')return;
+  S.dmode='rest';renderDevice();
+  if(S.pview==='running'){S.pview='paused';renderPhone()}
+  toast('运动已暂停 · 进度保留');
+}
+function dResume(){
+  if(S.dmode!=='rest')return;
+  S.dmode='count';renderDevice();
+  if(S.pview==='paused'){S.pview='running';renderPhone()}
+}
+function dResumeFromPhone(){ if(S.dmode==='rest'){dResume();toast('已通知设备继续运动')} }
+function finish(){
+  clearTimers();
+  S.lastResult={action:S.action,target:S.target,count:S.count,elapsed:S.elapsed,status:'done',time:nowHM()};
+  S.dmode='complete';renderDevice();
+  S.pview='finished';renderPhone();
+  toast('✅ 运动完成 · 结果已同步到家长 App');
+  chainT.push(setTimeout(()=>{S.dmode='summary';renderDevice()},2200));
+  chainT.push(setTimeout(()=>{S.dmode='achievement';renderDevice()},5000));
+  chainT.push(setTimeout(()=>{S.dmode='options';renderDevice()},7200));
+}
+function dAgain(){S.count=0;S.elapsed=0;S.dmode='select';renderDevice();renderPhone()}
+function dHome(){S.dmode='idle';renderDevice();renderPhone();toast('回到待机')}
+
+/* ═══════════ 手机 → 设备 ═══════════ */
+function sendInvite(){
+  const sp=sport(S.sel.sport);
+  S.sendState='sending';S.stack=['send'];renderPhone();
+  wait(900,()=>{
+    S.sendState='done';renderPhone();
+    wait(700,()=>{
+      S.invite={action:sp,target:S.sel.target,from:'爸爸'};
+      S.dmode='invite';renderDevice();
+      S.stack=[];S.pview='home';renderPhone();
+      toast('📩 设备已收到邀请 → 看右边的屏幕');
+    });
+  });
+}
+function sendCheer(){
+  S.stack=[];S.pview='home';renderPhone();
+  const text=CHEERS[S.cheerSel];
+  wait(500,()=>{
+    if(S.dmode==='count'){flash('encourage');toast('💌 鼓励已显示在设备上(运动中)')}
+    else{
+      S.flash='encourage';renderDevice();
+      flashT=setTimeout(()=>{S.flash=null;renderDevice()},2400);
+      toast('💌 「'+text+'」已显示在设备上');
+    }
+  });
+}
+
+/* ═══════════ 物理件 ═══════════ */
+$('#slider').onclick=()=>{
+  S.cam=!S.cam;
+  $('#slider').classList.toggle('closed',!S.cam);
+  const label=$('#camLabel');
+  label.textContent=S.cam?'CAM ON':'CAM OFF';
+  label.classList.toggle('off',!S.cam);
+  if(!S.cam){
+    if(S.dmode==='count'||S.dmode==='countdown'||S.dmode==='start'){dPause()}
+    else if(S.dmode==='invite'||S.dmode==='menu'||S.dmode==='select'||S.dmode==='goal'){S.dmode='idle';renderDevice()}
+    toast('滑盖关闭,摄像头被物理遮挡 —— 隐私由机械位置表达');
+  }else{
+    toast('滑盖打开,摄像头恢复可用');
+  }
+  renderDevice();renderPhone();
+};
+$('#homeBtn').onclick=()=>{
+  clearTimers();
+  if(S.dmode==='idle'){S.dmode='menu';renderDevice();toast('设备菜单')}
+  else{S.dmode='idle';S.flash=null;renderDevice();renderPhone();toast('回到待机')}
+};
+$('#dOrb').onclick=e=>{
+  if(e.target.closest('button'))return;
+  if(e.target.closest('.sport-tabs')||e.target.closest('.sport-choice'))return;
+  if(S.dmode==='idle'){S.dmode='menu';renderDevice()}
+  else if(S.dmode==='count'){demoAdd()}
+};
+
+$('#resetBtn').onclick=()=>{
+  clearTimers();S=fresh();
+  $('#slider').classList.remove('closed');
+  $('#camLabel').textContent='CAM ON';$('#camLabel').classList.remove('off');
+  renderDevice();renderPhone();toast('已重置');
+};
+
+/* ═══════════ 自动演示 ═══════════ */
+let demoRun=false;
+$('#autoBtn').onclick=async()=>{
+  if(demoRun)return;demoRun=true;$('#autoBtn').textContent='⏸ 演示中…';
+  const token={cancel:false};const oldReset=$('#resetBtn').onclick;
+  $('#resetBtn').onclick=()=>{token.cancelled=true;demoRun=false;$('#autoBtn').textContent='▶ 自动演示';oldReset()};
+  const g=()=>token.cancelled;
+  const w=ms=>new Promise(r=>setTimeout(r,ms));
+  try{
+    clearTimers();S=fresh();
+    $('#slider').classList.remove('closed');$('#camLabel').textContent='CAM ON';$('#camLabel').classList.remove('off');
+    renderDevice();renderPhone();
+    await w(700); if(g())return;
+    go('sports');await w(600); if(g())return;
+    go('target');await w(600); if(g())return;
+    go('confirm');await w(500); if(g())return;
+    sendInvite();await w(2100); if(g())return;
+    dAcceptInvite();await w(900); if(g())return;
+    dConfirmGoal();await w(4200); if(g())return;
+    for(let i=0;i<Math.round(S.target*0.45);i++){if(S.dmode!=='count')break;demoAdd();await w(30); if(g())return}
+    await w(2100); if(g())return;
+    dPause();await w(1300); if(g())return;
+    dResume();await w(1200); if(g())return;
+    while(S.dmode==='count'&&S.count<S.target){demoAdd();await w(120); if(g())return}
+    await w(2400); if(g())return;
+    S.pview='result';renderPhone();await w(1300); if(g())return;
+    go('cheer');await w(1100); if(g())return;
+    sendCheer();await w(2300); if(g())return;
+    dHome();
+    toast('自动演示完毕 —— 现在每一块屏都归你操作');
+  }finally{demoRun=false;$('#autoBtn').textContent='▶ 自动演示';$('#resetBtn').onclick=oldReset}
+};
+
+/* ═══════════ 启动 ═══════════ */
+renderDevice();renderPhone();
+</script>
+</body>
+</html>

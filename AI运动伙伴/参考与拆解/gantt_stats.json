@@ -1,0 +1,80 @@
+{
+  "modules": {
+    "产品与项目管理": {
+      "tasks": 13,
+      "hours": 136,
+      "critical": 1,
+      "highRisk": 0,
+      "blocked": 10
+    },
+    "硬件方案与样机": {
+      "tasks": 16,
+      "hours": 278,
+      "critical": 3,
+      "highRisk": 7,
+      "blocked": 15
+    },
+    "结构与工业设计": {
+      "tasks": 14,
+      "hours": 308,
+      "critical": 0,
+      "highRisk": 4,
+      "blocked": 12
+    },
+    "设备端软件": {
+      "tasks": 48,
+      "hours": 1178,
+      "critical": 8,
+      "highRisk": 12,
+      "blocked": 43
+    },
+    "视觉与动作算法": {
+      "tasks": 13,
+      "hours": 396,
+      "critical": 2,
+      "highRisk": 6,
+      "blocked": 11
+    },
+    "AI运动分析": {
+      "tasks": 17,
+      "hours": 400,
+      "critical": 6,
+      "highRisk": 8,
+      "blocked": 12
+    },
+    "系统集成联调": {
+      "tasks": 11,
+      "hours": 232,
+      "critical": 3,
+      "highRisk": 6,
+      "blocked": 9
+    },
+    "测试与质量": {
+      "tasks": 10,
+      "hours": 316,
+      "critical": 2,
+      "highRisk": 3,
+      "blocked": 8
+    },
+    "用户测试": {
+      "tasks": 6,
+      "hours": 132,
+      "critical": 2,
+      "highRisk": 2,
+      "blocked": 6
+    }
+  },
+  "totalCritical": 27,
+  "totalHighRisk": 48,
+  "totalBlocked": 126,
+  "weekStart": {
+    "1": 29,
+    "2": 31,
+    "3": 28,
+    "4": 21,
+    "5": 21,
+    "6": 8,
+    "7": 8,
+    "8": 2
+  }
+}

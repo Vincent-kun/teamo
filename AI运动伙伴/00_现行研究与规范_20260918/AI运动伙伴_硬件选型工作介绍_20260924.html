@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 运动伙伴｜硬件选型介绍：掌心路线 V1.1</title>
+<link rel="icon" href="data:,">
+<style>
+:root{--ink:#1a1f24;--mut:#5c6670;--faint:#8a939c;--line:#e4e8ec;--acc:#0969da;--bg:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+header{padding:72px 0 44px;border-bottom:2px solid var(--ink)}
+.eyebrow{font:600 11px/1 ui-monospace,Consolas,monospace;letter-spacing:.22em;color:var(--acc);text-transform:uppercase}
+h1{font-size:34px;line-height:1.2;letter-spacing:-.02em;margin:16px 0 12px}
+.lead{color:var(--mut);font-size:16px;max-width:640px;margin:0}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.metric{padding:18px 18px 0 0}
+.metric+.metric{padding-left:18px;border-left:1px solid var(--line)}
+.metric b{display:block;font:700 21px/1.25 ui-monospace,Consolas,monospace;letter-spacing:-.01em}
+.metric small{display:block;color:var(--faint);font-size:12px;margin-top:4px;line-height:1.5}
+.decision{margin:26px 0 0;padding:14px 18px;border-left:3px solid var(--acc);background:#f6f9fd;font-size:14px;color:var(--mut)}
+.decision b{color:var(--ink)}
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+h2{font-size:13px;letter-spacing:.18em;color:var(--faint);font-weight:600;margin:0 0 22px;display:flex;align-items:baseline;gap:12px}
+h2 .no{font:700 13px/1 ui-monospace,Consolas,monospace;color:var(--acc)}
+h3{font-size:16px;margin:26px 0 10px}
+p{margin:0 0 12px}
+.two{display:grid;grid-template-columns:340px 1fr;gap:40px;align-items:start}
+ul{margin:0;padding:0;list-style:none}
+ul li{padding:7px 0 7px 18px;position:relative;border-bottom:1px dashed var(--line)}
+ul li:last-child{border-bottom:0}
+ul li::before{content:"";position:absolute;left:2px;top:16px;width:6px;height:6px;border-radius:50%;background:var(--acc)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:12px;letter-spacing:.08em;color:var(--faint);font-weight:600;padding:0 14px 8px 0;border-bottom:1px solid var(--ink)}
+td{padding:10px 14px 10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child{white-space:nowrap;font-weight:600}
+.note{font-size:13px;color:var(--mut)}
+.tag{display:inline-block;font:500 12px/1.4 ui-monospace,Consolas,monospace;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:1px 10px;margin:0 6px 6px 0}
+.parts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0 12px}
+.parts.cols2{grid-template-columns:repeat(2,1fr)}
+.part{margin:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.part img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+.part figcaption{padding:8px 12px 10px;border-top:1px solid var(--line);font-size:12px;line-height:1.5;color:var(--mut)}
+.part b{display:block;color:var(--ink);font-weight:600;font-size:12.5px}
+.next{counter-reset:n}
+.next li{counter-increment:n;padding-left:44px;border-bottom:1px solid var(--line)}
+.next li::before{content:counter(n,decimal-leading-zero);position:absolute;left:0;top:9px;font:700 15px/1 ui-monospace,Consolas,monospace;color:var(--acc)}
+.next li b{display:block}
+.next li span{color:var(--mut);font-size:14px}
+figure{margin:0}
+figcaption{font-size:12px;color:var(--faint);margin-top:10px;line-height:1.6}
+footer{padding:36px 0 72px;color:var(--faint);font-size:13px}
+@media(max-width:720px){
+  .metrics{grid-template-columns:1fr 1fr}
+  .metric{padding-right:12px}.metric+.metric{padding-left:12px}
+  .metric:nth-child(3){padding-left:0;border-left:0}
+  .two{grid-template-columns:1fr}
+  .parts{grid-template-columns:1fr 1fr}
+  h1{font-size:27px}
+}
+@media print{body{font-size:12px}header{padding:24px 0}section{padding:24px 0}}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="eyebrow">Hardware Selection Summary · Pocket Route V1.1 · 2026-09-24</div>
+  <h1>硬件选型：掌心路线收敛结果</h1>
+  <p class="lead">2026-09-24 项目主导人拍板：目标形态为掌心小主体。屏幕、摄像头、联网四类器件按约 60×90mm 机身收敛；9/23 落地路线研究降为对照。以下数值均为 MVP 工程假设，经样机证伪后才写入 PRD。</p>
+  <div class="metrics">
+    <div class="metric"><b>60×90</b><small>整机 mm 级 · 桌面摆放 · 厚度与电池待推演</small></div>
+    <div class="metric"><b>1.8″ 360²</b><small>圆形 IPS · ST77916 · QSPI/MIPI 1-lane</small></div>
+    <div class="metric"><b>120–130°</b><small>有效视场口径沿用 · 5MP · 布局待重推</small></div>
+    <div class="metric"><b>Cat.1 bis</b><small>4G 开箱即用 · 小体积电源/天线约束更紧</small></div>
+  </div>
+  <div class="decision"><b>路线决策记录：</b>9/23 文档链曾把「落地 180×235×150mm + 4″」写成推荐基线；09-24 拍板改为掌心小主体（约 60×90mm + 约 1.8″ 屏，与 UI 框架 V1.1 假设一致）。落地路线的布局推导（摆放、屏幕离地高度、摄像头光心与俯仰）随之作废，待按掌心形态重推；摄像头传感器口径与 4G 模组选型逻辑沿用。</div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <h2><span class="no">01</span>形态与布局</h2>
+  <div class="two">
+    <figure>
+      <svg viewBox="0 0 300 470" role="img" aria-label="Teamo 掌心机身正面示意：约60×90mm，顶部摄像头与物理滑盖，1.8英寸圆屏，屏下实体按键">
+        <rect x="30" y="40" width="240" height="360" rx="46" fill="#fff" stroke="#1a1f24" stroke-width="2.5"/>
+        <rect x="268" y="252" width="9" height="52" rx="4.5" fill="#fff" stroke="#1a1f24" stroke-width="1.5"/>
+        <rect x="63" y="62" width="174" height="36" rx="18" fill="#1a1f24"/>
+        <circle cx="96" cy="80" r="14" fill="#3a434b"/>
+        <circle cx="96" cy="80" r="8" fill="#1a1f24"/>
+        <circle cx="92.5" cy="76.5" r="2.5" fill="#8a939c"/>
+        <rect x="124" y="67" width="80" height="26" rx="13" fill="#f4772a"/>
+        <rect x="186" y="72" width="3" height="16" rx="1.5" fill="#d95f18"/>
+        <circle cx="150" cy="212" r="91" fill="#1a1f24"/>
+        <rect x="126" y="192" width="11" height="40" rx="5.5" fill="#f2f4ee"/>
+        <rect x="163" y="192" width="11" height="40" rx="5.5" fill="#f2f4ee"/>
+        <circle cx="150" cy="342" r="23" fill="#fff" stroke="#d5d8d2" stroke-width="2"/>
+        <text x="286" y="220" font-size="11" fill="#5c6670" text-anchor="middle" transform="rotate(90 286 220)">90 mm</text>
+        <text x="150" y="428" font-size="11" fill="#5c6670" text-anchor="middle">60 mm</text>
+        <text x="150" y="446" font-size="10" fill="#8a939c" text-anchor="middle">按 ID 渲染图示意 · 非工程图</text>
+      </svg>
+      <figcaption>正面示意（按 ID 渲染图，比例近似）：摄像头与橙色物理滑盖横置于顶部槽内，1.8″ 圆屏占正面主体，屏下实体按键。厚度、电池、声学开孔待掌心专项推演；摄像头位置已定，待研究的是它是否承担全身动作识别。</figcaption>
+    </figure>
+    <div>
+      <ul>
+        <li><b>桌面摆放为主</b>——运动中远距反馈以语音为主，屏幕承担状态表情与近场交互；不再假设 1.5–3m 读大数字。</li>
+        <li><b>60×90mm 是硬包络</b>——所有器件选型先过尺寸关：屏模组 ≤48mm 外形档、4G 模组 17.7×15.8mm、摄像头模组厚度都在挤同一空间。</li>
+        <li><b>摄像头是最大未定项</b>——位置按 ID 已定（顶部滑盖槽，物理滑盖遮挡镜头）；待定义的是它是否承担全身动作识别。若转近场交互，摄像头指标可大幅放宽。</li>
+        <li><b>布局推导整体重做</b>——落地路线的光心高度、俯仰角、FOV 台架矩阵作废；9/23 的推演方法可复用。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="no">02</span>屏幕选型</h2>
+  <table>
+    <tr><th style="width:110px">指标</th><th>1.8″ 市场主流（09-24 核验）</th><th style="width:42%">说明 / 边界</th></tr>
+    <tr><td>形状尺寸</td><td class="mono">1.8″ 圆形 IPS</td><td>全视角；与掌心形态、角色脸方向一致</td></tr>
+    <tr><td>分辨率</td><td class="mono">360×360 (RGB)</td><td>驱动 IC 主流 ST77916；UI 按大数字、单任务设计</td></tr>
+    <tr><td>有效显示区</td><td class="mono">约 45.7×45.7 mm</td><td>模组外形两档：约 48×50×2mm（超薄）/ 61×61×3.7mm</td></tr>
+    <tr><td>亮度</td><td class="mono">320–380 cd/m²</td><td>室内近场够用；具体以厂商规格书为准</td></tr>
+    <tr><td>接口</td><td class="mono">QSPI / MIPI 1-lane</td><td>RV1106B 对 QSPI 圆屏原生支持（BodyPark 同路线），集成难度低于 4″ MIPI 方案</td></tr>
+    <tr><td>触控</td><td class="mono">电容触控可选</td><td>TP IC 如 CST18858；是否上触控待近场交互定义后定</td></tr>
+  </table>
+  <ul style="margin-top:20px">
+    <li><b>硬包络约束</b>——61mm 级模组放不进 60mm 宽机身：选型锁定 ≤48mm 外形档或定制缩边框。</li>
+    <li><b>待专项验证</b>——儿童指尖触控目标尺寸、0.5/1/1.5m 近场可读性、360×360 下表情动效流畅度。</li>
+  </ul>
+  <h3>对照：落地路线的 4″ 验证件（已降级，不再采购推荐）</h3>
+  <div class="parts">
+    <figure class="part">
+      <img src="选型图库_20260924/screen-dsi-c.jpg" alt="Waveshare 4inch DSI LCD (C) 白底产品图" loading="lazy" onerror="this.onerror=null;this.src='https://www.waveshare.com/media/catalog/product/cache/1/image/560x560/9df78eab33525d08d6e5fb8d27136e95/4/i/4inch-dsi-lcd-c-1.jpg'">
+      <figcaption><b class="mono">4inch DSI LCD (C)</b><span>720×720 圆屏 · 落地路线对照</span></figcaption>
+    </figure>
+    <figure class="part">
+      <img src="选型图库_20260924/screen-hdmi.jpg" alt="Waveshare 4inch 720x720 LCD 白底产品图" loading="lazy" onerror="this.onerror=null;this.src='https://www.waveshare.com/media/catalog/product/cache/1/image/560x560/9df78eab33525d08d6e5fb8d27136e95/4/i/4inch-720x720-lcd-1.jpg'">
+      <figcaption><b class="mono">4inch 720x720 LCD</b><span>720×720 圆屏 · HDMI · 对照</span></figcaption>
+    </figure>
+    <figure class="part">
+      <img src="选型图库_20260924/screen-5inch.jpg" alt="Waveshare 5inch DSI LCD (D) 白底产品图" loading="lazy" onerror="this.onerror=null;this.src='https://www.waveshare.com/media/catalog/product/cache/1/image/560x560/9df78eab33525d08d6e5fb8d27136e95/5/i/5inch-dsi-lcd-d-1.jpg'">
+      <figcaption><b class="mono">5inch DSI LCD (D)</b><span>720×1280 矩形 · 对照</span></figcaption>
+    </figure>
+  </div>
+  <p class="note">图为厂商官网白底图。这三件按 9/23 落地路线推荐；掌心路线下仅作规格对照，不再进入采购清单。</p>
+</section>
+
+<section>
+  <h2><span class="no">03</span>摄像头选型</h2>
+  <div class="parts cols2">
+    <figure class="part">
+      <img src="选型图库_20260924/cam-120.jpg" alt="Arducam B006604 120° 白底产品图" loading="lazy" onerror="this.onerror=null;this.src='https://www.arducam.com/media/catalog/product/cache/45336f8944e7eb3ec4b20e42d64c20ed/b/0/b006604-1.jpg'">
+      <figcaption><b class="mono">B006604 · 120° 对角</b><span>保守基线 · 1/4″ OV5647 · 5MP</span></figcaption>
+    </figure>
+    <figure class="part">
+      <img src="选型图库_20260924/cam-160.jpg" alt="Arducam B006605 160° 白底产品图" loading="lazy" onerror="this.onerror=null;this.src='https://www.uctronics.com/media/catalog/product/b/0/b006605_00___1.jpg'">
+      <figcaption><b class="mono">B006605 · 160° 对角</b><span>覆盖上限对照 · 1/4″ OV5647 · 5MP</span></figcaption>
+    </figure>
+  </div>
+  <table style="margin-top:8px">
+    <tr><th style="width:150px">候选</th><th>定位</th><th style="width:42%">关键边界</th></tr>
+    <tr><td class="mono">Arducam B006604 · 120°</td><td>保守基线，验证视场与识别基线</td><td>畸变易控；FOV 口径以 RFQ 实测 H/V/D 为准</td></tr>
+    <tr><td class="mono">Arducam B006605 · 160°</td><td>近距覆盖上限对照</td><td>Wiki 实标约 128°(H)×96°(V)——"160°"是对角宣传值</td></tr>
+    <tr><td class="mono">e-con IMX568 全局快门</td><td>动作模糊高规格对照（可选）</td><td>成本高，仅在滚筒快门实测不过关时进入下一轮</td></tr>
+  </table>
+  <ul style="margin-top:20px">
+    <li><b>传感器口径沿用</b>——5MP + 有效视场（非标称对角）的选型逻辑与机身形态无关，继续成立。</li>
+    <li><b>布局推导作废</b>——落地路线的光心 195–210mm、上仰 12–18°、台架矩阵不适用；须先回答三问：设备放哪？识别是否仍由本体摄像头承担？小机身视锥如何覆盖动作？</li>
+  </ul>
+  <p class="note">图为厂商官方商城白底图（B006605 原产品页已迁移至官方博客与官方商城 UCTRONICS，RFQ 前应再次确认链接）。RFQ 必须索要：驱动与 ISP IQ 文件、去畸变后的有效 H/V/D FOV 与畸变曲线、暗光指标、儿童运动样张。</p>
+</section>
+
+<section>
+  <h2><span class="no">04</span>联网方案</h2>
+  <p><b>4G 负责开箱即用，Wi-Fi 负责可选降本。</b>Cat.1 bis 10/5 Mbps 等级对短语音、TTS、文本请求与 OTA 已充足；不为"未来传视频"上更重的蜂窝方案。</p>
+  <table>
+    <tr><th style="width:190px">模组（EVT 打样比较）</th><th>尺寸 mm</th><th style="width:46%">设计含义</th></tr>
+    <tr><td class="mono">移远 EC800G-CN</td><td class="mono">17.7×15.8×2.4</td><td>三网入库与强制认证齐全，优先 RFQ</td></tr>
+    <tr><td class="mono">合宙 Air780E</td><td class="mono">约17.7×15.8×2.3</td><td>开发生态直接，适合低成本快速验证</td></tr>
+    <tr><td class="mono">芯讯通 A7670C</td><td class="mono">24×24×2.3</td><td>封装更大，作第二来源</td></tr>
+  </table>
+  <ul style="margin-top:20px">
+    <li><b>电源更紧</b>——射频发射 1.5–2A 百微秒脉冲，60×90mm 内需独立 3.8V 电源轨 + 储能电容，与电池容量、厚度互相制约。</li>
+    <li><b>天线与 EMI</b>——主天线净空、摄像头/屏线/功放隔离在小体积内更难，需整机 OTA 验证。</li>
+    <li><b>卡形态与合规</b>——EVT 卡座；量产倾向 MFF2 + eUICC；物联网卡实名登记（反电诈法第十二条），流程含家长实名、IMEI/ICCID 绑定、停复机。</li>
+    <li><b>流量</b>——语音走 Opus 短片段（约 54 MB/月量级）；不上传持续环境音与运动视频；按 0.5–1 GB/月询价，4 周实测定档。</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="no">05</span>下一步</h2>
+  <ul class="next">
+    <li><b>出路线变更单</b><span>V1.2 Gate 与 9/23 屏幕选型研究标注「掌心路线为主」，落地推导归档为对照。</span></li>
+    <li><b>掌心形态专项推演</b><span>厚度、电池、摄像头布局与视锥、声学、散热、配重一次做完（9/23 推演方法可复用）。</span></li>
+    <li><b>采购验证组合</b><span>1.8″ 360×360 样屏（≤48mm 外形、带触控）+ B006604/B006605 + EC800G-CN/Air780E 两套 4G 小板。</span></li>
+    <li><b>上台架</b><span>0.5/1/1.5m 近场屏可读性；摄像头布局几何重推后重做 FOV 实验。</span></li>
+  </ul>
+</section>
+
+</main>
+
+<footer class="wrap">
+  源文档：硬件尺寸与屏幕选型研究 V0.1（落地路线，布局推导已降级）· Teamo 屏幕与摄像头真实产品链接及白底图 · 4G 物联网与端云模型架构研究 · UI 框架 V1.1 评审记录（P0-1）· V1.2 整合稿第 12 节硬件形态 Gate —— 均见 <span class="mono">AI运动伙伴/00_现行研究与规范_20260918/</span>。儿童隐私底线：视频不持久化，数据最小化。
+</footer>
+
+</body>
+</html>
