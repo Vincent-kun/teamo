@@ -5,4 +5,9 @@ Desktop.ini
 __MACOSX/
 *.tmp
 *.bak
+project.private.config.json
+node_modules/
+.env
+.env.*
+!.env.example
 

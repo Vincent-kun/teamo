@@ -1,0 +1,16 @@
+.profile-card { display:flex; gap:22rpx; align-items:center; color:#27302f; padding:36rpx; border-radius:38rpx; background:linear-gradient(135deg,#f7d3e8,#dedcf8); box-shadow:0 20rpx 40rpx rgba(99,78,103,.12); }
+.avatar { width:96rpx; height:96rpx; border-radius:30rpx; background:#fff; color:#0e5662; display:grid; place-items:center; font-size:36rpx; font-weight:850; }
+.name { font-size:36rpx; font-weight:850; margin-bottom:6rpx; }
+.family-switch { display:flex; align-items:center; gap:14rpx; padding:20rpx 6rpx 0; }
+.child-pill { display:flex; gap:12rpx; align-items:center; padding:10rpx 16rpx; background:#d8eef1; border-radius:999rpx; font-size:22rpx; font-weight:750; }
+.child-pill text + text { color:#70766f; font-weight:500; }
+.switch-action { margin-left:auto; color:#59620a; font-size:22rpx; font-weight:750; }
+.icon { width:58rpx; height:58rpx; border-radius:18rpx; background:#f7d3e8; color:#6d4860; display:grid; place-items:center; font-weight:800; }
+.icon.dark { background:#d8eef1; color:#0e5662; }
+.danger { color:#d8584e; }
+
+/* Acrylic material layer */
+.profile-card{background:linear-gradient(135deg,rgba(255,255,255,.66),rgba(247,211,232,.42),rgba(222,220,248,.4));border:1rpx solid rgba(255,255,255,.88);box-shadow:inset 0 1rpx 0 #fff,0 20rpx 46rpx rgba(89,71,92,.11);-webkit-backdrop-filter:blur(30rpx) saturate(145%);backdrop-filter:blur(30rpx) saturate(145%)}
+.avatar{background:rgba(255,255,255,.62);border:1rpx solid rgba(255,255,255,.9);box-shadow:inset 0 1rpx 0 #fff,0 12rpx 26rpx rgba(77,68,79,.08)}
+.child-pill{background:rgba(216,238,241,.5);border:1rpx solid rgba(255,255,255,.72)}
+.icon,.icon.dark{background:rgba(255,255,255,.52);border:1rpx solid rgba(255,255,255,.78);box-shadow:inset 0 1rpx 0 rgba(255,255,255,.9)}

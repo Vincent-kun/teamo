@@ -1,0 +1,12 @@
+.analysis-hero { border-radius:38rpx; padding:34rpx; color:#fff; background:#0e5662; box-shadow:0 20rpx 42rpx rgba(14,86,98,.18); }
+.hero-row { display:flex; align-items:center; justify-content:space-between; margin-top:18rpx; }
+.title { font-size:42rpx; font-weight:850; }
+.score { width:100rpx; height:100rpx; border-radius:50%; background:#c8fb37; color:#111816; display:grid; place-items:center; font-size:40rpx; font-weight:900; }
+.quality-row { display:grid; grid-template-columns:150rpx 1fr 70rpx; align-items:center; gap:18rpx; padding:17rpx 0; font-size:24rpx; }
+.warn { width:54rpx; height:54rpx; border-radius:18rpx; background:#fff0e3; color:#ff7734; display:grid; place-items:center; font-weight:900; }
+.ai-advice { display:flex; gap:18rpx; border-radius:32rpx; padding:28rpx; background:#dedcf8; color:#202a25; line-height:1.7; }
+.ai { width:60rpx; height:60rpx; flex:none; border-radius:20rpx; background:#0e5662; color:#fff; display:grid; place-items:center; font-size:21rpx; font-weight:850; }
+.privacy { text-align:center; color:#87938f; font-size:21rpx; margin:28rpx; }
+.record-meta{margin-top:10rpx;color:#bfd1cc;font-size:20rpx}.advice-label{font-size:19rpx;color:#64706c;font-weight:800;margin-bottom:6rpx}
+.analysis-hero{background:linear-gradient(145deg,rgba(10,68,78,.96),rgba(19,101,112,.8));border:1rpx solid rgba(255,255,255,.18);box-shadow:inset 0 1rpx 0 rgba(255,255,255,.18),0 22rpx 46rpx rgba(14,86,98,.17)}
+.ai-advice{background:linear-gradient(145deg,rgba(255,255,255,.62),rgba(222,220,248,.46));border:1rpx solid rgba(255,255,255,.82);box-shadow:inset 0 1rpx 0 #fff,0 14rpx 34rpx rgba(70,65,92,.07);-webkit-backdrop-filter:blur(24rpx);backdrop-filter:blur(24rpx)}

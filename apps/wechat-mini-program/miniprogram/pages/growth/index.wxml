@@ -1,0 +1,41 @@
+<view class="page">
+  <view class="brand-kicker">GROW TOGETHER <text>WEEKLY</text></view>
+  <view class="hero-title">成长</view>
+  <view class="hero-sub">把每一次运动变成看得见的进步</view>
+
+  <view class="buddy-card">
+    <view class="buddy-face"><view class="buddy-eye"></view><view class="buddy-eye"></view></view>
+    <view class="grow"><view class="buddy-kicker">小宇的学伴 · Lv.2</view><view class="buddy-title">再获得 14 颗运动星就能升级</view><view class="buddy-progress"><view style="width:{{state.stars}}%"></view></view></view>
+    <view class="star-count">★ {{state.stars}}</view>
+  </view>
+
+  <view class="card split overview">
+    <view class="metric"><text>{{state.todayMinutes}}</text><text>今日分钟</text></view>
+    <view class="metric"><text>{{state.streak}}</text><text>连续天数</text></view>
+    <view class="metric"><text>{{state.stars}}</text><text>运动星</text></view>
+  </view>
+
+  <view class="section-title">本周运动</view>
+  <view class="card chart">
+    <view class="bar-wrap" wx:for="{{week}}" wx:key="label">
+      <view class="bar"><view style="height:{{item.value * 3}}rpx"></view></view>
+      <text>周{{item.label}}</text>
+    </view>
+  </view>
+
+  <view class="section-title title-row"><text>运动分析</text><text class="more" bindtap="openRecords">全部记录</text></view>
+  <view class="analysis-card" bindtap="openAnalysis">
+    <view class="score">{{state.records[0].score}}</view>
+    <view class="grow"><view class="strong">最近一次动作完成良好</view><view class="small">有效动作 {{state.records[0].valid}}/{{state.records[0].target}}，查看节奏与姿态表现</view></view>
+    <text>›</text>
+  </view>
+
+  <view class="section-title">日常姿态提醒</view>
+  <view class="card posture" bindtap="openPosture"><view class="posture-icon">↟</view><view class="grow"><view class="strong">今天提醒 {{state.postureAlerts}} 次</view><view class="small muted">坐姿、低头与距离提醒</view></view><text>›</text></view>
+
+  <view class="section-title">本周亮点</view>
+  <view class="highlight-grid"><view><text>{{state.records[0].score}}</text><text>最近得分</text></view><view><text>{{totalValid}}</text><text>累计有效动作</text></view><view><text>{{completedCount}}</text><text>完成记录</text></view></view>
+
+  <view class="section-title">本周小结</view>
+  <view class="weekly-note"><view class="note-mark">✦</view><view class="grow"><view class="strong">稳定完成比追求速度更重要</view><view class="small">最近动作完成度较好，可以继续保持每次10–15分钟的轻量运动节奏。</view></view></view>
+</view>

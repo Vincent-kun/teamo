@@ -1,0 +1,18 @@
+<view class="page">
+  <view class="brand-kicker">MOVE LIBRARY <text>7 ACTIONS</text></view>
+  <view class="hero-title">今天想练什么？</view>
+  <view class="hero-sub">选择动作后，可调整目标并直接发送给设备</view>
+  <view class="library-grid">
+    <view class="move-card {{item.color}} {{item.available?'':'unavailable'}}" wx:for="{{actions}}" wx:key="id" data-id="{{item.id}}" bindtap="selectAction">
+      <view class="move-top"><view class="symbol">{{item.short}}</view><view class="stage {{item.available?'ready':''}}">{{item.stage}}</view></view><view class="strong">{{item.name}}</view><view class="small muted">{{item.type}}</view><view class="target-label">建议 {{item.target}}{{item.unit}}</view>
+    </view>
+  </view>
+  <view class="detail-card" wx:if="{{selected}}">
+    <view class="detail-head"><view><view class="small muted">动作说明</view><view class="detail-title">{{selected.name}}</view></view><text bindtap="closeDetail">×</text></view>
+    <view class="guide">{{selected.guide}}</view>
+    <view class="hint"><text>陪伴提示</text>{{selected.hint}}</view>
+    <view class="form-label">本次目标</view>
+    <view class="stepper"><button data-step="-5" bindtap="changeTarget">−</button><view>{{target}}<text>{{selected.unit}}</text></view><button data-step="5" bindtap="changeTarget">＋</button></view>
+    <button class="btn {{selected.available?'btn-primary':'btn-disabled'}} full" loading="{{sending}}" bindtap="startNow">{{selected.available?'立即发送到设备':selected.stage}}</button>
+  </view>
+</view>

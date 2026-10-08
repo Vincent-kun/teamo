@@ -1,0 +1,30 @@
+<view class="page">
+  <view class="brand-kicker">MOVE REPORT <text>AI INSIGHT</text></view>
+  <view class="analysis-hero">
+    <view class="small">最近一次运动</view>
+    <view class="hero-row"><view><view class="title">{{record.name}}</view><view class="small">{{record.date}} · 用时 {{record.duration}} 秒</view><view class="record-meta">{{record.status}} · {{record.source}} · {{record.deviceName}}</view></view><view class="score">{{record.score}}</view></view>
+  </view>
+
+  <view class="section-title">完成情况</view>
+  <view class="card split">
+    <view class="metric"><text>{{completion}}%</text><text>任务完成</text></view>
+    <view class="metric"><text>{{record.valid}}</text><text>有效动作</text></view>
+    <view class="metric"><text>{{validRate}}%</text><text>动作有效率</text></view>
+  </view>
+
+  <view class="section-title">动作质量</view>
+  <view class="card quality">
+    <view class="quality-row"><text>动作完整度</text><view class="progress"><view style="width:{{validRate}}%"></view></view><text>{{validRate}}%</text></view>
+    <view class="quality-row"><text>节奏稳定性</text><view class="progress"><view style="width:88%"></view></view><text>88%</text></view>
+    <view class="quality-row"><text>站位情况</text><view class="progress"><view style="width:92%"></view></view><text>92%</text></view>
+  </view>
+
+  <view class="section-title">本次姿态提醒</view>
+  <view class="list">
+    <view class="list-item" wx:for="{{record.issues}}" wx:key="*this"><view class="warn">!</view><view class="grow"><view class="strong">{{item}}</view><view class="small muted">下一次运动时，设备会继续提醒</view></view></view>
+  </view>
+
+  <view class="section-title">AI 建议</view>
+  <view class="ai-advice"><view class="ai">AI</view><view class="grow"><view class="advice-label">根据本次计数与动作事件生成</view>这次完成情况不错。下次可以保持速度，动作做到位后再加快节奏，不需要追求过快。</view></view>
+  <view class="privacy">分析结果用于日常运动反馈，不作为医疗判断。</view>
+</view>
