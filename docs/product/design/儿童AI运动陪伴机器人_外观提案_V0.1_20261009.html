@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>儿童AI运动陪伴机器人 外观提案 V0.1（2026-10-09）</title>
+<style>
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; color: #1f2328; background: #ffffff; max-width: 860px; margin: 0 auto; padding: 32px 20px 64px; line-height: 1.7; }
+  h1 { font-size: 24px; border-bottom: 2px solid #0969da; padding-bottom: 8px; }
+  h2 { font-size: 19px; color: #0969da; border-left: 4px solid #0969da; padding-left: 10px; margin-top: 40px; }
+  h3 { font-size: 16px; margin-top: 24px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+  th, td { border: 1px solid #d0d7de; padding: 6px 10px; text-align: left; vertical-align: top; }
+  th { background: #f6f8fa; }
+  .meta { color: #57606a; font-size: 14px; }
+  .tag { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 10px; margin-right: 6px; white-space: nowrap; }
+  .tag-ok { background: #dafbe1; color: #116329; }
+  .tag-tbd { background: #fff8c5; color: #7d4e00; }
+  .tag-conflict { background: #ffebe9; color: #a40e26; }
+  .imgrow { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+  .imgrow figure { flex: 1 1 240px; margin: 0; text-align: center; }
+  .imgrow img { max-width: 100%; border: 1px solid #d0d7de; border-radius: 8px; }
+  figcaption { font-size: 13px; color: #57606a; margin-top: 6px; }
+  .imgfallback { display: none; border: 1px dashed #d0d7de; padding: 24px 8px; color: #57606a; font-size: 13px; }
+  .callout { border: 1px solid #0969da; background: #f0f6ff; border-radius: 8px; padding: 12px 16px; margin: 16px 0; }
+  .callout.warn { border-color: #a40e26; background: #fff5f5; }
+  .small { font-size: 13px; color: #57606a; }
+  code { background: #f6f8fa; padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+  ul { padding-left: 22px; }
+  li { margin: 4px 0; }
+  footer { margin-top: 56px; border-top: 1px solid #d0d7de; padding-top: 12px; font-size: 13px; color: #57606a; }
+</style>
+</head>
+<body>
+
+<h1>儿童AI运动陪伴机器人 · 外观提案 V0.1</h1>
+<p class="meta">
+  日期：2026-10-09 ｜ 状态：<strong>评审提案，非外观冻结、非 CAD/BOM 依据</strong> ｜ 用途：收敛 ID 方向与尺寸取舍，供产品/技术负责人（涛哥）评审会使用<br>
+  依据：2026-09-24 掌心路线拍板、<code>屏幕与整机尺寸方案_20261008_V0.1</code>、<code>整机排布与尺寸决策_20261009</code>、<code>设备端UE参考与视觉边界_20261009</code>、ID 渲染图（teamo 三件套资产）
+</p>
+
+<div class="callout">
+  <strong>一句话提案：</strong>外观延续已定 ID 渲染方向——竖向扁胶囊白壳、顶部滑盖摄像头、1.8″ 圆屏作"学伴表情面孔"、屏下实体圆键；但<strong>尺寸必须重谈</strong>：拍板包络 60×90mm 与圆屏＋内置4G 的硬件核算（需宽 60.5mm / 高 88.5mm 起步，整机身 63–76mm 宽）冲突，本次评审须先拍板"屏形 + 包络 + 是否内置4G"三件事，外观才能冻结。
+</div>
+
+<h2>1. 评审会上必须先拍板的三件事</h2>
+<table>
+  <tr><th>#</th><th>决策点</th><th>选项与影响</th><th>状态</th></tr>
+  <tr>
+    <td>1</td><td><strong>屏形：圆屏 vs 方屏</strong></td>
+    <td>圆屏（渲染图方向，学伴表情载体，360×360 QSPI）外观最优但驱动/触控/宽度代价大；方屏 1.69″（240×280 SPI）省空间、MVP 更快，但外观需要重画。</td>
+    <td><span class="tag tag-tbd">未闭环</span></td>
+  </tr>
+  <tr>
+    <td>2</td><td><strong>机身包络：60×90 是否放弃</strong></td>
+    <td>9/24 拍板"约 60×90mm 掌心小主体"；10/8 核算圆屏方案外宽下限 60.50mm、圆屏+相机同前脸需外高 ≥88.50mm，90mm 高仅剩 1.5mm 余量，装不下大圆角、底部的声孔与滑盖机构。</td>
+    <td><span class="tag tag-conflict">冲突待拍板</span></td>
+  </tr>
+  <tr>
+    <td>3</td><td><strong>4G 是否进首版</strong></td>
+    <td>内置 LTE 需要独立天线净空区（10/9 试验：42+20+10+4=76mm 宽），直接把机身从"方屏 Wi-Fi 的 63mm 宽"推到"76mm 宽"；Wi-Fi 优先则可保紧凑。</td>
+    <td><span class="tag tag-tbd">未闭环</span></td>
+  </tr>
+</table>
+
+<h2>2. ID 渲染方向（当前唯一已定的外观基准）</h2>
+<p>以下三图为产品外观的现行视觉基准（来源：prototype/teamo-ui-flow-html 资产）。UI 边界文档明确：仅参考其机身、圆屏与学伴眼睛作为初始基准，最终方向待本轮评审确认。</p>
+
+<div class="imgrow">
+  <figure>
+    <img src="../../../prototype/teamo-ui-flow-html/public/assets/teamo-three-view.png" alt="三视图"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+    <div class="imgfallback">图片缺失：teamo-three-view.png（prototype/teamo-ui-flow-html/public/assets/）</div>
+    <figcaption>三视图：正面 / 侧面 / 背面</figcaption>
+  </figure>
+  <figure>
+    <img src="../../../prototype/teamo-ui-flow-html/public/assets/teamo-cover-open.png" alt="滑盖打开"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+    <div class="imgfallback">图片缺失：teamo-cover-open.png（prototype/teamo-ui-flow-html/public/assets/）</div>
+    <figcaption>隐私滑盖打开（镜头露出）</figcaption>
+  </figure>
+  <figure>
+    <img src="../../../prototype/teamo-ui-flow-html/public/assets/teamo-cover-closed.png" alt="滑盖关闭"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+    <div class="imgfallback">图片缺失：teamo-cover-closed.png（prototype/teamo-ui-flow-html/public/assets/）</div>
+    <figcaption>隐私滑盖关闭（物理遮挡镜头）</figcaption>
+  </figure>
+</div>
+
+<h3>设计语言解读（从渲染图提取）</h3>
+<ul>
+  <li><strong>整体形态</strong>：竖向扁胶囊，局部平前脸、顶部小圆角、平底、前后分壳、独立内支架——与 10/8 尺寸文档的形态建议一致；<strong>不采用</strong>整面半圆端部吞掉屏角的纯体育场轮廓。</li>
+  <li><strong>屏幕即面孔</strong>：黑色圆屏不是"显示屏"，而是学伴的脸——黑底上两只白色眼睛即待机表情。这是产品角色化的外观核心，圆屏方案的外现价值最高。</li>
+  <li><strong>隐私滑盖 = 橙色标志件</strong>：镜头 + 橙色物理滑盖横置于顶部槽内。橙色既是儿童产品的高可见点缀色，也是"摄像头开关"的状态符号——滑盖关即物理断视觉，对应儿童隐私底线（视频不持久化）的可见化表达。</li>
+  <li><strong>实体按键</strong>：屏下实体圆键（主键）+ 右侧长条键；渲染图未体现触控，与"触控是否首版必需"的未闭环决策一致。</li>
+  <li><strong>背面</strong>：上置圆形扬声器孔阵，底部 USB-C；侧面极薄轮廓对内部堆叠（电池 7.2mm + 载板 10mm + 屏预算）提出硬约束。</li>
+</ul>
+
+<h2>3. 前脸与交互件布局（现行口径）</h2>
+<table>
+  <tr><th>部位</th><th>渲染图口径</th><th>工程约束 / 待核</th></tr>
+  <tr><td>顶部滑盖槽</td><td>镜头 + 橙色物理滑盖横置，可滑动遮挡</td><td>相机安装深度暂占 24mm（MIS5001(B) 25×24 参考，<strong>非已确认 120–130° FOV 件</strong>）；滑盖机构加高另核；镜头开孔随 FOV 结论调整</td></tr>
+  <tr><td>主屏</td><td>1.8″ 黑圆屏，居中偏上</td><td>圆屏候选整板宽 55×55mm（D04/D05）或裸屏 48mm 级（D03）；驱动路径（QSPI/双处理器）未闭环</td></tr>
+  <tr><td>屏下圆键</td><td>实体主键</td><td>按键型号候选已在连接器清单（CN17–18），布局待 CAD</td></tr>
+  <tr><td>右侧键</td><td>长条侧键</td><td>功能分配（电源/音量）待定</td></tr>
+  <tr><td>背面上部</td><td>扬声器孔阵</td><td>后腔 35×30×10mm 净空 + 5.2mm 喇叭厚度，前后声路隔离，主板/电池不得侵占</td></tr>
+  <tr><td>底部</td><td>USB-C</td><td>USB-C 座（CN01–03）、SIM 座（若内置4G）待选</td></tr>
+</table>
+
+<h2>4. CMF 初始方向（提案值，非最终）</h2>
+<table>
+  <tr><th>要素</th><th>方向</th><th>理由</th></tr>
+  <tr><td>主体色</td><td>柔白（哑光）</td><td>渲染图基准；儿童房场景亲和、耐脏折中</td></tr>
+  <tr><td>点缀色</td><td>橙色（仅滑盖一处）</td><td>单强调色原则；滑盖是唯一需要"被一眼看到"的交互件（隐私状态）</td></tr>
+  <tr><td>屏幕区</td><td>黑色镜面圆窗</td><td>表情面孔载体；息屏时整体如"脸"</td></tr>
+  <tr><td>按键</td><td>与壳同色浅灰</td><td>低调，不与滑盖争夺视觉</td></tr>
+  <tr><td>材质/工艺</td><td>塑料前后分壳；本阶段 3D 打印试片</td><td>壁厚 2mm/侧为初值，先打槽/螺柱/卡扣试片用卡尺校误差，再谈表面工艺</td></tr>
+</table>
+<p class="small">设备端 UI 配色另按《设备端UE参考与视觉边界》：深中性底 + 单一强调色；禁止复制参考页的渐变、庆祝粒子与复杂卡片。</p>
+
+<h2>5. 尺寸现状：三套讨论方案 vs 拍板包络</h2>
+<div class="callout warn">
+  <strong>核心矛盾（不得静默处理）：</strong>外观理想是 9/24 拍板的"约 60×90mm 掌心小主体"；硬件核算的现实是——圆屏＋内置4G 的可行机身落在 <strong>73–76mm 宽、118–124mm 高</strong>（S2/S3），即便方屏 Wi-Fi 优先也要 <strong>63×102mm</strong>（S1）。"掌心"与"圆屏+4G"目前<strong>不可兼得</strong>，评审会须明确牺牲哪一头。
+</div>
+
+<h3>5.1 尺寸讨论稿 P 系列（2026-10-08，W×D×H，历史计算案例）</h3>
+<p class="small">注：P 系列基于 Core1106+载板组合，仅作历史计算案例；产品已明确<strong>自研主板</strong>，下一轮须以真实器件预布局重估，不能直接沿用。</p>
+<table>
+  <tr><th>提案</th><th>组合</th><th>外包络 mm</th><th>外观取舍</th></tr>
+  <tr><td>P1 方屏核心板</td><td>1.69″ 触控方屏 + Core1106</td><td>61.49×38.00×99.49</td><td>最接近拍板包络的紧凑工程方向（仍是方屏）</td></tr>
+  <tr><td>P2 圆屏双处理器</td><td>1.85″ 圆屏整板 + ESP32-S3</td><td>67.96×42.00×109.96</td><td>圆屏是产品前提时的工程方向，机身明显放大</td></tr>
+  <tr><td>P3 裸圆屏产品化</td><td>裸圆屏 360×360 QSPI</td><td>56.63×35.00×91.63</td><td>体积最接近掌心理想，但驱动/触控/FPC 未闭环，赶进度不默认</td></tr>
+  <tr><td>P4 开发板样机</td><td>Pico Max + 1.69″ 屏</td><td>84.14×52.00×136.14</td><td>仅工程样机验证链路，不是产品外观</td></tr>
+</table>
+
+<h3>5.2 整机排布方案 S 系列（2026-10-09，宽×高×厚，自研主板口径）</h3>
+<table>
+  <tr><th>方案</th><th>外包络 mm</th><th>通俗大小</th><th>核心取舍</th></tr>
+  <tr><td>S1 方屏＋Wi-Fi</td><td>63.2×102.3×39.1</td><td>约 6.3×10.2×3.9 cm</td><td>最紧凑，先验证"识别→屏幕反馈→语音播报"主链路；4G 天线无可靠位置</td></tr>
+  <tr><td>S2 圆屏＋LTE</td><td>76.4×123.6×47.2</td><td>约 7.6×12.4×4.7 cm</td><td>圆屏外观 + 内置4G 的讨论起点，机身最大</td></tr>
+  <tr><td>S3 薄圆屏＋大电池</td><td>73.2×118.4×45.2</td><td>约 7.3×11.8×4.5 cm</td><td>1.96mm 薄圆屏换 4400mAh 电池；4G 天线隔离预算不足，坚持内置4G还要加宽</td></tr>
+</table>
+<p class="small">黄金比例（H≈φW、D≈W/φ）仅是造型目标；最终大小由真实板子、线材、声腔、天线和打印装配决定。S2/S3 已超出"掌心"直觉尺寸，选它们等于放弃 60×90 口径。</p>
+
+<h2>6. 屏形分支对外观的影响（对比）</h2>
+<table>
+  <tr><th>维度</th><th>圆屏（渲染图方向）</th><th>方屏 1.69″</th></tr>
+  <tr><td>外观/角色化</td><td>学伴"脸"完整，最贴合已定 ID 渲染</td><td>需重画 ID，表情面孔逻辑要重设计</td></tr>
+  <tr><td>像素/信息</td><td>360×360（一帧 RGB565 约 259KB）</td><td>240×280（约 134KB），刷新带宽压力小</td></tr>
+  <tr><td>驱动风险</td><td>QSPI 或双处理器，均未验证</td><td>4线SPI，仍需 RV1106 驱动移植验证</td></tr>
+  <tr><td>对机身的要求</td><td>外宽 ≥60.5mm 起步（55mm 屏板链），同前脸带相机需高 ≥88.5mm</td><td>屏板 33×41mm，宽度压力小</td></tr>
+  <tr><td>触控</td><td>候选均带 I2C 触控</td><td>仅触控版可选</td></tr>
+</table>
+
+<h2>7. 待评审问题清单（外观相关摘录）</h2>
+<ul>
+  <li>圆屏是不是必须？方屏是否允许作为 MVP 外观？（决定 ID 是否推倒重画）</li>
+  <li>触控是否首版必需？渲染图为纯实体键方案。</li>
+  <li>60×90 拍板包络：维持（则屏/4G 必须让步）还是放宽（则"掌心"口径作废，需同步修订产品定义文档）？</li>
+  <li>4G 内置与否——影响机身宽度与天线净空，进而影响整体比例。</li>
+  <li>滑盖机构：与相机 24mm 安装深度的叠加高度、滑动手感与寿命，"滑盖加高另核"。</li>
+  <li>镜头 FOV：MIS5001(B) 未确认 120–130°，若换镜头则顶部开孔与滑盖行程重算。</li>
+  <li>背面扬声器孔阵位置与后腔 35×30×10mm 净空的匹配。</li>
+  <li>按键数量与功能分配（屏下圆键 + 右侧键 是否够用）。</li>
+</ul>
+
+<h2>8. 依据文件</h2>
+<ul>
+  <li><a href="../../hardware/屏幕与整机尺寸方案_20261008_V0.1.md">屏幕与整机尺寸方案_20261008_V0.1.md</a>（P 系列、60×90 核算、屏幕候选）</li>
+  <li><a href="../../hardware/system-layout-20261009/整机排布与尺寸决策.md">整机排布与尺寸决策_20261009.md</a>（S 系列、声腔/天线/验证顺序）</li>
+  <li><a href="设备端UE参考与视觉边界_20261009.md">设备端UE参考与视觉边界_20261009.md</a>（视觉边界与交互参考）</li>
+  <li><a href="../../hardware/硬件选型_Agent分工与现状交接_20261009.md">硬件选型_Agent分工与现状交接_20261009.md</a>（选型现状）</li>
+  <li>ID 渲染图：<code>prototype/teamo-ui-flow-html/public/assets/</code>（three-view / cover-open / cover-closed）</li>
+</ul>
+
+<footer>
+  本文档为外观提案 V0.1，整合自仓库现有已验证资料；所有渲染图为视觉基准而非结构图，所有尺寸为讨论稿而非制造依据。<br>
+  变更须走"旧口径 — 新证据 — 建议修改"变更单，不得静默改写既有资料（AGENTS.md 红线）。
+</footer>
+
+</body>
+</html>

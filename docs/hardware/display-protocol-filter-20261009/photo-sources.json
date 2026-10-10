@@ -1,0 +1,327 @@
+[
+  {
+    "id": "WS01",
+    "model": "Pico-LCD-1.3",
+    "status": "厂家产品图",
+    "file": "assets/WS01.jpg",
+    "url": "https://www.waveshare.com/w/upload/a/a8/Pico-LCD-1.3-2.jpg",
+    "page": "https://www.waveshare.com/wiki/Pico-LCD-1.3",
+    "sha256": "9ae7710ad36c6f3172f18c56964e733b5015360c25351aff6b5b89b7fa749ba1",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "WS02",
+    "model": "1.28inch LCD Module",
+    "status": "厂家产品图",
+    "file": "assets/WS02.jpg",
+    "url": "https://www.waveshare.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/1/_/1.28inch-lcd-module-1.jpg",
+    "page": "https://www.waveshare.com/product/1.28inch-lcd-module.htm",
+    "sha256": "cbc0adff2d4f4c9cd589e821ea2f989852a1cf99016c76f2ea15300d494c50db",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "WS03",
+    "model": "1.28inch Touch LCD",
+    "status": "厂家产品图",
+    "file": "assets/WS03.jpg",
+    "url": "https://www.waveshare.com/media/catalog/product/cache/1/image/264x/9df78eab33525d08d6e5fb8d27136e95/1/_/1.28inch-touch-lcd-1_1.jpg",
+    "page": "https://www.waveshare.com/product/1.28inch-touch-lcd.htm",
+    "sha256": "be7eec659fe1732575a5427fc1eff06b40156bd5352cae404c2f4ea367b87359",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "WS04",
+    "model": "1.3inch LCD Module",
+    "status": "厂家产品图",
+    "file": "assets/WS04.jpg",
+    "url": "https://www.waveshare.com/w/upload/9/97/1.3inch-LCD-Module-1.jpg",
+    "page": "https://www.waveshare.com/wiki/1.3inch_LCD_Module",
+    "sha256": "717074bd13f255c773db572106e828bc8fa920bc9300c9056e208af1d2676046",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "WS05",
+    "model": "1.54inch LCD Module",
+    "status": "厂家产品图",
+    "file": "assets/WS05.jpg",
+    "url": "https://www.waveshare.com/w/upload/thumb/0/02/1.54inch-LCD-Module-1.jpg/1200px-1.54inch-LCD-Module-1.jpg",
+    "page": "https://www.waveshare.com/wiki/1.54inch_LCD_Module",
+    "sha256": "a43ef1adbbd60c09028b4b16fb0db0be8e3bcc4c875afa531d1199dca43ffbef",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "WS06",
+    "model": "1.54inch Touch LCD Module",
+    "status": "厂家产品图",
+    "file": "assets/WS06.webp",
+    "url": "https://docs.waveshare.com/assets/images/1.54-product1-153de900273403b286ac9c60a9d16ef2.webp",
+    "page": "https://docs.waveshare.com/1.54inch_Touch_LCD_Module",
+    "sha256": "138e40f6c839d0b6844c9f58ea0a7d586a7fe86c1c0a21ae741c4e601805dd57",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [
+      {
+        "url": "https://docs.waveshare.com/assets/images/1.54-product2-d54e4139d4e0dad162a7181e2af70bca.webp",
+        "caption": "厂家其他视角原图（在线打开，视角与版本需核）"
+      }
+    ],
+    "missing_reason": null
+  },
+  {
+    "id": "WS07",
+    "model": "1.69inch LCD Module",
+    "status": "厂家产品图",
+    "file": "assets/WS07.jpg",
+    "url": "https://www.waveshare.com/w/upload/f/fb/1.69inch_LCD_Module.jpg",
+    "page": "https://www.waveshare.com/wiki/1.69inch_LCD_Module",
+    "sha256": "0289159f533512a1b07915ca19dc29388c280e9f80b32b33d7f0285ece29e2db",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "WS08",
+    "model": "1.69inch Touch LCD Module",
+    "status": "厂家产品图",
+    "file": "assets/WS08.jpg",
+    "url": "https://www.waveshare.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/1/_/1.69inch-touch-lcd-module-1.jpg",
+    "page": "https://www.waveshare.com/product/1.69inch-touch-lcd-module.htm",
+    "sha256": "691de51d829e0a9b4689b9d59565e825df4f3999df1a79ee0d5b3d963f89f960",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [
+      {
+        "url": "https://www.waveshare.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/1/_/1.69inch-touch-lcd-module-2.jpg",
+        "caption": "厂家其他视角原图（在线打开，视角与版本需核）"
+      },
+      {
+        "url": "https://www.waveshare.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/1/_/1.69inch-touch-lcd-module-3.jpg",
+        "caption": "厂家其他视角原图（在线打开，视角与版本需核）"
+      }
+    ],
+    "missing_reason": null
+  },
+  {
+    "id": "WS09",
+    "model": "1.8inch LCD Module",
+    "status": "未取得精确型号产品图",
+    "other_views": [],
+    "missing_reason": "厂家网页抓取未成功，尚未取得对应1.8寸128×160模组图。"
+  },
+  {
+    "id": "WS10",
+    "model": "1.83inch LCD Module Rev2",
+    "status": "型号页版本待核",
+    "file": "assets/WS10.jpg",
+    "url": "https://www.waveshare.com/w/upload/9/93/1.83inch_LCD_Module.jpg",
+    "page": "https://www.waveshare.com/wiki/1.83inch_LCD_Module",
+    "sha256": "cd4d8c34be0e35024f9afcb66a72551305d2611b3398ecb0a3227704c8edc679",
+    "caption": "厂家1.83型号页图；图片未证明Rev2版本，待核",
+    "other_views": [
+      {
+        "url": "https://www.waveshare.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/1/_/1.83inch-lcd-module-2.jpg",
+        "caption": "厂家其他视角原图（在线打开，视角与版本需核）"
+      }
+    ],
+    "missing_reason": null
+  },
+  {
+    "id": "WS11",
+    "model": "1.83inch Touch LCD Module",
+    "status": "厂家产品图",
+    "file": "assets/WS11.webp",
+    "url": "https://docs.waveshare.com/assets/images/1.83-product1-d49a2b05c3b54cac109c92083226a9c7.webp",
+    "page": "https://docs.waveshare.com/1.83inch_Touch_LCD_Module",
+    "sha256": "33d883aa1c035a2cdc63bda3fc4f306515952f6cc7daf048753fcdaf8c62810c",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [
+      {
+        "url": "https://docs.waveshare.com/assets/images/1.83-product2-edc2ece660b1e88144ad23158bdd43ae.webp",
+        "caption": "厂家其他视角原图（在线打开，视角与版本需核）"
+      }
+    ],
+    "missing_reason": null
+  },
+  {
+    "id": "WS12",
+    "model": "2inch LCD Module",
+    "status": "厂家产品图",
+    "file": "assets/WS12.jpg",
+    "url": "https://www.waveshare.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/2/i/2inch-lcd-module-1.jpg",
+    "page": "https://www.waveshare.com/product/displays/lcd-oled/2inch-lcd-module.htm",
+    "sha256": "52c14f34583ea12dad0c4c3ad650c9aa25ef908b5ac8aaedd34ea84dd219da30",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "WS13",
+    "model": "2inch Capacitive Touch LCD",
+    "status": "厂家产品图",
+    "file": "assets/WS13.jpg",
+    "url": "https://www.waveshare.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/2/i/2inch-capacitive-touch-lcd-1.jpg",
+    "page": "https://www.waveshare.com/product/displays/lcd-oled/lcd-oled-3/2inch-capacitive-touch-lcd.htm",
+    "sha256": "b459526f290fe62438472bfb6009d830ccfbc22db7fed66fe4cf7bac3b2a5020",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "WS14",
+    "model": "2.4inch LCD Module",
+    "status": "厂家产品图",
+    "file": "assets/WS14.jpg",
+    "url": "https://www.waveshare.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/2/_/2.4inch-lcd-module-1.jpg",
+    "page": "https://www.waveshare.com/product/2.4inch-lcd-module.htm",
+    "sha256": "f4d46de8b4051366330f0d42af4c311dc29c95acf46786f671295d432d60052a",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "WS15",
+    "model": "2.8inch Capacitive Touch LCD",
+    "status": "厂家产品图",
+    "file": "assets/WS15.jpg",
+    "url": "https://www.waveshare.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/2/_/2.8inch-capacitive-touch-lcd-1.jpg",
+    "page": "https://www.waveshare.com/catalog/product/view/id/6414/s/2.8inch-capacitive-touch-lcd/category/346/",
+    "sha256": "7b2a047f89b25635d0756caea41b9a080a83983791eb3766e8bd53e8f8121adc",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "WS16",
+    "model": "3.5inch Capacitive Touch LCD",
+    "status": "未取得精确型号产品图",
+    "other_views": [],
+    "missing_reason": "厂家网页抓取未成功；不得使用480×800、HDMI或ESP整板版本代图。"
+  },
+  {
+    "id": "WS17",
+    "model": "1.83inch LCD Module Rev1",
+    "status": "未取得精确型号产品图",
+    "other_views": [],
+    "missing_reason": "历史Rev1尚未取得版本可识别产品图；当前Rev2图片不能证明Rev1外观。"
+  },
+  {
+    "id": "EX01",
+    "model": "ND018TCM360360-A01",
+    "status": "厂家产品图",
+    "file": "assets/EX01.webp",
+    "url": "https://www.nosedisplay.com/wp-content/uploads/2025/08/Circular-smart-watch-TFT-LCD-screen-FPC-flexible-cable.webp",
+    "page": "https://www.nosedisplay.com/products/tft-display-1-8-inch-round-display-ips-360x360-resolution-qspi-4-line/",
+    "sha256": "6b840d55766d6cd7ce546cd9031966e64730e293d2b21f65dbc4a5a5cec32cbc",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "EX02",
+    "model": "1.85inch Touch LCD Module SKU35079",
+    "status": "厂家产品图",
+    "file": "assets/EX02.webp",
+    "url": "https://docs.waveshare.com/assets/images/1.85-introduce-05a72d0006468f29079e005dcdf171a0.webp",
+    "page": "https://docs.waveshare.com/1.85inch_Touch_LCD_Module",
+    "sha256": "5b03669e4dae1561b92d9612cbb9e20d2344395a51b89c7d83e62633d03e7200",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "EX03",
+    "model": "ESP32-S3-Touch-LCD-1.85 无B/C后缀",
+    "status": "厂家产品图",
+    "file": "assets/EX03.webp",
+    "url": "https://docs.waveshare.com/assets/images/ESP32-S3-Touch-LCD-1.85-1-f3fedf0545311093972aa458a5860e20.webp",
+    "page": "https://docs.waveshare.com/ESP32-S3-Touch-LCD-1.85",
+    "sha256": "09f23dadcf6411d15006c9b5b043a6138eb6aeb14c5b4b2f4d0bfeb203bb1b35",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "EX04",
+    "model": "LF40-480480-ARK",
+    "status": "厂家产品图",
+    "file": "assets/EX04.jpg",
+    "url": "https://www.luckfox.com/image/catalog/LCD-OLED/LF40-480480-ARK/LF40-480480-ARK-details-1.jpg",
+    "page": "https://www.luckfox.com/LF40-480480-ARK",
+    "sha256": "383f8e3a9a786b368726bb271a73e9b35d2284a7b0f64858aa7cf0dfa65ae488",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "EX05",
+    "model": "LF40-720720-ARK",
+    "status": "厂家产品图",
+    "file": "assets/EX05.jpg",
+    "url": "https://www.luckfox.com/image/catalog/LCD-OLED/LF40-720720-ARK/LF40-720720-ARK-details-1.jpg",
+    "page": "https://www.luckfox.com/LF40-720720-ARK",
+    "sha256": "1625ce016982eb78c34d92f6d4ca4b22cb6dbed4d399d9adf61b63e38524a17a",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "EX06",
+    "model": "1.46inch Touch LCD Module SKU34955",
+    "status": "厂家产品图",
+    "file": "assets/EX06.jpg",
+    "url": "https://www.waveshare.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/1/_/1.46inch-touch-lcd-module-1.jpg",
+    "page": "https://www.waveshare.com/product/displays/1.46inch-touch-lcd-module.htm",
+    "sha256": "f09a8702296c468d3aefa26d07eef43797dd88ba6104578e23e26a107dc8ab66",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  },
+  {
+    "id": "EX07",
+    "model": "TTH185BRS-01C",
+    "status": "未取得精确型号产品图",
+    "other_views": [],
+    "missing_reason": "目前只有对应型号厂家PDF资料，未取得产品照片。"
+  },
+  {
+    "id": "EX08",
+    "model": "ER-TFT021-1-5714",
+    "status": "未取得精确型号产品图",
+    "other_views": [],
+    "missing_reason": "厂家页面返回403；对应5714触控版照片未取得。"
+  },
+  {
+    "id": "EX09",
+    "model": "ER-TFT1.28-3 无触控版",
+    "status": "未取得精确型号产品图",
+    "other_views": [],
+    "missing_reason": "厂家页面返回403；无触控版照片未取得。"
+  },
+  {
+    "id": "EX10",
+    "model": "ER-TFT021-1-5982 智能屏",
+    "status": "未取得精确型号产品图",
+    "other_views": [],
+    "missing_reason": "厂家页面返回403；5982带MCU智能屏照片未取得。"
+  },
+  {
+    "id": "EX11",
+    "model": "Adafruit #4421 1.54 TFT",
+    "status": "厂家产品图",
+    "file": "assets/EX11.jpg",
+    "url": "https://www.adafruit.com/images/480x360/4421-00.jpg",
+    "page": "https://www.adafruit.com/product/4421",
+    "sha256": "5b450b2f84f6e81f105f321f6c329f98238f6adec89e820b98d455848ad1db31",
+    "caption": "厂家型号页产品图；点击查看原图",
+    "other_views": [],
+    "missing_reason": null
+  }
+]

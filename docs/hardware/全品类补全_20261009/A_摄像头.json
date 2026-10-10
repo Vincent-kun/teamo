@@ -1,0 +1,267 @@
+[
+ {
+  "id": "C06",
+  "category": "摄像头",
+  "model": "HD-CSI-2093 (GC2093 1080P MIPI模组)",
+  "manufacturer": "武汉万象奥科 (vanxoak)，传感器 GalaxyCore GC2093",
+  "w": null,
+  "h": null,
+  "t": null,
+  "url": "https://www.vanxoak.com/camera/hd-csi-2093.html",
+  "notes": "GC2093 1080P 定焦模组：1920×1080，1/2.9\"，EFL 4.35mm，F2.2，厂家页标注视场角 74°（未注明 H/V/D 口径），畸变 <-0.1%（畸变定义未注明），40Pin MIPI 接口，工作温度 0~55℃。驱动证据充分：Luckfox SDK 内核含 gc2093.c（compatible \"galaxycore,gc2093\"，已核 HTTP 200），Rockchip rkbin 官方含 RV1106 Thunderboot 固件 rv1106_hpmcu_tb_gc2093，社区有 RV1106 dts 适配记录（module SIDA209300469 / lens 60IRC_F20）；但 Luckfox 默认板级 dts 未启用 gc2093，需自行添加 dts 节点与 IQ 文件。FOV 结论：74° 与 120–130° 广角目标差距约 46–56°，不满足广角目标；作为 1080P 成熟验证件可作台架对照，不升级为符合广角目标的产品相机。条件保留。",
+  "price": "",
+  "photo": "assets/C06.png",
+  "photo_note": "型号页主图（浏览器补抓 2026-10-09）；来源页与型号对应关系待逐项复核",
+  "sources": [
+   {
+    "fact": "HD-CSI-2093：GC2093，1920*1080，1/2.9\"，EFL 4.35mm，F2.2，视场角 74°，畸变<-0.1%，40Pin MIPI，0~55℃，提供模组规格书下载",
+    "url": "https://www.vanxoak.com/camera/hd-csi-2093.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Luckfox SDK 内核驱动文件 gc2093.c 存在（of_match compatible = \"galaxycore,gc2093\"）",
+    "url": "https://raw.githubusercontent.com/LuckfoxTECH/luckfox-pico/main/sysdrv/source/kernel/drivers/media/i2c/gc2093.c",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Rockchip rkbin 官方仓库 RV1106 传感器固件矩阵含 GC2093（GalaxyCore，1920×1080@30fps，rv1106_hpmcu_tb_gc2093_v*.bin）",
+    "url": "https://deepwiki.com/rockchip-linux/rkbin/5-rv-series-socs",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "RV1106 平台 GC2093 模组更换实战：dts 节点 compatible=\"galaxycore,gc2093\"，camera-module-name=SIDA209300469，lens-name=60IRC_F20",
+    "url": "https://blog.csdn.net/weixin_42641998/article/details/160702832",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "模组外形尺寸 W×H×T(mm)（厂家页未给，仅规格书下载入口，未成功解析）",
+   "供电电压（AVDD/DVDD/IOVDD 均未标注）",
+   "FOV 的 H/V/D 口径与畸变定义（页只写 74° 与 <-0.1%）",
+   "对焦方式（推断定焦但页面未明示）",
+   "Luckfox 默认 dts/IQ 文件适配状态"
+  ]
+ },
+ {
+  "id": "C07",
+  "category": "摄像头",
+  "model": "DGZX-AGIA8A035M1-29.6×20 (SC530AI 5MP MIPI模组，AF/FF可选)",
+  "manufacturer": "DGZX / Dogoozx (cameramodule.hk)，传感器 SmartSens 思特威 SC530AI",
+  "w": 29.6,
+  "h": 20,
+  "t": null,
+  "url": "https://www.cameramodule.hk/product/dgzx-5mp-mipi-2k-60fps-sc530ai-hdr-auto-focus-camera-module/",
+  "notes": "SC530AI 5MP 模组：2884×1624@60fps（10bit RAW RGB），1/2.7\" BSI，MIPI 接口，AF/FF 可选，PCB 尺寸 29.6×20mm（厚度未标）。厂家宣称镜头角度 5°–240° 可选（含广角/无畸变/全景镜头）——理论上可配出广角版本，但页面未给出任何具体广角配置的确认 FOV 数值，冲突未闭环。传感器官方参数（SmartSens，经光电查转录）：CRA 15°，HDR 最高 100dB，CSP 41pin 6.55×4.27mm，模拟 2.8V/数字 1.5V/IO 1.8V。驱动证据充分：Luckfox SDK 内核含 sc530ai.c（HTTP 200），官方 dts（rv1103-luckfox-pico-ipc.dtsi）含 sc530ai@30 节点，2lane MIPI，参考模组 CMK-OT2115-PC1 / 镜头 30IRC-F16；Rockchip《Linux IPC SDK》文档亦以 SC530AI 为新增传感器示例。FOV 结论：默认配置（30IRC-F16 镜头）FOV 未公布，与 120–130° 目标的差距无法量化；广角版本需厂家指定镜头型号并确认 FOV。条件保留。",
+  "price": "",
+  "photo": "assets/C07.jpg",
+  "photo_note": "实物照（白底产品图）：单摄模组+FPC，取自 cameramodule.hk 该产品页，与 DGZX SC530AI MIPI 模组型号对应",
+  "sources": [
+   {
+    "fact": "DGZX-AS-AGIA8A035M1-29.6×20：SC530AI(1/2.7\")，5MP 2884Hx1624V，2880x1620@60fps 10bit，MIPI，AF，镜头可选（宣称5°-240°可选），尺寸 L*W 29.6x20mm 可定制",
+    "url": "https://www.cameramodule.hk/product/dgzx-5mp-mipi-2k-60fps-sc530ai-hdr-auto-focus-camera-module/",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "同厂同型号另一产品页：SC530AI，5MP，60fps，MIPI，HDR/WDR，AF/FF Optional，Module Dimensions 29.6*20mm(L*W) PCB，RoHS",
+    "url": "https://www.cameramodule.hk/product/sc530ai-5mp-2k-60fps-mipi-ai-camera-module/",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "SC530AI 传感器官方参数：5MP 2888H×1624V，2.0µm，1/2.7\"，2880×1620@60fps，10-bit 1/2/4 Lane MIPI，RAW RGB，CRA 15°，AVDD 2.8V/DVDD 1.5V/IOVDD 1.8V，41-pin CSP 6.55mm×4.27mm",
+    "url": "http://oe1.com/product/6983714282985246720.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Luckfox SDK 官方 dts：sc530ai@30 节点，compatible \"smartsens,sc530ai\"，data-lanes <1 2>，module CMK-OT2115-PC1，lens 30IRC-F16",
+    "url": "https://raw.githubusercontent.com/LuckfoxTECH/luckfox-pico/main/sysdrv/source/kernel/arch/arm/boot/dts/rv1103-luckfox-pico-ipc.dtsi",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Luckfox SDK 内核驱动文件 sc530ai.c 存在（HTTP 200）",
+    "url": "https://raw.githubusercontent.com/LuckfoxTECH/luckfox-pico/main/sysdrv/source/kernel/drivers/media/i2c/sc530ai.c",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Rockchip 官方 Linux IPC SDK 文档：以 sc530ai 为例演示向 RV1106 添加传感器（sysdrv/source/kernel/drivers/media/i2c/sc530ai.c）",
+    "url": "https://pdfcoffee.com/rockchip-quick-start-linux-ipc-sdk-en-pdf-free.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "广角镜头配置的确认 FOV（H/V/D）——仅\"5°-240°可选\"宣传语",
+   "模组厚度 t",
+   "默认 30IRC-F16 镜头下的 FOV",
+   "价格与起订量",
+   "广角配置下 RV1106 IQ 文件/畸变校正(LCA/CAC)适配状态"
+  ]
+ },
+ {
+  "id": "C08",
+  "category": "摄像头",
+  "model": "TYS-HTWAI-S1 (SC530AI 5MP MIPI CSI-2模组，FF)",
+  "manufacturer": "TOLUCKY（广东，经销页 frbiz），传感器 SmartSens SC530AI",
+  "w": 21.9,
+  "h": 13.2,
+  "t": 8.4,
+  "url": "https://usb-cameramodule.company.frbiz.com/p121876991-mipi-5mp-camera-sensor-module-60fps-sc530ai-anti-fog.html",
+  "notes": "SC530AI 5MP 定焦模组（除雾版本，面向智能冰箱/IoT）：2884×1624@60fps，1/2.7\" BSI，MIPI CSI-2，FOV(D) 74°，模组尺寸 21.9×13.2×8.4mm（页内 Packaging Details 误写作模组尺寸处需注意，规格栏 Size/Dimension 2.19X1.32X0.84 cm），供电 AVDD 2.8V/DVDD 1.5V/IOVDD 1.8V，工作温度 -30~+85℃。冲突未闭环：同一经销页一处写 Interface MIPI CSI-2、另一处 Alibaba 同款页写 Interface DVP，接口以 MIPI CSI-2 为主记载但需向厂家确认；TV Distortion 字段只写\"1,000\"含义不明，按 null 处理。驱动：SC530AI 在 Luckfox SDK 有驱动与官方 dts 节点（见 C07）。FOV 结论：DFOV 74°，与 120–130° 目标差距约 46–56°，不满足广角目标；且此型号仅经销页可见、无原厂官网页，淘汰倾向，仅作同传感器不同配置记录。",
+  "price": "$14.99–$24.99 (MOQ 1，经销页报价)",
+  "photo_note": "frbiz 页直接访问返回 HTTP 503，图片下载失败；Alibaba 泰国站同款页未尝试抓图（需登录/风控），未用近似图冒充",
+  "sources": [
+   {
+    "fact": "TYS-HTWAI-S1：SC530AI 1/2.7\" BSI，5MP 2884×1624，2880×1620@60fps，MIPI CSI-2，FF，FOV(D) 74°，Module Size 2.19X1.32X0.84 cm，AVDD2.8/DVDD1.5/IOVDD1.8，RAW RGB，CRA 15°，CSP",
+    "url": "https://usb-cameramodule.company.frbiz.com/p121876991-mipi-5mp-camera-sensor-module-60fps-sc530ai-anti-fog.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "同款在 Alibaba 泰国站：Interface 字段写 DVP（与 friz 页 MIPI 冲突），FOV(D) 74°，TV Distortion 1,000，尺寸 2.19X1.32X0.84 cm，$4.20(500片起)",
+    "url": "https://www.alibaba.co.th/product-detail/5MP-SC530AI-high-frame-rate-capture_1601813953630.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "SC530AI 传感器官方参数（SmartSens）：同 C07 所引 oe1.com 页",
+    "url": "http://oe1.com/product/6983714282985246720.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Luckfox SDK 内核含 sc530ai.c（HTTP 200）",
+    "url": "https://raw.githubusercontent.com/LuckfoxTECH/luckfox-pico/main/sysdrv/source/kernel/drivers/media/i2c/sc530ai.c",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "原厂官网产品页（现仅经销页可查）",
+   "接口 MIPI/DVP 冲突待厂家确认",
+   "TV Distortion 数值含义",
+   "默认镜头畸变与 ISP 去畸变支持",
+   "图片（页 503 无法下载）"
+  ]
+ },
+ {
+  "id": "C09",
+  "category": "摄像头",
+  "model": "SC4336 模组 (Luckfox SDK 配置：module OT01 / lens 40IRC_F16)",
+  "manufacturer": "模组厂家未确认；传感器 SmartSens 思特威 SC4336",
+  "w": null,
+  "h": null,
+  "t": null,
+  "url": "http://m.oe1.com/product/6983714281336885248.html",
+  "notes": "SC4336 4MP 传感器：2568H×1448V（2560×1440@30fps），1/3.06\"，2.0µm DSI-2/SFCPixel，8/10bit 1/2 lane MIPI，RAW RGB，CRA 15°，灵敏度 2800mV/Lux·s，DR 77dB，AVDD 2.8V±0.1V/DVDD 1.8V±0.1V，35pin CSP 5.75×3.872mm，-30~+85℃。驱动证据充分：Luckfox SDK 官方 dts（rv1103-luckfox-pico-ipc.dtsi）含 sc4336@30 节点（compatible \"smartsens,sc4336\"，data-lanes <1 2>，module OT01，lens 40IRC_F16），内核含 sc4336.c（HTTP 200）。FOV 结论：传感器级与 Luckfox 默认镜头（40IRC_F16）FOV 均未查到公开数值，与 120–130° 目标差距无法量化。作为 Luckfox 生态原生支持的 4MP 低照度件，条件保留用于台架对照；因无模组尺寸/FOV/厂家页，不升级为符合广角目标的产品相机。",
+  "price": "",
+  "photo_note": "oe1.com 页直连超时（10060）；yelens.com 论坛转录页无图片标签。传感器/模组图均未获得，未用近似图冒充",
+  "sources": [
+   {
+    "fact": "SC4336 传感器参数：4MP 2568H×1448V，2.0µm，1/3.06\"，2560×1440@30fps，8/10bit 1/2 lane MIPI，RAW RGB，CRA 15°，2800mV/Lux·s，77dB，AVDD2.8/DVDD1.8，35pin CSP 5.75×3.872mm",
+    "url": "https://yelens.com/archiver/tid-2238.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "SC4336 传感器参数（GoPhotonics 转录，含 datasheet 下载入口）：4MP，30fps，1/3.06\"，MIPI，CSP 5.75×3.872mm，-30~85℃",
+    "url": "https://www.gophotonics.com/products/cmos-image-sensors/smartsens-technology/21-1025-sc4336",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Luckfox SDK 官方 dts：sc4336@30 节点，compatible \"smartsens,sc4336\"，data-lanes <1 2>，module OT01，lens 40IRC_F16",
+    "url": "https://raw.githubusercontent.com/LuckfoxTECH/luckfox-pico/main/sysdrv/source/kernel/arch/arm/boot/dts/rv1103-luckfox-pico-ipc.dtsi",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Luckfox SDK 内核驱动文件 sc4336.c 存在（HTTP 200）",
+    "url": "https://raw.githubusercontent.com/LuckfoxTECH/luckfox-pico/main/sysdrv/source/kernel/drivers/media/i2c/sc4336.c",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "模组厂家与型号页（现仅传感器级证据 + SDK dts 配置名）",
+   "模组外形尺寸 W×H×T",
+   "FOV（H/V/D）与畸变定义",
+   "对焦方式",
+   "成品模组价格与供货",
+   "图片"
+  ]
+ },
+ {
+  "id": "C10",
+  "category": "摄像头",
+  "model": "GC3003 (传感器级记录，成品模组未定)",
+  "manufacturer": "GalaxyCore 格科微（官方产品页）",
+  "w": null,
+  "h": null,
+  "t": null,
+  "url": "https://en.gcoreinc.com/products/index?cid=14&subcid=19",
+  "notes": "GC3003 3MP 传感器（GalaxyCore 官方页）：1/2.8\"，2.45µm FSI，RAW RGB Bayer，Full@30fps，MIPI 接口，CSP 封装；定位 cost-effective 3MP，用于 3MP smart IoT / 2K 行车记录。RV1106 支持证据：Rockchip rkbin 官方仓库含 RV1106 Thunderboot 固件 rv1106_hpmcu_tb_gc3003_v*.bin（官方传感器矩阵列 GC3003，2304×1296@30fps）；Luckfox SDK 内核含 gc3003.c（compatible \"galaxycore,gc3003\"，HTTP 200）。FOV 结论：传感器无 FOV 概念，配套镜头/模组未定，与 120–130° 目标的达成取决于选配镜头；当前无成品模组证据，只能条件保留。与 SC3336 同为 3MP 2304×1296 规格，可作为 SC3336 的二供候选方向。",
+  "price": "",
+  "photo_note": "gcoreinc 官方页为 JS 渲染无可抓取图片；camemake.eu 传感器库页仅返回透明占位图（已删除），未用近似图冒充",
+  "sources": [
+   {
+    "fact": "GalaxyCore 官方产品页：GC3003，3M，1/2.8\"，RAW，Full@30FPS，MIPI，2.45µm，FSI，RGB Bayer，CSP；应用 3MP smart IoT、2K dash cameras",
+    "url": "https://en.gcoreinc.com/products/index?cid=14&subcid=19",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Rockchip rkbin 官方 RV1106 传感器固件矩阵：GC3003（GalaxyCore，2304×1296@30fps，rv1106_hpmcu_tb_gc3003_v*.bin v1.64）",
+    "url": "https://deepwiki.com/rockchip-linux/rkbin/5-rv-series-socs",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Luckfox SDK 内核驱动文件 gc3003.c 存在（of_match compatible = \"galaxycore,gc3003\"）",
+    "url": "https://raw.githubusercontent.com/LuckfoxTECH/luckfox-pico/main/sysdrv/source/kernel/drivers/media/i2c/gc3003.c",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "格科微 GC3003 发布信息（芯查查转录官方新闻）：3M FSI，2.45µm，1/2.8inch",
+    "url": "https://www.xcc.com/news/detail/5082051",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "成品模组（厂家/型号/尺寸/FOV/接口引脚）",
+   "供电电压模组级定义（传感器级未在官方页展开）",
+   "对焦方式",
+   "Luckfox 默认 dts/IQ 文件适配状态",
+   "图片"
+  ]
+ },
+ {
+  "id": "C11",
+  "category": "摄像头",
+  "model": "OV5695 模组 (Rockchip 官方认证 RGB 模组 OV5695-GA4A；在售件为一牛网 500W MIPI 模组)",
+  "manufacturer": "OmniVision 豪威（传感器）；模组为 Rockchip 官方认证配套 / 一牛网商城在售件",
+  "w": null,
+  "h": null,
+  "t": null,
+  "url": "https://www.rock-chips.com/a/cn/product/RMmozuxilie/2020/0427/1078.html",
+  "notes": "Rockchip 官方认证模组页：OV5695-GA4A（彩色），5M 1944H×2592V，MIPI，AF 自动对焦，FOV 对角 84.0°/水平 56.6°/垂直 71.5°，30Pin B2B。一牛网在售件（CSI-2 MIPI 2Lane，1/4\"）：视场角 77°、F2.4、Raw、AF、30fps@full size，供电 Analog 2.8V/Digital 1.2V/Interface 1.8V——与官方页 84° 属不同镜头版本，冲突并列保留。传感器产品简报（OmniVision）：1/4\"，1.4µm OmniBSI+，2592×1944@30fps / 1080p@60fps，2-lane MIPI，10-bit RAW，active 155mW，模组可做 8.5×8.5mm、z≈4.4mm。驱动：Luckfox SDK 内核含 ov5695.c（compatible \"ovti,ov5695\"，HTTP 200）；但 RV1106 上 Luckfox 未提供 OV5695 默认 dts 节点与 IQ 文件，模组级适配状态待核。FOV 结论：确认最高 DFOV 84°，与 120–130° 目标差距约 36–46°，不满足广角目标；且本组候选中唯一确认 AF，供对焦需求参照。条件保留。",
+  "price": "",
+  "photo": "assets/C11.jpg",
+  "photo_note": "实物照（一牛网商城商品图，带商城水印）：图内标注\"OV5695 500W像素MIPI摄像头模组\"，与型号对应",
+  "sources": [
+   {
+    "fact": "Rockchip 官方模组页：RGB Camera Sensor OV5695-GA4A(color)，5M 1944H*2592V，MIPI，AF，FOV DIAGONAL=84.0° HORIZONTAL=56.6° VERTICAL=71.5°，30Pin B2B",
+    "url": "https://www.rock-chips.com/a/cn/product/RMmozuxilie/2020/0427/1078.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "一牛网在售 OV5695 模组：CSI-2 MIPI 2Lane，1/4\"，5M，视场角 77°，F2.4，Raw data，AF，30fps@full size，供电 2.8/1.2/1.8V，工作 0~50℃",
+    "url": "https://www.16rd.com/shop_product-1-1457.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "OmniVision OV5695 产品简报：1/4\" 5MP，1.4µm OmniBSI+，2592×1944@30fps，1080p@60fps，2-lane MIPI，10-bit RAW，core 1.2V/analog 2.8V/IO 1.8V，active 155mW，8.5×8.5mm 模组 z≈4.4mm",
+    "url": "https://media.digikey.com/pdf/Data%20Sheets/OmniVision%20PDFs/OV5695.pdf",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Luckfox SDK 内核驱动文件 ov5695.c 存在（of_match compatible = \"ovti,ov5695\"）",
+    "url": "https://raw.githubusercontent.com/LuckfoxTECH/luckfox-pico/main/sysdrv/source/kernel/drivers/media/i2c/ov5695.c",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "模组外形尺寸 W×H×T（官方页未给整模组尺寸；传感器简报仅给 8.5×8.5mm 模组参考）",
+   "Luckfox/RV1106 的 IQ 文件与默认 dts 适配状态（驱动 .c 已在 SDK）",
+   "官方页直连受限：rock-chips.com 图片 403、部分访问经翻译代理",
+   "一牛网件与官方 AF 模组的镜头版本对应关系"
+  ]
+ }
+]

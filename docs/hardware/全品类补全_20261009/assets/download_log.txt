@@ -1,0 +1,21 @@
+下载核查日期: 2026-10-09
+OK   PWR03_TP4056_datasheet.pdf 720711 bytes https://www.toppwr.com/uploadfile/file/20230304/640301eae1260.pdf
+OK   PWR04_SGM41513_datasheet.pdf 752849 bytes https://atta.szlcsc.com/upload/public/pdf/source/20230915/4ED7FFAA41758E4642E8DE062114C033.pdf
+OK   PWR05_BQ25895_datasheet.pdf 2681280 bytes https://www.ti.com/lit/ds/symlink/bq25895.pdf
+FAIL PWR07_S8261_datasheet.pdf https://www.ablic.com/en/doc/datasheet/battery_protection_ic/S8261_E.pdf :: HTTP Error 404: Not Found
+OK   PWR08_TPS563201_datasheet.pdf 1527700 bytes https://www.ti.com/lit/ds/symlink/tps563201.pdf
+OK   PWR10_ME6211_datasheet.pdf 359666 bytes http://web.viewat.com.cn:6060/uploadfile_crs/ME6211+Series_E8.0.pdf
+OK   PWR11_TPS61023_datasheet.pdf 2392725 bytes https://www.ti.com/lit/ds/symlink/tps61023.pdf
+OK   PWR12_LC709203F_datasheet_lcsc.pdf 752849 bytes https://atta.szlcsc.com/upload/public/pdf/source/20230915/4ED7FFAA41758E4642E8DE062114C033.pdf
+OK   PWR13_MAX17048_datasheet.pdf 1109267 bytes https://www.analog.com/media/en/technical-documentation/data-sheets/MAX17048-MAX17049.pdf
+OK   PWR15_NCP15XH103_spec_rs.pdf 1157498 bytes https://docs.rs-online.com/7c3e/0900766b8171bb68.pdf
+
+补记 2026-10-09:
+OK   PWR04_SGM41513_datasheet.pdf 2553857 bytes https://www.sg-micro.com/rect/assets/58a4fe4d-da1d-49a3-b312-5664211d9016/SGM41513_SGM41513A_SGM41513D.pdf（官网带token直链）
+OK   PWR07_S8261_datasheet.pdf 600870 bytes https://www.ablic.com/en/doc/datasheet/battery_protection/S8261_E.pdf（正确路径为 battery_protection，非 battery_protection_ic）
+FAIL PWR06 DW01A/FS8205A：未获原厂（富晶 Fortune）规格书直链，仅有经销商页面，待核
+FAIL PWR09 MP2315：MPS 官网数据手册链接未抓取成功，待核
+FAIL PWR11 SGM2212：官网 PDF 需页面交互获取，未下载
+FAIL PWR13 MT3608：未获厂家规格书直链（LCSC/JLC 有数据手册入口），待核
+FAIL PWR14 CW2015CSAD：赛微微电官网直链未获取，待核
+注: 所有 PDF 均验证 %PDF- 文件头；本地 Read 环境无法渲染 PDF 页面为图像，首页文本核对通过检索结果中的规格书引文完成。

@@ -1,0 +1,386 @@
+[
+  {
+    "id": "M01",
+    "category": "主控",
+    "short": "Core11061408",
+    "label": "Core1106",
+    "w": 30,
+    "h": 30,
+    "t": 5.5,
+    "photo": "core.jpg",
+    "evidence": "Core1106-size.jpg",
+    "imageNote": "Core11061408厂家产品图；总厚5.50与PCB厚1.60需区分。",
+    "dimensions": "30×30；含器件总厚图示5.50，PCB厚1.60±0.10",
+    "technical": "RV1106G3、256MB、8GB eMMC、Wi-Fi6/BT；CSI、RGB666、SPI、LINEOUT；112邮票孔；5V输入",
+    "price": "Core系列$26.99–48.99，指定型号待报价",
+    "result": "产品载板主候选；30×30不代表载板也能30×30。商品、型号表、机械图",
+    "sources": [
+      "https://www.luckfox.com/Core1106",
+      "https://wiki.luckfox.com/zh/Core1106/Introduction/"
+    ]
+  },
+  {
+    "id": "M02",
+    "category": "主控",
+    "short": "Core11060408",
+    "label": "Core无无线",
+    "w": 30,
+    "h": 30,
+    "t": null,
+    "photo": null,
+    "evidence": "Core1106-size.jpg",
+    "imageNote": "Core系列机械图，仅作共用板框参考；无无线版本器件高度待确认。",
+    "dimensions": "同系列图示30×30；该无无线版本全器件高度仍需确认",
+    "technical": "G3、256MB、8GB eMMC；不带无线",
+    "price": "同系列区间，指定型号待报价",
+    "result": "无无线对照；需另接网络，不能写成带Wi-Fi。型号表",
+    "sources": [
+      "https://wiki.luckfox.com/zh/Core1106/Introduction/"
+    ]
+  },
+  {
+    "id": "M03",
+    "category": "主控",
+    "short": "Luckfox Pico Max",
+    "label": "Pico Max",
+    "w": 21,
+    "h": 72,
+    "t": null,
+    "photo": "max.jpg",
+    "evidence": "Pico-Pro-size.jpg",
+    "imageNote": "Pico Max无预焊排针厂家图；RJ45/USB及插线总高待核。",
+    "dimensions": "21×72；RJ45、USB、排针及插线全高度待核",
+    "technical": "G3、1 TOPS、256MB RAM、256MB SPI NAND、CSI、26 GPIO、百兆网口",
+    "price": "Pro/Max系列$32.99–35.99，指定配置待报价",
+    "result": "细长开发板备选，不是此前可能凭印象理解的短小板；未见内置Wi-Fi。商品、机械图",
+    "sources": [
+      "https://www.luckfox.com/EN-Luckfox-Pico-Pro"
+    ]
+  },
+  {
+    "id": "M04",
+    "category": "主控",
+    "short": "Luckfox Pico Ultra W",
+    "label": "Ultra W",
+    "w": 50,
+    "h": 50,
+    "t": null,
+    "photo": "ultra-w.jpg",
+    "evidence": "Pico-Ultra-size.jpg",
+    "imageNote": "Ultra W型号厂家缩略图；分辨率93px，不用于量尺寸；完整高度待核。",
+    "dimensions": "50×50；RJ45/USB-A等全高度待核",
+    "technical": "G3、256MB、8GB eMMC、Wi-Fi6/BT、CSI、RGB666、板载麦克风、8Ω1W扬声器接口",
+    "price": "Ultra系列$40.99–85.99，含多种套装，W裸板待报价",
+    "result": "台架首选，集成较全；孔坐标/版本须按到货板确认。商品、机械图",
+    "sources": [
+      "https://www.luckfox.com/EN-Luckfox-Pico-Ultra"
+    ]
+  },
+  {
+    "id": "D01",
+    "category": "显示",
+    "short": "1.69inch LCD Module",
+    "label": "1.69″方屏",
+    "w": 31.5,
+    "h": 39,
+    "t": null,
+    "photo": "square.jpg",
+    "evidence": null,
+    "imageNote": "非触控型号厂家产品图；照片不是正投影机械图。",
+    "dimensions": "31.5×39.0，T待核；240×280，AA27.972×32.634",
+    "technical": "4线SPI，ST7789V2；MX1.25 8pin",
+    "price": "官方产品存在；可读页面未取得可靠当前价格/库存",
+    "result": "方屏优先验证件，需移植；官方泛用示例不等于Luckfox这一型号已适配。商品/规格表",
+    "sources": [
+      "https://www.waveshare.com/product/displays/1.69inch-lcd-module.htm"
+    ]
+  },
+  {
+    "id": "D02",
+    "category": "显示",
+    "short": "1.69inch Touch LCD Module",
+    "label": "1.69″触控",
+    "w": 33.13,
+    "h": 41.13,
+    "t": null,
+    "photo": null,
+    "evidence": "LCD169-Touch-drawing.png",
+    "imageNote": "厂家机械图：侧图7和连接器局部突出2.5；整体T/公差/插线空间待核。",
+    "dimensions": "33.13±0.05×41.13±0.05；240×280。侧图标7及连接器局部突出2.5；不能把3.61误写成全模组厚度",
+    "technical": "显示SPI，触控I2C，ST7789V2",
+    "price": "正式报价、库存待核",
+    "result": "方屏触控备选，需移植。深度预算暂按侧图7＋2.5＝9.5保守筛查，公差与插线空间另计，不是厂家完整T承诺。官方机械PDF、本地渲染",
+    "sources": [
+      "https://files.waveshare.com/wiki/1.69inch-Touch-LCD-Module/1.69inch_Touch_LCD_Module_2D_Drawing.pdf"
+    ]
+  },
+  {
+    "id": "D03",
+    "category": "显示",
+    "short": "ND018TCM360360-A01",
+    "label": "1.8″裸圆屏",
+    "w": 48.08,
+    "h": 49.59,
+    "t": 1.96,
+    "photo": "round.webp",
+    "evidence": null,
+    "imageNote": "对应型号页厂家图；显示图案仅为厂家示例，FPC/针数/电压仍需确认。",
+    "dimensions": "48.08×49.59×1.96；1.8″圆形360×360，450nit；基础配置不带触控",
+    "technical": "ST77916、QSPI；FPC/电源定义存在网页冲突",
+    "price": "样品$7.80；页面明确需确认availability",
+    "result": "裸圆屏RFQ候选，不能下结论≤48mm。厂家型号页",
+    "sources": [
+      "https://www.nosedisplay.com/products/tft-display-1-8-inch-round-display-ips-360x360-resolution-qspi-4-line/"
+    ]
+  },
+  {
+    "id": "D04",
+    "category": "显示",
+    "short": "1.85inch Touch LCD Module",
+    "label": "1.85″屏模组",
+    "w": 55,
+    "h": 55,
+    "t": null,
+    "photo": null,
+    "evidence": "screen185-drawing.webp",
+    "imageNote": "厂家尺寸图：55×55；侧图9.10及局部4.00须结合连接器与线缆核总包络，不强行当完整T。",
+    "dimensions": "55×55，T待核；1.85″圆形360×360，AA45.68×45.68",
+    "technical": "ST77916 QSPI＋CST816S I2C，3.3/5V；15pin端子或18pin FPC",
+    "price": "检索商品价$17.99，缓存参考；实际报价/国内库存待核",
+    "result": "圆屏台架模组；官方示例平台ESP32/Pico/STM32，不是RV1106直接驱动证据。官方文档、商品",
+    "sources": [
+      "https://docs.waveshare.com/1.85inch_Touch_LCD_Module",
+      "https://www.waveshare.com/product/displays/1.85inch-touch-lcd-module.htm"
+    ]
+  },
+  {
+    "id": "D05",
+    "category": "显示",
+    "short": "ESP32-S3-Touch-LCD-1.85",
+    "label": "ESP32圆屏",
+    "w": 55,
+    "h": 55,
+    "t": null,
+    "photo": "esp32.jpg",
+    "evidence": null,
+    "imageNote": "无B/C后缀型号厂家图；触控配置和整板厚度须订货时确认。",
+    "dimensions": "55×55，整体T待核；360×360",
+    "technical": "集成ESP32-S3、16MB Flash/8MB PSRAM、ST77916；官方Arduino/ESP-IDF/LVGL资料；可引出UART",
+    "price": "指定版本价格、库存待报价",
+    "result": "双处理器圆屏验证件；屏驱动有平台资料，RV1106↔ESP32的通信和整机软件仍须开发。官方Wiki",
+    "sources": [
+      "https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-1.85"
+    ]
+  },
+  {
+    "id": "D06",
+    "category": "显示",
+    "short": "LF40-480480-ARK",
+    "label": "4″台架屏",
+    "w": 84.2,
+    "h": 84.2,
+    "t": null,
+    "photo": "lf40.jpg",
+    "evidence": null,
+    "imageNote": "厂家型号页触控演示图；不是实测板框。",
+    "dimensions": "84.2×84.2，T待核；4″480×480触控",
+    "technical": "RGB666，GT911；Ultra/Ultra W官方支持",
+    "price": "套装可选；单屏报价待核",
+    "result": "只作台架屏，明显超掌心机身宽度。RGB驱动先以此验证，不把它当最终屏。官方适配表、尺寸/套装",
+    "sources": [
+      "https://wiki.luckfox.com/Luckfox-Pico-Ultra/RGB-Screen/",
+      "https://www.luckfox.com/EN-Luckfox-Pico-Ultra"
+    ]
+  },
+  {
+    "id": "C01",
+    "category": "摄像头",
+    "short": "MIS5001 5MP Camera (B)",
+    "label": "5MP相机B",
+    "w": 25,
+    "h": 24,
+    "t": null,
+    "photo": "camera.jpg",
+    "evidence": "MIS5001-B-size.jpg",
+    "imageNote": "厂家B镜头图；前侧16.60不是完整厚度，整体T仍需核图/实测。",
+    "dimensions": "25×24板，镜头前侧标16.60、PCB厚1.00、背侧连接器相关标2.00；完整端到端厚度需核图/实测。5MP2592×1944，CSI2lane/20pin，3.3V；DFOV95.5°、HFOV87.5°、VFOV56.5°，畸变<1%",
+    "technical": "",
+    "price": "$12.99，页面In Stock；国内交期未确认",
+    "result": "第一优先验证件。Pico Pro/Max/Ultra/Pi官方支持；Core自研载板须检查引脚、供电、时钟、sensor/ISP配置，不当成插上即用。商品、FOV/引脚、机械图",
+    "sources": [
+      "https://www.luckfox.com/MIS5001-5MP-Camera-B",
+      "https://wiki.luckfox.com/MIS5001-5MP-Camera/"
+    ]
+  },
+  {
+    "id": "C02",
+    "category": "摄像头",
+    "short": "MIS5001 5MP Camera (A)",
+    "label": "5MP相机A",
+    "w": null,
+    "h": null,
+    "t": null,
+    "photo": "camera-a.jpg",
+    "evidence": null,
+    "imageNote": "厂家A镜头产品图；不套用B型镜头高度。",
+    "dimensions": "DFOV93°、HFOV78.2°、VFOV41°；F1.6；镜头外形不可沿用B。官方畸变原文< -10.7%，需问清定义",
+    "technical": "",
+    "price": "$9.99，页面In Stock",
+    "result": "对照件；较窄垂直视场，不能因为写wide-angle就当120°。商品、官方镜头表",
+    "sources": [
+      "https://www.luckfox.com/MIS5001-5MP-Camera-A",
+      "https://wiki.luckfox.com/MIS5001-5MP-Camera/"
+    ]
+  },
+  {
+    "id": "N01",
+    "category": "联网",
+    "short": "EC800G-CN / LD-I03-SNNDA2",
+    "label": "EC800G",
+    "w": 17.7,
+    "h": 15.8,
+    "t": 2.4,
+    "photo": "ec800g.png",
+    "evidence": null,
+    "imageNote": "EC800G-CN系列厂家产品图，不证明具体订货后缀或固件。",
+    "dimensions": "模组17.7×15.8×2.4，LCC；Cat1bis；产品页列Linux USB驱动",
+    "technical": "",
+    "price": "具体码的AT能力、固件、EVB、国内样品报价待核",
+    "result": "4G优先RFQ；订货码存在不代表已选对软件变体。模组外形不是开发板/天线/SIM/电源完整占用。官方规格与6个订货码",
+    "sources": [
+      "https://www.quectel.com.cn/product/ec800g-cn"
+    ]
+  },
+  {
+    "id": "N02",
+    "category": "联网",
+    "short": "Air780E",
+    "label": "Air780E",
+    "w": 17.7,
+    "h": 15.8,
+    "t": 2.3,
+    "photo": "air780e.png",
+    "evidence": null,
+    "imageNote": "Air780E厂家产品图；尺寸按产品页，介绍页不同口径仍需厂家闭环。",
+    "dimensions": "product页17.7×15.8×2.3；AT/LuatOS；USB/UART等",
+    "technical": "",
+    "price": "模组与Core_Air780E/EVB版本、价格库存待核",
+    "result": "4G备选RFQ。入口页另写16×18×2.3，保留官方冲突；PCB须按当前硬件指南和封装文件，不凭本表画焊盘。产品与资料、冲突入口",
+    "sources": [
+      "https://docs.openluat.com/air780e/product/",
+      "https://docs.openluat.com/air780e/"
+    ]
+  },
+  {
+    "id": "B01",
+    "category": "电池",
+    "short": "LP503450 / 850mAh / PCM",
+    "label": "850mAh电池",
+    "w": 34,
+    "h": 50,
+    "t": 5,
+    "photo": null,
+    "evidence": "LP503450-850mAh.png",
+    "imageNote": "厂家规格书渲染；34±0.5、50±1、5±0.3，另计引线/膨胀/支架；非高倍率电池。",
+    "dimensions": "规格图34±0.5×50±1.0×5±0.3，带PCM、无NTC；另有50±3引线。连续放电850mA、最大充电425mA",
+    "technical": "",
+    "price": "厂家可询；价格/当批规格/交期待确认；公开图2019-09-10版",
+    "result": "紧凑电池RFQ/尺寸对照；不能证明可带RV1106＋4G。2–2.5A保护过流阈值不是允许连续输出。厂家PDF、本地图",
+    "sources": [
+      "https://www.lipolbattery.com/LiPo-Battery-Datahseet/LiPo_Battery_LP503450_3.7V_850mAh.pdf"
+    ]
+  },
+  {
+    "id": "B02",
+    "category": "电池",
+    "short": "Adafruit #258 / 1200mAh",
+    "label": "1200mAh参考",
+    "w": null,
+    "h": null,
+    "t": null,
+    "photo": "battery1200.jpg",
+    "evidence": null,
+    "imageNote": "厂家产品图；网页尺寸口径冲突，待确认。",
+    "dimensions": "商品34×62×5；链接规格书503562写35±0.3×62±0.3×5±0.3，两处不一致；含保护和JST-PH",
+    "technical": "",
+    "price": "商品$9.95；国内供货未核",
+    "result": "真实容量/包络参考；图纸未统一前不能按34mm定槽，不作近期国内采购主料。商品及datasheet入口",
+    "sources": [
+      "https://www.adafruit.com/product/258"
+    ]
+  },
+  {
+    "id": "B03",
+    "category": "电池",
+    "short": "Adafruit #2011 / 2000mAh",
+    "label": "2000mAh参考",
+    "w": 36,
+    "h": 60,
+    "t": 7,
+    "photo": "battery2000.jpg",
+    "evidence": null,
+    "imageNote": "厂家产品图；本图不代表当前库存或国内供应商交期。",
+    "dimensions": "36×60×7（旋转后的宽×高×厚）；含保护与JST-PH",
+    "technical": "",
+    "price": "$12.50，官方Out of stock",
+    "result": "较大容量尺寸对照；不列可立即采购。官方商品",
+    "sources": [
+      "https://www.adafruit.com/product/2011"
+    ]
+  },
+  {
+    "id": "A01",
+    "category": "音频",
+    "short": "Adafruit #2130 / PAM8302",
+    "label": "模拟功放",
+    "w": 15,
+    "h": 24,
+    "t": 2,
+    "photo": "amp.jpg",
+    "evidence": null,
+    "imageNote": "厂家产品图；2mm不含排针及插线。",
+    "dimensions": "15×24×2，厂家注明不含排针；模拟音频输入，2.0–5.5V供电",
+    "technical": "",
+    "price": "$3.95；页面可加购物车，国内库存/交期未核",
+    "result": "Core LINEOUT功放台架候选；输入幅度、噪声、限幅需验证，端子/线材另占空间。官方商品/图纸入口",
+    "sources": [
+      "https://www.adafruit.com/product/2130"
+    ]
+  },
+  {
+    "id": "A02",
+    "category": "音频",
+    "short": "Adafruit #3923 / 8Ω 1W",
+    "label": "扬声器",
+    "w": 30,
+    "h": 20,
+    "t": 5,
+    "photo": "speaker.jpg",
+    "evidence": null,
+    "imageNote": "厂家产品图；线长以当批版本确认，照片不证明线缆包络。",
+    "dimensions": "30×20×5；当前30mm线，Molex PicoBlade1.25；声腔不含在尺寸内",
+    "technical": "",
+    "price": "$1.95，官方Out of stock",
+    "result": "声学包络参考；Ultra的MX1.25与PicoBlade不能仅按间距判定互插，应确认壳体/针序或转接。另找国内有图纸的样品。官方商品",
+    "sources": [
+      "https://www.adafruit.com/product/3923"
+    ]
+  },
+  {
+    "id": "M00",
+    "category": "主控",
+    "short": "BodyPark同芯片 / RV1106B待定",
+    "label": "RV1106B路线",
+    "w": null,
+    "h": null,
+    "t": null,
+    "photo": "IMG_2466.jpeg",
+    "evidence": "IMG_2474.jpeg",
+    "imageNote": "仓库BodyPark实机/拆解照片，只作竞品参考；不是我方供应商整板。",
+    "dimensions": "拆解架构图记录U1000为RV1106B。具体供应商板型、RAM/存储、机械外形待今晚确认。",
+    "technical": "沿用芯片不等于获得原机SDK、驱动或可采购板；团队经验未知。",
+    "price": "指定方案正式报价、合作供应商、交期未知。",
+    "result": "待技术负责人确认",
+    "sources": []
+  }
+]

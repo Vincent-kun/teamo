@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if IE 8 ]><html dir="ltr" lang="en" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html dir="ltr" lang="en" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="ltr" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module</title>
+<base href="https://www.luckfox.com/" />
+<meta name="description" content="Pico Pi is Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+<meta name="keywords" content="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+
+<link rel="stylesheet" href="catalog/view/theme/luckfox/stylesheet/style.min.css">
+<link rel="stylesheet" href="catalog/view/theme/luckfox/stylesheet/icon.min.css">
+
+<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript" defer></script>
+<script src="catalog/view/theme/luckfox/js/ls.bgset.min.js" type="text/javascript" defer></script>
+<script src="catalog/view/theme/luckfox/js/lazysizes.min.js" type="text/javascript" defer></script>
+<script src="catalog/view/theme/luckfox/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="catalog/view/theme/luckfox/js/toast.js" type="text/javascript" defer></script>
+<script src="catalog/view/theme/luckfox/js/common.js" type="text/javascript" defer></script>
+<script src="catalog/view/theme/luckfox/js/luckfox.js" type="text/javascript" defer></script>
+
+
+<link href="catalog/view/theme/luckfox/stylesheet/devkit.min.css" type="text/css" rel="stylesheet" media="screen" />
+<link href="https://www.luckfox.com/luckfox-pico-pi" rel="canonical" />
+<link href="https://www.luckfox.com/image/catalog/luckfox-ico.png" rel="icon" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XMVYSM172R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XMVYSM172R');
+</script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/66f608f3e5982d6c7bb53c42/1i8oh5ubq';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</head>
+<body>
+<div id="toast-container" class="toast-container position-fixed top-0 end-0 p-5" style="margin-top: 5rem;">
+
+</div>
+<div id="toastTemplate" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="display: none;">
+    <div class="toast-header border-bottom">
+      <i class="icon me-1"></i>
+      <strong class="toast-title me-auto d-flex align-items-center"></strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close Toast"></button>
+    </div>
+    <div class="toast-body">
+    </div>
+</div>
+<div id="text-loadding" class="d-none">Loading...</div>
+<div id="toastTemplateSimple" class="toast align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true" style="display: none;">
+  <div class="d-flex">
+    <div class="toast-body">
+    </div>
+    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close Toast"></button>
+  </div>
+</div>
+<header class="lf-header position-sticky top-0 start-0 w-100 border-bottom z-3 bg-white" role="banner">
+  <div class="p-0 ">
+    <div class="bg-dark">
+      <div class="container-lg">
+        <div class="row">
+          <div class="col gx-0 gx-lg-4">
+            <div class="d-flex justify-content-between text-white">
+                <div class="d-flex align-items-center gap-3">
+                  <a target="_blank" class="link-light link-opacity-75-hover ps-2 ps-lg-0" href="https://forums.luckfox.com/">Forums</a>
+                  <a target="_blank" class="link-light link-opacity-75-hover" href="https://wiki.luckfox.com/intro/">Wiki</a>
+                                  </div>
+                <div class="d-flex align-items-center">
+                                    <span class="d-none d-lg-block">
+                    <span><a href="https://www.luckfox.com/index.php?route=product/compare" class="btn bg-dark px-2 link-light link-opacity-75-hover" id="compare-total" title="Comparison">Comparison</a></span>
+                    <span><a href="https://www.luckfox.com/index.php?route=account/wishlist" class="btn bg-dark px-2 link-light link-opacity-75-hover" id="wishlist-total" title="Wish List (0)">Wish List (0)</a></span>
+                    <span><a href="https://www.luckfox.com/index.php?route=account/order" class="btn bg-dark px-2 link-light link-opacity-75-hover">Order History</a></span>
+                    <span><a href="https://www.luckfox.com/index.php?route=account/account" class="btn bg-dark px-2 link-light link-opacity-75-hover">My Account</a></span>
+                  </span>
+                  <span><a href="https://www.luckfox.com/index.php?route=account/login" class="btn bg-dark px-2 link-light link-opacity-75-hover">Login/Register</a></span>
+                                    <div class="">
+  <form action="https://www.luckfox.com/index.php?route=common/currency/currency" method="post" enctype="multipart/form-data" id="form-currency">
+    <div class="dropdown">
+      <button class="btn bg-white dropdown-toggle rounded-0 border-0 text-white" style="--bs-bg-opacity: .2;" data-toggle="dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                     $ <span class="d-none d-lg-inline-block">US Dollar</span>
+                  </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+          <button class="currency-select dropdown-item py-3" type="button" name="EUR">€ Euro</button>
+        </li>
+                                <li>
+          <button class="currency-select dropdown-item py-3" type="button" name="GBP">£ Pound Sterling</button>
+        </li>
+                                <li>
+          <button class="currency-select dropdown-item py-3" type="button" name="USD">$ US Dollar</button>
+        </li>
+                      </ul>
+    </div>
+    <input type="hidden" name="code" value="" />
+    <input type="hidden" name="redirect" value="https://www.luckfox.com/luckfox-pico-pi" />
+  </form>
+</div>
+ 
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-lg">
+      <div class="row">
+        <div class="col gx-0 gx-lg-4">
+            <div class="d-flex justify-content-center justify-content-between py-2 py-lg-4">
+              <div class="order-1 d-flex p-0 d-lg-none button-search">
+                <button class="btn d-flex align-items-center justify-content-center" type="button"><i class="icon icon-search"></i></button>
+              </div>
+              <div id="logo" class="order-2 order-lg-1 d-flex align-items-center logo" href="#"><a class="navbar-brand" href="/"><img src="https://www.luckfox.com/image/catalog/luckfox-100px.png" title="LUCKFOX" alt="LUCKFOX" class="" /></a>              </div>
+              <div class="order-lg-2 topsearch d-none d-lg-flex">
+                <div class="input-group p-3 p-lg-0" id="search" role="search">
+                  <select id="search_cat" name="search_cat" class="form-select d-none d-lg-block" aria-label="Default select example">
+  <option value="0" selected="selected">All</option>
+    <option value="205" >Development Board</option>
+    <option value="228" >Displays</option>
+    <option value="239" >Misc Modules</option>
+  </select>
+<input class="form-control py-3 py-lg-0" type="text" name="search" value="" placeholder="Search" aria-label="Search" />
+<button class="btn btn-dark border border-start-0 d-flex align-items-center justify-content-center px-3 px-lg-5" type="button"  aria-label="Search"><i class="icon icon-search"></i></button>
+                </div>
+              </div>
+              <div class="order-3 order-lg-4 d-lg-none">
+                <button id="mobile-menu-button" class="btn" type="button">
+                  <i class="icon icon-menu"></i>
+                </button>
+              </div>
+              <div class="d-none order-lg-3 d-lg-flex justify-content-between car-box">
+                <div id="cart" class="dropdown top-cart d-flex align-items-center position-relative">
+  <button id="minicart-btn" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" class="btn border-0 dropdown-toggle position-relative d-flex align-items-center px-3">
+    <div class="px-1">
+      <span class="d-block fs-7" style="text-align:right">Totals</span>
+      <span id="cart-total-price" class="fw-bold position-relative" style="top:-4px;left:-2px">$0.00</span>
+    </div>
+    <span><i class="icon icon-shopping-cart text-dark"></i><span id="cart-total" class="d-block rounded-pill position-absolute bg-lf-primary text-white end-0 top-0 fw-bold">0</span></span>
+  </button>
+  <ul id="cart-dropdown-menu" class="cart-dropdown-menu dropdown-menu dropdown-menu-end shadow-lg p-0">
+        <li>
+      <p class="text-center my-5">Your shopping cart is empty!</p>
+    </li>
+      </ul>
+</div>
+
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lf-navbar-bg bg-black bg-opacity-75 w-100 h-100 position-fixed top-0 d-lg-none close-mible-menu" style="display:none"></div>
+  <nav class="lf-navbar bg-white d-none d-lg-block" role="navigation">
+    <div class="mobile-logo bg-dark px-3 d-flex align-items-center justify-content-between d-lg-none">
+      <a class="logo" href="/"><img src="https://www.luckfox.com/image/catalog/luckfox-100px.png" title="LUCKFOX" alt="LUCKFOX" class="" /></a>          <div data-bs-theme="dark">
+            <button type="button" class="btn-close close-mible-menu"></button>
+          </div>
+    </div>
+    <div class="container mobile-menu-content overflow-auto">
+      <div class="row">
+        <div class="col">
+          <div class="overflow-hidden">
+            <div class="position-relative" id="lf-mobile-menu-content">
+              <div class="d-lg-none all-category d-lg-inline-block bg-light p-3 my-3 rounded-2">
+                <div class="d-flex justify-content-between">
+                  <div><span class="d-flex align-items-center"><i class="icon icon-menu me-3"></i>All Products</span></div>
+                  <div id="mobile-allbutton" class="flex-fill d-flex justify-content-end"><i class="icon icon-arrow-down"></i></div>
+                </div>
+              </div>
+              <ul class="lf-dropdown-menu lf-menu-mobile d-lg-none list-style-none px-3 mb-0 border-bottom" style="display:none">
+                              <li class="lf-nav-item has-dropdown">
+      <div class="d-flex px-lg-3"><a class="lf-nav-link link-dark px-0 py-3 py-lg-2 d-inline-block lf-dropdown-toggle flex-lg-fill" href="https://www.luckfox.com/Mini-PC">Development Board</a><span class="has-child d-flex align-items-center justify-content-end"><i class="icon-menu-arrow-right"></i></span></div>
+      <div class="lf-dropdown-menu rounded-2 bg-white second-dropdown">
+        <ul class="mt-0 list-style-none px-3 px-lg-0">
+                                  <li class="lf-menu-back d-lg-none"><a class="lf-dropdown-item lf-dropdown-toggle py-4 py-lg-2 d-inline-flex align-items-center flex-lg-fill"><i class="icon-menu-arrow-left"></i><span class="ms-3">Development Board</span></a><div class="border-top"></div></li>
+            <li class="lf-nav-item has-dropdown">
+              <div class="d-flex px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item lf-dropdown-toggle py-3 py-lg-2 d-inline-block flex-lg-fill" href="https://www.luckfox.com/index.php?route=product/category&amp;path=205_210">Linux Boards / Modules</a><span class="has-child d-flex align-items-center justify-content-end"><i class="icon-menu-arrow-right"></i></span></div>
+                            <div class="lf-dropdown-menu rounded-2 bg-white third-dropdown top-0">
+                <ul class="list-style-none px-3 px-lg-0">
+                  <li class="lf-menu-back d-lg-none"><a class="lf-dropdown-item lf-dropdown-toggle py-4 d-inline-flex align-items-center"><i class="icon-menu-arrow-left"></i><span class="ms-3">Linux Boards / Modules</span></a><div class="border-top"></div></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=205_210_247">Luckfox Aura (RV1126B)</a></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=205_210_232">Luckfox Pico (RV1106/RV1103)</a></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=205_210_242">Luckfox Lyra</a></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=205_210_234">Core3576</a></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=205_210_244">Compute Module 5</a></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=205_210_223">Core3566</a></li>
+                                  </ul>
+              </div>
+                          </li>
+                                        </ul>
+      </div>
+    </li>
+                <li class="lf-nav-item has-dropdown">
+      <div class="d-flex px-lg-3"><a class="lf-nav-link link-dark px-0 py-3 py-lg-2 d-inline-block lf-dropdown-toggle flex-lg-fill" href="https://www.luckfox.com/Displays">Displays</a><span class="has-child d-flex align-items-center justify-content-end"><i class="icon-menu-arrow-right"></i></span></div>
+      <div class="lf-dropdown-menu rounded-2 bg-white second-dropdown">
+        <ul class="mt-0 list-style-none px-3 px-lg-0">
+                                  <li class="lf-menu-back d-lg-none"><a class="lf-dropdown-item lf-dropdown-toggle py-4 py-lg-2 d-inline-flex align-items-center flex-lg-fill"><i class="icon-menu-arrow-left"></i><span class="ms-3">Displays</span></a><div class="border-top"></div></li>
+            <li class="lf-nav-item has-dropdown">
+              <div class="d-flex px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item lf-dropdown-toggle py-3 py-lg-2 d-inline-block flex-lg-fill" href="https://www.luckfox.com/Displays/LCD-Panel">LCD Panel</a><span class="has-child d-flex align-items-center justify-content-end"><i class="icon-menu-arrow-right"></i></span></div>
+                            <div class="lf-dropdown-menu rounded-2 bg-white third-dropdown top-0">
+                <ul class="list-style-none px-3 px-lg-0">
+                  <li class="lf-menu-back d-lg-none"><a class="lf-dropdown-item lf-dropdown-toggle py-4 d-inline-flex align-items-center"><i class="icon-menu-arrow-left"></i><span class="ms-3">LCD Panel</span></a><div class="border-top"></div></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=228_229_236">11.6&quot; - 21.5&quot;</a></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=228_229_245">22&quot; - 31.5&quot;</a></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=228_229_237">4&quot; - 10.1&quot;</a></li>
+                                  </ul>
+              </div>
+                          </li>
+                                        </ul>
+      </div>
+    </li>
+                <li class="lf-nav-item has-dropdown">
+      <div class="d-flex px-lg-3"><a class="lf-nav-link link-dark px-0 py-3 py-lg-2 d-inline-block lf-dropdown-toggle flex-lg-fill" href="https://www.luckfox.com/index.php?route=product/category&amp;path=239">Misc Modules</a><span class="has-child d-flex align-items-center justify-content-end"><i class="icon-menu-arrow-right"></i></span></div>
+      <div class="lf-dropdown-menu rounded-2 bg-white second-dropdown">
+        <ul class="mt-0 list-style-none px-3 px-lg-0">
+                                  <li class="lf-menu-back d-lg-none"><a class="lf-dropdown-item lf-dropdown-toggle py-4 py-lg-2 d-inline-flex align-items-center flex-lg-fill"><i class="icon-menu-arrow-left"></i><span class="ms-3">Misc Modules</span></a><div class="border-top"></div></li>
+            <li class="lf-nav-item has-dropdown">
+              <div class="d-flex px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item lf-dropdown-toggle py-3 py-lg-2 d-inline-block flex-lg-fill" href="https://www.luckfox.com/index.php?route=product/category&amp;path=239_240">Cameras</a><span class="has-child d-flex align-items-center justify-content-end"><i class="icon-menu-arrow-right"></i></span></div>
+                            <div class="lf-dropdown-menu rounded-2 bg-white third-dropdown top-0">
+                <ul class="list-style-none px-3 px-lg-0">
+                  <li class="lf-menu-back d-lg-none"><a class="lf-dropdown-item lf-dropdown-toggle py-4 d-inline-flex align-items-center"><i class="icon-menu-arrow-left"></i><span class="ms-3">Cameras</span></a><div class="border-top"></div></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=239_240_241">Cameras</a></li>
+                                  </ul>
+              </div>
+                          </li>
+                                        </ul>
+      </div>
+    </li>
+        
+              </ul>
+              <ul class="d-flex flex-column flex-lg-row px-0 list-style-none mb-0">
+                <li class="all-category all-category-desk d-none d-lg-flex align-items-center bg-light px-3 py-2"><div class="d-flex justify-content-between w-100"><span class="d-flex align-items-center"><i class="icon icon-menu me-3"></i>All Products</span><span><i class="icon icon-arrow-down"></i></span></div></li>
+                <li class="d-none d-lg-inline-flex align-items-center"><a href="/" class="d-block py-2 px-3 lf-nav-link link-dark">Home</a></li>
+                <li class="d-inline-flex align-items-center"><a href="https://www.luckfox.com/index.php?route=extension/module/luckfox_latest" class="d-block py-3 px-3 lf-nav-link link-dark">New Arrivals</a></li>
+                <li class="d-inline-flex align-items-center"><a href="https://www.luckfox.com/index.php?route=information/contact" class="d-block py-3 px-3 lf-nav-link link-dark">Contact Us</a></li>
+                                                    <li class="d-inline-flex align-items-center"><a href="https://www.luckfox.com/Shipping" class="d-block py-3 px-3 lf-nav-link link-dark">Shipping</a></li>
+                                    <li class="d-inline-flex align-items-center"><a href="https://www.luckfox.com/returns-policy" class="d-block py-3 px-3 lf-nav-link link-dark">Returns &amp; Refunds</a></li>
+                                                                </ul>
+              <div class="d-lg-none">
+                <div class="border-top my-3"></div>
+                <p class="px-3 text-secondary fs-7" id='powerd-head'>
+                                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container position-relative d-none d-lg-block">
+    <ul class="lf-dropdown-menu lf-menu-desk list-style-none p-0 position-absolute rounded-2 bg-white shadow py-lg-2">
+                  <li class="lf-nav-item has-dropdown">
+      <div class="d-flex px-lg-3"><a class="lf-nav-link link-dark px-0 py-3 py-lg-2 d-inline-block lf-dropdown-toggle flex-lg-fill" href="https://www.luckfox.com/Mini-PC">Development Board</a><span class="has-child d-flex align-items-center justify-content-end"><i class="icon-menu-arrow-right"></i></span></div>
+      <div class="lf-dropdown-menu rounded-2 bg-white second-dropdown">
+        <ul class="mt-0 list-style-none px-3 px-lg-0">
+                                  <li class="lf-menu-back d-lg-none"><a class="lf-dropdown-item lf-dropdown-toggle py-4 py-lg-2 d-inline-flex align-items-center flex-lg-fill"><i class="icon-menu-arrow-left"></i><span class="ms-3">Development Board</span></a><div class="border-top"></div></li>
+            <li class="lf-nav-item has-dropdown">
+              <div class="d-flex px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item lf-dropdown-toggle py-3 py-lg-2 d-inline-block flex-lg-fill" href="https://www.luckfox.com/index.php?route=product/category&amp;path=205_210">Linux Boards / Modules</a><span class="has-child d-flex align-items-center justify-content-end"><i class="icon-menu-arrow-right"></i></span></div>
+                            <div class="lf-dropdown-menu rounded-2 bg-white third-dropdown top-0">
+                <ul class="list-style-none px-3 px-lg-0">
+                  <li class="lf-menu-back d-lg-none"><a class="lf-dropdown-item lf-dropdown-toggle py-4 d-inline-flex align-items-center"><i class="icon-menu-arrow-left"></i><span class="ms-3">Linux Boards / Modules</span></a><div class="border-top"></div></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=205_210_247">Luckfox Aura (RV1126B)</a></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=205_210_232">Luckfox Pico (RV1106/RV1103)</a></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=205_210_242">Luckfox Lyra</a></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=205_210_234">Core3576</a></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=205_210_244">Compute Module 5</a></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=205_210_223">Core3566</a></li>
+                                  </ul>
+              </div>
+                          </li>
+                                        </ul>
+      </div>
+    </li>
+                <li class="lf-nav-item has-dropdown">
+      <div class="d-flex px-lg-3"><a class="lf-nav-link link-dark px-0 py-3 py-lg-2 d-inline-block lf-dropdown-toggle flex-lg-fill" href="https://www.luckfox.com/Displays">Displays</a><span class="has-child d-flex align-items-center justify-content-end"><i class="icon-menu-arrow-right"></i></span></div>
+      <div class="lf-dropdown-menu rounded-2 bg-white second-dropdown">
+        <ul class="mt-0 list-style-none px-3 px-lg-0">
+                                  <li class="lf-menu-back d-lg-none"><a class="lf-dropdown-item lf-dropdown-toggle py-4 py-lg-2 d-inline-flex align-items-center flex-lg-fill"><i class="icon-menu-arrow-left"></i><span class="ms-3">Displays</span></a><div class="border-top"></div></li>
+            <li class="lf-nav-item has-dropdown">
+              <div class="d-flex px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item lf-dropdown-toggle py-3 py-lg-2 d-inline-block flex-lg-fill" href="https://www.luckfox.com/Displays/LCD-Panel">LCD Panel</a><span class="has-child d-flex align-items-center justify-content-end"><i class="icon-menu-arrow-right"></i></span></div>
+                            <div class="lf-dropdown-menu rounded-2 bg-white third-dropdown top-0">
+                <ul class="list-style-none px-3 px-lg-0">
+                  <li class="lf-menu-back d-lg-none"><a class="lf-dropdown-item lf-dropdown-toggle py-4 d-inline-flex align-items-center"><i class="icon-menu-arrow-left"></i><span class="ms-3">LCD Panel</span></a><div class="border-top"></div></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=228_229_236">11.6&quot; - 21.5&quot;</a></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=228_229_245">22&quot; - 31.5&quot;</a></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=228_229_237">4&quot; - 10.1&quot;</a></li>
+                                  </ul>
+              </div>
+                          </li>
+                                        </ul>
+      </div>
+    </li>
+                <li class="lf-nav-item has-dropdown">
+      <div class="d-flex px-lg-3"><a class="lf-nav-link link-dark px-0 py-3 py-lg-2 d-inline-block lf-dropdown-toggle flex-lg-fill" href="https://www.luckfox.com/index.php?route=product/category&amp;path=239">Misc Modules</a><span class="has-child d-flex align-items-center justify-content-end"><i class="icon-menu-arrow-right"></i></span></div>
+      <div class="lf-dropdown-menu rounded-2 bg-white second-dropdown">
+        <ul class="mt-0 list-style-none px-3 px-lg-0">
+                                  <li class="lf-menu-back d-lg-none"><a class="lf-dropdown-item lf-dropdown-toggle py-4 py-lg-2 d-inline-flex align-items-center flex-lg-fill"><i class="icon-menu-arrow-left"></i><span class="ms-3">Misc Modules</span></a><div class="border-top"></div></li>
+            <li class="lf-nav-item has-dropdown">
+              <div class="d-flex px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item lf-dropdown-toggle py-3 py-lg-2 d-inline-block flex-lg-fill" href="https://www.luckfox.com/index.php?route=product/category&amp;path=239_240">Cameras</a><span class="has-child d-flex align-items-center justify-content-end"><i class="icon-menu-arrow-right"></i></span></div>
+                            <div class="lf-dropdown-menu rounded-2 bg-white third-dropdown top-0">
+                <ul class="list-style-none px-3 px-lg-0">
+                  <li class="lf-menu-back d-lg-none"><a class="lf-dropdown-item lf-dropdown-toggle py-4 d-inline-flex align-items-center"><i class="icon-menu-arrow-left"></i><span class="ms-3">Cameras</span></a><div class="border-top"></div></li>
+                                        <li class="lf-nav-item overflow-hidden px-lg-3"><a class="lf-nav-link link-dark lf-dropdown-item py-3 py-lg-2 d-block" href="https://www.luckfox.com/index.php?route=product/category&amp;path=239_240_241">Cameras</a></li>
+                                  </ul>
+              </div>
+                          </li>
+                                        </ul>
+      </div>
+    </li>
+        
+    </ul>
+  </div>
+  <div class="mobile-topsearch d-lg-none bg-white fixed-top hide">
+    <div class="p-3"><button type="button" class="btn-close button-search" aria-label="Close"></button></div>
+    <div class="input-group p-3 p-lg-0" id="mobile-search" role="search">
+      <input class="form-control py-3 py-lg-0" type="text" name="search" placeholder="Search" aria-label="Search" />
+      <button class="btn btn-dark border border-start-0 d-flex align-items-center justify-content-center px-3 px-lg-5" type="button"><i class="icon icon-search"></i></button>
+    </div>
+    <div class="h-100 button-search"></div>
+  </div>
+</header>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","url":"https:\/\/www.luckfox.com\/","name":"LUCKFOX","description":"LUCKFOX Technology products cover multiple fields such as microcontrollers, development boards, displays, sensors, wireless communication, and more. These products include Pico, Core3566, Core3576 core boards, LCD screens, touch screens, OLED displays, cameras, and other products of various sizes. Relevant software and documentation are provided for the products to help customers quickly start their development projects and turn their ideas into reality.","potentialAction":{"@type":"SearchAction","target":"https:\/\/www.luckfox.com\/index.php?route=product\/search&amp;search={search}","query-input":"required name=search"}}</script><script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Organization","url":"https:\/\/www.luckfox.com\/","logo":"https:\/\/www.luckfox.com\/image\/catalog\/luckfox-100px.png"}</script><script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/www.luckfox.com\/index.php?route=common\/home"},{"@type":"ListItem","position":2,"name":"Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless \/ 4G Module","item":"https:\/\/www.luckfox.com\/luckfox-pico-pi"}]}</script><script type="application/ld+json">[{"@context":"https:\/\/schema.org\/","@type":"ProductGroup","name":"Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-gener","description":"Pico Pi is Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless \/ 4G Module","url":"https:\/\/www.luckfox.com\/luckfox-pico-pi","productGroupID":"Group-633","brand":{"@type":"Brand","name":"LUCKFOX"},"variesBy":["https:\/\/schema.org\/Kit","https:\/\/schema.org\/Version Options","https:\/\/schema.org\/Wireless"],"hasVariant":[{"@type":"Product","sku":"30689","id":"30689","mpn":"Luckfox Pico Pi B W 4G Kit","image":"https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfo-Pico-Pi-A-W-4G-Kit-1600x1200.jpg","additional_image_link":["https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-1-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-2-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-3-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-4-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-5-1600x1200.jpg"],"name":"Luckfox Pico Pi B W 4G Kit Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in","description":"Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless \/ 4G Module - Luckfox Pico Pi B W 4G Kit LUCKFOX","offers":{"@type":"Offer","url":"https:\/\/www.luckfox.com\/luckfox-pico-pi?ci=634","priceCurrency":"USD","price":121.99,"availability":"https:\/\/schema.org\/InStock"},"weight":{"@type":"QuantitativeValue","value":0.091,"unitCode":"kg"},"Kit":"4G Module Kit","Version Options":"RV1106G2","Wireless":"with"},{"@type":"Product","sku":"30687","id":"30687","mpn":"Luckfox Pico Pi A W 4G Kit","image":"https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfo-Pico-Pi-A-W-4G-Kit-1600x1200.jpg","additional_image_link":["https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-1-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-2-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-3-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-4-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-5-1600x1200.jpg"],"name":"Luckfox Pico Pi A W 4G Kit Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in","description":"Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless \/ 4G Module - Luckfox Pico Pi A W 4G Kit LUCKFOX","offers":{"@type":"Offer","url":"https:\/\/www.luckfox.com\/luckfox-pico-pi?ci=635","priceCurrency":"USD","price":127.99,"availability":"https:\/\/schema.org\/InStock"},"weight":{"@type":"QuantitativeValue","value":0.091,"unitCode":"kg"},"Kit":"4G Module Kit","Version Options":"RV1106G3","Wireless":"with"},{"@type":"Product","sku":"30621","id":"30621","mpn":"Luckfox Pico Pi B W","image":"https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-1-1600x1200.jpg","additional_image_link":["https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-2-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-3-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-4-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-5-1600x1200.jpg"],"name":"Luckfox Pico Pi B W Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-d","description":"Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless \/ 4G Module - Luckfox Pico Pi B W LUCKFOX","offers":{"@type":"Offer","url":"https:\/\/www.luckfox.com\/luckfox-pico-pi?ci=636","priceCurrency":"USD","price":52.99,"availability":"https:\/\/schema.org\/InStock"},"weight":{"@type":"QuantitativeValue","value":0.056,"unitCode":"kg"},"Kit":"None","Version Options":"RV1106G2","Wireless":"with"},{"@type":"Product","sku":"30619","id":"30619","mpn":"Luckfox Pico Pi A W","image":"https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-1-1600x1200.jpg","additional_image_link":["https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-2-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-3-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-4-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A-W\/Luckfox-Pico-Pi-A-W-5-1600x1200.jpg"],"name":"Luckfox Pico Pi A W Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-d","description":"Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless \/ 4G Module - Luckfox Pico Pi A W LUCKFOX","offers":{"@type":"Offer","url":"https:\/\/www.luckfox.com\/luckfox-pico-pi?ci=637","priceCurrency":"USD","price":58.99,"availability":"https:\/\/schema.org\/InStock"},"weight":{"@type":"QuantitativeValue","value":0.056,"unitCode":"kg"},"Kit":"None","Version Options":"RV1106G3","Wireless":"with"},{"@type":"Product","sku":"30688","id":"30688","mpn":"Luckfox Pico Pi B 4G Kit","image":"https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfo-Pico-Pi-A-4G-Kit-1600x1200.jpg","additional_image_link":["https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-1-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-2-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-3-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-4-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-5-1600x1200.jpg"],"name":"Luckfox Pico Pi B 4G Kit Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in S","description":"Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless \/ 4G Module - Luckfox Pico Pi B 4G Kit LUCKFOX","offers":{"@type":"Offer","url":"https:\/\/www.luckfox.com\/luckfox-pico-pi?ci=638","priceCurrency":"USD","price":117.99,"availability":"https:\/\/schema.org\/InStock"},"weight":{"@type":"QuantitativeValue","value":0.084,"unitCode":"kg"},"Kit":"4G Module Kit","Version Options":"RV1106G2","Wireless":"without"},{"@type":"Product","sku":"30686","id":"30686","mpn":"Luckfox Pico Pi A 4G Kit","image":"https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfo-Pico-Pi-A-4G-Kit-1600x1200.jpg","additional_image_link":["https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-1-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-2-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-3-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-4-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-5-1600x1200.jpg"],"name":"Luckfox Pico Pi A 4G Kit Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in S","description":"Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless \/ 4G Module - Luckfox Pico Pi A 4G Kit LUCKFOX","offers":{"@type":"Offer","url":"https:\/\/www.luckfox.com\/luckfox-pico-pi?ci=639","priceCurrency":"USD","price":123.99,"availability":"https:\/\/schema.org\/InStock"},"weight":{"@type":"QuantitativeValue","value":0.084,"unitCode":"kg"},"Kit":"4G Module Kit","Version Options":"RV1106G3","Wireless":"without"},{"@type":"Product","sku":"30620","id":"30620","mpn":"Luckfox Pico Pi B","image":"https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-1-1600x1200.jpg","additional_image_link":["https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-2-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-3-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-4-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-5-1600x1200.jpg"],"name":"Luckfox Pico Pi B Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-dev","description":"Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless \/ 4G Module - Luckfox Pico Pi B LUCKFOX","offers":{"@type":"Offer","url":"https:\/\/www.luckfox.com\/luckfox-pico-pi?ci=640","priceCurrency":"USD","price":48.99,"availability":"https:\/\/schema.org\/InStock"},"weight":{"@type":"QuantitativeValue","value":0.049,"unitCode":"kg"},"Kit":"None","Version Options":"RV1106G2","Wireless":"without"},{"@type":"Product","sku":"30770","id":"30770","mpn":"Luckfox Pico Pi A","image":"https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-1-1600x1200.jpg","additional_image_link":["https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-2-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-3-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-4-1600x1200.jpg","https:\/\/www.luckfox.com\/image\/cache\/catalog\/development-board\/Luckfox-Pico-Pi-A\/Luckfox-Pico-Pi-A-5-1600x1200.jpg"],"name":"Luckfox Pico Pi A Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-dev","description":"Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless \/ 4G Module - Luckfox Pico Pi A LUCKFOX","offers":{"@type":"Offer","url":"https:\/\/www.luckfox.com\/luckfox-pico-pi?ci=641","priceCurrency":"USD","price":54.99,"availability":"https:\/\/schema.org\/InStock"},"weight":{"@type":"QuantitativeValue","value":0.049,"unitCode":"kg"},"Kit":"None","Version Options":"RV1106G3","Wireless":"without"}]}]</script>
+<div class="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center z-3 loader visually-hidden"><div class="bg-black bg-opacity-75 p-5 rounded-2"><div class="spinner-border text-white" role="status"><span class="visually-hidden">加载中……</span></div></div></div>
+<div class="luckfox-breadcrumb">
+  <div class="container">
+    <ul class="breadcrumb py-3 mb-0">
+            <li class="breadcrumb-item"><a class="text-reset" href="https://www.luckfox.com/index.php?route=common/home">Home</a></li>
+            <li class="breadcrumb-item"><a class="text-reset" href="https://www.luckfox.com/luckfox-pico-pi">Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module</a></li>
+          </ul>
+  </div>
+</div>
+<div id="product-product" class="container-lg my-lg-5">
+  <div class="row">
+    <div id="content" class="col">
+      <div class="row"> 
+        <div class="col-lg-6" id="product-gallery">
+                <div class="d-flex flex-column flex-column-reverse flex-lg-row gap-4 gap-lg-2 mb-4 mb-lg-0">
+
+          <div id="luckfox_thumbnails" class="">
+            <div class="d-grid gap-2"><button onclick="scrollUp();" type="button" class="btn btn-light border btn-sm d-none" style="z-index:1"><i class="fa fa-angle-up"></i></button></div>
+            <ul class="list-unstyled row row-cols-5 row-cols-lg-1 g-2 g-lg-0 lf-thumbnails align-content-start overflow-hidden my-0" style="scroll-behavior: smooth;">
+                            <li class="col mb-lg-2"><img class="lf-thumbnail w-100 border lazyload rounded-2 lf-square" data-lf-thumb="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-1-544x544.jpg" data-lf-orgimage="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-1-1600x1200.jpg" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-1-82x82.jpg" src="/catalog/view/theme/luckfox/image/no_image_square.svg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" /></li>
+                                            
+                                        <li class="col mb-lg-2 ">
+                    <div class="position-relative">
+                                            <img class="lf-thumbnail w-100 border lazyload rounded-2 lf-square" data-lf-thumb="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-1-544x544.jpg" data-lf-orgimage="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-1-1600x1200.jpg" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-1-82x82.jpg" src="/catalog/view/theme/luckfox/image/no_image_square.svg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                    </div>
+                    </li>
+
+                
+                                        <li class="col mb-lg-2 ">
+                    <div class="position-relative">
+                                            <img class="lf-thumbnail w-100 border lazyload rounded-2 lf-square" data-lf-thumb="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-2-544x544.jpg" data-lf-orgimage="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-2-1600x1200.jpg" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-2-82x82.jpg" src="/catalog/view/theme/luckfox/image/no_image_square.svg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                    </div>
+                    </li>
+
+                
+                                        <li class="col mb-lg-2 ">
+                    <div class="position-relative">
+                                            <img class="lf-thumbnail w-100 border lazyload rounded-2 lf-square" data-lf-thumb="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-3-544x544.jpg" data-lf-orgimage="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-3-1600x1200.jpg" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-3-82x82.jpg" src="/catalog/view/theme/luckfox/image/no_image_square.svg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                    </div>
+                    </li>
+
+                
+                                        <li class="col mb-lg-2 ">
+                    <div class="position-relative">
+                                            <img class="lf-thumbnail w-100 border lazyload rounded-2 lf-square" data-lf-thumb="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-4-544x544.jpg" data-lf-orgimage="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-4-1600x1200.jpg" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-4-82x82.jpg" src="/catalog/view/theme/luckfox/image/no_image_square.svg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                    </div>
+                    </li>
+
+                
+                                        <li class="col mb-lg-2 ">
+                    <div class="position-relative">
+                                            <img class="lf-thumbnail w-100 border lazyload rounded-2 lf-square" data-lf-thumb="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-5-544x544.jpg" data-lf-orgimage="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-5-1600x1200.jpg" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-5-82x82.jpg" src="/catalog/view/theme/luckfox/image/no_image_square.svg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                    </div>
+                    </li>
+
+                                          </ul>
+            <div class="d-grid gap-2"><button onclick="scrollDown();" type="button" class="btn btn-light border btn-sm d-none"><i class="fa fa-angle-down"></i></button></div>
+          </div>
+          <div id="luckfox_popup_windows" class="popup-windows position-relative">
+                                    <img data-lf-currentimg="0" class="w-100 border lazyload rounded-2" data-lf-orgimage="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-1-1600x1200.jpg" data-bs-toggle="modal" data-bs-target="#luckfox_product_modal" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-1-544x544.jpg" src="/catalog/view/theme/luckfox/image/no_image_square.svg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" style="cursor:pointer" />
+                                                <img data-lf-currentimg="" class="img-fluid border d-none lazyload rounded-2" data-lf-orgimage="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-1-1600x1200.jpg" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-1-544x544.jpg" src="/catalog/view/theme/luckfox/image/no_image_square.svg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                        <img data-lf-currentimg="" class="img-fluid border d-none lazyload rounded-2" data-lf-orgimage="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-2-1600x1200.jpg" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-2-544x544.jpg" src="/catalog/view/theme/luckfox/image/no_image_square.svg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                        <img data-lf-currentimg="" class="img-fluid border d-none lazyload rounded-2" data-lf-orgimage="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-3-1600x1200.jpg" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-3-544x544.jpg" src="/catalog/view/theme/luckfox/image/no_image_square.svg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                        <img data-lf-currentimg="" class="img-fluid border d-none lazyload rounded-2" data-lf-orgimage="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-4-1600x1200.jpg" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-4-544x544.jpg" src="/catalog/view/theme/luckfox/image/no_image_square.svg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                        <img data-lf-currentimg="" class="img-fluid border d-none lazyload rounded-2" data-lf-orgimage="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-5-1600x1200.jpg" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-5-544x544.jpg" src="/catalog/view/theme/luckfox/image/no_image_square.svg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                                  </div>
+        </div>  
+          <div class="modal fade" tabindex="-1"  id="luckfox_product_modal">
+            <div class="modal-dialog modal-fullscreen">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-lg-flex">
+                  <div class="d-none d-lg-flex flex-column gap-2">
+                                          <img data-bs-target="#luckfox_carousel_pd" data-bs-slide-to="0" class="active thumb img-fluid lazyload border" aria-current="true" aria-label="Slide 1" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-1-82x82.jpg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                                                                                  <img data-bs-target="#luckfox_carousel_pd" data-bs-slide-to="1" aria-label="Slide 2" class="thumb img-fluid lazyload border" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-1-82x82.jpg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                                          <img data-bs-target="#luckfox_carousel_pd" data-bs-slide-to="2" aria-label="Slide 3" class="thumb img-fluid lazyload border" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-2-82x82.jpg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                                          <img data-bs-target="#luckfox_carousel_pd" data-bs-slide-to="3" aria-label="Slide 4" class="thumb img-fluid lazyload border" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-3-82x82.jpg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                                          <img data-bs-target="#luckfox_carousel_pd" data-bs-slide-to="4" aria-label="Slide 5" class="thumb img-fluid lazyload border" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-4-82x82.jpg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                                          <img data-bs-target="#luckfox_carousel_pd" data-bs-slide-to="5" aria-label="Slide 6" class="thumb img-fluid lazyload border" data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-5-82x82.jpg" title="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module" />
+                                                          </div>
+                  <div id="luckfox_carousel_pd" class="carousel carousel-dark luckfox_carousel_pd flex-fill w-100">
+                    <div class="carousel-indicators mb-0 flex-wrap gap-1" style="bottom:-20px">
+                                          <button type="button" data-bs-target="#luckfox_carousel_pd" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                                                                  <button type="button" data-bs-target="#luckfox_carousel_pd" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                          <button type="button" data-bs-target="#luckfox_carousel_pd" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                          <button type="button" data-bs-target="#luckfox_carousel_pd" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                          <button type="button" data-bs-target="#luckfox_carousel_pd" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                          <button type="button" data-bs-target="#luckfox_carousel_pd" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                                                            </div>
+                    <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                        <img data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-1-1600x1200.jpg" src="/catalog/view/theme/luckfox/image/no_image.svg" class="d-block img-fluid m-auto lazyload" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module">
+                      </div>
+                                                                                        <div class="carousel-item">
+                        <img data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-1-1600x1200.jpg" src="/catalog/view/theme/luckfox/image/no_image.svg" class="d-block img-fluid m-auto lazyload" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module">
+                      </div>
+                                            <div class="carousel-item">
+                        <img data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-2-1600x1200.jpg" src="/catalog/view/theme/luckfox/image/no_image.svg" class="d-block img-fluid m-auto lazyload" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module">
+                      </div>
+                                            <div class="carousel-item">
+                        <img data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-3-1600x1200.jpg" src="/catalog/view/theme/luckfox/image/no_image.svg" class="d-block img-fluid m-auto lazyload" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module">
+                      </div>
+                                            <div class="carousel-item">
+                        <img data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-4-1600x1200.jpg" src="/catalog/view/theme/luckfox/image/no_image.svg" class="d-block img-fluid m-auto lazyload" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module">
+                      </div>
+                                            <div class="carousel-item">
+                        <img data-src="https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-5-1600x1200.jpg" src="/catalog/view/theme/luckfox/image/no_image.svg" class="d-block img-fluid m-auto lazyload" alt="Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module">
+                      </div>
+                                                                </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#luckfox_carousel_pd" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#luckfox_carousel_pd" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  </div>
+
+        <div class="col-lg-6">
+          <h1 class="fs-3">Luckfox Pico Pi Linux Micro Development Board, Based On Luckfox Core1106, 8GB eMMC, Supports Intelligent Encoding, Built-in Self-developed Third-generation ISP3.2, Up To 5MP Image Processing, Optional for Wireless / 4G Module</h1>
+          <h3 class="fs-6"></h3>
+          <div class="d-flex justify-content-between my-4">
+            <ul id="lf-pd-info" class="list-unstyled mb-0 flex-fill">
+                                        <li><span class="lf-pdlist-title my-1 d-inline-block">Brand:</span><a href="https://www.luckfox.com/luckfox">LUCKFOX</a></li>
+                            <li><span class="lf-pdlist-title my-1 d-inline-block">Battery:</span>Not included</li>
+                        </ul>
+                        <div>
+              <a class="text-center icon-link flex-column" href="https://wiki.luckfox.com/Luckfox-Pico-Pi" target="_blank">
+                <img src="catalog/view/theme/luckfox/image/wiki-ico.svg" />
+                <span>Wiki Page</span>
+              </a>
+            </div>
+                      </div>
+                    <div class="border-top"></div>
+                    <ul class="list-unstyled my-4">
+            <li>
+              <div class="d-flex align-items-end">
+              <h3 class="fs-1 mb-0"><strong id="comb-price" class="text-lf-primary">$48.99</strong></h3>
+                            <div id="product-stock">
+                            </div>
+            </li>
+            <li class="my-2">
+                                    </li>
+                                        <li><span class="text-secondary">Price Range $48.99 - $127.99</span></li>
+                      </ul>
+                    <div id="product">                                                             <div class="form-group required  my-4">
+              <label class="control-label">Kit</label>
+              <div class="d-flex gap-2 flex-wrap" id="input-option16168">                 <div class="radio">
+                  <input class="btn-check" type="radio" name="option[16168]" value="19611" id="19611" />
+                  <label class="btn btn-outline-dark border lf-pdlist-title" for="19611">
+                                      
+                    None
+                     </label>
+                </div>
+                                <div class="radio">
+                  <input class="btn-check" type="radio" name="option[16168]" value="19610" id="19610" />
+                  <label class="btn btn-outline-dark border lf-pdlist-title" for="19610">
+                                      
+                    4G Module Kit
+                     </label>
+                </div>
+                 </div>
+            </div>
+                                                                                                                                                <div class="form-group required  my-4">
+              <label class="control-label">Version Options</label>
+              <div class="d-flex gap-2 flex-wrap" id="input-option16167">                 <div class="radio">
+                  <input class="btn-check" type="radio" name="option[16167]" value="19609" id="19609" />
+                  <label class="btn btn-outline-dark border lf-pdlist-title" for="19609">
+                                      
+                    RV1106G3
+                     </label>
+                </div>
+                                <div class="radio">
+                  <input class="btn-check" type="radio" name="option[16167]" value="19608" id="19608" />
+                  <label class="btn btn-outline-dark border lf-pdlist-title" for="19608">
+                                      
+                    RV1106G2
+                     </label>
+                </div>
+                 </div>
+            </div>
+                                                                                                                                                <div class="form-group required  my-4">
+              <label class="control-label">Wireless</label>
+              <div class="d-flex gap-2 flex-wrap" id="input-option16169">                 <div class="radio">
+                  <input class="btn-check" type="radio" name="option[16169]" value="19613" id="19613" />
+                  <label class="btn btn-outline-dark border lf-pdlist-title" for="19613">
+                                      
+                    without
+                     </label>
+                </div>
+                                <div class="radio">
+                  <input class="btn-check" type="radio" name="option[16169]" value="19612" id="19612" />
+                  <label class="btn btn-outline-dark border lf-pdlist-title" for="19612">
+                                      
+                    with
+                     </label>
+                </div>
+                 </div>
+            </div>
+                                                                                                                                                <div class="border-top"></div>
+            <div class="form-group my-4 border p-3 d-flex flex-column gap-4 rounded-2">
+              <div class="d-flex gap-2 justify-content-between">
+                <div class="luckfox-product-number d-flex" id="input-quantity" style="width: 150px;">
+                  <label style="display:none" class="control-label">Qty</label>
+                  <button data-cart-update-input="-" class="btn btn-light border border-end-0 d-inline-block lf-square rounded-0 rounded-start-2" type="button">-</button>
+                  <input type="text" name="quantity" value="1" size="2" class="form-control border p-0 d-inline-block text-center z-1 rounded-0" />
+                  <button data-cart-update-input="+" class="btn btn-light border border-start-0 d-inline-block lf-square rounded-0 rounded-end-2" type="button">+</button>
+                </div>
+                <input type="hidden" name="product_id" value="633" />
+                <div class="btn-group gap-2 flex-fill">
+                  <button type="button" id="button-cart" data-loading-text="Loading..." class="btn btn-success btn-lg rounded-2 btn-block text-white"><i class="fa fa-shopping-cart "></i> Add to Cart</button>
+                </div>
+              </div>
+              <div>
+                <div style="cursor:pointer" data-toggle="tooltip" aria-label="Add to Wish List" data-bs-original-title="Add to Wish List" class="d-inline-flex align-items-center opacity-75 me-3" onclick="wishlist.add('633');"><i class="icon icon-like"></i><span>Add to Wish List</span></div>
+                <div style="cursor:pointer" data-toggle="tooltip" aria-label="Compare this Product" data-bs-original-title="Add to Wish List"class="d-inline-flex align-items-center opacity-75" onclick="compare.add('633');"><i class="icon icon-compare"></i><span>Compare this Product</span></div>
+              </div>
+            </div>
+                                  </div>
+                </div>
+    </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+    
+
+
+
+        
+
+      <div class="container-lg my-4">
+      <div class="row">
+        <div class="col gx-0 gx-lg-4">
+          <ul class="nav nav-underline border rounded-2 rounded-bottom-0">
+            <li class="nav-item fs-6 ms-3"><a class="nav-link py-3 active" href="#tab-description" data-bs-toggle="tab">Description</a></li>
+                        <li class="nav-item fs-6"><a class="nav-link py-3" href="#tab-specification" data-bs-toggle="tab">Specification</a></li>
+                                    <li class="nav-item fs-6"><a class="nav-link py-3" href="#tab-pack-description" data-bs-toggle="tab">Package Content</a></li>
+                                  </ul>
+          <div class="tab-content p-md-4 border border-top-0 rounded-2 rounded-top-0">
+            <div class="tab-pane active" id="tab-description"><div class="alert alert-danger" role="alert">Prohibited by the manufacturer Rockchip, we're not allowed to ship this product, or to provide any tech support, to the following countries/regions: Russia, Belarus, Cuba, Iran, North Korea, Syria, Crimea, Donetsk and Luhansk regions of Ukraine. (Countries or regions are subject to change based on updates or revisions to export control regulations)</div>
+<div class="itemDesc">
+  <div class="richWrap">
+		
+  	<div class="pdT" style="background: #19243a; color: #ffffff;">
+    	<div class="richTitle" style="font-size: 3em;"><strong>Luckfox Pico Pi</strong></div>
+      <p class="alignl pdTRBL2">
+			The <strong>Luckfox Pico Pi</strong> is a cost-effective Linux micro development board, based on the Luckfox Core1106 chip to provide a simple and efficient development platform for developers. Supports a variety of interfaces including MIPI CSI, GPIO, UART, SPI, I2C, USB, and an M.2 slot for 4G module, etc., which is ideal for a wide range of embedded applications.
+			</p>
+      <img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-details-1.jpg" alt="Luckfox Pico Pi series, front view" class="lazyload">
+	  <img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-details-3.jpg" alt="Luckfox Pico Pi series, features" class="lazyload">
+    </div>
+	  
+  	<div class="pdT" style="background: #000000; color:#ffffff;">
+    	<div class="richTitle">Development Board Versions</div>
+      <img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-details-5.jpg" alt="Luckfox Pico Pi series, version options" class="lazyload">
+    </div>
+	  
+	  <div class="pdT" style="background: #000000; color: #fff;">
+    	<div class="richTitle">Version Comparison</div>
+    	<table class="tabSty-2 mgnTB alignc" style="background: #000000; color: #fff;">
+    <tbody><tr>
+      <th style="background: #000000; width: 30%;">Model</th>
+      <td>Luckfox Pico Pi A</td>
+      <td>Luckfox Pico Pi B</td>
+    </tr>
+    <tr>
+      <th style="background: #000000;">Processor</th>
+      <td>RV1106G3</td>
+      <td>RV1106G2</td>
+    </tr>
+    <tr>
+	  <th style="background: #000000;">NPU</th>
+      <td>1TOPS</td>
+      <td>0.5TOPS</td>
+    </tr>
+    <tr>
+	  <th style="background: #000000;">Memory</th>
+      <td>256MB DDR3L</td>
+      <td>128MB DDR3L</td>
+    </tr>
+  </tbody></table>
+<br>
+ </div> 
+	  
+  	<div class="pdT" style="background: #000000; color:#ffffff;">
+    	<div class="richTitle">SIM7600G-H-M.2</div>
+		<p class="alignl pdTRBL">The SIM7600G-H-M.2 is a LTE Cat 4 module which supports wireless communication modes of LTE-TDD, LTE-FDD, HSPA+, GSM, GPRS, and EDGE, etc. It adopts M.2 form factor and can be integrated into the Luckfox Pico Pi series</p>
+      <img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-details-7.jpg" alt="SIM7600G-H-M.2 4G module, front and back view" class="lazyload">
+    </div>
+	  
+	  
+	   <div class="pdT" style="background: #000000; color: #ffffff;">
+    	<div class="richTitle">Wi-Fi 6 and Bluetooth module</div>
+      <p class="richDesc pdTRBL">
+				Onboard 2.4GHz Wi-Fi 6 and Bluetooth 5.2/BLE Bluetooth Module, Providing Stable Connection And Efficient Transmission
+			</p>
+    	<img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-details-13.jpg" alt="Luckfox Pico Pi series, onboard Wi-Fi 6 and Bluetooth module" class="lazyload">
+		</div>
+	  
+	  <div class="pdT" style="background: #000000; color:#ffffff;">
+    	<div class="richTitle">Reserved PoE Module Header</div>
+      <p class="richDesc">
+				More Flexible for Power Supply
+			</p>
+    	<img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-details-15.jpg" alt="Luckfox Pico Pi series, onboard reserved PoE module header" class="lazyload">
+			 <p class="note">
+				* the PoE module is NOT included.
+			</p>
+		</div>
+	  
+	  <div class="pdT" style="background: #000000; color:#ffffff;">
+    	<div class="richTitle">Onboard TF card slot</div>
+      <p class="richDesc">
+				allows storage expansion via TF card
+			</p>
+    	<img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-details-17.jpg" alt="Luckfox Pico Pi series, onboard TF card slot" class="lazyload">
+			 <p class="note">
+				* Supports storage expansion only, does not support booting system from TF card.
+			</p>
+		</div>
+	  
+	
+	  <div class="pdT" style="background: #000000; color:#ffffff;">
+    	<div class="richTitle">Supports USB HUB Expansion</div>
+      <p class="richDesc">
+				Flexible switching of USB-C / 4 × USB-A HOST ports via DIP switch
+			</p>
+    	<img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-details-19.jpg" alt="Luckfox Pico Pi series, onboard USB DIP switch" class="lazyload">
+		</div>
+	
+	  <div class="pdT" style="background: #000000; color:#ffffff;">
+    	<div class="richTitle">Onboard M.2 slot for 4G Module</div>
+      <p class="richDesc pdTRBL">
+				The USB-A-4 port can be switched to 4G module M.2 slot via DIP switch, Supports <a href="/sim7600x-h-m2.htm" target="_blank" style="color: #ffffff;">SIM7600G-H-M.2</a> 4G module
+ 
+			</p>
+    	<img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-details-21.jpg" alt="Luckfox Pico Pi series, onboard USB / M.2 slot DIP switch" class="lazyload">
+		</div>
+	  
+		
+		<div class="pdT" style="background: #000000; color:#ffffff;">
+    	<div class="richTitle">Multiple Audio Interfaces</div>
+      <p class="richDesc pdTRBL">
+				Onboard microphone + microphone expansion header + 3.5mm audio output jack, meets a variety of audio application scenarios
+			</p>
+    	<img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-details-23.jpg" alt="Luckfox Pico Pi series, onboard multiple audio interfaces" class="lazyload">
+		</div>
+	  
+	  
+  	 <div class="pdT" style="background: #000000;">
+    	<div class="richTitle" style="color:#ffffff;">What's On Board</div>
+    	<img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-details-intro.jpg" alt="Luckfox Pico Pi series, onboard components" class="lazyload">
+		<div class="bgWhite round1234" style="background: #0F0B0C;">
+			  <div class="alignl bgGrey round1234">
+		<div class="richGridWrap richGridWrap-valignTop richGridWrap-2c alignl subBlock">
+        <div>
+          <ol>
+            <li class="note"><strong>Core1106</strong><br>
+			  			RV1106G3 / RV1106G2 core module, optional for Wi-Fi / Bluetooth wireless module</li>
+            <li><strong>4G NET LED</strong><br>
+			  			for indicating the operating status of the 4G module</li>
+            <li><strong>USER-LED</strong><br>
+			  			for indicating system operating status in the default image, programmable indicator</li>
+            <li><strong>4G-RESET button</strong><br>
+			  			for rebooting the 4G module</li>
+            <li><strong>RESET button</strong><br>
+			  			for rebooting the Core1106 system</li>
+            <li><strong>BOOT button</strong><br>
+            Press it when powering on or resetting to enter download mode</li>
+            <li><strong>USB Type-C port</strong><br>
+			  			for power supply and program burning</li>
+            <li><strong>RTC battery connector</strong></li>
+            <li><strong>SIM card slot</strong></li>
+            <li><strong>CSI camera interface</strong><br>
+            MIPI CSI 2-lane</li>
+          </ol>
+        </div>
+        <div>
+          <ol start="11">
+            <li><strong>3.5mm audio jack</strong><br>
+            Single channel audio output</li>
+            <li><strong>Microphone expansion header</strong></li>
+            <li><strong>Onboard microphone</strong></li>
+            <li><strong>USB-A Host ports</strong><br>
+            Expands 4x USB-A ports via USB-HUB chip</li>
+            <li><strong>RJ45 100M Ethernet port</strong></li>
+            <li><strong>DIP Switches</strong><br>
+			 			Switch 1: for switching USB-C port and 4x USB-A ports<br>
+						Switch 2: for switching  USB-A-4 port and 4G module M.2 slot</li>
+            <li><strong>4G module M.2 slot</strong><br>
+            Supports SIM7600G-H-M.2 4G module</li>
+            <li><strong>PoE module header</strong></li>
+            <li><strong>40PIN GPIO header</strong><br>
+			  			Compatible with some Raspberry Pi HATs</li>
+            <li><strong>TF card slot</strong><br>
+			  			Supports storage expansion only</li>
+          </ol>
+        </div>
+      </div>
+						</div>
+		</div>
+    </div>
+	  
+	 <div class="pdT" style="background: #000000; color: #ffffff;">
+    	<div class="richTitle">Pin definition</div>
+		  <div><br></div>
+    	<img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-details-inter-1.jpg" class="round1234 lazyload" alt="Luckfox Pico Pi series, pin definition 1">
+    	<img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-details-inter-2.jpg" class="round1234 lazyload" alt="Luckfox Pico Pi series, pin definition 2">
+		</div>
+	  
+	 <div class="pdT" style="background: #000000; color: #ffffff;">
+    	<div class="richTitle">outline dimensions</div>
+      <img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-details-size.jpg" alt="Luckfox Pico Pi series, outline dimensions" class="lazyload">
+		
+    </div>
+	  <br>
+
+
+	
+	</div>
+
+	
+</div>
+</div>
+                        <div class="tab-pane" id="tab-specification">
+              <table class="table table-bordered my-2">
+                                <thead>
+                  <tr>
+                    <td colspan="2"><strong>Connectivity</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                                <tr>
+                  <td>Bluetooth</td>
+                  <td>Bluetooth 5.2/BLE (option)</td>
+                </tr>
+                                <tr>
+                  <td>Ethernet</td>
+                  <td>RJ45 100M (PoE opiton)</td>
+                </tr>
+                                <tr>
+                  <td>Wi-Fi</td>
+                  <td>Wi-Fi6</td>
+                </tr>
+                                  </tbody>
+                                <thead>
+                  <tr>
+                    <td colspan="2"><strong>Interfaces &amp; Peripherals</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                                <tr>
+                  <td>Audio Ouput</td>
+                  <td>3.5mm audio jack</td>
+                </tr>
+                                <tr>
+                  <td>Camera Interface</td>
+                  <td>MIPI CSI 2-lane</td>
+                </tr>
+                                <tr>
+                  <td>GPIO</td>
+                  <td>40PIN</td>
+                </tr>
+                                <tr>
+                  <td>M.2</td>
+                  <td>4G module M.2 slot</td>
+                </tr>
+                                <tr>
+                  <td>Micro SD</td>
+                  <td>Slot</td>
+                </tr>
+                                <tr>
+                  <td>Microphone</td>
+                  <td>Onboard microphone</td>
+                </tr>
+                                <tr>
+                  <td>SIM</td>
+                  <td>Slot</td>
+                </tr>
+                                <tr>
+                  <td>USB</td>
+                  <td>USB-A Host x 4; USB Type-C × 1</td>
+                </tr>
+                                  </tbody>
+                              </table>
+            </div>
+                                    <div class="tab-pane px-3" id="tab-pack-description">  <div class="sep0px"></div>
+  <h2>Luckfox Pico Pi A / Luckfox Pico Pi B</h2>
+	<ol>
+    <li>Luckfox Pico Pi A / Luckfox Pico Pi B x1</li>
+    <li>4G Module mounting screw x1</li>
+		</ol>
+    <img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-pack.jpg" alt="Luckfox Lyra Ultra PoE Kit" class="lazyload">
+<div class="sep0px"></div>
+
+
+
+
+<div class="sep0px"></div>
+  <h2>Luckfox Pico Pi A W / Luckfox Pico Pi B W</h2>
+	<ol>
+    <li>Luckfox Pico Pi A W / Luckfox Pico Pi B W x1</li>
+    <li>IPX 2.4G 2DB antenna x1</li>
+    <li>4G Module mounting screw x1</li>
+		</ol>
+    <img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-W-pack.jpg" alt="Luckfox Lyra Ultra PoE Kit" class="lazyload">
+<div class="sep0px"></div>
+
+
+
+
+<div class="sep0px"></div>
+	
+  <h2>Luckfox Pico Pi A 4G Kit / Luckfox Pico Pi B 4G Kit</h2>
+	<ol>
+    <li>Luckfox Pico Pi A / Luckfox Pico Pi B x1</li>
+    <li>SIM7600G-H-M.2 x1</li>
+    <li>4G antenna x1</li>
+    <li>IPEX4 to SMA cable x1</li>
+    <li>Screwdriver x1</li>
+    <li>4G Module mounting screw x1</li>
+		</ol>
+    <img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-4G-Kit-pack.jpg" alt="Luckfox Lyra Ultra PoE Kit" class="lazyload">
+<div class="sep0px"></div>
+
+
+
+
+
+<div class="sep0px"></div>
+  <h2>Luckfox Pico Pi A W 4G Kit / Luckfox Pico Pi B W 4G Kit</h2>
+	<ol>
+    <li>Luckfox Pico Pi A W / Luckfox Pico Pi B W x1</li>
+    <li>SIM7600G-H-M.2 x1</li>
+    <li>IPX 2.4G 2DB antenna x1</li>
+    <li>4G antenna x1</li>
+    <li>IPEX4 to SMA cable x1</li>
+    <li>Screwdriver x1</li>
+    <li>4G Module mounting screw x1</li>
+		</ol>
+    <img data-src="/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-W-4G-Kit-pack.jpg" alt="Luckfox Lyra Ultra PoE Kit" class="lazyload">
+<div class="sep0px"></div><div style="clear:both"></div></div>
+                        </div>
+        </div>
+        <div class="container-md">
+          <div class="row">
+            <div class="col">
+                        <p>Tags:
+                         <a href="https://www.luckfox.com/index.php?route=product/search&amp;tag=Luckfox Pico Pi">Luckfox Pico Pi</a>,
+                                     <a href="https://www.luckfox.com/index.php?route=product/search&amp;tag=Core1106">Core1106</a>,
+                                     <a href="https://www.luckfox.com/index.php?route=product/search&amp;tag=RISC-V">RISC-V</a>,
+                                     <a href="https://www.luckfox.com/index.php?route=product/search&amp;tag=Linux">Linux</a>              </p>
+                          
+            </div>
+          </div>
+        </div>
+ </div>
+</div>
+
+        
+<script src="catalog/view/theme/luckfox/js/product.js" type="text/javascript" defer></script>
+<script type="text/javascript"><!--
+
+//--></script> 
+<div class="bg-dark py-5" style="background-image: url('/catalog/view/theme/luckfox/image/newsletters_bg.svg');">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <div>
+          <h3 class="text-white fw-bold">Sign Up For Newsletters</h3>
+          <p class="text-white">Get E-mail updates about our latest shop and <span class="text-lf-secondary">special offers</span>.</p>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="input-group"> 
+          <input id="lf-email" type="email" class="form-control py-3" placeholder="Your E-mail Address">
+          <button id="lf-email-btn" class="btn btn-lf-secondary px-5" type="button">
+            <span class="spinner-border spinner-border-sm visually-hidden" aria-hidden="true"></span>
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="py-1" style="background-color: #EFF6FF;">
+  <div class="container my-3 my-lg-5">
+    <div class="d-flex flex-column flex-xl-row justify-content-between gap-4">
+            <div class="text-lg-start">
+        <h5 class="mb-3">Information</h5>
+        <ul class="list-unstyled d-flex gap-3 flex-wrap">
+                   <li><a class="link-dark" href="https://www.luckfox.com/about_us">About Us</a></li>
+                    <li><a class="link-dark" href="https://www.luckfox.com/privacy">Privacy Policy</a></li>
+                    <li><a class="link-dark" href="https://www.luckfox.com/Shipping">Shipping</a></li>
+                    <li><a class="link-dark" href="https://www.luckfox.com/returns-policy">Returns &amp; Refunds</a></li>
+                  </ul>
+      </div>
+            <div class="text-lg-start">
+        <h5 class="mb-3">Customer Service</h5>
+        <ul class="list-unstyled d-flex gap-3 flex-wrap ">
+          <li><a class="link-dark" href="https://www.luckfox.com/index.php?route=information/contact">Contact Us</a></li>
+                    <li><a class="link-dark" href="https://www.luckfox.com/index.php?route=information/sitemap">Site Map</a></li>
+                  </ul>
+      </div>
+            <div class="text-lg-start">
+        <h5 class="mb-3">My Account</h5>
+        <ul class="list-unstyled d-flex gap-3 flex-wrap ">
+          <li><a class="link-dark" href="https://www.luckfox.com/index.php?route=account/account">My Account</a></li>
+          <li><a class="link-dark" href="https://www.luckfox.com/index.php?route=account/order">Order History</a></li>
+          <li><a class="link-dark" href="https://www.luckfox.com/index.php?route=account/wishlist">Wish List</a></li>
+          <li><a class="link-dark" href="https://www.luckfox.com/index.php?route=account/newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="container my-5">
+  <div class="row">
+    <div class="col">
+      <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center">
+        <div id='powerd-foot' class="text-secondary d-flex align-items-center gap-3 pb-4 pb-lg-0">Copyright &copy <a href="https://www.luckfox.com">LUCKFOX</a> 2026</div>
+        <div class="mb-4 mb-md-0"><img class="lazyload" src="/catalog/view/theme/luckfox/image/payments.svg" alt="Payment Methods" /></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mt-5 d-lg-none">&nbsp;</div>
+<div class="bottom-bar position-fixed bottom-0 start-0 bg-white w-100 border-top d-lg-none z-5 shadow-lg">
+    <div class="d-flex justify-content-between align-items-center p-2">
+      <div class="w-25"><a class="d-flex flex-column align-items-center fs-7 text-reset" href="/"><i class="icon icon-home"></i><span>Home</span></a></div>
+      <div class="w-25"><a class="d-flex flex-column align-items-center fs-7 text-reset" href="https://www.luckfox.com/index.php?route=checkout/cart"><i class="icon icon-shopping-cart"></i><span>Cart</span></a></div>
+      <div class="w-25"><a id="category-button" class="d-flex flex-column align-items-center fs-7 text-reset" href=""><i class="icon icon-category"></i><span>Categories</span></a></div>
+      <div class="w-25"><a class="d-flex flex-column align-items-center fs-7 text-reset" href="https://www.luckfox.com/index.php?route=account/account"><i class="icon icon-account"></i><span>Account</span></a></div>
+    </div>
+</div>
+<div class="position-fixed bottom-0 end-0 z-5 mb-5">
+<div id="lf-totop" class="btn btn-lg btn-primary m-2 mb-5 m-lg-5 rounded-0 d-none scoll-btn d-flex align-items-center justify-content-center p-2"><i class="icon icon-angle-up"></i></div>
+</div>
+
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a479f852fffb0901',t:'MTc5MTUxMzA5Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"04eb33c3f9b34b05a740e73fc0ddff4b","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html> 

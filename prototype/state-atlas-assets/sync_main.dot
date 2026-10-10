@@ -1,0 +1,14 @@
+digraph {graph [bgcolor="transparent",fontname="Microsoft YaHei",fontsize=15,nodesep=.45,ranksep=.60,pad=.25,splines=polyline]; node [shape=box,style="rounded,filled",fillcolor="#f2ecfc",color="#d9cfea",fontcolor="#352b48",fontname="Microsoft YaHei",fontsize=15,margin=".18,.14",penwidth=1.2]; edge [color="#8e839d",fontcolor="#655b76",fontname="Microsoft YaHei",fontsize=12,arrowsize=.65,penwidth=1.1]; rankdir=TB;
+
+
+n3 [id="node_sync_3",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="99" HEIGHT="20">待上传</TD></TR><TR><TD WIDTH="99" HEIGHT="20">已可靠保存</TD></TR></TABLE>>,];
+n4 [id="node_sync_4",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="114" HEIGHT="20">上传中</TD></TR><TR><TD WIDTH="114" HEIGHT="20">同幂等键重试</TD></TR></TABLE>>,];
+n5 [id="node_sync_5",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="129" HEIGHT="20">待确认</TD></TR><TR><TD WIDTH="129" HEIGHT="20">接收确认未到达</TD></TR></TABLE>>,];
+n6 [id="node_sync_6",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="114" HEIGHT="20">已同步</TD></TR><TR><TD WIDTH="114" HEIGHT="20">清理确认队列</TD></TR></TABLE>>,penwidth=2,];
+
+n3 -> n4 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">联网上传</TD></TR></TABLE>>,id="edge_3_4_0",];
+n4 -> n5 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">服务收到</TD></TR></TABLE>>,id="edge_4_5_1",];
+n5 -> n6 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">确认收到</TD></TR></TABLE>>,id="edge_5_6_2",];
+n5 -> n4 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="114" HEIGHT="20">确认丢失重试</TD></TR></TABLE>>,id="edge_5_4_3",color="#b57932",fontcolor="#976120",style=dashed,constraint=false,];n3->n4 [style=invis,weight=10];
+n4->n5 [style=invis,weight=10];
+n5->n6 [style=invis,weight=10];}

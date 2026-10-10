@@ -1,0 +1,15 @@
+digraph {graph [bgcolor="transparent",fontname="Microsoft YaHei",fontsize=15,nodesep=.45,ranksep=.60,pad=.25,splines=polyline]; node [shape=box,style="rounded,filled",fillcolor="#f2ecfc",color="#d9cfea",fontcolor="#352b48",fontname="Microsoft YaHei",fontsize=15,margin=".18,.14",penwidth=1.2]; edge [color="#8e839d",fontcolor="#655b76",fontname="Microsoft YaHei",fontsize=12,arrowsize=.65,penwidth=1.1]; rankdir=TB;n0 [id="node_task_0",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="99" HEIGHT="20">草稿</TD></TR><TR><TD WIDTH="99" HEIGHT="20">动作与目标</TD></TR></TABLE>>,fillcolor="#e8f3ee",color="#adcdbc",];
+
+n2 [id="node_task_2",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">发送中</TD></TR><TR><TD WIDTH="84" HEIGHT="20">幂等命令</TD></TR></TABLE>>,];
+
+n4 [id="node_task_4",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">已送达</TD></TR><TR><TD WIDTH="84" HEIGHT="20">尚未开始</TD></TR></TABLE>>,];
+n5 [id="node_task_5",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="114" HEIGHT="20">执行中</TD></TR><TR><TD WIDTH="114" HEIGHT="20">固定启动版本</TD></TR></TABLE>>,];
+n6 [id="node_task_6",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="114" HEIGHT="20">已完成</TD></TR><TR><TD WIDTH="114" HEIGHT="20">真实会话达标</TD></TR></TABLE>>,penwidth=2,];
+
+n0 -> n2 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">校验通过</TD></TR></TABLE>>,id="edge_0_2_0",];
+n2 -> n4 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">设备确认</TD></TR></TABLE>>,id="edge_2_4_1",];
+n4 -> n5 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">儿童开始</TD></TR></TABLE>>,id="edge_4_5_2",];
+n5 -> n6 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">达标结果</TD></TR></TABLE>>,id="edge_5_6_3",];n0->n2 [style=invis,weight=10];
+n2->n4 [style=invis,weight=10];
+n4->n5 [style=invis,weight=10];
+n5->n6 [style=invis,weight=10];}

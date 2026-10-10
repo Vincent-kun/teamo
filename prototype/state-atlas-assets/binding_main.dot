@@ -1,0 +1,17 @@
+digraph {graph [bgcolor="transparent",fontname="Microsoft YaHei",fontsize=15,nodesep=.45,ranksep=.60,pad=.25,splines=polyline]; node [shape=box,style="rounded,filled",fillcolor="#f2ecfc",color="#d9cfea",fontcolor="#352b48",fontname="Microsoft YaHei",fontsize=15,margin=".18,.14",penwidth=1.2]; edge [color="#8e839d",fontcolor="#655b76",fontname="Microsoft YaHei",fontsize=12,arrowsize=.65,penwidth=1.1]; rankdir=TB;n0 [id="node_binding_0",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="144" HEIGHT="20">未登录</TD></TR><TR><TD WIDTH="144" HEIGHT="20">儿童数据不可访问</TD></TR></TABLE>>,fillcolor="#e8f3ee",color="#adcdbc",];
+n1 [id="node_binding_1",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="114" HEIGHT="20">登录中</TD></TR><TR><TD WIDTH="114" HEIGHT="20">验证家长身份</TD></TR></TABLE>>,];
+
+n3 [id="node_binding_3",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="114" HEIGHT="20">已登录未绑定</TD></TR><TR><TD WIDTH="114" HEIGHT="20">最小儿童档案</TD></TR></TABLE>>,];
+n4 [id="node_binding_4",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="99" HEIGHT="20">设备发现</TD></TR><TR><TD WIDTH="99" HEIGHT="20">扫码或配网</TD></TR></TABLE>>,];
+n5 [id="node_binding_5",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="114" HEIGHT="20">等待设备确认</TD></TR><TR><TD WIDTH="114" HEIGHT="20">证明归属</TD></TR></TABLE>>,];
+n6 [id="node_binding_6",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">绑定成功</TD></TR><TR><TD WIDTH="84" HEIGHT="20">权限有效</TD></TR></TABLE>>,penwidth=2,];
+
+n0 -> n1 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">家长登录</TD></TR></TABLE>>,id="edge_0_1_0",];
+n1 -> n3 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">登录成功</TD></TR></TABLE>>,id="edge_1_3_1",];
+n3 -> n4 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">添加设备</TD></TR></TABLE>>,id="edge_3_4_2",];
+n4 -> n5 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">提交绑定</TD></TR></TABLE>>,id="edge_4_5_3",];
+n5 -> n6 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="114" HEIGHT="20">归属核验成功</TD></TR></TABLE>>,id="edge_5_6_4",];n0->n1 [style=invis,weight=10];
+n1->n3 [style=invis,weight=10];
+n3->n4 [style=invis,weight=10];
+n4->n5 [style=invis,weight=10];
+n5->n6 [style=invis,weight=10];}

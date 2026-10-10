@@ -1,0 +1,15 @@
+{
+  "version": "2.5",
+  "date": "2026-10-09",
+  "scope": "Source baseline; browser visuals not yet approved",
+  "files": {
+    "index.html": "7306b12d117b0742633b559bf57370409eb9756363ee5e15f762d3276bafde91",
+    "mvp-templates.js": "8af4edfd220cbef4a4d9f926ef359690c5d3964f3ff9581e1cd7dc301e3597e1",
+    "mvp-templates.css": "e18ff58dfb561aecc78499d5158df8a9c4989a5c194878a5df961946221eb24c",
+    "flow-ui.js": "d9810424a3aae8d250fb72e1a1090daa13bc4bee3df6d5244e05f1ffc81deb47",
+    "phone-neutral.css": "98a4fe837eec662716845f475a4b3bb5ab4e03fce6acdcfbc4cb56804f125301",
+    "device-ui.js": "2075b589b78ff33e28eca24f2c9137457377d336791ff7a0f04fbcd5bca5c888",
+    "device-ui.css": "0e56b53990f56bc4eb6d467f3698a2df1c94f35c014153b64eef06574711f288"
+  },
+  "reason": "v2.5 按用户目标截图（企业微信截图_17915329003825）快速重排，素材复用只调排版：首页改为「设备成为主角」——TEAMO✦ 顶栏+小问候+大标语、设备英雄卡（左状态信息右产品图，管理设备入口）、AI 卡文案改「安排今天的运动，陪伴每一步」、快速训练副标改「科学动作，立即开始」、移除 GO 横幅/立即开始动作横滑/最近运动卡；设备页改为「大图与清晰控制」——居中真产品大图+绿色笔触点缀、三列状态（电量/在线/隐私盖，内联 SVG 图标）、当前运动卡（开合跳 12/20 已暂停+继续/结束按钮）、设备设置+隐私与儿童数据列表，移除 CSS 假机身/能力清单/时间线。新增 assets/teamo-product.png（用户产品图：裁白边+泛洪填充去白底保机身不透明+缩至 400×675，115KB）；build-standalone 扩展内联 assets 根目录图片。verify-compact 首页标签断言同步（我的设备/最近运动→运动伙伴/管理设备）。全量校验 PASS，deploy 重建 1.49MB。"
+}

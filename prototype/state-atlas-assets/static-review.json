@@ -1,0 +1,158 @@
+{
+  "method": "Static SVG with Microsoft YaHei font measurements and sampled cubic paths; not a browser or human comprehension test",
+  "graphs": 25,
+  "textClips": 0,
+  "edgeNodeIntersections": 0,
+  "details": [
+    {
+      "graph": "algorithm_full",
+      "visibleNodes": 9,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "algorithm_main",
+      "visibleNodes": 4,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "analysis_full",
+      "visibleNodes": 9,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "analysis_main",
+      "visibleNodes": 6,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "architecture",
+      "visibleNodes": 7,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "binding_full",
+      "visibleNodes": 9,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "binding_main",
+      "visibleNodes": 6,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "capability",
+      "visibleNodes": 16,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "growth_full",
+      "visibleNodes": 9,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "growth_main",
+      "visibleNodes": 6,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "journey",
+      "visibleNodes": 17,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "maintenance_full",
+      "visibleNodes": 9,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "maintenance_main",
+      "visibleNodes": 5,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "posture_full",
+      "visibleNodes": 9,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "posture_main",
+      "visibleNodes": 6,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "privacy_full",
+      "visibleNodes": 9,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "privacy_main",
+      "visibleNodes": 4,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "school_full",
+      "visibleNodes": 9,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "school_main",
+      "visibleNodes": 7,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "session_full",
+      "visibleNodes": 9,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "session_main",
+      "visibleNodes": 7,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "sync_full",
+      "visibleNodes": 9,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "sync_main",
+      "visibleNodes": 4,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "task_full",
+      "visibleNodes": 9,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    },
+    {
+      "graph": "task_main",
+      "visibleNodes": 5,
+      "textOutsideNodes": [],
+      "edgesThroughOtherNodes": []
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+<svg role="img" aria-label="运动伙伴 · 概念职责与数据关系" width="1435pt" height="556pt"
+ viewBox="0 0 1435 556" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>运动伙伴 · 概念职责与数据关系</title><desc>主要职责关系；部署位置与通信技术待评审</desc><text x="18" y="25" font-family="Microsoft YaHei" font-size="17" fill="#352b48">运动伙伴 · 概念职责与数据关系</text><text x="18" y="47" font-family="Microsoft YaHei" font-size="12" fill="#746b83">主要职责关系；部署位置与通信技术待评审</text><g transform="translate(0,60)">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 418)">
+<g id="clust1" class="cluster">
+<title>cluster_parent</title>
+<path fill="none" stroke="#dfd7eb" d="M407.92,-288C407.92,-288 599.84,-288 599.84,-288 605.84,-288 611.84,-294 611.84,-300 611.84,-300 611.84,-380 611.84,-380 611.84,-386 605.84,-392 599.84,-392 599.84,-392 407.92,-392 407.92,-392 401.92,-392 395.92,-386 395.92,-380 395.92,-380 395.92,-300 395.92,-300 395.92,-294 401.92,-288 407.92,-288"/>
+<text xml:space="preserve" text-anchor="start" x="451.38" y="-372" font-family="Microsoft YaHei" font-size="15.00">家长端 · 任务与结果</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_data</title>
+<path fill="none" stroke="#dfd7eb" d="M825.84,-288C825.84,-288 1378.68,-288 1378.68,-288 1384.68,-288 1390.68,-294 1390.68,-300 1390.68,-300 1390.68,-380 1390.68,-380 1390.68,-386 1384.68,-392 1378.68,-392 1378.68,-392 825.84,-392 825.84,-392 819.84,-392 813.84,-386 813.84,-380 813.84,-380 813.84,-300 813.84,-300 813.84,-294 819.84,-288 825.84,-288"/>
+<text xml:space="preserve" text-anchor="start" x="1016.84" y="-372" font-family="Microsoft YaHei" font-size="15.00">同步与数据职责 · 部署待M1评审</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_device</title>
+<path fill="none" stroke="#c6dacf" d="M20,-8C20,-8 1017.76,-8 1017.76,-8 1023.76,-8 1029.76,-14 1029.76,-20 1029.76,-20 1029.76,-192 1029.76,-192 1029.76,-198 1023.76,-204 1017.76,-204 1017.76,-204 20,-204 20,-204 14,-204 8,-198 8,-192 8,-192 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text xml:space="preserve" text-anchor="start" x="472.01" y="-184" font-family="Microsoft YaHei" font-size="15.00">设备端 · 运动当下</text>
+</g>
+<!-- parent -->
+<g id="arch_task" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('task')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('task')}">
+<title>parent</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M591.84,-356.08C591.84,-356.08 415.92,-356.08 415.92,-356.08 409.92,-356.08 403.92,-350.08 403.92,-344.08 403.92,-344.08 403.92,-307.92 403.92,-307.92 403.92,-301.92 409.92,-295.92 415.92,-295.92 415.92,-295.92 591.84,-295.92 591.84,-295.92 597.84,-295.92 603.84,-301.92 603.84,-307.92 603.84,-307.92 603.84,-344.08 603.84,-344.08 603.84,-350.08 597.84,-356.08 591.84,-356.08"/>
+<text xml:space="preserve" text-anchor="start" x="475.76" y="-330" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">任务与授权</text>
+<text xml:space="preserve" text-anchor="start" x="447.63" y="-310" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">家长选择、创建、查看</text>
+</g>
+<!-- gateway -->
+<g id="arch_sync" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('sync')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('sync')}">
+<title>gateway</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M994.76,-356.08C994.76,-356.08 833.84,-356.08 833.84,-356.08 827.84,-356.08 821.84,-350.08 821.84,-344.08 821.84,-344.08 821.84,-307.92 821.84,-307.92 821.84,-301.92 827.84,-295.92 833.84,-295.92 833.84,-295.92 994.76,-295.92 994.76,-295.92 1000.76,-295.92 1006.76,-301.92 1006.76,-307.92 1006.76,-307.92 1006.76,-344.08 1006.76,-344.08 1006.76,-350.08 1000.76,-356.08 994.76,-356.08"/>
+<text xml:space="preserve" text-anchor="start" x="886.18" y="-330" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">同步与权限</text>
+<text xml:space="preserve" text-anchor="start" x="863.68" y="-310" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">命令回执、访问隔离</text>
+</g>
+<!-- parent&#45;&gt;gateway -->
+<g id="edge1" class="edge">
+<title>parent&#45;&gt;gateway</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M604.27,-326C667.78,-326 749.86,-326 813.46,-326"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="813.35,-328.28 819.85,-326 813.35,-323.73 813.35,-328.28"/>
+<text xml:space="preserve" text-anchor="start" x="669.34" y="-331.2" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">1 任务与授权设置</text>
+</g>
+<!-- records -->
+<g id="arch_analysis" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('analysis')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('analysis')}">
+<title>records</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M1370.68,-356.08C1370.68,-356.08 1224.76,-356.08 1224.76,-356.08 1218.76,-356.08 1212.76,-350.08 1212.76,-344.08 1212.76,-344.08 1212.76,-307.92 1212.76,-307.92 1212.76,-301.92 1218.76,-295.92 1224.76,-295.92 1224.76,-295.92 1370.68,-295.92 1370.68,-295.92 1376.68,-295.92 1382.68,-301.92 1382.68,-307.92 1382.68,-307.92 1382.68,-344.08 1382.68,-344.08 1382.68,-350.08 1376.68,-356.08 1370.68,-356.08"/>
+<text xml:space="preserve" text-anchor="start" x="1258.35" y="-330" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">结构化运动记录</text>
+<text xml:space="preserve" text-anchor="start" x="1252.72" y="-310" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">摘要、分析、成长</text>
+</g>
+<!-- gateway&#45;&gt;records -->
+<g id="edge8" class="edge">
+<title>gateway&#45;&gt;records</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M1007.14,-326C1066.85,-326 1144.42,-326 1204.24,-326"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="1204.03,-328.28 1210.53,-326 1204.03,-323.73 1204.03,-328.28"/>
+<text xml:space="preserve" text-anchor="start" x="1099.26" y="-331.2" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">权限校验</text>
+</g>
+<!-- session -->
+<g id="arch_session" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('session')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('session')}">
+<title>session</title>
+<path fill="#e8f3ee" stroke="#d9cfea" stroke-width="1.2" d="M591.84,-168.08C591.84,-168.08 415.92,-168.08 415.92,-168.08 409.92,-168.08 403.92,-162.08 403.92,-156.08 403.92,-156.08 403.92,-119.92 403.92,-119.92 403.92,-113.92 409.92,-107.92 415.92,-107.92 415.92,-107.92 591.84,-107.92 591.84,-107.92 597.84,-107.92 603.84,-113.92 603.84,-119.92 603.84,-119.92 603.84,-156.08 603.84,-156.08 603.84,-162.08 597.84,-168.08 591.84,-168.08"/>
+<text xml:space="preserve" text-anchor="start" x="481.38" y="-142" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">运动会话</text>
+<text xml:space="preserve" text-anchor="start" x="447.63" y="-122" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">计数、暂停、恢复真源</text>
+</g>
+<!-- gateway&#45;&gt;session -->
+<g id="edge2" class="edge">
+<title>gateway&#45;&gt;session</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M846.8,-295.39C773.24,-261.53 655.03,-207.12 578.67,-171.96"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="579.78,-169.97 572.92,-169.32 577.87,-174.1 579.78,-169.97"/>
+<text xml:space="preserve" text-anchor="start" x="669.34" y="-270.39" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">2 命令下发与确认</text>
+</g>
+<!-- records&#45;&gt;parent -->
+<g id="edge7" class="edge">
+<title>records&#45;&gt;parent</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M1212.25,-305.12C1134.04,-285.78 1029.76,-260 1029.76,-260 1029.76,-260 806.84,-260 806.84,-260 806.84,-260 698.8,-283.61 611.97,-302.59"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="611.66,-300.33 605.8,-303.94 612.63,-304.78 611.66,-300.33"/>
+<text xml:space="preserve" text-anchor="start" x="878.3" y="-265.2" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">4 返回已授权记录</text>
+</g>
+<!-- feedback -->
+<g id="arch_growth" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('growth')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('growth')}">
+<title>feedback</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M987.26,-76.08C987.26,-76.08 841.34,-76.08 841.34,-76.08 835.34,-76.08 829.34,-70.08 829.34,-64.08 829.34,-64.08 829.34,-27.92 829.34,-27.92 829.34,-21.92 835.34,-15.92 841.34,-15.92 841.34,-15.92 987.26,-15.92 987.26,-15.92 993.26,-15.92 999.26,-21.92 999.26,-27.92 999.26,-27.92 999.26,-64.08 999.26,-64.08 999.26,-70.08 993.26,-76.08 987.26,-76.08"/>
+<text xml:space="preserve" text-anchor="start" x="886.18" y="-50" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">屏幕与语音</text>
+<text xml:space="preserve" text-anchor="start" x="869.3" y="-30" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">进度、引导、鼓励</text>
+</g>
+<!-- session&#45;&gt;feedback -->
+<g id="edge4" class="edge">
+<title>session&#45;&gt;feedback</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M604.21,-114.18C617.05,-111.11 625.84,-109 625.84,-109 625.84,-109 737.12,-84.61 821.2,-66.18"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="821.51,-68.45 827.37,-64.83 820.53,-64 821.51,-68.45"/>
+<text xml:space="preserve" text-anchor="start" x="664.84" y="-114.2" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">当前状态与确认进度</text>
+</g>
+<!-- local -->
+<g id="arch_maintenance" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('maintenance')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('maintenance')}">
+<title>local</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M1009.76,-168.08C1009.76,-168.08 818.84,-168.08 818.84,-168.08 812.84,-168.08 806.84,-162.08 806.84,-156.08 806.84,-156.08 806.84,-119.92 806.84,-119.92 806.84,-113.92 812.84,-107.92 818.84,-107.92 818.84,-107.92 1009.76,-107.92 1009.76,-107.92 1015.76,-107.92 1021.76,-113.92 1021.76,-119.92 1021.76,-119.92 1021.76,-156.08 1021.76,-156.08 1021.76,-162.08 1015.76,-168.08 1009.76,-168.08"/>
+<text xml:space="preserve" text-anchor="start" x="874.93" y="-142" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">本地结果与队列</text>
+<text xml:space="preserve" text-anchor="start" x="852.43" y="-122" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">可靠保存、确认后清队列</text>
+</g>
+<!-- session&#45;&gt;local -->
+<g id="edge5" class="edge">
+<title>session&#45;&gt;local</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M604.21,-137.18C617.05,-137.07 625.84,-137 625.84,-137 625.84,-137 784.84,-137 784.84,-137 784.84,-137 790.03,-137.04 798.31,-137.1"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="798.16,-139.38 804.68,-137.15 798.19,-134.83 798.16,-139.38"/>
+<text xml:space="preserve" text-anchor="start" x="678.34" y="-142.2" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">保存真实结果</text>
+</g>
+<!-- camera -->
+<g id="arch_privacy" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('privacy')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('privacy')}">
+<title>camera</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M233.92,-168.08C233.92,-168.08 28,-168.08 28,-168.08 22,-168.08 16,-162.08 16,-156.08 16,-156.08 16,-119.92 16,-119.92 16,-113.92 22,-107.92 28,-107.92 28,-107.92 233.92,-107.92 233.92,-107.92 239.92,-107.92 245.92,-113.92 245.92,-119.92 245.92,-119.92 245.92,-156.08 245.92,-156.08 245.92,-162.08 239.92,-168.08 233.92,-168.08"/>
+<text xml:space="preserve" text-anchor="start" x="91.59" y="-142" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">视觉与物理隐私</text>
+<text xml:space="preserve" text-anchor="start" x="63.46" y="-122" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">允许采集、入镜、有效事件</text>
+</g>
+<!-- camera&#45;&gt;session -->
+<g id="edge3" class="edge">
+<title>camera&#45;&gt;session</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M246.27,-138C293.76,-138 348.59,-138 395.34,-138"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="395.2,-140.28 401.7,-138 395.2,-135.73 395.2,-140.28"/>
+<text xml:space="preserve" text-anchor="start" x="297.92" y="-143.2" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">有效动作事件</text>
+</g>
+<!-- local&#45;&gt;records -->
+<g id="edge6" class="edge">
+<title>local&#45;&gt;records</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M1022.19,-155.46C1099.62,-168.11 1190.76,-183 1190.76,-183 1190.76,-183 1237.89,-246.61 1269.29,-288.98"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="1267.3,-290.12 1273,-293.99 1270.96,-287.41 1267.3,-290.12"/>
+<text xml:space="preserve" text-anchor="start" x="1081.26" y="-188.2" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">3 补传结构化结果</text>
+</g>
+</g>
+</g><text x="18" y="534" font-family="Microsoft YaHei" font-size="12" fill="#746b83">箭头：单向数据或命令关系  ·  设备计数与结果为权威事实</text></svg>

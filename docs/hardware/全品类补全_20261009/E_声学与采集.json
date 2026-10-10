@@ -1,0 +1,184 @@
+{
+ "work_package": "E 功放与麦克风/音频采集补全",
+ "date": "2026-10-09",
+ "items": [
+  {
+   "id": "AMP03",
+   "category": "功放",
+   "model": "NS4168",
+   "manufacturer": "Nsiway 纳芯微（深圳，I2S 音频功放原厂）；嘉立创在售为永阜康 Yongfukang 兼容版",
+   "w": 3.9,
+   "h": 4.9,
+   "t": 1.27,
+   "url": "http://www.szczkjgs.com/UploadFiles/fujian/3725/NS4168.pdf",
+   "notes": "I²S 数字输入单声道 D 类功放（BCLK/LRCLK/SDATA 三线 I²S，无需 MCLK），支持 8–96kHz 采样率；Po=2.5W@VDD=5V/RL=4Ω（额定口径）；THD+N 0.2%@1W/4Ω；SNR 85dB；效率 80%@2.5W/4Ω；供电 3.0–5.5V（部分渠道标 3.0–5.25V，以规格书表格为准）；CTRL 引脚单线脉冲控制：选左/右声道（阈值约 0.9–1.15VDD 选左、1.5VDD 选右）、音量衰减（最大 -10dB）、关断（<0.4VDD）；封装 ESOP-8（约 3.9×4.9×1.27mm，嘉立创封装标注）。与 MAX98357A 同为 I2S Class-D 但非引脚兼容、控制方式不同。AEC 相关：数字输入取自 I²S 总线，AEC 回采参考建议走 RV1106 codec/I2STDM loopback（Mode2 回采），不占模拟通道。【缺项】8Ω 负载额定功率规格书未给（仅 4Ω 数据，按 4Ω→8Ω 折算约 1.2–1.5W 待实测）；带内 EMC/辐射实测数据缺；嘉立创渠道为兼容版，原厂 Nsiway 渠道价未核实。",
+   "price": "未核实（嘉立创 SMT 有售，编号 C5246378）",
+   "photo_note": "下载失败：jlc-smt 页面图片为 JS 动态加载，HTML 中无可抓取实物图；jlcpcb.com/wmsc.lcsc.com 连接超时或 502；抓到的 alicdn 图与 MSM261 条目同 URL（占位/复用图），已识别并弃用",
+   "sources": [
+    {
+     "fact": "NS4168 为 I²S 数字输入单声道 D 类功放，支持 8k–96kHz；Po 2.5W（VDD=5V, RL=4Ω）；THD+N 0.2%@1W/4Ω；SNR 85dB",
+     "url": "https://datasheet4u.com/datasheet-pdf/ChipSourceTek/NS4168/pdf.php?id=1568953",
+     "date": "2026-10-09"
+    },
+    {
+     "fact": "官方 PDF：CTRL 阀值（左声道 0.9–1.15VDD / 右声道 1.5VDD / 关断 0.4VDD）、一线脉冲 T_HI=112µs、最大衰减增益 -10dB、ESOP-8 封装；I²S 数字输入、防失真",
+     "url": "http://www.szczkjgs.com/UploadFiles/fujian/3725/NS4168.pdf",
+     "date": "2026-10-09"
+    },
+    {
+     "fact": "嘉立创 SMT 在售：品牌 Yongfukang 永阜康，厂家型号 NS4168，封装 ESOP-8，工作电压 3–5.25V，-40~+85℃，Class-D 单声道",
+     "url": "https://www.jlc-smt.com/lcsc/detail/C5246378.html",
+     "date": "2026-10-09"
+    }
+   ],
+   "missing": [
+    "8Ω 负载额定功率（规格书仅给 4Ω）",
+    "原厂 Nsiway 渠道价格",
+    "与 MAX98357A 的引脚/控制差异实测验证"
+   ]
+  },
+  {
+   "id": "AMP04",
+   "category": "功放",
+   "model": "NS4150",
+   "manufacturer": "Nsiway 纳芯微（深圳，数据手册署名 Nsiway）；渠道另有矽源特 ChipSourceTek 兼容版（其官网标注停产）",
+   "w": null,
+   "h": null,
+   "t": null,
+   "url": "https://www.alldatasheet.co.uk/html-pdf/1131841/ETC1/NS4150/812/7/NS4150.html",
+   "notes": "模拟差分输入（INP/INN）无滤波 D 类功放，SOP8/MSOP8。额定功率（datasheet 电气特性表，THD 测试条件齐全）：@5V/4Ω THD=1% 2.0W、THD=10% 2.8W（官网宣传 3W 即 10% 口径）；@5V/8Ω THD=1% 1.3W、THD=10% 1.7W —— 8Ω 数据齐全，与本项目 8Ω 1–2W 喇叭匹配良好。THD 0.1%@0.5W/4Ω/3.6V；效率 90%@0.6W/8Ω/3.6V；PSRR -80dB@217Hz；静态电流 3mA@3.6V；供电 3.0–5.25V（典型，极限 2.8–5.5V）；CTRL 高电平工作/低电平关断（VIH≥1.2VDD）；Bypass 引脚接内部共模旁路电容；扩频调制低 EMI。AEC 相关：直接挂 RV1106 内置 codec LINEOUT（AC 耦合 0.1µF+30K 偏置典型应用图），回采参考走 codec loopback，全模拟链路。【缺项】封装外形尺寸规格书摘录未给；原厂 vs 兼容版（ChipSourceTek 已标停产）供货确认。",
+   "price": "未核实（嘉立创/淘宝渠道有售，实时报价待询）",
+   "photo": "assets/AMP04.jpg",
+   "photo_note": "已 Read 核对：为 NS4150B 典型应用电路图（矽源特 ChipSourceTek 水印），非实物照片，可作接法参考；实物照后续从嘉立创商品页补",
+   "sources": [
+    {
+     "fact": "NS4150 datasheet 电气特性表：Po@THD=10% 4Ω/5V 2.8W；THD=1% 4Ω/5V 2.0W；THD=10% 8Ω/5V 1.7W；THD=1% 8Ω/5V 1.3W；THD 0.1%@0.5W/4Ω/3.6V；fSW 400kHz",
+     "url": "https://www.alldatasheet.co.uk/html-pdf/1131841/ETC1/NS4150/812/7/NS4150.html",
+     "date": "2026-10-09"
+    },
+    {
+     "fact": "引脚与控制：CTRL 高电平工作（VIH 1.2VDD）/关断；Bypass；INP/INN 差分输入；VoP/VoN 直接驱动扬声器；启动 30ms；供电 2.5–5.5V（渠道页口径，官方典型 3.0–5.25V）；SNR 95dB(A)（第三方转述待核）",
+     "url": "https://shixingongsi.b2b168.com/m/supply/v88870053.html",
+     "date": "2026-10-09"
+    },
+    {
+     "fact": "Nsiway 原厂特性：无滤波 Class-D、扩频低 EMI、效率 90%、内置过流/过热/欠压保护、PSRR -80dB@217Hz、静态 3mA@3.6V、工作温度 -40~+85℃",
+     "url": "https://en.chipsourcetek.com/Audio-Chip/2138.html",
+     "date": "2026-10-09"
+    }
+   ],
+   "missing": [
+    "封装外形尺寸（SOP8/MSOP8 具体值）",
+    "SNR 95dB 待原厂规格书核对",
+    "原厂供货状态 vs ChipSourceTek 渠道停产标注"
+   ]
+  },
+  {
+   "id": "MIC02",
+   "category": "音频采集",
+   "model": "MSM261S4030H0R",
+   "manufacturer": "MEMSensing 敏芯股份（苏州敏芯微电子，科创板 688286）",
+   "w": 4,
+   "h": 3,
+   "t": 1.25,
+   "url": "https://www.denovocn.com/node/6251",
+   "notes": "数字 MEMS 麦克风，输出类型 I2S（两个独立渠道一致标注：嘉立创商品参数'输出类型 I2S'+德方电子'信号格式 数字I2S'）。灵敏度 -26dB ±1dB；SNR 61dB；全指向；前进声（顶部进声）；工作电压 1.8V；工作电流 750–1000µA；-40~+100℃；4.00×3.00×1.25mm。接入方式：可作从机直挂 RV1106 I2S0（I2S0_TDM 8ch，主模式输出 BCLK/LRCLK），用法同 MIC01 SPH0645；AEC 回采参考需另占 I²S 声道或走 codec loopback。【缺项/风险】部分第三方页面（etei.com 等 AI 生成内容，声称 Knowles/PDM）与本机品牌冲突，不可信；PDM 说法与 I2S 说法并存于网络，最终以敏芯原厂规格书为准——已列入给涛哥问题。原厂规格书 PDF（1.29MB）在德方电子页可下载但本次未核内容。",
+   "price": "未核实（嘉立创扩展库 C2840615）",
+   "photo_note": "下载失败：jlc-smt 页面仅返回一张 alicdn 通用占位/防盗链图（与 NS4168 页同 URL），非 MSM261 实物图，弃用；LCSC API 无图返回",
+   "sources": [
+    {
+     "fact": "嘉立创商品参数：输出类型 I2S，灵敏度 -26dB，信噪比 61dB，全指向型，工作电压 1.8V，工作电流 750uA~1000uA，-40~+100℃，4×3×1.25mm，品牌 MEMS(敏芯微)，商品编号 C2840615",
+     "url": "https://www.jlc-smt.com/lcsc/detail/C2840615.html",
+     "date": "2026-10-09"
+    },
+    {
+     "fact": "德方电子：品牌 MEMSensing(敏芯微)，灵敏度 Typ -26dB ±1dB，SNR Typ 61dB，前进声，信号模式 数字，格式 数字I2S，长 4.00×宽 3.00×厚 1.25mm，附 MSM261S4030H0R.pdf 规格书（1.29MB）",
+     "url": "https://www.denovocn.com/node/6251",
+     "date": "2026-10-09"
+    }
+   ],
+   "missing": [
+    "输出类型终核（I2S vs PDM，渠道描述冲突）",
+    "原厂规格书关键参数（最大声压级 AOP、时钟频率范围）",
+    "价格"
+   ]
+  },
+  {
+   "id": "MIC03",
+   "category": "音频采集",
+   "model": "IM69D130",
+   "manufacturer": "Infineon 英飞凌（XENSIV 系列）",
+   "w": 4,
+   "h": 3,
+   "t": 1.2,
+   "url": "https://www.infineon.cn/part/IM69D130",
+   "notes": "高性能 PDM 数字 MEMS 麦克风。灵敏度 -36dBFS ±1dB；SNR 69dB(A)@fCLK=3.072MHz（2.4MHz 时 68 / 1.536MHz 66 / 768kHz 64）；AOP 130dBSPL；动态范围 105dB；28Hz 低频滚降；全向；底进声；供电 1.62–3.6V；电流 980µA；封装 LLGA-5 4.0×3.0×1.2mm；相位匹配 ±2°、灵敏度公差 ±1dB（适合阵列/波束成形）。接入方式【关键结论】：RV1106 官方 Brief Datasheet 音频接口仅列 I2S0_TDM（8ch，I2S/TDM/PCM 格式）与内置 Audio Codec，无 PDM 控制器 → PDM 麦克风不能直连 RV1106，需外挂支持 PDM 输入的 codec（如 TLV320AIC3104 不支持 PDM，亦需换型）或改选 I2S 输出数字麦；Rockchip TRM 是否有未列出的 PDM 支持待核（Luckfox wiki 仅演示模拟 MIC 经 acodec）。【缺项】产品状态为 not for new design（英飞凌官网标注），新设计建议同系替代型号（IM69D135/IM73D135 待核）；PDM→RV1106 桥接方案成本未评估。",
+   "price": "未核实（Rutronik/得捷有渠道，MOQ 1000）",
+   "photo": "assets/MIC03.webp",
+   "photo_note": "已 Read 核对：英飞凌官网产品实物渲染图（Infineon IM69D130 丝印、底进声 LLGA 封装可见），来源 assets.infineon.com",
+   "sources": [
+    {
+     "fact": "IM69D130 datasheet：灵敏度 -37/-36/-35 dBFS（1kHz, 94dBSPL，全模式）；AOP 130dBSPL（THD=10%）；SNR 69dB(A)@3.072MHz（68/66/64@2.4/1.536/768kHz）；噪声地板 -105dBFS(A)；28Hz 低频滚降；PDM 时钟 0.4–3.3MHz；VDD 1.62–3.6V",
+     "url": "https://uploadcdn.oneyac.com/attachments/files/brand_pdf/infineontechnologies/7F/9B/Infineon-IM69D130-DS-v01_00-EN.pdf",
+     "date": "2026-10-09"
+    },
+    {
+     "fact": "英飞凌官网中文产品页：接口 Digital PDM；电流消耗 980µA；封装 PG-LLGA-5-1 4.00×3.00×1.20mm；群延迟 6µs@1kHz；产品状态 not for new design",
+     "url": "https://www.infineon.cn/part/IM69D130",
+     "date": "2026-10-09"
+    },
+    {
+     "fact": "Rutronik24：接口 PDM、底进声（Port location Bottom）、AOP 130dBSPL、SNR 69dB、LGA-5、车规 NO、MOQ 1000、交期 32 周",
+     "url": "https://www.rutronik24.com/product/infineon/im69d130v01/9853295.html",
+     "date": "2026-10-09"
+    }
+   ],
+   "missing": [
+    "RV1106 TRM 是否存在未公开 PDM 支持（决定本条是否可用）",
+    "not for new design 的替代型号确认（IM69D135/IM73D135）",
+    "PDM 桥接 codec 方案与成本"
+   ]
+  },
+  {
+   "id": "MIC04",
+   "category": "音频采集",
+   "model": "CMM-2718AT-38164W-TR",
+   "manufacturer": "Same Sky（原 CUI Devices）",
+   "w": 2.75,
+   "h": 1.85,
+   "t": 1.1,
+   "url": "https://www.digikey.hk/zh/products/detail/same-sky-formerly-cui-devices/CMM-2718AT-38164W-TR/19105294",
+   "notes": "模拟输出 MEMS 麦克风（SiSonic 类两线模拟接口：VDD/GND/Output/GB 四端）。灵敏度 -38dB ±1dB @94dB SPL（即 -38dBV）；SNR 64dB(A)；全向；顶进声（AT=Top）；供电 1.5–3.6V（额定 1.8V）；电流 175µA；频响 20Hz–20kHz；输出阻抗 170Ω；2.75×1.85×1.10mm。接入方式：模拟输出 AC 耦合进 RV1106 内置 codec 的差分 MICP/MICN（ADC Mode 可配差分/单端，Luckfox wiki 实测控件证据）；模拟 MEMS 自带输出偏置（约 0.8×VDD），无需 codec 提供驻极体式 MICBIAS（MICBIAS 可关）；同系国产兼容（深圳聆麦 LMA 系 2718 下进音 -38dB，立创商城在售 8705874）可作降本替代。AEC 相关：模拟链路直入内置 codec，回采参考走 codec/I2STDM loopback，链路最短。【缺项】AOP（声学过载点）原厂值待核（同系 CMM2718AL 渠道页标 130dB，顶部进声变体未单列）；国产兼容件 SNR 60dB 低于原厂 64dB，替换时需复核。",
+   "price": "未核实（得捷现货 3478 件 @CMM-2718AT-38164W-TR；2870 件 @-3817NC 变体）",
+   "photo": "assets/MIC04.png",
+   "photo_note": "已 Read 核对：Same Sky 官网产品实物图（黑色 LGA 顶进声 MEMS 麦克风，顶面激光打标），来源 sameskydevices.com og:image",
+   "sources": [
+    {
+     "fact": "DigiKey 香港站：CMM-2718AT-38164W-TR，Same Sky (Formerly CUI Devices)，20Hz~20kHz 模拟 MEMS(硅) 麦克风，1.5~3.6V，全向，灵敏度 -38dB ±1dB @94dB SPL，SNR 64dB，阻抗 170Ω，175µA，顶部进声，2.75×1.85×1.10mm，现货 3478",
+     "url": "https://www.digikey.hk/zh/products/detail/same-sky-formerly-cui-devices/CMM-2718AT-38164W-TR/19105294",
+     "date": "2026-10-09"
+    },
+    {
+     "fact": "DigiKey 中国站同系变体 CMM-2718AT-3817NC-TR 在售（现货 2807，20Hz~10kHz 版本），CMM 系列资料页齐全（datasheet/MEMS 麦克风阵列文档）",
+     "url": "https://www.digikey.cn/zh/products/detail/cui-devices/CMM-2718AT-3817NC-TR/16265445",
+     "date": "2026-10-09"
+    },
+    {
+     "fact": "同系国产兼容参考：立创商城 MEMSmic 硅麦 2718 下进音 -38dB±1（聆麦 LMA），全指向，1.6~3.6V，200µA，SNR 60dB，300Ω",
+     "url": "https://item.szlcsc.com/8705874.html",
+     "date": "2026-10-09"
+    }
+   ],
+   "missing": [
+    "AOP 原厂标定值（顶部进声变体）",
+    "国产兼容件（聆麦 LMA-2718）规格书",
+    "价格"
+   ]
+  }
+ ],
+ "cross_check": {
+  "speaker_load": "喇叭已选 8Ω 1–2W（20mm 圆 / 30×20 椭圆两档）：NS4150 8Ω 额定 1.3W@THD1%/1.7W@THD10%（5V）直接覆盖；NS4168 仅给 4Ω 数据，8Ω 待核；MAX98357A 8Ω@5V 约 1.4W@10%（既有条目）",
+  "aec_chain": "数字功放（AMP02/AMP03）与数字麦（MIC01/MIC02）共用 I2S0 总线时需规划声道分配；模拟功放（AMP01/AMP04）+模拟麦（MIC04）链路最短，全部经内置 codec",
+  "route_count": "功放路线 ≥3：模拟 Class-D ×2（PAM8302/NS4150）+ I2S 数字 ×2（MAX98357A/NS4168）；采集路线 ≥3：模拟 MEMS→内置 codec（MIC04）、I2S 数字 MEMS 直挂（MIC01/MIC02）、PDM（MIC03，RV1106 无控制器不可直连，列为受限路线）；外置 codec（AUD01）为可选增强"
+ }
+}

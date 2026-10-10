@@ -1,0 +1,355 @@
+[
+ {
+  "id": "N07",
+  "category": "联网",
+  "model": "AIC8800DC（Luckfox Pico Ultra W 板载 Wi-Fi/BT 模组方案）",
+  "manufacturer": "AIC（Aicsemi）/ Luckfox 整板集成",
+  "w": null,
+  "h": null,
+  "t": null,
+  "url": "https://wiki.luckfox.com/Luckfox-Pico-Ultra/WiFi-BT/",
+  "notes": "SDIO 路线·RV1106 生态已有驱动证据：Luckfox Pico Ultra W 板载 AIC8800DC，2.4GHz Wi-Fi 6（802.11ax 1T1R）+ Bluetooth 5.2/BLE；Wi-Fi 走 SDIO、BT 走 UART/PCM；天线接口 IPEX 1.0（Ultra W 随板附 IPX 2.4G 2dB 外置天线）。Luckfox Pico SDK 内含 aic8800 驱动/固件与 wifi_bt_init.sh 初始化脚本（Ultra W 的 BT 需加载 aic8800_btlpm.ko），wpa_supplicant/bluetoothctl 官方流程可直接照搬。模组本体无独立公开订货型号与尺寸（记 null），峰值电流/SRRC 认证情况待核。注意：这是'整板搭载模组'证据，自研主板复用时需向 Luckfox/方案商索取模组订货号与规格书。",
+  "price": null,
+  "photo": null,
+  "photo_note": "补抓所得为 Luckfox 站点通用封面图，已剔除；精确型号原图待补（不以近似图充数）",
+  "sources": [
+   {
+    "fact": "Luckfox Pico Ultra W 板载 AIC8800DC，支持 Wi-Fi AX(6) 2.4GHz 与 BT5.2/BLE，官方 wiki 给出 wpa_supplicant/bluetoothctl 联网流程",
+    "url": "https://wiki.luckfox.com/Luckfox-Pico-Ultra/WiFi-BT/",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Pico Ultra W 硬件口径：Wi-Fi AIC8800DC（2.4GHz 1T1R 802.11ax），SDIO: Wi-Fi，UART/PCM: BT 5.2 BLE；随板附 IPX 2.4G 2dB 天线",
+    "url": "https://wikidevi.wi-cat.ru/index.php?diff=386616&mobileaction=toggle_view_desktop",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Luckfox Pico SDK（RV1103/RV1106）支持的 Wi-Fi 芯片：AP6256、AIC8800（W 系列）、Realtek RTL8188FTV 与 RTL8189FS、ATBM、SSV6115；Ultra W 经 wifi_bt_init.sh 加载 aic8800_btlpm.ko",
+    "url": "https://deepwiki.com/LuckfoxTECH/luckfox-pico/6.1-networking-configuration",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Luckfox 官方商城 Pico Ultra（含 W 版）产品页：Wi-Fi6、Bluetooth 5.2/BLE、IPEX 1.0 天线座",
+    "url": "https://www.luckfox.com/index.php?route=product/product&product_id=459",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "模组独立订货型号/尺寸/封装",
+   "峰值电流与典型功耗",
+   "SRRC/CE/FCC 认证情况",
+   "自研主板单独采购该模组的渠道与价格"
+  ]
+ },
+ {
+  "id": "N08",
+  "category": "联网",
+  "model": "E103-RTL8189FTV（芯片 RTL8189FTV-VC-CG）",
+  "manufacturer": "亿佰特 EBYTE",
+  "w": 12,
+  "h": 12,
+  "t": 1.9,
+  "url": "https://www.cdebyte.com/products/E103-RTL8189FTV/1",
+  "notes": "SDIO 路线·独立可采购模组：RTL8189FTV-VC-CG，SDIO 2.0 接口，2.4~2.484GHz 802.11b/g/n 150Mbps（1T1R），无 BLE。发射功率 15~17dBm（典型 16dBm）；3.3V 供电（VDD33），VDDIO 可选 3.3V 或 1.8V；邮票孔天线焊盘（50Ω，非 IPEX，需主板走线+外接天线）；厂商声明已取 SRRC 认证。驱动注意：RTL8189FTV 与 RTL8189FS 不是同一驱动，Luckfox SDK 实测支持列表为 RTL8189FS/RTL8188FTV（USB），本模组驱动待核，不得写成已支持。峰值电流未公布（记 null）。",
+  "price": null,
+  "photo": "assets/N08.jpg",
+  "photo_note": "亿佰特官网产品图，丝印 E103-RTL8189FTV/EBYTE 与型号一致，已核对。",
+  "sources": [
+   {
+    "fact": "E103-RTL8189FTV：SDIO 2.0，2.4~2.484GHz 802.11b/g/n 150Mbps，发射 15~17dBm，尺寸 12×12×1.9mm（±0.2），3.3V，邮票孔 50Ω 天线脚，VDDIO 3.3/1.8V 可选，已取 SRRC",
+    "url": "https://www.cdebyte.com/products/E103-RTL8189FTV/2",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "中文站同型号页：芯片 RTL8189FTV-VC-CG，工作温度 -20~70°C，引脚定义（SD_D0-3/CMD/CLK/CHIP_EN/WAKE）",
+    "url": "http://ebyte.com/product/2218.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "同芯片第三方模组口径：RTL8189FTV-VC 1T1R 2.4G 150M SDIO2.0，支持 Linux/Android、SoftAP，CE/FCC/SRRC 电磁兼容声明",
+    "url": "http://trolinkiot.com/products/204.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Luckfox Pico SDK 支持 Realtek RTL8188FTV（USB）与 RTL8189FS（SDIO）；未列 RTL8189FTV，本型号驱动待核",
+    "url": "https://deepwiki.com/LuckfoxTECH/luckfox-pico/6.1-networking-configuration",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "RTL8189FTV 在 RV1106/Linux 5.10 内核下的驱动来源与验证",
+   "峰值电流",
+   "国内现货价与 MOQ",
+   "工作温度上限仅 70°C 是否满足整机要求"
+  ]
+ },
+ {
+  "id": "N09",
+  "category": "联网",
+  "model": "AP6256",
+  "manufacturer": "AMPAK Technology",
+  "w": 12,
+  "h": 12,
+  "t": 1.65,
+  "url": "https://www.ampak.com.tw/product/WiFi-Bluetooth/stamp-type-1T1R/AP6256",
+  "notes": "SDIO 路线·双频组合模组：802.11a/b/g/n/ac 1T1R（Wi-Fi 5，单流最高 433.3Mbps，2.4/5GHz）+ Bluetooth（FCC 手册写 BT 5.0，官网新版写 BT5.4，IC 为 Synaptics SYN43456）。Wi-Fi 接口 SDIO V3.0/2.0，BT 接口 UART/PCM。尺寸 12×12mm，带屏蔽罩高最大 1.65mm（无罩 1.37mm）。VBAT 3.2~3.6V（典型 3.3V），VDDIO 1.8/3.3V。认证 FCC（RPJAP6256）/CE/TELEC/SRRC/BQB（官网声明）。RV1106 生态证据：Luckfox Pico SDK 支持 AP6256（Wi-Fi+BT）。峰值电流待核。",
+  "price": null,
+  "photo": null,
+  "photo_note": "补抓所得为 Ampak 站点通用分享图，已剔除；精确型号原图待补（不以近似图充数）",
+  "sources": [
+   {
+    "fact": "AP6256 官方 FCC 用户手册：12×12mm（带罩高1.65/无罩1.37mm）、SDIO V3.0/2.0 Wi-Fi + UART/PCM BT5.0、VBAT 3.2~3.6/3.3V、VDDIO 1.6~3.6V、2.4G 2.400~2.4835GHz、5G 5.15~5.85GHz，FCC ID RPJAP6256",
+    "url": "https://fcc.report/FCC-ID/RPJAP6256/6756326.pdf",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Ampak 官网型号页：Stamp 型 1T1R，12×12mm，2.4/5GHz，Wi-Fi 5 单流 433.3Mbps，SDIO，BT5.4（IC SYN43456），FCC/CE/TELEC/SRRC/BQB，Linux/Android/RTOS 驱动，-30~85°C",
+    "url": "https://www.ampak.com.tw/product/WiFi-Bluetooth/stamp-type-1T1R/AP6256",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Luckfox Pico SDK 支持 AP6256 双频 Wi-Fi + BT（驱动与 BT 固件经 RK_POST_OVERLAY 下发，hciattach 初始化）",
+    "url": "https://deepwiki.com/LuckfoxTECH/luckfox-pico/6.1-networking-configuration",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "峰值电流",
+   "BT5.0 与 BT5.4 认证口径按批次确认",
+   "国内代理/现货价与 MOQ",
+   "RV1106 SDIO 时钟与信号完整性实测"
+  ]
+ },
+ {
+  "id": "N10",
+  "category": "联网",
+  "model": "TL-WN725N（免驱版，USB 无线网卡）",
+  "manufacturer": "TP-LINK",
+  "w": 18.6,
+  "h": 15,
+  "t": 7.1,
+  "url": "https://www.tp-link.com.cn/product_740.html?v=specification",
+  "notes": "USB dongle 路线·开发期临时验证件（外插 USB 口，不进整机 BOM）：USB 2.0，2.4~2.4835GHz，802.11b/g/n 最高 150Mbps，无 BLE，发射功率最大 20dBm，内置天线，外形 18.6×15×7.1mm。芯片标称 RTL8188EU 来自电商页标题，TP-Link 官方规格页不标芯片——待核。官方操作系统支持仅列 Windows；Linux 下主线内核存在 rtl8xxxu/staging r8188eu 驱动，但在 RV1106 内核 5.10 下的枚举与吞吐未验证，驱动待核。另 Luckfox Pico SDK 已含 RTL8188FTV（USB）支持，可作同路线替代芯片方向。",
+  "price": null,
+  "photo": "assets/N10.jpg",
+  "photo_note": "型号页主图（浏览器补抓 2026-10-09）；来源页与型号对应关系待逐项复核",
+  "sources": [
+   {
+    "fact": "TL-WN725N 免驱版官方规格：USB 2.0，18.6×15×7.1mm，2.4~2.4835GHz，11n 最高 150Mbps，发射 20dBm 最大，信道 1~13，操作系统仅列 Windows 系列",
+    "url": "https://www.tp-link.com.cn/product_740.html?v=specification",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "TP-Link 官方 PDF（同型号）：微型外观，支持模拟 AP，包装与无线特性同上",
+    "url": "https://service.tp-link.com.cn/download/pdf/250.pdf",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "电商页标题标称芯片 RTL8188EU（经销商标注，非厂家规格，待核）",
+    "url": "https://union-click.jd.com/jdc?e=&p=JF8BARMJK1olXDYBXVdaC00eCmkBG2tRAl5cC24ETQ5WQWQWBQNQCVodDwtCWhVLHWwBElwWWw8LUlddFxJSXzI4fBBSHU1EAAI-UkhvfjZJb15gWFxXJFJROE8RAGkMGloUXjYCVV9cCUIfCmcKK18TMwdsVFdYZkNEUWkMElIcDQNVAwxZDhsnA244UDUUbQcyVFhVCE8UCmYNG1IRWTYCXFpt3-K51eOuz-K_irSAZG5tC3snM284GGtLMwcFUFpVXUlFbTNPGgcUAFJJOl5cCkIXB24NH2sXXAcAVm5tODkSCxd2Xj93NmdnVi47CBZpYh1-YANtHllwEilUZklIXytceBJyAURwJldebkkVYF8IK2sUbQ",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Luckfox Pico SDK 支持 Realtek RTL8188FTV（USB Wi-Fi）",
+    "url": "https://deepwiki.com/LuckfoxTECH/luckfox-pico/6.1-networking-configuration",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "具体版本（V3/V4/免驱版）对应芯片确认",
+   "RV1106 内核下 rtl8xxxu/r8188eu 实测",
+   "峰值电流（USB 口取电）"
+  ]
+ },
+ {
+  "id": "N11",
+  "category": "联网",
+  "model": "ESP32-C6-MINI-1-N4（协处理器路线）",
+  "manufacturer": "Espressif 乐鑫",
+  "w": 13.2,
+  "h": 16.6,
+  "t": 2.4,
+  "url": "https://www.espressif.com/sites/default/files/documentation/esp32-c6-mini-1_mini-1u_datasheet_en.pdf",
+  "notes": "UART/SDIO 协处理器路线·对 N06（ESP32-C3）的升级变体：2.4GHz Wi-Fi 6（802.11ax，兼容 b/g/n 150Mbps）+ BLE 5.3（另含 802.15.4 Zigbee/Thread）。尺寸 13.2×16.6×2.4mm（PCB 板载天线版；-1U 为外置天线连接器版）。供电 3.0~3.6V（典型 3.3V）。Wi-Fi 峰值电流（datasheet 3.3V/25°C，TX 100% 占空比）：802.11b 20.5dBm 382mA、11g 54Mbps 316mA、11n HT20 MCS7 295mA、11ax MCS9 251mA；RX 78~82mA（LCSC 页摘要口径 TX 354mA/RX 71mA，以规格书为准）。片上有 SDIO 2.0 从机控制器；ESP-Hosted-MCU 官方明确：仅 ESP32 与 ESP32-C6 可作 SDIO 从机（SDIO 吞吐最高，官方 P4+C6 组合即 SDIO），UART 为传输选项但吞吐约 0.68Mbps 仅适合低速。注意：主机侧为 RV1106 Linux 时需 esp-hosted（Linux 版）内核驱动，其对 C6/ARM32 的支持状态未核实——驱动待核；ESP-AT 对 C6 的版本支持同样待核。",
+  "price": null,
+  "photo": "assets/N11.jpg",
+  "photo_note": "立创商城 C5736265 商品实物图（金属屏蔽罩模组+标尺），丝印偏小未能逐字核对，收货后需验丝印 ESP32-C6-MINI-1。",
+  "sources": [
+   {
+    "fact": "ESP32-C6-MINI-1 规格书：13.2×16.6×2.4mm（N4/N4-H4/H8），2.4GHz Wi-Fi6+BLE5.3+802.15.4，供电 3.0~3.6V，外设含 SDIO 2.0 从机控制器",
+    "url": "https://www.espressif.com/sites/default/files/documentation/esp32-c6-mini-1_mini-1u_datasheet_en.pdf",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "同规格书电流表：Wi-Fi TX 峰值 802.11b@20.5dBm 382mA / 11n HT20 MCS7 295mA / 11ax MCS9 251mA，RX 78~82mA；推荐外部电源供电能力 ≥0.5A",
+    "url": "https://www.espressif.com.cn/sites/default/files/documentation/esp32-c6-mini-1_datasheet_en.pdf",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "ESP-Hosted-MCU：传输支持 SDIO/SPI/UART；SDIO 从机仅 ESP32 与 ESP32-C6（引脚固定），ESP32/ESP32-S3 仅可作 SDIO 主机；P4+C6 SDIO 官方组合；UART 吞吐约 0.68Mbps",
+    "url": "https://components.espressif.com/components/espressif/esp_hosted/versions/0.0.9",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "ESP-Hosted-MCU 性能口径：SDIO 4-bit ~80Mbps（最高）、SPI 全双工 ~24Mbps、UART ~0.68Mbps",
+    "url": "https://deepwiki.com/espressif/esp-hosted-mcu/8.5-performance-optimization",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "LCSC C5736265 现货页：发射 354mA/接收 71mA 摘要口径、3V~3.6V、-40~85°C",
+    "url": "https://www.lcsc.com/product-detail/C5736265.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "esp-hosted Linux 版对 ESP32-C6/ARM32 主机的支持验证",
+   "ESP-AT 对 C6 的官方版本",
+   "Wi-Fi+BLE 同开时的总峰值电流",
+   "国内现货价（立创有货，价未录）"
+  ]
+ },
+ {
+  "id": "N12",
+  "category": "联网",
+  "model": "ESP32-S3-MINI-1-N4（协处理器路线）",
+  "manufacturer": "Espressif 乐鑫",
+  "w": 15.4,
+  "h": 20.5,
+  "t": 2.4,
+  "url": "https://www.espboards.dev/esp32/microcontroller/esp32s3/esp32-s3-mini-1/",
+  "notes": "UART/SPI 协处理器路线·补充变体：2.4GHz 802.11b/g/n（150Mbps，无 Wi-Fi 6/5GHz）+ Bluetooth 5 LE。尺寸 15.4×20.5×2.4mm（第三方资料库口径，官方规格书复核待办；N4R2 变体有 15.4×15.4 口径冲突）。供电 3.0~3.6V；LCSC 页摘要 TX 355mA/RX 95mA（官方规格书电流表待复核）。关键限制：ESP-Hosted-MCU 明确 SDIO 从机仅 ESP32 与 ESP32-C6，S3 只能当 SDIO 主机——因此 S3 作协处理器只能走 SPI（全双工约 24Mbps）或 UART（约 0.68Mbps），不能照抄 C6 的 SDIO 方案。RV1106 Linux 主机侧 esp-hosted 驱动支持待核。与 N06（C3）相比引脚更多、算力更强，但 RF 能力同级，联网方式没有额外优势。",
+  "price": null,
+  "photo": "assets/N12.jpg",
+  "photo_note": "立创商城 3522411（N4R2）商品实物图，丝印可见 ESPRESSIF/ESP32-S3 字样；注意图为 N4R2（带 PSRAM），与 N4 订货码机械同尺寸，收货需核对订货码。",
+  "sources": [
+   {
+    "fact": "ESP32-S3-MINI-1：15.4×20.5×2.4mm，802.11b/g/n 2.4GHz + BLE5.0，PCB 天线，-40~85°C",
+    "url": "https://www.espboards.dev/esp32/microcontroller/esp32s3/esp32-s3-mini-1/",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "分销页汇总：3.0~3.6V，TX 285~355mA/RX 95~97mA，20.5dBm",
+    "url": "https://www.win-source.es/products/detail/espressif/esp32-s3-mini-1-n4r2.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "立创商城 ESP32-S3-MINI-1-N4R2 现货页：发送 355mA/接收 95mA，Bluetooth5.0，3V~3.6V",
+    "url": "https://item.szlcsc.com/3522411.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "ESP-Hosted-MCU：SDIO 从机仅 ESP32/C6，ESP32-S3 仅可作 SDIO 主机；S3 协处理器需 SPI/UART 传输",
+    "url": "https://components.espressif.com/components/espressif/esp_hosted/versions/0.0.9",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "OpenELAB 型号页：N4R2 尺寸 15.4×15.4×2.4 与 N8 15.4×20.5×2.4 并列，存在口径冲突，需以官方规格书逐订货码复核",
+    "url": "https://openelab.io/a/s/products/esp32-s3-mini-1-1u-module",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "官方规格书逐订货码尺寸/电流复核",
+   "esp-hosted Linux 主机侧对 S3/SPI 支持",
+   "国内现货价"
+  ]
+ },
+ {
+  "id": "ANT09",
+  "category": "天线",
+  "model": "1461530100（146153 系列 Wi-Fi 6E 平衡型柔性天线）",
+  "manufacturer": "Molex",
+  "w": 34.9,
+  "h": 9,
+  "t": 0.1,
+  "url": "https://www.molex.com/en-us/products/series-chart/146153",
+  "notes": "Wi-Fi/BLE FPC：2400~2483.5MHz + 4900~5930MHz，支持 BLE/BT/Wi-Fi/Zigbee/Thread。峰值增益口径差异需闭环：FCC 测试报告（0100，100mm 线）写 3.0dBi@2.4G/4.0dBi@5G、总效率>75%@2.4G；Arrow 汇总（0300，300mm 线）写 2.2dBi@2.4G、效率>63%——同系列不同线长/文档口径不一致，须按 0100 规格书 PS-146153 确认。接头 U.FL/I-PEX MHF（一代）兼容，100mm 线，配对座 Molex 734120110（1.25mm 高立式）。平衡型（Balanced）天线：馈电/净空/地平面条件必须按应用规范 AS-146153 审图，不能套用 206994 系列的 5/10mm 结论。同系列另有 MHF4 版本（1461531100）与车规版本（1461539100）。粘贴安装，PET 膜包装。",
+  "price": null,
+  "photo_note": "Molex 图床（content/dam）直连被拒（Remote end closed connection），型号页 og 图未取到；记录失败原因，待人工浏览器取图。",
+  "sources": [
+   {
+    "fact": "Molex 146153 系列订货表：1461530100，34.90×9.00mm、厚 0.10mm、100mm 线、Compatible with U.FL / I-PEX MHF Connectors，线性/全向",
+    "url": "https://www.molex.com/en-us/products/series-chart/146153",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "FCC 测试报告（2ADHK-WBZ451H，1461530100）：2400~2483.5/4900~5930MHz，Peak Gain 3.0@2.4G/4.0@5G dBi，总效率>75%@2.4/5G，配对座 734120110",
+    "url": "https://fccid.io/2ADHKWBZ451H/Test-Report/Ant4-1461530100-7259444.pdf",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Arrow 汇总 PDF（1461530300）：Peak Gain 2.2@2.4G/2.8@5G dBi，总效率>63%@2.4G/>59%@5G，协议 BLE/BT/Thread/Wi-Fi/WirelessHart/Zigbee",
+    "url": "https://static6.arrow.com/aropdfconversion/43f2bf6f700db600216225bf5865565b02ef141c/1461530300displaypdf.pdf",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Molex 经销商联页：146153 系列 34.90×9.00mm 柔性，2.4/5.15~5.85/6~7.125GHz，峰值增益 3.0/4.0/5.5 dBi 分档口径",
+    "url": "https://www.rutronik.com/fileadmin/images/Future_Markets/Automation/Supplier_landing_pages/Molex_Connectivity/Molex_Home_Automation_2.pdf",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "PS-146153/AS-146153 原版规格书与应用规范的净空/地平面要求",
+   "0100 与 0300 增益口径冲突闭环",
+   "样品价格与交期",
+   "国内代理现货"
+  ]
+ },
+ {
+  "id": "ANT10",
+  "category": "天线",
+  "model": "FXP70.07.0053A（Freedom 2.4GHz 柔性 PCB 天线）",
+  "manufacturer": "Taoglas",
+  "w": 27,
+  "h": 25,
+  "t": 0.08,
+  "url": "https://www.taoglas.com?p=949/",
+  "notes": "Wi-Fi/BLE 方形小 FPC：2400~2500MHz，Wi-Fi/Zigbee/Bluetooth/ISM。50Ω；VSWR<2:1；接头 I-PEX MHF I（U.FL 兼容），兼容座包括 MHF I/MHF II/MHFHT/Hirose U.FL/UMC；53mm Ø1.13mm 黑色微同轴线，直式接头体。增益口径存在冲突：官网标题写峰值增益 5dBi（自由空间 1.5dBi），规格表 Gain (Max) 一栏写 1.1——按 Taoglas 惯例前者为装机峰值参考、后者为自由空间口径，落地前须取规格书与厂家书面确认。厂家以 1.5mm ABS 塑料为测试基准，PLA/PETG/树脂装机性能需实测；方形 27×25 布位比窄条更占面宽，但线长最短（53mm）有利于小壳体走线。",
+  "price": null,
+  "photo": "assets/ANT10.png",
+  "photo_note": "Taoglas CDN 型号产品图（FXP70.07.0053A，图内印 Taoglas/Freedom 2.4GHz FXP70），与订货型号一致，已核对。",
+  "sources": [
+   {
+    "fact": "Taoglas FXP70 型号页：27×25×0.08mm，2400~2500MHz，I-PEX MHF I，53mm Ø1.13 线，VSWR<2:1，标题口径 Peak Gain 5dBi(1.5dBi free space)、规格表 Gain Max 1.1，1.5mm ABS 测试基准",
+    "url": "https://www.taoglas.com?p=949/",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "增益 5dBi 与 1.1dBi 口径书面确认",
+   "规格书 PDF 直链与净空/地平面要求",
+   "样件报价",
+   "装机效率/失谐数据"
+  ]
+ },
+ {
+  "id": "ANT11",
+  "category": "天线",
+  "model": "FXP74.07.0100A（2.4GHz Black Diamond 柔性 PCB 天线）",
+  "manufacturer": "Taoglas",
+  "w": 47,
+  "h": 7,
+  "t": 0.1,
+  "url": "https://www.everythingrf.com/products/all-antennas/taoglas/741-318-fxp74-07-0100a",
+  "notes": "Wi-Fi/BLE 窄条 FPC（与已录入 ANT05/FXP73 同族异型号，作对照备选）：2401~2483.5MHz，Wi-Fi/Bluetooth/Zigbee/ISM，50Ω，VSWR 2.0:1，回损 -10dB，接头 MHF I（U.FL 兼容），100mm Ø1.13mm 线，-40~85°C，粘贴安装。第三方数据库（EverythingRF）参数与 Taoglas 产品目录条目（Black Diamond 系列，2.4GHz，100mm Ø1.13，I-PEX MHF I）一致，但本轮未解析到 Taoglas 官网型号页直链——频段/增益最终以厂家规格书为准，禁止仅凭第三方数据库定版。",
+  "price": null,
+  "photo_note": "Taoglas 官网站内搜索页无可解析的 FXP74 型号页链接，官网与第三方页图片未取到；待人工取图后再补。",
+  "sources": [
+   {
+    "fact": "EverythingRF 型号页：FXP74.07.0100A，2.401~2.4835GHz，4dBi，47×7×0.1mm，MHF I/U.FL，-40~85°C，柔性/低剖面/PCB",
+    "url": "https://www.everythingrf.com/products/all-antennas/taoglas/741-318-fxp74-07-0100a",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "Taoglas 官网 Bluetooth 分类列表页列有 FXP74 2.4GHz Black Diamond Flex PCB Antenna（100mm Ø1.13，I-PEX MHF I）条目",
+    "url": "https://www.taoglas.com/product-tag/blue/page/7/",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "Taoglas 官网型号页与规格书直链",
+   "净空/地平面要求（与 FXP73 是否一致）",
+   "样件报价"
+  ]
+ }
+]

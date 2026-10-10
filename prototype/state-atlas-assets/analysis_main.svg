@@ -1,0 +1,87 @@
+<svg role="img" aria-label="分析与训练计划 · 正常主链" width="640pt" height="837pt"
+ viewBox="0 0 640 837" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>分析与训练计划 · 正常主链</title><desc>范围：授权摘要 + 规则审核；设计候选，交付范围待PM确认</desc><text x="18" y="25" font-family="Microsoft YaHei" font-size="17" fill="#352b48">分析与训练计划 · 正常主链</text><text x="18" y="47" font-family="Microsoft YaHei" font-size="12" fill="#746b83">范围：授权摘要 + 规则审核；设计候选，交付范围待PM确认</text><g transform="translate(190,60)">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 698.96)">
+<!-- n2 -->
+<g id="node_analysis_2" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(2)}">
+<title>n2</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M204.46,-680.96C204.46,-680.96 73.54,-680.96 73.54,-680.96 67.54,-680.96 61.54,-674.96 61.54,-668.96 61.54,-668.96 61.54,-632.8 61.54,-632.8 61.54,-626.8 67.54,-620.8 73.54,-620.8 73.54,-620.8 204.46,-620.8 204.46,-620.8 210.46,-620.8 216.46,-626.8 216.46,-632.8 216.46,-632.8 216.46,-668.96 216.46,-668.96 216.46,-674.96 210.46,-680.96 204.46,-680.96"/>
+<text xml:space="preserve" text-anchor="start" x="122.12" y="-654.88" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">可请求</text>
+<text xml:space="preserve" text-anchor="start" x="99.62" y="-634.88" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">最小结构化数据</text>
+</g>
+<!-- n3 -->
+<g id="node_analysis_3" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(3)}">
+<title>n3</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M211.96,-556.8C211.96,-556.8 66.04,-556.8 66.04,-556.8 60.04,-556.8 54.04,-550.8 54.04,-544.8 54.04,-544.8 54.04,-508.64 54.04,-508.64 54.04,-502.64 60.04,-496.64 66.04,-496.64 66.04,-496.64 211.96,-496.64 211.96,-496.64 217.96,-496.64 223.96,-502.64 223.96,-508.64 223.96,-508.64 223.96,-544.8 223.96,-544.8 223.96,-550.8 217.96,-556.8 211.96,-556.8"/>
+<text xml:space="preserve" text-anchor="start" x="122.12" y="-530.72" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">请求中</text>
+<text xml:space="preserve" text-anchor="start" x="94" y="-510.72" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">可离开不阻塞运动</text>
+</g>
+<!-- n2&#45;&gt;n3 -->
+<g id="edge_2_3_0" class="edge">
+<title>n2&#45;&gt;n3</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M75.91,-620.31C51.81,-609.02 30,-598.8 30,-598.8 30,-598.8 30,-578.8 30,-578.8 30,-578.8 47.6,-570.55 68.66,-560.68"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="69.48,-562.81 74.4,-557.99 67.55,-558.69 69.48,-562.81"/>
+<text xml:space="preserve" text-anchor="start" x="54" y="-584" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">发起请求</text>
+</g>
+<!-- n2&#45;&gt;n3 -->
+<!-- n4 -->
+<g id="node_analysis_4" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(4)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(4)}">
+<title>n4</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M204.46,-432.64C204.46,-432.64 73.54,-432.64 73.54,-432.64 67.54,-432.64 61.54,-426.64 61.54,-420.64 61.54,-420.64 61.54,-384.48 61.54,-384.48 61.54,-378.48 67.54,-372.48 73.54,-372.48 73.54,-372.48 204.46,-372.48 204.46,-372.48 210.46,-372.48 216.46,-378.48 216.46,-384.48 216.46,-384.48 216.46,-420.64 216.46,-420.64 216.46,-426.64 210.46,-432.64 204.46,-432.64"/>
+<text xml:space="preserve" text-anchor="start" x="116.5" y="-406.56" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">分析完成</text>
+<text xml:space="preserve" text-anchor="start" x="99.62" y="-386.56" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">依据与局限可见</text>
+</g>
+<!-- n3&#45;&gt;n4 -->
+<g id="edge_3_4_1" class="edge">
+<title>n3&#45;&gt;n4</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M58.55,-496.15C27.81,-484.86 0,-474.64 0,-474.64 0,-474.64 0,-454.64 0,-454.64 0,-454.64 24.89,-445.49 53.6,-434.94"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="54.09,-437.19 59.4,-432.81 52.52,-432.92 54.09,-437.19"/>
+<text xml:space="preserve" text-anchor="start" x="30" y="-459.84" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">结构校验通过</text>
+</g>
+<!-- n3&#45;&gt;n4 -->
+<!-- n6 -->
+<g id="node_analysis_6" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(6)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(6)}">
+<title>n6</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M211.96,-308.48C211.96,-308.48 66.04,-308.48 66.04,-308.48 60.04,-308.48 54.04,-302.48 54.04,-296.48 54.04,-296.48 54.04,-260.32 54.04,-260.32 54.04,-254.32 60.04,-248.32 66.04,-248.32 66.04,-248.32 211.96,-248.32 211.96,-248.32 217.96,-248.32 223.96,-254.32 223.96,-260.32 223.96,-260.32 223.96,-296.48 223.96,-296.48 223.96,-302.48 217.96,-308.48 211.96,-308.48"/>
+<text xml:space="preserve" text-anchor="start" x="110.88" y="-282.4" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">计划待审核</text>
+<text xml:space="preserve" text-anchor="start" x="94" y="-262.4" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">已支持动作与强度</text>
+</g>
+<!-- n4&#45;&gt;n6 -->
+<g id="edge_4_6_2" class="edge">
+<title>n4&#45;&gt;n6</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M60.97,-372.88C29.28,-361.24 0,-350.48 0,-350.48 0,-350.48 0,-330.48 0,-330.48 0,-330.48 23.43,-321.87 51.05,-311.72"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="51.67,-313.92 56.98,-309.54 50.1,-309.65 51.67,-313.92"/>
+<text xml:space="preserve" text-anchor="start" x="30" y="-335.68" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">提出计划建议</text>
+</g>
+<!-- n4&#45;&gt;n6 -->
+<!-- n7 -->
+<g id="node_analysis_7" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(7)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(7)}">
+<title>n7</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M196.96,-184.32C196.96,-184.32 81.04,-184.32 81.04,-184.32 75.04,-184.32 69.04,-178.32 69.04,-172.32 69.04,-172.32 69.04,-136.16 69.04,-136.16 69.04,-130.16 75.04,-124.16 81.04,-124.16 81.04,-124.16 196.96,-124.16 196.96,-124.16 202.96,-124.16 208.96,-130.16 208.96,-136.16 208.96,-136.16 208.96,-172.32 208.96,-172.32 208.96,-178.32 202.96,-184.32 196.96,-184.32"/>
+<text xml:space="preserve" text-anchor="start" x="116.5" y="-158.24" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">家长确认</text>
+<text xml:space="preserve" text-anchor="start" x="105.25" y="-138.24" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">目标解释清楚</text>
+</g>
+<!-- n6&#45;&gt;n7 -->
+<g id="edge_6_7_3" class="edge">
+<title>n6&#45;&gt;n7</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M58.55,-247.83C27.81,-236.54 0,-226.32 0,-226.32 0,-226.32 0,-206.32 0,-206.32 0,-206.32 29.32,-195.55 61.03,-183.89"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="61.81,-186.03 67.12,-181.65 60.24,-181.76 61.81,-186.03"/>
+<text xml:space="preserve" text-anchor="start" x="30" y="-211.52" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">专业规则通过</text>
+</g>
+<!-- n6&#45;&gt;n7 -->
+<!-- n8 -->
+<g id="node_analysis_8" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(8)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(8)}">
+<title>n8</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="2" d="M189.46,-60.16C189.46,-60.16 88.54,-60.16 88.54,-60.16 82.54,-60.16 76.54,-54.16 76.54,-48.16 76.54,-48.16 76.54,-12 76.54,-12 76.54,-6 82.54,0 88.54,0 88.54,0 189.46,0 189.46,0 195.46,0 201.46,-6 201.46,-12 201.46,-12 201.46,-48.16 201.46,-48.16 201.46,-54.16 195.46,-60.16 189.46,-60.16"/>
+<text xml:space="preserve" text-anchor="start" x="116.5" y="-34.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">计划发送</text>
+<text xml:space="preserve" text-anchor="start" x="110.88" y="-14.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">走任务回执</text>
+</g>
+<!-- n7&#45;&gt;n8 -->
+<g id="edge_7_8_4" class="edge">
+<title>n7&#45;&gt;n8</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M75.91,-123.67C51.81,-112.38 30,-102.16 30,-102.16 30,-102.16 30,-82.16 30,-82.16 30,-82.16 47.45,-73.98 68.38,-64.17"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="69.17,-66.32 74.09,-61.5 67.24,-62.2 69.17,-66.32"/>
+<text xml:space="preserve" text-anchor="start" x="54" y="-87.36" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">家长确认</text>
+</g>
+<!-- n7&#45;&gt;n8 -->
+</g>
+</g><text x="18" y="815" font-family="Microsoft YaHei" font-size="12" fill="#746b83">实线：正常路径  ·  橙色虚线：异常 / 返回  ·  点击节点查看条件</text></svg>

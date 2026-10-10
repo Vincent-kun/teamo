@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-08",
+  "results": [
+    {
+      "scheme": "S0",
+      "state": {
+        "scheme": "S0",
+        "selected": "M00",
+        "view": "iso",
+        "filter": "全部"
+      },
+      "title": "S0 · BodyPark同芯片"
+    },
+    {
+      "scheme": "S1",
+      "state": {
+        "scheme": "S1",
+        "selected": "M04",
+        "view": "iso",
+        "filter": "全部"
+      },
+      "title": "S1 · 台架基准"
+    },
+    {
+      "scheme": "S2",
+      "state": {
+        "scheme": "S2",
+        "selected": "M03",
+        "view": "iso",
+        "filter": "全部"
+      },
+      "title": "S2 · 开发板入壳"
+    },
+    {
+      "scheme": "S3",
+      "state": {
+        "scheme": "S3",
+        "selected": "M01",
+        "view": "iso",
+        "filter": "全部"
+      },
+      "title": "S3 · 核心板方屏"
+    },
+    {
+      "scheme": "S4",
+      "state": {
+        "scheme": "S4",
+        "selected": "M01",
+        "view": "iso",
+        "filter": "全部"
+      },
+      "title": "S4 · 双处理器圆屏"
+    },
+    {
+      "scheme": "S5",
+      "state": {
+        "scheme": "S5",
+        "selected": "M01",
+        "view": "iso",
+        "filter": "全部"
+      },
+      "title": "S5 · 核心板裸圆屏"
+    }
+  ],
+  "widthBudget": {
+    "A": "宽轴不足 · ESP32圆屏控制宽 55.00 + 预算 5.50 = 外宽至少 60.50 mm；当前缺少 2.73 mm。整机装配仍待验证。前面相机/屏包络在当前假设位置重叠，需调整布局。",
+    "B": "仅宽轴必要条件满足 · ESP32圆屏控制宽 55.00 + 预算 5.50 = 外宽至少 60.50 mm；当前余量 0.00 mm。整机装配仍待验证。"
+  },
+  "testedWidths": [
+    1440,
+    768,
+    390,
+    320
+  ],
+  "pageErrors": [],
+  "brokenImages": [],
+  "status": "passed",
+  "notes": "Local file browser check; geometry remains candidate envelopes, not CAD fit approval."
+}

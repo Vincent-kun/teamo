@@ -1,0 +1,94 @@
+<svg role="img" aria-label="学习体态提醒 · 正常主链" width="640pt" height="837pt"
+ viewBox="0 0 640 837" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>学习体态提醒 · 正常主链</title><desc>范围：独立采集模式；设计候选，交付范围待PM确认</desc><text x="18" y="25" font-family="Microsoft YaHei" font-size="17" fill="#352b48">学习体态提醒 · 正常主链</text><text x="18" y="47" font-family="Microsoft YaHei" font-size="12" fill="#746b83">范围：独立采集模式；设计候选，交付范围待PM确认</text><g transform="translate(140,60)">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 698.96)">
+<!-- n0 -->
+<g id="node_posture_0" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(0)}">
+<title>n0</title>
+<path fill="#e8f3ee" stroke="#adcdbc" stroke-width="1.2" d="M196.96,-680.96C196.96,-680.96 111.04,-680.96 111.04,-680.96 105.04,-680.96 99.04,-674.96 99.04,-668.96 99.04,-668.96 99.04,-632.8 99.04,-632.8 99.04,-626.8 105.04,-620.8 111.04,-620.8 111.04,-620.8 196.96,-620.8 196.96,-620.8 202.96,-620.8 208.96,-626.8 208.96,-632.8 208.96,-632.8 208.96,-668.96 208.96,-668.96 208.96,-674.96 202.96,-680.96 196.96,-680.96"/>
+<text xml:space="preserve" text-anchor="start" x="137.12" y="-654.88" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">未开启</text>
+<text xml:space="preserve" text-anchor="start" x="131.5" y="-634.88" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">用途透明</text>
+</g>
+<!-- n1 -->
+<g id="node_posture_1" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(1)}">
+<title>n1</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M211.96,-556.8C211.96,-556.8 96.04,-556.8 96.04,-556.8 90.04,-556.8 84.04,-550.8 84.04,-544.8 84.04,-544.8 84.04,-508.64 84.04,-508.64 84.04,-502.64 90.04,-496.64 96.04,-496.64 96.04,-496.64 211.96,-496.64 211.96,-496.64 217.96,-496.64 223.96,-502.64 223.96,-508.64 223.96,-508.64 223.96,-544.8 223.96,-544.8 223.96,-550.8 217.96,-556.8 211.96,-556.8"/>
+<text xml:space="preserve" text-anchor="start" x="131.5" y="-530.72" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">等待授权</text>
+<text xml:space="preserve" text-anchor="start" x="120.25" y="-510.72" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">家长明确开启</text>
+</g>
+<!-- n0&#45;&gt;n1 -->
+<g id="edge_0_1_0" class="edge">
+<title>n0&#45;&gt;n1</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M98.54,-623.89C71.62,-611.27 45,-598.8 45,-598.8 45,-598.8 45,-578.8 45,-578.8 45,-578.8 62.6,-570.55 83.66,-560.68"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="84.48,-562.81 89.4,-557.99 82.55,-558.69 84.48,-562.81"/>
+<text xml:space="preserve" text-anchor="start" x="69" y="-584" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">家长选择</text>
+</g>
+<!-- n0&#45;&gt;n1 -->
+<!-- n2 -->
+<g id="node_posture_2" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(2)}">
+<title>n2</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M204.46,-432.64C204.46,-432.64 103.54,-432.64 103.54,-432.64 97.54,-432.64 91.54,-426.64 91.54,-420.64 91.54,-420.64 91.54,-384.48 91.54,-384.48 91.54,-378.48 97.54,-372.48 103.54,-372.48 103.54,-372.48 204.46,-372.48 204.46,-372.48 210.46,-372.48 216.46,-378.48 216.46,-384.48 216.46,-384.48 216.46,-420.64 216.46,-420.64 216.46,-426.64 210.46,-432.64 204.46,-432.64"/>
+<text xml:space="preserve" text-anchor="start" x="137.12" y="-406.56" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">观察中</text>
+<text xml:space="preserve" text-anchor="start" x="125.88" y="-386.56" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">有人才判断</text>
+</g>
+<!-- n1&#45;&gt;n2 -->
+<g id="edge_1_2_1" class="edge">
+<title>n1&#45;&gt;n2</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M83.76,-502.42C43.14,-488.95 0,-474.64 0,-474.64 0,-474.64 0,-454.64 0,-454.64 0,-454.64 43.18,-440.32 83.82,-426.84"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="84.33,-429.07 89.78,-424.86 82.9,-424.75 84.33,-429.07"/>
+<text xml:space="preserve" text-anchor="start" x="33" y="-459.84" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">授权且物理开启</text>
+</g>
+<!-- n1&#45;&gt;n2 -->
+<!-- n3 -->
+<g id="node_posture_3" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(3)}">
+<title>n3</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M211.96,-308.48C211.96,-308.48 96.04,-308.48 96.04,-308.48 90.04,-308.48 84.04,-302.48 84.04,-296.48 84.04,-296.48 84.04,-260.32 84.04,-260.32 84.04,-254.32 90.04,-248.32 96.04,-248.32 96.04,-248.32 211.96,-248.32 211.96,-248.32 217.96,-248.32 223.96,-254.32 223.96,-260.32 223.96,-260.32 223.96,-296.48 223.96,-296.48 223.96,-302.48 217.96,-308.48 211.96,-308.48"/>
+<text xml:space="preserve" text-anchor="start" x="131.5" y="-282.4" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">持续异常</text>
+<text xml:space="preserve" text-anchor="start" x="120.25" y="-262.4" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">过滤瞬时变化</text>
+</g>
+<!-- n2&#45;&gt;n3 -->
+<g id="edge_2_3_2" class="edge">
+<title>n2&#45;&gt;n3</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M91.23,-372.14C67,-360.79 45,-350.48 45,-350.48 45,-350.48 45,-330.48 45,-330.48 45,-330.48 62.6,-322.23 83.66,-312.36"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="84.48,-314.49 89.4,-309.67 82.55,-310.37 84.48,-314.49"/>
+<text xml:space="preserve" text-anchor="start" x="69" y="-335.68" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">持续异常</text>
+</g>
+<!-- n2&#45;&gt;n3 -->
+<!-- n4 -->
+<g id="node_posture_4" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(4)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(4)}">
+<title>n4</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M211.96,-184.32C211.96,-184.32 96.04,-184.32 96.04,-184.32 90.04,-184.32 84.04,-178.32 84.04,-172.32 84.04,-172.32 84.04,-136.16 84.04,-136.16 84.04,-130.16 90.04,-124.16 96.04,-124.16 96.04,-124.16 211.96,-124.16 211.96,-124.16 217.96,-124.16 223.96,-130.16 223.96,-136.16 223.96,-136.16 223.96,-172.32 223.96,-172.32 223.96,-178.32 217.96,-184.32 211.96,-184.32"/>
+<text xml:space="preserve" text-anchor="start" x="142.75" y="-158.24" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">提醒</text>
+<text xml:space="preserve" text-anchor="start" x="120.25" y="-138.24" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">一条温和提示</text>
+</g>
+<!-- n3&#45;&gt;n4 -->
+<g id="edge_3_4_3" class="edge">
+<title>n3&#45;&gt;n4</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M90.91,-247.83C66.81,-236.54 45,-226.32 45,-226.32 45,-226.32 45,-206.32 45,-206.32 45,-206.32 62.6,-198.07 83.66,-188.2"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="84.48,-190.33 89.4,-185.51 82.55,-186.21 84.48,-190.33"/>
+<text xml:space="preserve" text-anchor="start" x="69" y="-211.52" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">阈值满足</text>
+</g>
+<!-- n3&#45;&gt;n4 -->
+<!-- n5 -->
+<g id="node_posture_5" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(5)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(5)}">
+<title>n5</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="2" d="M196.96,-60.16C196.96,-60.16 111.04,-60.16 111.04,-60.16 105.04,-60.16 99.04,-54.16 99.04,-48.16 99.04,-48.16 99.04,-12 99.04,-12 99.04,-6 105.04,0 111.04,0 111.04,0 196.96,0 196.96,0 202.96,0 208.96,-6 208.96,-12 208.96,-12 208.96,-48.16 208.96,-48.16 208.96,-54.16 202.96,-60.16 196.96,-60.16"/>
+<text xml:space="preserve" text-anchor="start" x="137.12" y="-34.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">冷却中</text>
+<text xml:space="preserve" text-anchor="start" x="131.5" y="-14.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">抑制重复</text>
+</g>
+<!-- n4&#45;&gt;n5 -->
+<g id="edge_4_5_4" class="edge">
+<title>n4&#45;&gt;n5</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M99.59,-123.67C78.8,-112.38 60,-102.16 60,-102.16 60,-102.16 60,-82.16 60,-82.16 60,-82.16 74.27,-74.4 91.7,-64.94"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="92.69,-66.99 97.31,-61.88 90.52,-62.99 92.69,-66.99"/>
+<text xml:space="preserve" text-anchor="start" x="81" y="-87.36" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">提醒后</text>
+</g>
+<!-- n4&#45;&gt;n5 -->
+<!-- n5&#45;&gt;n2 -->
+<g id="edge_5_2_5" class="edge">
+<title>n5&#45;&gt;n2</title>
+<path fill="none" stroke="#b57932" stroke-width="1.1" stroke-dasharray="5,2" d="M181.68,-61.04C206.82,-88.25 240,-124.16 240,-124.16 240,-124.16 240,-308.48 240,-308.48 240,-308.48 210.96,-339.91 186.64,-366.24"/>
+<polygon fill="#b57932" stroke="#b57932" stroke-width="1.1" points="185.08,-364.57 182.34,-370.89 188.42,-367.66 185.08,-364.57"/>
+<text xml:space="preserve" text-anchor="start" x="264" y="-211.52" font-family="Microsoft YaHei" font-size="12.00" fill="#976120">冷却结束</text>
+</g>
+</g>
+</g><text x="18" y="815" font-family="Microsoft YaHei" font-size="12" fill="#746b83">实线：正常路径  ·  橙色虚线：异常 / 返回  ·  点击节点查看条件</text></svg>

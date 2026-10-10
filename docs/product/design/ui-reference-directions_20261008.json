@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-08",
+  "scope": [
+    "家长首页",
+    "任务设置",
+    "设备实时计数",
+    "运动结果"
+  ],
+  "status": "研究提案，非已验证设计；网页文字与元数据已核验，未声称亲眼检查全部图像",
+  "directions": [
+    {
+      "id": "A",
+      "name": "活力运动场",
+      "reference": "Nex Playground",
+      "proposedPalette": {
+        "background": "#F5F7EE",
+        "ink": "#17251E",
+        "primary": "#176844",
+        "accent": "#F1BC38"
+      },
+      "type": "紧凑粗体标题＋等宽数字＋清晰无衬线正文",
+      "layout": "运动场式分区；主任务横幅＋两列项目，计数页大数字与阶段进度",
+      "motion": "计数即时更新，阶段完成短促一次强调；无持续背景运动",
+      "childVsParent": "儿童明确挑战与短反馈，家长清晰任务和记录；高年龄段压低角色占比",
+      "sources": [
+        {
+          "url": "https://prod.nexplayground.com/playground",
+          "title": "Nex Playground — Jump for Joy",
+          "sourceType": "product-primary",
+          "whatToBorrow": "自然身体动作、低步骤开始、家庭运动场语境",
+          "whatNot": "电视多人游戏复杂度、商业图库、产品参数直接外推"
+        },
+        {
+          "url": "https://www.awwwards.com/sites/playground-corporate-website",
+          "title": "Playground agency corporate site — Honorable Mention 2018",
+          "sourceType": "award-aesthetic-only",
+          "whatToBorrow": "有限色彩与强层级作为待视觉复核方向",
+          "whatNot": "不是 Nex；奖项不证明儿童可用性"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "name": "温暖陪伴屋",
+      "reference": "Yoto Player",
+      "proposedPalette": {
+        "background": "#FBF4E8",
+        "ink": "#34322D",
+        "primary": "#315B53",
+        "accent": "#B75535"
+      },
+      "type": "圆润无衬线标题，正文保持标准字形，计数使用清晰等宽数字",
+      "layout": "留白与单焦点，少量角色贴纸＋大操作卡；结果像简短成长记录",
+      "motion": "角色只在准备/完成回应，运动中静止；减少动效时淡入或无动画",
+      "childVsParent": "6–8 图形与语音引导，9–12 可选角色，13–15 不强制萌系；家长素净记录",
+      "sources": [
+        {
+          "url": "https://us.yotoplay.com/yoto-player",
+          "title": "Yoto Player 3rd Generation official product",
+          "sourceType": "adjacent-product-primary",
+          "whatToBorrow": "儿童自助低复杂度、内容先下载后离线、物理设备与家长管理分工",
+          "whatNot": "卡片硬件、无摄像头音频产品能力不可等同本项目"
+        },
+        {
+          "url": "https://www.behance.net/gallery/111451045/UI-UX-Design-Kids-Yoga-App",
+          "title": "Kids Yoga — Anastasiia Unhur, client Olga Gorokh, illustrator Katya Reyda, 2021",
+          "sourceType": "creator-portfolio-aesthetic-only",
+          "whatToBorrow": "家庭运动与插画协作主题；图片尚待人工复核",
+          "whatNot": "不是上线功能证据，不复用未授权插画"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "name": "清晰成长仪表",
+      "reference": "Fitbit Ace LTE",
+      "proposedPalette": {
+        "background": "#F4F6FA",
+        "ink": "#182A3A",
+        "primary": "#2F5DA8",
+        "accent": "#D36A32"
+      },
+      "type": "语义字体层级＋等宽数字，主指标粗体，标签保守字号",
+      "layout": "数据优先、分层卡片与列表，计数居中＋单进度，结果分完成与同步",
+      "motion": "进度有目的短动画、完成庆祝一次；角色在结果出现",
+      "childVsParent": "儿童只显示当前目标与下一步，家长任务/设备/活动记录；13–15 易保持成熟",
+      "sources": [
+        {
+          "url": "https://store.google.com/product/fitbit_ace_lte?hl=en-US",
+          "title": "Google Fitbit Ace LTE",
+          "sourceType": "product-primary",
+          "whatToBorrow": "活动进度、轻角色激励、父母应用职责区分",
+          "whatNot": "定位/电话/付款/游戏解锁不进本项目，7+ 定位不能证明适合全部 6–15"
+        },
+        {
+          "url": "https://m3.material.io/styles/typography/applying-type",
+          "title": "Material 3 Applying type",
+          "sourceType": "design-system-primary",
+          "whatToBorrow": "display/title/body/label 职责，动态数字等宽避免位移",
+          "whatNot": "不机械复制默认尺寸到远距离设备"
+        }
+      ]
+    }
+  ]
+}

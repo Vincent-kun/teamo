@@ -1,0 +1,131 @@
+<svg role="img" aria-label="设备故障与升级 · 全部候选转移" width="640pt" height="713pt"
+ viewBox="0 0 640 713" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>设备故障与升级 · 全部候选转移</title><desc>范围：设备运行与版本；设计候选，交付范围待PM确认</desc><text x="18" y="25" font-family="Microsoft YaHei" font-size="17" fill="#352b48">设备故障与升级 · 全部候选转移</text><text x="18" y="47" font-family="Microsoft YaHei" font-size="12" fill="#746b83">范围：设备运行与版本；设计候选，交付范围待PM确认</text><g transform="translate(27,60)">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 574.8)">
+<!-- n0 -->
+<g id="node_maintenance_0" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(0)}">
+<title>n0</title>
+<path fill="#e8f3ee" stroke="#adcdbc" stroke-width="1.2" d="M376.92,-556.8C376.92,-556.8 261,-556.8 261,-556.8 255,-556.8 249,-550.8 249,-544.8 249,-544.8 249,-508.64 249,-508.64 249,-502.64 255,-496.64 261,-496.64 261,-496.64 376.92,-496.64 376.92,-496.64 382.92,-496.64 388.92,-502.64 388.92,-508.64 388.92,-508.64 388.92,-544.8 388.92,-544.8 388.92,-550.8 382.92,-556.8 376.92,-556.8"/>
+<text xml:space="preserve" text-anchor="start" x="296.46" y="-530.72" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">启动自检</text>
+<text xml:space="preserve" text-anchor="start" x="285.21" y="-510.72" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">采集存储版本</text>
+</g>
+<!-- n1 -->
+<g id="node_maintenance_1" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(1)}">
+<title>n1</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M291.92,-432.64C291.92,-432.64 176,-432.64 176,-432.64 170,-432.64 164,-426.64 164,-420.64 164,-420.64 164,-384.48 164,-384.48 164,-378.48 170,-372.48 176,-372.48 176,-372.48 291.92,-372.48 291.92,-372.48 297.92,-372.48 303.92,-378.48 303.92,-384.48 303.92,-384.48 303.92,-420.64 303.92,-420.64 303.92,-426.64 297.92,-432.64 291.92,-432.64"/>
+<text xml:space="preserve" text-anchor="start" x="211.46" y="-406.56" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">可用待机</text>
+<text xml:space="preserve" text-anchor="start" x="200.21" y="-386.56" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">基本能力可用</text>
+</g>
+<!-- n0&#45;&gt;n1 -->
+<g id="edge_0_1_0" class="edge">
+<title>n0&#45;&gt;n1</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M290.16,-496.3C279.05,-484.95 268.96,-474.64 268.96,-474.64 268.96,-474.64 260.45,-457.35 251.82,-439.83"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="254.05,-439.2 249.13,-434.37 249.96,-441.21 254.05,-439.2"/>
+<text xml:space="preserve" text-anchor="start" x="292.96" y="-459.84" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">自检通过</text>
+</g>
+<!-- n2 -->
+<g id="node_maintenance_2" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(2)}">
+<title>n2</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M492.92,-432.64C492.92,-432.64 377,-432.64 377,-432.64 371,-432.64 365,-426.64 365,-420.64 365,-420.64 365,-384.48 365,-384.48 365,-378.48 371,-372.48 377,-372.48 377,-372.48 492.92,-372.48 492.92,-372.48 498.92,-372.48 504.92,-378.48 504.92,-384.48 504.92,-384.48 504.92,-420.64 504.92,-420.64 504.92,-426.64 498.92,-432.64 492.92,-432.64"/>
+<text xml:space="preserve" text-anchor="start" x="412.46" y="-406.56" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">外设故障</text>
+<text xml:space="preserve" text-anchor="start" x="401.21" y="-386.56" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">不可正常开练</text>
+</g>
+<!-- n0&#45;&gt;n2 -->
+<g id="edge_0_2_1" class="edge">
+<title>n0&#45;&gt;n2</title>
+<path fill="none" stroke="#b57932" stroke-width="1.1" stroke-dasharray="5,2" d="M347.04,-496.15C363.57,-478.74 384.56,-456.64 401.89,-438.39"/>
+<polygon fill="#b57932" stroke="#b57932" stroke-width="1.1" points="403.17,-440.35 405.99,-434.07 399.87,-437.21 403.17,-440.35"/>
+<text xml:space="preserve" text-anchor="start" x="407.91" y="-459.84" font-family="Microsoft YaHei" font-size="12.00" fill="#976120">自检失败</text>
+</g>
+<!-- n4 -->
+<g id="node_maintenance_4" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(4)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(4)}">
+<title>n4</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M127.92,-308.48C127.92,-308.48 12,-308.48 12,-308.48 6,-308.48 0,-302.48 0,-296.48 0,-296.48 0,-260.32 0,-260.32 0,-254.32 6,-248.32 12,-248.32 12,-248.32 127.92,-248.32 127.92,-248.32 133.92,-248.32 139.92,-254.32 139.92,-260.32 139.92,-260.32 139.92,-296.48 139.92,-296.48 139.92,-302.48 133.92,-308.48 127.92,-308.48"/>
+<text xml:space="preserve" text-anchor="start" x="47.46" y="-282.4" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">异常重启</text>
+<text xml:space="preserve" text-anchor="start" x="36.21" y="-262.4" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">保留确认事实</text>
+</g>
+<!-- n1&#45;&gt;n4 -->
+<g id="edge_1_4_3" class="edge">
+<title>n1&#45;&gt;n4</title>
+<path fill="none" stroke="#b57932" stroke-width="1.1" stroke-dasharray="5,2" d="M180.71,-371.99C160.36,-360.7 141.96,-350.48 141.96,-350.48 141.96,-350.48 123.51,-332.26 105.29,-314.28"/>
+<polygon fill="#b57932" stroke="#b57932" stroke-width="1.1" points="107.07,-312.84 100.85,-309.89 103.87,-316.08 107.07,-312.84"/>
+<text xml:space="preserve" text-anchor="start" x="165.96" y="-335.68" font-family="Microsoft YaHei" font-size="12.00" fill="#976120">意外断电</text>
+</g>
+<!-- n6 -->
+<g id="node_maintenance_6" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(6)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(6)}">
+<title>n6</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M284.42,-308.48C284.42,-308.48 183.5,-308.48 183.5,-308.48 177.5,-308.48 171.5,-302.48 171.5,-296.48 171.5,-296.48 171.5,-260.32 171.5,-260.32 171.5,-254.32 177.5,-248.32 183.5,-248.32 183.5,-248.32 284.42,-248.32 284.42,-248.32 290.42,-248.32 296.42,-254.32 296.42,-260.32 296.42,-260.32 296.42,-296.48 296.42,-296.48 296.42,-302.48 290.42,-308.48 284.42,-308.48"/>
+<text xml:space="preserve" text-anchor="start" x="211.46" y="-282.4" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">升级检查</text>
+<text xml:space="preserve" text-anchor="start" x="205.83" y="-262.4" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">无活动采集</text>
+</g>
+<!-- n1&#45;&gt;n6 -->
+<g id="edge_1_6_5" class="edge">
+<title>n1&#45;&gt;n6</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M233.96,-371.99C233.96,-355.33 233.96,-334.37 233.96,-316.61"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="236.24,-316.86 233.96,-310.36 231.69,-316.86 236.24,-316.86"/>
+<text xml:space="preserve" text-anchor="start" x="257.96" y="-335.68" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">升级请求</text>
+</g>
+<!-- n3 -->
+<g id="node_maintenance_3" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(3)}">
+<title>n3</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M521.92,-308.48C521.92,-308.48 406,-308.48 406,-308.48 400,-308.48 394,-302.48 394,-296.48 394,-296.48 394,-260.32 394,-260.32 394,-254.32 400,-248.32 406,-248.32 406,-248.32 521.92,-248.32 521.92,-248.32 527.92,-248.32 533.92,-254.32 533.92,-260.32 533.92,-260.32 533.92,-296.48 533.92,-296.48 533.92,-302.48 527.92,-308.48 521.92,-308.48"/>
+<text xml:space="preserve" text-anchor="start" x="441.46" y="-282.4" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">降级模式</text>
+<text xml:space="preserve" text-anchor="start" x="430.21" y="-262.4" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">明确能力受限</text>
+</g>
+<!-- n2&#45;&gt;n3 -->
+<g id="edge_2_3_2" class="edge">
+<title>n2&#45;&gt;n3</title>
+<path fill="none" stroke="#b57932" stroke-width="1.1" stroke-dasharray="5,2" d="M441.98,-371.99C445.93,-355.33 450.91,-334.37 455.13,-316.61"/>
+<polygon fill="#b57932" stroke="#b57932" stroke-width="1.1" points="457.33,-317.17 456.62,-310.32 452.91,-316.12 457.33,-317.17"/>
+<text xml:space="preserve" text-anchor="start" x="478.2" y="-335.68" font-family="Microsoft YaHei" font-size="12.00" fill="#976120">可解释降级</text>
+</g>
+<!-- n5 -->
+<g id="node_maintenance_5" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(5)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(5)}">
+<title>n5</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M112.92,-184.32C112.92,-184.32 27,-184.32 27,-184.32 21,-184.32 15,-178.32 15,-172.32 15,-172.32 15,-136.16 15,-136.16 15,-130.16 21,-124.16 27,-124.16 27,-124.16 112.92,-124.16 112.92,-124.16 118.92,-124.16 124.92,-130.16 124.92,-136.16 124.92,-136.16 124.92,-172.32 124.92,-172.32 124.92,-178.32 118.92,-184.32 112.92,-184.32"/>
+<text xml:space="preserve" text-anchor="start" x="47.46" y="-158.24" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">恢复暂停</text>
+<text xml:space="preserve" text-anchor="start" x="47.46" y="-138.24" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">重新入镜</text>
+</g>
+<!-- n4&#45;&gt;n5 -->
+<g id="edge_4_5_4" class="edge">
+<title>n4&#45;&gt;n5</title>
+<path fill="none" stroke="#b57932" stroke-width="1.1" stroke-dasharray="5,2" d="M69.96,-247.83C69.96,-231.17 69.96,-210.21 69.96,-192.45"/>
+<polygon fill="#b57932" stroke="#b57932" stroke-width="1.1" points="72.24,-192.7 69.96,-186.2 67.69,-192.7 72.24,-192.7"/>
+<text xml:space="preserve" text-anchor="start" x="93.96" y="-211.52" font-family="Microsoft YaHei" font-size="12.00" fill="#976120">恢复会话</text>
+</g>
+<!-- n7 -->
+<g id="node_maintenance_7" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(7)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(7)}">
+<title>n7</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M291.92,-184.32C291.92,-184.32 176,-184.32 176,-184.32 170,-184.32 164,-178.32 164,-172.32 164,-172.32 164,-136.16 164,-136.16 164,-130.16 170,-124.16 176,-124.16 176,-124.16 291.92,-124.16 291.92,-124.16 297.92,-124.16 303.92,-130.16 303.92,-136.16 303.92,-136.16 303.92,-172.32 303.92,-172.32 303.92,-178.32 297.92,-184.32 291.92,-184.32"/>
+<text xml:space="preserve" text-anchor="start" x="211.46" y="-158.24" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">升级验证</text>
+<text xml:space="preserve" text-anchor="start" x="200.21" y="-138.24" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">签名空间供电</text>
+</g>
+<!-- n6&#45;&gt;n7 -->
+<g id="edge_6_7_6" class="edge">
+<title>n6&#45;&gt;n7</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M232.23,-247.98C231.57,-236.63 230.96,-226.32 230.96,-226.32 230.96,-226.32 230.96,-206.32 230.96,-206.32 230.96,-206.32 231.31,-200.28 231.78,-192.35"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="234.02,-192.94 232.13,-186.32 229.48,-192.67 234.02,-192.94"/>
+<text xml:space="preserve" text-anchor="start" x="260.96" y="-211.52" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">升级条件满足</text>
+</g>
+<!-- n8 -->
+<g id="node_maintenance_8" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(8)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(8)}">
+<title>n8</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="2" d="M281.42,-60.16C281.42,-60.16 186.5,-60.16 186.5,-60.16 180.5,-60.16 174.5,-54.16 174.5,-48.16 174.5,-48.16 174.5,-12 174.5,-12 174.5,-6 180.5,0 186.5,0 186.5,0 281.42,0 281.42,0 287.42,0 293.42,-6 293.42,-12 293.42,-12 293.42,-48.16 293.42,-48.16 293.42,-54.16 287.42,-60.16 281.42,-60.16"/>
+<text xml:space="preserve" text-anchor="start" x="209.38" y="-34.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">成功/回滚</text>
+<text xml:space="preserve" text-anchor="start" x="211.46" y="-14.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">记录保留</text>
+</g>
+<!-- n7&#45;&gt;n8 -->
+<g id="edge_7_8_7" class="edge">
+<title>n7&#45;&gt;n8</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M233.96,-123.67C233.96,-107.14 233.96,-86.36 233.96,-68.68"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="236.24,-68.97 233.96,-62.47 231.69,-68.97 236.24,-68.97"/>
+<text xml:space="preserve" text-anchor="start" x="257.96" y="-87.36" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">验证结果</text>
+</g>
+<!-- n8&#45;&gt;n1 -->
+<g id="edge_8_1_8" class="edge">
+<title>n8&#45;&gt;n1</title>
+<path fill="none" stroke="#b57932" stroke-width="1.1" stroke-dasharray="5,2" d="M288.01,-61.09C308.03,-72.21 325.96,-82.16 325.96,-82.16 325.96,-82.16 348.96,-206.32 348.96,-206.32 348.96,-206.32 348.96,-226.32 348.96,-226.32 348.96,-226.32 325.96,-350.48 325.96,-350.48 325.96,-350.48 311.62,-358.44 294.26,-368.08"/>
+<polygon fill="#b57932" stroke="#b57932" stroke-width="1.1" points="293.24,-366.04 288.67,-371.19 295.45,-370.02 293.24,-366.04"/>
+<text xml:space="preserve" text-anchor="start" x="372.96" y="-211.52" font-family="Microsoft YaHei" font-size="12.00" fill="#976120">恢复运行</text>
+</g>
+</g>
+</g><text x="18" y="691" font-family="Microsoft YaHei" font-size="12" fill="#746b83">实线：正常路径  ·  橙色虚线：异常 / 返回  ·  点击节点查看条件</text></svg>

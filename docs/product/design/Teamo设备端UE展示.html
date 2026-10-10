@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teamo 设备端 UE 展示</title>
+<!-- Rev.2026-10-09 按《视觉圣经_家长端_V1.0》（含V1.1克制系统式视觉、V1.4提示文字纪律）与
+     《设备端UE参考与视觉边界_20261009》改版：
+     屏幕改深中性底 #0E1210 + 单一强调色 #A6E22E（设备候选令牌）；
+     移除渐变、庆祝粒子、装饰阴影与发光；圆角收敛（卡12/按钮10/小标记6-8）；
+     状态不只靠颜色（隐私/异常图标+文字）；隐私盖关闭停止计数；
+     评审外壳与设备屏分离：外壳用中性底 + 强调色 #3F6B38。 -->
+<!-- Rev2.2026-10-09 用户授权：按用户提供的参考图逐步还原设备外观
+     （白机身、顶部摄像头+橙色物理滑盖、黑色圆屏待机竖条眼、屏下实体圆键、右侧键）；
+     参考图图标已抠图存于 assets/teamo-icons-20261009/{device3d,flat}/，
+     3D 白色图标用于设备屏（深底），深绿扁平图标用于评审外壳（白卡）。
+     本轮改动由用户直接提出，视为视觉授权（视觉圣经 §1）。 -->
+<!-- Rev4.2026-10-09 用户质量反馈：3D 抠图 cam-off 在深底上边缘毛糙不过关，
+     屏内 4 个抠图（cam-off/runner/person-frame/check）全部替换为手绘 SVG
+     （白色几何 + 单一强调色，圆头描边/实心剪影，与表情定稿同语言）。
+     device3d/ 素材保留在 assets 下仅供复盘，屏内不再使用。 -->
+<!-- Rev6.2026-10-09 用户指定：机身换用官方渲染抠图（assets/teamo-icons-20261009/device/teamo-device.png），
+     屏幕为渲染图上的百分比叠加层（实测圆心 49.4%/41.6%、直径 80% 机宽）；
+     内容以 280px 为设计基准、ResizeObserver 等比缩放（尺寸适配）；
+     圆屏安全边界 = 内接方形 inset 15%，虚线环可开关（默认显示），屏内内容限制在安全区内。 -->
+<!-- Rev7.2026-10-09 用户指定「其他功能的排版调整」：评审外壳 + 屏内视图整体精修，并升级为
+     桌面端「设备左(吸顶) / 面板右」左右分栏（窄屏自动堆叠）；外壳面板加统一分区标题(ph-bar+ph-sub)；
+     流程卡/表情芯片/规格卡改为更规整的网格；屏内 device-view 内边距收至约 14% 以贴合安全边界；
+     修复历史 .stage 选择器重名冲突（页面容器与屏内缩放层混用），内层重命名为 .screen-stage。 -->
+<style>
+/* SECTION: reset-and-vars */
+:root{
+  /* 评审外壳（V1.1 系统式视觉） */
+  --bg:#F2F2F7;--surface:#FFFFFF;--ink:#1C1C1E;--muted:#636366;--line:#E5E5EA;
+  --accent-shell:#3F6B38;--accent-shell-bg:#EEF3EC;
+  /* 设备屏（设备候选令牌，源自视觉圣经 clear 皮肤 dev/run 系列） */
+  --dev-bg:#0E1210;--dev-ink:#FFFFFF;--dev-track:#2C332E;
+  --dev-accent:#A6E22E;--dev-accent-ink:#16201A;
+  --dev-muted:rgba(255,255,255,.5);--dev-copy:rgba(255,255,255,.68);--dev-line:rgba(255,255,255,.12);
+  --wait:#F2A93B;--off:#B9C2BB;
+  --r-card:12px;--r-btn:10px;--r-tag:7px
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink)}
+button{font:inherit;cursor:pointer;border:0;background:transparent}
+button:focus-visible{outline:2px solid rgba(63,107,56,.4);outline-offset:2px}
+svg{display:block}
+
+/* SECTION: layout */
+.page-header{
+  text-align:center;padding:48px 20px 12px;
+}
+.page-header h1{font-size:28px;line-height:1.2;letter-spacing:-.7px;font-weight:800}
+.page-header p{font-size:13px;color:var(--muted);margin-top:6px}
+.page-header .tag{display:inline-block;background:var(--accent-shell-bg);color:var(--accent-shell);font-size:11px;font-weight:600;padding:4px 10px;border-radius:var(--r-tag);margin-bottom:10px}
+
+/* 桌面端左右分栏：左=设备(吸顶) 右=评审外壳面板；窄屏自动堆叠 */
+.demo{
+  display:grid;grid-template-columns:minmax(300px,360px) 1fr;
+  gap:36px;align-items:start;
+  max-width:1120px;margin:0 auto;padding:8px 20px 64px
+}
+.demo-left{position:sticky;top:20px;display:flex;flex-direction:column;align-items:center}
+.demo-right{display:flex;flex-direction:column;gap:28px;min-width:0}
+@media(max-width:880px){
+  .demo{grid-template-columns:1fr;gap:24px;padding:8px 16px 48px}
+  .demo-left{position:static}
+}
+
+/* SECTION: scenario-bar（全宽分段控制，置于分栏之上） */
+.scenario-bar{
+  display:flex;flex-wrap:wrap;align-items:center;gap:6px;justify-content:center;
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:8px;max-width:1120px;width:calc(100% - 40px);margin:4px auto 28px;
+  box-shadow:0 1px 3px rgba(0,0,0,.04)
+}
+.sc-label{font-size:10px;font-weight:700;color:var(--muted);padding:0 8px 0 4px;letter-spacing:.06em;white-space:nowrap}
+.scenario-bar button{
+  border-radius:8px;padding:8px 13px;font-size:11px;font-weight:600;
+  color:var(--muted);background:transparent;transition:.15s;white-space:nowrap
+}
+.scenario-bar button:hover{background:var(--accent-shell-bg);color:var(--accent-shell)}
+.scenario-bar button.active{background:var(--accent-shell);color:#fff}
+
+/* SECTION: device-render（Rev6：机身用官方渲染抠图，屏幕为百分比叠加层，内容按 280px 设计基准等比缩放） */
+.device-wrap{position:relative;display:flex;flex-direction:column;align-items:center}
+.device-render{
+  position:relative;
+  width:min(340px, calc(100vw - 48px));
+  margin:0 auto
+}
+.device-img{display:block;width:100%;height:auto}
+.device-screen{
+  position:absolute;left:9.4%;top:17.7%;width:80%;aspect-ratio:1/1;
+  border-radius:50%;overflow:hidden;
+  background:#0B0D0C;
+  touch-action:none;user-select:none
+}
+.screen-stage{
+  position:absolute;left:50%;top:50%;width:280px;height:280px;
+  transform:translate(-50%,-50%) scale(var(--s,1))
+}
+/* 安全边界：圆屏内接安全区（280×280 基准下内接方形 ≈198px，inset 15%），可开关的虚线提示 */
+.safe-ring{
+  position:absolute;inset:15%;border:1.5px dashed rgba(166,226,46,.6);
+  border-radius:26px;pointer-events:none;z-index:6;
+  opacity:0;transition:opacity .2s
+}
+.device-screen.show-safe .safe-ring{opacity:1}
+/* 相机模块热区（滑盖交互）：覆盖渲染图中的黑色相机 pill */
+.cam-hotspot{
+  position:absolute;left:24%;top:3.2%;width:52%;height:12.5%;
+  background:transparent;border:0;cursor:pointer;z-index:3
+}
+/* 滑盖遮板：关闭时从橙盖位置滑到镜头上（物理隐喻） */
+.shutter-cover{
+  position:absolute;top:13%;width:21.5%;height:74%;
+  border-radius:99px;background:#F2661F;border:1px solid #D95B12;
+  left:52.4%;opacity:0;transition:left .25s ease,opacity .2s ease;pointer-events:none
+}
+.cam-hotspot.closed .shutter-cover{left:27.5%;opacity:1}
+
+/* SECTION: screen-content */
+.device-view{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:40px 34px;color:var(--dev-ink)
+}
+.device-view.fade-in{animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+
+/* page dots */
+.page-dots{
+  position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+  display:flex;gap:5px;z-index:10
+}
+.page-dots i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.22);transition:.2s}
+.page-dots i.on{width:16px;border-radius:99px;background:var(--dev-accent)}
+
+/* swipe arrows */
+.sw-hint{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:28px;height:44px;border-radius:0 12px 12px 0;
+  background:rgba(255,255,255,.05);color:rgba(255,255,255,.45);
+  display:grid;place-items:center;font-size:18px;z-index:8;transition:.15s
+}
+.sw-hint:hover{background:rgba(255,255,255,.12);color:#fff}
+.sw-hint.l{left:2px;border-radius:0 12px 12px 0}
+.sw-hint.r{right:2px;border-radius:12px 0 0 12px}
+
+/* SECTION: eyes（按用户表情定稿图：黑圆屏即脸，白色几何表情，无描边眼/无腮红） */
+.eyes{
+  display:flex;gap:30px;align-items:center;justify-content:center;
+  width:150px;height:120px;position:relative
+}
+.f-bar{width:22px;height:64px;border-radius:12px;background:#F6F8F2;transition:.2s}
+.f-arc{
+  width:56px;height:26px;border:9px solid #F6F8F2;border-bottom:0;
+  border-radius:50% 50% 0 0 / 100% 100% 0 0
+}
+.f-smile{
+  position:absolute;bottom:8px;left:50%;transform:translateX(-50%);
+  width:34px;height:16px;border:7px solid #F6F8F2;border-top:0;
+  border-radius:0 0 18px 18px
+}
+.f-dot{
+  position:absolute;top:2px;left:50%;transform:translateX(-50%);
+  width:12px;height:12px;border-radius:50%;background:#F6F8F2
+}
+.f-spark{position:absolute;color:#F6F8F2;font-size:26px;line-height:1}
+.f-spark.s1{top:-4px;right:2px;animation:starPulse .8s ease-in-out infinite alternate}
+.f-spark.s2{top:24px;right:-14px;font-size:15px;animation:starPulse .8s ease-in-out .2s infinite alternate}
+
+/* 表情状态（对应定稿图 3×3） */
+.eyes.rest .f-bar{height:64px}                                  /* ①双竖条 */
+.eyes.normal .f-bar{height:48px}                                /* ②短竖条 */
+.eyes.normal{animation:autoBlink 5s ease-in-out infinite}
+.eyes.curious .f-bar:first-child{transform:translateY(-14px)}   /* ③高低条 */
+.eyes.curious .f-bar:last-child{transform:translateY(14px);height:52px}
+.eyes.happy{animation:happyBob .6s ease-in-out infinite alternate} /* ④弯月笑眼+微笑 */
+.eyes.sleepy .f-bar{width:60px;height:18px;border-radius:10px}  /* ⑤横条闭眼 */
+.eyes.alert .f-bar{height:56px}                                 /* ⑥惊叹点+竖条 */
+.eyes.alert{animation:alertPop 1.1s ease-in-out infinite}
+.eyes.look-left .f-bar{transform:translateX(-18px)}             /* ⑦左看 */
+.eyes.look-right .f-bar{transform:translateX(18px)}             /* ⑧右看 */
+.eyes.celebrate{animation:celebrateJump .45s ease-in-out infinite alternate} /* ⑨笑眼+星星 */
+.eyes.focus .f-bar{height:56px}
+.eyes.focus{animation:focusCheer .5s ease-in-out infinite alternate}
+
+@keyframes autoBlink{0%,44%,48%,100%{transform:scaleY(1)}46%{transform:scaleY(.12)}}
+@keyframes happyBob{from{transform:translateY(0)}to{transform:translateY(-5px)}}
+@keyframes celebrateJump{from{transform:translateY(0) scale(1)}to{transform:translateY(-8px) scale(1.04)}}
+@keyframes starPulse{from{transform:scale(.85) rotate(-12deg)}to{transform:scale(1.15) rotate(12deg)}}
+@keyframes focusCheer{from{transform:translateX(-3px)}to{transform:translateX(3px)}}
+@keyframes alertPop{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+
+/* 迷你表情（评审外壳画廊：小黑圆脸内等比缩放整套表情） */
+.mini-face{width:46px;height:46px;border-radius:50%;background:#0B0D0C;position:relative;overflow:hidden;margin:0 auto}
+.mini-face .face-scale{
+  position:absolute;left:50%;top:50%;width:150px;height:120px;
+  transform:translate(-50%,-50%) scale(.3)
+}
+
+/* SECTION: face morph（多帧过渡：表情零件常驻，CSS transition 插值形态） */
+.layer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+#faceWrap{pointer-events:none;transition:opacity .25s ease,transform .25s ease;z-index:2}
+#faceWrap.off{opacity:0;transform:scale(.7)}
+.face-slot{width:150px;height:120px;flex:none}
+.eye-m{
+  width:22px;height:64px;border-radius:12px;background:#F6F8F2;
+  border:0 solid #F6F8F2;
+  transition:all .35s ease
+}
+#eyesM .f-smile{opacity:0;transform:translateX(-50%) scale(.4);transition:all .3s ease}
+#eyesM .f-dot{opacity:0;transform:translateX(-50%) scale(.3);transition:all .3s ease}
+#eyesM .f-spark{opacity:0;transform:scale(0) rotate(-40deg);transition:all .35s ease}
+/* 形态状态（s-*：morph 专用，不与画廊静态类冲突） */
+.eyes.s-normal .eye-m{height:48px}
+.eyes.s-normal{animation:autoBlink 5s ease-in-out infinite}
+.eyes.s-sleepy .eye-m{width:60px;height:18px;border-radius:10px}
+.eyes.s-curious .eye-m.l{transform:translateY(-14px)}
+.eyes.s-curious .eye-m.r{transform:translateY(14px);height:52px}
+.eyes.s-lookleft .eye-m{transform:translateX(-18px)}
+.eyes.s-lookright .eye-m{transform:translateX(18px)}
+.eyes.s-alert .eye-m{height:56px}
+.eyes.s-alert{animation:alertPop 1.1s ease-in-out infinite}
+#eyesM.s-alert .f-dot{opacity:1;transform:translateX(-50%) scale(1)}
+.eyes.s-focus .eye-m{height:56px}
+.eyes.s-focus{animation:focusCheer .5s ease-in-out infinite alternate}
+.eyes.s-happy .eye-m,.eyes.s-celebrate .eye-m{
+  width:56px;height:26px;background:transparent;
+  border-width:9px;border-bottom-width:0;
+  border-radius:50% 50% 0 0 / 100% 100% 0 0
+}
+.eyes.s-happy{animation:happyBob .6s ease-in-out infinite alternate}
+#eyesM.s-happy .f-smile{opacity:1;transform:translateX(-50%) scale(1)}
+.eyes.s-celebrate{animation:celebrateJump .45s ease-in-out infinite alternate}
+#eyesM.s-celebrate .f-spark{opacity:1;transform:scale(1) rotate(0)}
+
+/* celebrate 积分（无发光，保留轻弹跳反馈） */
+.celebrate-points{font-size:16px;font-weight:800;color:var(--dev-accent);animation:pointPop .55s ease-in-out infinite alternate;display:inline-block}
+@keyframes pointPop{from{transform:scale(1)}to{transform:scale(1.12)}}
+
+@keyframes pulse{50%{opacity:.55;transform:scale(.94)}}
+
+/* SECTION: screen-content */
+.screen-kicker{font-size:10px;color:var(--dev-muted);font-weight:600;letter-spacing:.04em}
+.screen-title{font-size:20px;font-weight:800;margin:6px 0 4px;line-height:1.2}
+.screen-copy{font-size:11px;color:var(--dev-copy);line-height:1.5;margin:0}
+
+/* action buttons inside screen */
+.screen-btns{display:flex;gap:7px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.screen-btns button{
+  min-width:80px;border:1px solid var(--dev-line);
+  background:rgba(255,255,255,.07);color:#fff;
+  border-radius:var(--r-btn);padding:10px 12px;font-size:11px;font-weight:700;transition:.15s
+}
+.screen-btns button:hover{background:rgba(255,255,255,.14)}
+.screen-btns button.primary{background:var(--dev-accent);border-color:var(--dev-accent);color:var(--dev-accent-ink)}
+.screen-btns button.primary:hover{background:#95CC29}
+
+/* task dot（语义等待色 + 脉冲动画，非仅靠颜色） */
+.task-dot{
+  position:absolute;right:42px;top:36px;width:10px;height:10px;
+  border-radius:50%;background:var(--wait);
+  animation:pulse 1.4s infinite
+}
+
+/* exercise grid */
+.ex-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:6px;
+  width:88%;max-height:180px;overflow:auto;margin:8px 0;
+  scrollbar-width:none;-ms-overflow-style:none
+}
+.ex-grid::-webkit-scrollbar{display:none}
+.ex-grid button{
+  border:1px solid var(--dev-line);background:rgba(255,255,255,.05);
+  color:#fff;border-radius:var(--r-card);padding:10px 8px;text-align:left;transition:.12s
+}
+.ex-grid button:hover{background:rgba(255,255,255,.12)}
+.ex-grid button b{display:block;font-size:11px;margin:3px 0 1px}
+.ex-grid button span{font-size:9px;color:var(--dev-muted)}
+.ex-grid button svg{color:var(--dev-accent)}
+
+/* todo list */
+.todo-list{width:92%;max-height:150px;overflow:auto;margin:6px 0;scrollbar-width:none}
+.todo-list::-webkit-scrollbar{display:none}
+.todo-card{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.05);border:1px solid var(--dev-line);
+  border-radius:var(--r-card);padding:7px 9px;margin-bottom:5px;text-align:left
+}
+.todo-card .tag{font-size:8px;padding:1px 5px;border-radius:5px;font-weight:700;flex:none;color:var(--dev-copy);border:1px solid var(--dev-line);background:transparent}
+.todo-card .info{flex:1;min-width:0}
+.todo-card .info b{font-size:10.5px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.todo-card .info span{font-size:9px;color:var(--dev-muted)}
+.todo-card .start-btn{font-size:9px;padding:5px 9px;border-radius:7px;background:var(--dev-accent);color:var(--dev-accent-ink);font-weight:800;flex:none}
+.todo-card.done{opacity:.55}
+.todo-card .done-mark{font-size:10px;color:var(--dev-accent);font-weight:800;flex:none}
+
+/* plan week */
+.plan-week{width:92%;margin:6px 0;max-height:150px;overflow:auto;scrollbar-width:none}
+.plan-week::-webkit-scrollbar{display:none}
+.plan-day{
+  display:flex;align-items:center;gap:6px;
+  padding:6px 9px;border-radius:var(--r-btn);margin-bottom:4px;
+  border:1px solid var(--dev-line);background:rgba(255,255,255,.04)
+}
+.plan-day.today{border-color:var(--dev-accent);background:rgba(166,226,46,.08)}
+.plan-day .d{font-size:10px;font-weight:700;width:26px;color:var(--dev-muted);flex:none}
+.plan-day.today .d{color:var(--dev-accent)}
+.plan-day .t{flex:1;font-size:9px;color:var(--dev-copy);text-align:left;line-height:1.3}
+.plan-day .s{font-size:9px;font-weight:800;flex:none;min-width:30px;text-align:right}
+.plan-day .s.done{color:var(--dev-accent)}
+.plan-day .s.todo{color:var(--wait)}
+
+/* rank */
+.rank-tab{display:flex;gap:6px;margin-bottom:6px}
+.rank-tab button{font-size:10px;padding:5px 14px;border-radius:8px;background:rgba(255,255,255,.06);color:var(--dev-muted);font-weight:700;border:1px solid var(--dev-line)}
+.rank-tab button.active{background:var(--dev-accent);border-color:var(--dev-accent);color:var(--dev-accent-ink)}
+.rank-list{width:92%;max-height:130px;overflow:auto;scrollbar-width:none}
+.rank-list::-webkit-scrollbar{display:none}
+.rank-row{
+  display:flex;align-items:center;gap:8px;
+  padding:5px 10px;border-radius:8px;margin-bottom:3px;font-size:10px;
+  border:1px solid transparent
+}
+.rank-row.me{border-color:var(--dev-accent);background:rgba(166,226,46,.08)}
+.rank-row .no{width:18px;font-weight:700;color:var(--dev-muted);flex:none}
+.rank-row .no.top1,.rank-row .no.top2,.rank-row .no.top3{color:#fff;font-weight:900}
+.rank-row .nm{flex:1;text-align:left;font-weight:600}
+.rank-row .pt{color:var(--dev-accent);font-weight:800;flex:none}
+.rank-footer{font-size:9px;color:var(--dev-muted);margin-top:5px}
+
+/* home swipe hints（手势可见入口） */
+.swipe-hints{position:absolute;inset:0;pointer-events:none}
+.swipe-hints .hint{position:absolute;font-size:9px;color:rgba(255,255,255,.42);font-weight:600}
+.swipe-hints .up{top:16px;left:50%;transform:translateX(-50%)}
+.swipe-hints .down{bottom:16px;left:50%;transform:translateX(-50%)}
+.swipe-hints .left{left:14px;top:50%;transform:translateY(-50%)}
+.swipe-hints .right{right:14px;top:50%;transform:translateY(-50%)}
+
+/* target control */
+.target-ctrl{display:flex;align-items:center;gap:14px;margin:12px 0}
+.target-ctrl button{
+  width:40px;height:40px;border-radius:var(--r-btn);
+  border:1px solid var(--dev-line);background:rgba(255,255,255,.06);
+  color:#fff;font-size:20px;display:grid;place-items:center
+}
+.target-ctrl strong{font-size:48px;min-width:90px;text-align:center;font-weight:800}
+.target-ctrl small{font-size:14px;color:var(--dev-muted)}
+
+/* countdown */
+.big-count{font-size:80px;font-weight:800;line-height:1;letter-spacing:-2px;font-variant-numeric:tabular-nums}
+.big-count small{font-size:16px;color:var(--dev-muted);letter-spacing:0}
+.big-count.pop{animation:countPop .2s ease}
+@keyframes countPop{50%{transform:scale(1.1)}}
+.countdown-num{font-size:110px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+
+/* progress bar */
+.progress-bar{
+  width:65%;height:5px;background:var(--dev-track);
+  border-radius:99px;overflow:hidden;margin:12px 0 6px
+}
+.progress-bar i{height:100%;display:block;background:var(--dev-accent);border-radius:99px;transition:width .3s}
+
+/* feedback text */
+.feedback{height:18px;color:var(--dev-accent);font-size:12px;font-weight:800}
+
+/* 3D 图标（抠图资源）在屏内的用法 */
+.device-view img.view-icon{display:block;margin:0 auto 10px}
+
+/* plan list */
+.plan-list{width:82%;text-align:left;margin:10px 0}
+.plan-line{
+  padding:7px 0;border-bottom:1px solid var(--dev-line);
+  display:flex;justify-content:space-between;font-size:10px;color:var(--dev-copy)
+}
+.plan-line.done{color:var(--dev-accent)}
+.plan-line.current{color:#fff;font-weight:700}
+
+/* SECTION: device-status-bar */
+.device-status-bar{
+  text-align:center;margin-top:14px;font-size:11px;color:var(--muted)
+}
+.device-status-bar b{color:var(--ink);font-weight:700}
+.safe-toggle{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--muted);cursor:pointer;margin-left:8px;user-select:none}
+.safe-toggle input{accent-color:#3F6B38;margin:0;vertical-align:-1px}
+
+/* SECTION: panel-head（统一分区标题） */
+.panel-head{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.panel-head .ph-bar{width:3px;height:15px;border-radius:2px;background:var(--accent-shell);flex:none}
+.panel-head h2{font-size:15px;font-weight:800;letter-spacing:.02em}
+.panel-head .ph-sub{font-size:10px;color:var(--muted);margin-left:auto;font-weight:600;white-space:nowrap}
+
+/* SECTION: flow-panel */
+.flow-panel{width:100%}
+.flow-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px
+}
+.flow-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);
+  padding:14px;text-align:center;transition:.15s
+}
+.flow-card:hover{border-color:#C9CFCA}
+.flow-card .fc-icon{
+  width:36px;height:36px;border-radius:var(--r-btn);background:var(--accent-shell-bg);
+  color:var(--accent-shell);display:grid;place-items:center;margin:0 auto 8px
+}
+.flow-card .fc-icon img{width:22px;height:22px;object-fit:contain}
+.flow-card b{display:block;font-size:12px;margin-bottom:3px}
+.flow-card span{font-size:9px;color:var(--muted);line-height:1.4;display:block}
+.flow-card.active-flow{border-color:var(--accent-shell);background:var(--accent-shell-bg)}
+
+/* SECTION: eye-gallery */
+.eye-gallery{width:100%}
+.eye-row{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px
+}
+.eye-chip{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);
+  padding:14px 8px 10px;text-align:center;transition:.15s;
+  display:flex;flex-direction:column;align-items:center;gap:0
+}
+.eye-chip:hover{border-color:#C9CFCA}
+.eye-chip.active-chip{border-color:var(--accent-shell);background:var(--accent-shell-bg)}
+.eye-chip b{display:block;font-size:11px;margin-top:7px;font-weight:700}
+.eye-chip span{font-size:9px;color:var(--muted);margin-top:2px}
+
+/* SECTION: specs-strip */
+.specs-panel{width:100%}
+.specs-strip{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;width:100%
+}
+.spec-item{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);
+  padding:16px 12px;text-align:center
+}
+.spec-item b{display:block;font-size:20px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.1}
+.spec-item span{display:block;font-size:9px;color:var(--muted);margin-top:5px}
+
+/* task arrive: 点击引导 */
+.arrive-view{cursor:pointer;transition:transform .12s}
+.arrive-view:active{transform:scale(.97)}
+.tap-hint{display:inline-block;color:var(--dev-accent);font-weight:800;margin-top:4px;animation:tapPulse 1.2s ease-in-out infinite}
+@keyframes tapPulse{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
+
+/* SECTION: toast */
+.toast{
+  position:fixed;left:50%;bottom:24px;transform:translate(-50%,16px);
+  background:#1C1C1E;color:#fff;border-radius:var(--r-btn);padding:10px 16px;
+  font-size:11px;opacity:0;pointer-events:none;transition:.22s;z-index:200
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* SECTION: responsive */
+@media(max-width:520px){
+  .page-header{padding:32px 16px 8px}
+  .page-header h1{font-size:22px}
+  .flow-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+  .ex-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <span class="tag">UE Demo · 设备端</span>
+  <h1>Teamo 儿童 AI 运动陪伴设备</h1>
+  <p>圆形屏 · 掌心形态 · 全状态交互演示</p>
+</header>
+
+  <!-- scenario bar（全宽分段控制，置于分栏之上） -->
+  <nav class="scenario-bar" aria-label="演示场景">
+    <span class="sc-label">演示场景</span>
+    <button class="active" onclick="go('idle')">待机首页</button>
+    <button onclick="go('todo')">待办任务</button>
+    <button onclick="go('plan')">训练计划</button>
+    <button onclick="go('rank')">运动排行</button>
+    <button onclick="go('select')">自主运动</button>
+    <button onclick="go('task_arrive')">家长任务</button>
+    <button onclick="go('school_arrive')">学校任务</button>
+    <button onclick="go('plan_alert')">AI训练计划</button>
+    <button onclick="go('posture')">体态提醒</button>
+    <button onclick="go('offline')">离线状态</button>
+  </nav>
+
+  <main class="demo">
+
+  <!-- device（Rev6：官方渲染抠图机身 + 屏幕叠加层 + 安全区） -->
+  <div class="demo-left">
+  <div class="device-wrap">
+    <div class="device-render">
+      <img class="device-img" src="assets/teamo-icons-20261009/device/teamo-device.png" alt="Teamo 设备" onerror="this.style.display='none'">
+      <button class="cam-hotspot" id="privacySlider" onclick="togglePrivacy()" title="点击切换摄像头隐私滑盖" role="switch" aria-checked="true" aria-label="摄像头隐私滑盖">
+        <i class="shutter-cover" aria-hidden="true"></i>
+      </button>
+      <div id="screen" class="device-screen show-safe">
+        <div class="screen-stage" id="stage">
+          <div class="safe-ring" aria-hidden="true"></div>
+          <div id="faceWrap" class="layer"><div id="eyesM" class="eyes s-rest"><i class="eye-m l"></i><i class="eye-m r"></i><i class="f-smile"></i><i class="f-dot"></i><span class="f-spark s1">✦</span><span class="f-spark s2">✦</span></div></div>
+          <div id="viewLayer" class="layer"></div>
+        </div>
+      </div>
+    </div>
+    <div id="statusBar" class="device-status-bar">Teamo · <b>待机</b></div>
+    <label class="safe-toggle" title="显示/隐藏圆屏安全边界"><input type="checkbox" id="safeToggle" checked>安全区</label>
+  </div><!-- /device-wrap -->
+
+  </div><!-- /demo-left -->
+
+  <!-- 右侧评审外壳面板 -->
+  <div class="demo-right">
+
+  <!-- flow overview -->
+  <section class="flow-panel">
+    <div class="panel-head"><span class="ph-bar"></span><h2>运动执行全流程</h2><span class="ph-sub">10 步闭环</span></div>
+    <div class="flow-grid" id="flowGrid"></div>
+  </section>
+
+  <!-- eye gallery -->
+  <section class="eye-gallery">
+    <div class="panel-head"><span class="ph-bar"></span><h2>虚拟学伴表情系统</h2><span class="ph-sub">9 态</span></div>
+    <div class="eye-row" id="eyeRow"></div>
+  </section>
+
+  <!-- specs -->
+  <section class="specs-panel">
+    <div class="panel-head"><span class="ph-bar"></span><h2>硬件规格</h2><span class="ph-sub">掌心形态</span></div>
+    <div class="specs-strip">
+      <div class="spec-item"><b>60×90</b><span>机身 mm 级</span></div>
+      <div class="spec-item"><b>1.8″</b><span>360² 圆形 IPS</span></div>
+      <div class="spec-item"><b>4G</b><span>Cat.1 开箱即用</span></div>
+      <div class="spec-item"><b>120°</b><span>广角摄像头</span></div>
+      <div class="spec-item"><b>物理滑盖</b><span>隐私遮挡</span></div>
+    </div>
+  </section>
+
+  </div><!-- /demo-right -->
+</main>
+
+<div id="toast" class="toast" role="status"></div>
+
+<script>
+/* ====== STATE ====== */
+const S = {
+  mode: 'idle',
+  eye: 'rest',
+  action: 'jumping_jack',
+  target: 20,
+  count: 0,
+  running: false,
+  planIndex: 0,
+  privacyOpen: true,
+  entry: 'far',
+  currentTodoId: null,
+  rankTab: 'class'
+};
+
+const todoList = [
+  {id:1, from:'家长', name:'开合跳', target:20, unit:'次', actionId:'jumping_jack', done:false, points:8},
+  {id:2, from:'老师', name:'双脚跳绳', target:50, unit:'次', actionId:'jump_rope', done:false, points:12},
+  {id:3, from:'家长', name:'深蹲起', target:15, unit:'次', actionId:'squat', done:true, points:8},
+  {id:4, from:'老师', name:'平板支撑', target:30, unit:'秒', actionId:'plank', done:false, points:10}
+];
+
+const weekPlan = [
+  {day:'周一', items:'开合跳20 + 深蹲15', done:true},
+  {day:'周二', items:'跳绳50 + 平板30秒', done:false, isToday:true},
+  {day:'周三', items:'高抬腿30 + 开合跳20', done:false},
+  {day:'周四', items:'深蹲15 + 仰卧起坐15', done:false},
+  {day:'周五', items:'跳绳50 + 平板30秒', done:false},
+  {day:'周六', items:'自由运动 15分钟', done:false},
+  {day:'周日', items:'休息拉伸', done:false}
+];
+
+const classRank = [
+  {name:'小明', points:280},
+  {name:'小红', points:256},
+  {name:'我', points:200, isMe:true},
+  {name:'小华', points:180},
+  {name:'小丽', points:165},
+  {name:'小强', points:140}
+];
+const schoolRank = [
+  {name:'王小明', points:520},
+  {name:'李小红', points:480},
+  {name:'张小华', points:420},
+  {name:'我', points:200, isMe:true},
+  {name:'赵小丽', points:190},
+  {name:'周小强', points:175}
+];
+
+const actions = [
+  {id:'jump_rope',name:'双脚跳绳',target:50,unit:'次',type:'节奏与耐力'},
+  {id:'jumping_jack',name:'开合跳',target:20,unit:'次',type:'全身协调'},
+  {id:'high_knee',name:'高抬腿',target:30,unit:'次',type:'心肺耐力'},
+  {id:'squat',name:'深蹲起',target:15,unit:'次',type:'基础力量'},
+  {id:'push_up',name:'俯卧撑',target:10,unit:'次',type:'上肢力量'},
+  {id:'sit_up',name:'仰卧起坐',target:15,unit:'次',type:'核心力量'},
+  {id:'plank',name:'平板支撑',target:30,unit:'秒',type:'核心稳定'}
+];
+
+const planItems = [
+  {name:'开合跳',target:20,unit:'次'},
+  {name:'深蹲起',target:15,unit:'次'},
+  {name:'平板支撑',target:30,unit:'秒'}
+];
+
+let timers = {workout:null, countdown:null, entry:null, auto:null, posture:null};
+function clearAll(){ Object.values(timers).forEach(t=>{if(t!=null){clearTimeout(t);clearInterval(t)}}); timers={workout:null,countdown:null,entry:null,auto:null,posture:null} }
+
+function curAction(){ return actions.find(a=>a.id===S.action)||actions[0] }
+
+/* ====== ICON ====== */
+const A3 = 'assets/teamo-icons-20261009/device3d';
+const AF = 'assets/teamo-icons-20261009/flat';
+function actIcon(sz=20){return `<svg width="${sz}" height="${sz}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="4" r="2.5"/><path d="M12 7v8m0-4-6 5m6-5 6 5M12 15l-5 8m5-8 5 8"/></svg>`}
+function d3(name, w, alt){return `<img class="view-icon" src="${A3}/${name}.png" width="${w}" alt="${alt||name}" onerror="this.style.display='none'">`}
+function flat(name, alt){return `<img src="${AF}/${name}.png" alt="${alt||name}" onerror="this.style.display='none'">`}
+/* 屏内矢量图标（Rev4：替换 3D 抠图，白色几何风与表情系统统一，stroke 圆头） */
+const INK='#F6F8F2', GLOW='#A6E22E';
+function svgWrap(vb, inner, w, alt){return `<svg class="view-icon" width="${w}" height="${w}" viewBox="0 0 ${vb} ${vb}" fill="none" role="img" aria-label="${alt||''}">${inner}</svg>`}
+function svgCamOff(w=92){
+  return svgWrap(96, `<g stroke="${INK}" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 30h8l6-9h20l6 9h20v42a6 6 0 0 1-6 6H24a6 6 0 0 1-6-6z" fill="rgba(246,248,242,.08)"/><circle cx="48" cy="52" r="13"/><path d="M14 86 82 14" stroke-width="8"/></g>`, w, '摄像头已遮挡');
+}
+function svgRunner(w=56){
+  return svgWrap(96, `<g stroke="${INK}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="59" cy="16" r="9" fill="${INK}" stroke="none"/><path d="M54 32 44 52"/><path d="M52 36 70 44"/><path d="M52 36 36 30"/><path d="M44 52l16 8-4 20"/><path d="M44 52 30 62l-2 16"/></g>`, w, '跑步');
+}
+function svgPersonFrame(w=120){
+  return svgWrap(96, `<g stroke="${GLOW}" stroke-width="6.5" stroke-linecap="round" fill="none"><path d="M14 30V20a6 6 0 0 1 6-6h10"/><path d="M66 14h10a6 6 0 0 1 6 6v10"/><path d="M82 66v10a6 6 0 0 1-6 6H66"/><path d="M30 82H20a6 6 0 0 1-6-6V66"/></g><g fill="${INK}"><circle cx="48" cy="39" r="11.5"/><path d="M22 82v-1.5C22 65 33.5 56 48 56s26 9 26 24.5V82z"/></g>`, w, '站位引导');
+}
+function svgCheck(w=56){
+  return svgWrap(96, `<path d="M24 52 42 70 74 30" stroke="${GLOW}" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`, w, '完成');
+}
+
+/* ====== EYES（按用户表情定稿图：黑圆屏即脸，白色几何表情） ====== */
+const BARS='<i class="f-bar"></i><i class="f-bar"></i>';
+function eyes(cls){
+  if(cls==='happy') return `<div class="eyes happy"><i class="f-arc"></i><i class="f-arc"></i><i class="f-smile"></i></div>`;
+  if(cls==='celebrate') return `<div class="eyes celebrate"><i class="f-arc"></i><i class="f-arc"></i><span class="f-spark s1">✦</span><span class="f-spark s2">✦</span></div>`;
+  if(cls==='alert') return `<div class="eyes alert">${BARS}<i class="f-dot"></i></div>`;
+  return `<div class="eyes ${cls}">${BARS}</div>`;
+}
+function miniEyes(cls){
+  return `<div class="mini-face"><div class="face-scale">${eyes(cls)}</div></div>`
+}
+
+/* ====== SCREEN RENDER ====== */
+/* ====== FACE MORPH（表情常驻层：状态变化走 CSS transition 多帧过渡） ====== */
+const FACE_STATE={ready:'focus',pause:'sleepy',away:'look-left',celebrate:'celebrate',task_arrive:'alert',school_arrive:'alert',plan_alert:'curious',posture_active:'happy',offline:'alert',error:'alert'};
+function updateFace(){
+  const wrap=$('#faceWrap'), e=$('#eyesM');
+  if(!wrap||!e)return;
+  const st=FACE_STATE[S.mode]||(S.mode==='idle'?S.eye:null);
+  if(!st){wrap.classList.add('off');return}
+  wrap.classList.remove('off');
+  e.className='eyes s-'+st.replace('look-left','lookleft').replace('look-right','lookright');
+}
+
+const $=s=>document.querySelector(s);
+function render(){
+  const el=$('#viewLayer');
+  let h='';
+  const statusMap = {idle:'待机',todo:'待办任务',plan:'训练计划',rank:'运动排行',select:'选择运动',target:'设定目标',entry:'准备站位',ready:'准备开始',countdown:'倒计时',running:'运动中',pause:'已暂停',away:'离开画面',celebrate:'完成庆祝',result:'运动结果',task_arrive:'新任务到达',task_alert:'收到家长任务',school_arrive:'新任务到达',school_alert:'收到学校任务',plan_alert:'收到AI计划',plan_step:'计划执行',plan_rest:'组间休息',posture:'体态提醒',posture_active:'体态活动中',offline:'离线',error:'连接异常',privacy:'隐私盖关闭'};
+
+  if(S.mode==='idle'){
+    const doneCount=todoList.filter(t=>t.done).length;
+    h=`<div class="device-view" onclick="tapEyes(event)"><div class="face-slot"></div><div style="margin-top:6px;font-size:18px;font-weight:700;letter-spacing:1px;font-variant-numeric:tabular-nums">16:20</div><p class="screen-copy" style="margin-top:2px">今天已完成 ${doneCount} 项 · 加油！</p><div class="swipe-hints"><span class="hint up">上滑 待办</span><span class="hint down">下滑 计划</span><span class="hint left">左滑 运动</span><span class="hint right">右滑 排行</span></div></div>`;
+  }
+  else if(S.mode==='privacy'){
+    h=`<div class="device-view">${svgCamOff(92)}<h2 class="screen-title" style="font-size:16px">隐私盖已关闭</h2><p class="screen-copy">摄像头已遮挡，计数已停止</p></div>`;
+  }
+  else if(S.mode==='todo'){
+    h=`<div class="device-view"><div class="screen-kicker">下滑返回首页</div><h2 class="screen-title" style="font-size:16px">我的待办</h2><div class="todo-list">${todoList.map(t=>`<div class="todo-card ${t.done?'done':''}"><span class="tag">${t.from}</span><span class="info"><b>${t.name} ×${t.target}${t.unit}</b><span>${t.done?'已完成':'待完成'}</span></span>${t.done?`<span class="done-mark">+${t.points}★</span>`:`<button class="start-btn" onclick="startTodo(${t.id})">开始</button>`}</div>`).join('')}</div></div>`;
+  }
+  else if(S.mode==='plan'){
+    h=`<div class="device-view"><div class="screen-kicker">上滑返回首页</div><h2 class="screen-title" style="font-size:16px">本周训练计划</h2><div class="plan-week">${weekPlan.map(d=>`<div class="plan-day ${d.isToday?'today':''}"><span class="d">${d.day}</span><span class="t">${d.items}</span><span class="s ${d.done?'done':'todo'}">${d.done?'✓':d.isToday?'开始':'—'}</span></div>`).join('')}</div></div>`;
+  }
+  else if(S.mode==='rank'){
+    const list = S.rankTab==='class' ? classRank : schoolRank;
+    const myRank = list.findIndex(r=>r.isMe)+1;
+    h=`<div class="device-view"><div class="screen-kicker">左滑返回首页</div><h2 class="screen-title" style="font-size:16px">运动排行榜</h2><div class="rank-tab"><button class="${S.rankTab==='class'?'active':''}" onclick="setRankTab('class')">班级</button><button class="${S.rankTab==='school'?'active':''}" onclick="setRankTab('school')">校级</button></div><div class="rank-list">${list.map((r,i)=>`<div class="rank-row ${r.isMe?'me':''}"><span class="no ${i<3?'top'+(i+1):''}">${i+1}</span><span class="nm">${r.name}</span><span class="pt">${r.points}★</span></div>`).join('')}</div><div class="rank-footer">我的排名 第${myRank}名 · ${S.rankTab==='class'?'班级':'全校'}共${list.length}人</div></div>`;
+  }
+  else if(S.mode==='select'){
+    h=`<div class="device-view" style="padding-top:14px">${svgRunner(48)}<h2 class="screen-title" style="font-size:15px;margin:0 0 2px">想练哪一个？</h2><div class="ex-grid" style="max-height:128px;margin:4px 0 0">${actions.map(a=>`<button onclick="pickAction('${a.id}')">${actIcon(16)}<b>${a.name}</b><span>${a.type}</span></button>`).join('')}</div><div class="screen-btns" style="margin-top:8px"><button onclick="go('idle')">返回</button></div></div>`;
+  }
+  else if(S.mode==='target'){
+    const a=curAction();
+    h=`<div class="device-view"><div class="screen-kicker">${a.type}</div><h2 class="screen-title">${a.name}</h2><div class="target-ctrl"><button onclick="adjTarget(-5)" aria-label="减少">−</button><strong>${S.target}<small>${a.unit}</small></strong><button onclick="adjTarget(5)" aria-label="增加">＋</button></div><div class="screen-btns"><button onclick="go('select')">返回</button><button class="primary" onclick="go('entry')">开始</button></div></div>`;
+  }
+  else if(S.mode==='entry'){
+    h=`<div class="device-view">${svgPersonFrame(116)}<h2 class="screen-title" style="font-size:16px;margin-top:2px">${S.entry==='good'?'很好，就站这里！':'让我看到完整的你'}</h2><p class="screen-copy">${S.entry==='good'?'马上准备开始':'站到我前面，再往后一点点'}</p></div>`;
+  }
+  else if(S.mode==='ready'){
+    h=`<div class="device-view"><div class="face-slot"></div><h2 class="screen-title">准备好啦！</h2></div>`;
+  }
+  else if(S.mode==='countdown'){
+    h=`<div class="device-view"><div class="countdown-num" id="cdNum">3</div></div>`;
+  }
+  else if(S.mode==='running'){
+    const a=curAction();
+    const pct=Math.min(100,S.count/S.target*100);
+    const fb=S.count>=S.target?'完成！':S.count>=Math.ceil(S.target*.75)?'快完成啦！':S.count>=Math.ceil(S.target*.5)?'一半啦！':S.count>=5?'做得不错！':'';
+    h=`<div class="device-view"><div class="screen-kicker">${a.name}</div><div class="big-count" id="bc">${S.count}<small>${a.id==='plank'?'秒':' / '+S.target}</small></div><div class="progress-bar"><i style="width:${pct}%"></i></div><div class="feedback">${fb}</div><div class="screen-btns"><button onclick="go('pause')">暂停</button><button onclick="endRun(false)">结束</button></div></div>`;
+  }
+  else if(S.mode==='pause'){
+    h=`<div class="device-view"><div class="face-slot"></div><h2 class="screen-title">休息一下～</h2><p class="screen-copy">${S.count} / ${S.target}，我帮你记住啦</p><div class="screen-btns"><button class="primary" onclick="go('running')">继续</button><button onclick="endRun(false)">结束</button></div></div>`;
+  }
+  else if(S.mode==='away'){
+    h=`<div class="device-view"><div class="face-slot"></div><h2 class="screen-title">我在等你～</h2><p class="screen-copy">已经帮你记住 ${S.count} ${curAction().unit}</p><div class="screen-btns"><button class="primary" onclick="go('ready')">我回来了</button></div></div>`;
+  }
+  else if(S.mode==='celebrate'){
+    h=`<div class="device-view"><div class="face-slot"></div><h2 class="screen-title">太棒啦！</h2><p class="screen-copy">${S.count} / ${S.target} · <span class="celebrate-points">+8 运动星</span></p></div>`;
+  }
+  else if(S.mode==='result'){
+    h=`<div class="device-view"><div class="screen-kicker">这次运动</div>${svgCheck(56)}<h2 class="screen-title" style="margin-top:0">${curAction().name}</h2><p class="screen-copy">结果已经同步给家长</p><div class="screen-btns"><button class="primary" onclick="go('idle')">完成</button></div></div>`;
+  }
+  else if(S.mode==='task_arrive'||S.mode==='school_arrive'){
+    const who = S.mode==='task_arrive' ? '家长' : '老师';
+    h=`<div class="device-view arrive-view" onclick="enterTaskDetail()"><div class="face-slot"></div><h2 class="screen-title">你有新任务啦！</h2><p class="screen-copy">${who}发来的<br><span class="tap-hint">点一下查收～</span></p></div>`;
+  }
+  else if(S.mode==='task_alert'){
+    h=`<div class="device-view"><div class="screen-kicker">新任务待查收</div><h2 class="screen-title" style="font-size:16px">家长发来运动任务</h2><p class="screen-copy">开合跳 × 20 次</p><div class="screen-btns"><button onclick="alertToTodo()">加入待办</button><button class="primary" onclick="startFromAlert()">马上开始</button></div></div>`;
+  }
+  else if(S.mode==='school_alert'){
+    h=`<div class="device-view"><div class="screen-kicker">新任务待查收</div><h2 class="screen-title" style="font-size:16px">老师发来运动任务</h2><p class="screen-copy">双脚跳绳 × 50 次</p><div class="screen-btns"><button onclick="alertSchoolToTodo()">加入待办</button><button class="primary" onclick="startSchool()">马上开始</button></div></div>`;
+  }
+  else if(S.mode==='plan_alert'){
+    h=`<div class="device-view"><div class="face-slot"></div><div class="screen-kicker">今天的新计划来啦～</div><h2 class="screen-title" style="font-size:16px">7天基础体能计划</h2><p class="screen-copy">${planItems.length} 项运动<br>我会一步一步陪你完成</p><div class="screen-btns"><button onclick="go('idle')">稍后</button><button class="primary" onclick="startPlan()">开始</button></div></div>`;
+  }
+  else if(S.mode==='plan_step'){
+    const m=planItems[S.planIndex];
+    h=`<div class="device-view"><div class="screen-kicker">第 ${S.planIndex+1} / ${planItems.length} 项</div><h2 class="screen-title">${m.name}</h2><div class="big-count" style="font-size:56px">${m.target}<small>${m.unit}</small></div><p class="screen-copy">我会自动记录有效动作</p><div class="screen-btns"><button onclick="go('plan_rest')">暂停</button><button class="primary" onclick="completePlanStep()">完成本项</button></div></div>`;
+  }
+  else if(S.mode==='plan_rest'){
+    h=`<div class="device-view"><div class="face-slot"></div><div class="screen-kicker">短暂休息</div><h2 class="screen-title">上一项完成！</h2><p class="screen-copy">准备好后继续下一项</p><div class="screen-btns"><button class="primary" onclick="continuePlan()">继续</button></div></div>`;
+  }
+  else if(S.mode==='posture'){
+    h=`<div class="device-view"><div class="face-slot"></div><h2 class="screen-title" style="font-size:16px">坐久啦，动一动吧～</h2><p class="screen-copy">选一个轻松的活动</p><div class="screen-btns"><button onclick="postureNeck()">抬头转转</button><button class="primary" onclick="postureWalk()">起身走走</button></div></div>`;
+  }
+  else if(S.mode==='posture_active'){
+    h=`<div class="device-view"><div class="face-slot"></div><div class="screen-kicker">${S.postureName}</div><div class="big-count" id="postureTimer">${S.postureRemain}<small>秒</small></div><p class="screen-copy">${S.postureTip}</p><div class="screen-btns"><button onclick="postureEnd()">结束</button></div></div>`;
+  }
+  else if(S.mode==='offline'||S.mode==='error'){
+    h=`<div class="device-view"><div class="face-slot"></div><h2 class="screen-title">网络暂时断开</h2><p class="screen-copy">运动结果已保存在本机<br>连接恢复后会自动同步</p><div class="screen-btns"><button class="primary" onclick="go('idle')">重新连接</button></div></div>`;
+  }
+
+  el.innerHTML=h;
+  $('#statusBar').innerHTML=`Teamo · <b>${statusMap[S.mode]||S.mode}</b>`;
+  updateScenarioBar();
+  updateFlowGrid();
+
+  updateFace();
+  // post-render logic
+  if(S.mode==='countdown') startCountdownTimer();
+  if(S.mode==='running') startWorkoutTimer();
+  if(S.mode==='entry') startEntryTimer();
+}
+
+/* ====== NAVIGATION ====== */
+function tapEyes(e){
+  const r=e.currentTarget.getBoundingClientRect();
+  const x=(e.clientX-r.left)/r.width;
+  S.eye=x<.35?'look-left':x>.65?'look-right':'happy';
+  updateFace();
+  setTimeout(()=>{if(S.mode==='idle'){S.eye='rest';updateFace()}},800);
+}
+
+/* ====== SCENARIO JUMP ====== */
+function go(mode){
+  clearAll();
+  S.mode=mode;
+  S.eye='rest';
+  S.running=false;
+  S.entry='far';
+  /* 仅在进入全新流程时重置计数，从暂停继续保留进度 */
+  if(mode==='idle'||mode==='select'){S.count=0;S.planIndex=0}
+  if(mode==='task_arrive'){S.action='jumping_jack';S.target=20;S.count=0}
+  if(mode==='school_arrive'){S.action='jump_rope';S.target=50;S.count=0}
+  if(mode==='plan_alert'){S.planIndex=0}
+  render();
+}
+function enterTaskDetail(){
+  S.mode = S.mode==='task_arrive' ? 'task_alert' : 'school_alert';
+  render();
+}
+function startFromAlert(){ S.count=0;S.entry='far'; S.mode='entry'; render() }
+function startSchool(){ S.action='jump_rope';S.target=50;S.count=0;S.entry='far'; S.mode='entry'; render() }
+function alertToTodo(){ go('todo'); toast('已加入待办，随时可以开始') }
+function alertSchoolToTodo(){ go('todo'); toast('已加入待办，随时可以开始') }
+function startPlan(){ S.planIndex=0; S.mode='plan_step'; render() }
+
+/* ====== EXERCISE FLOW ====== */
+function pickAction(id){
+  S.action=id;
+  S.target=actions.find(a=>a.id===id).target;
+  S.count=0;
+  S.mode='target';
+  render();
+}
+function adjTarget(n){ S.target=Math.max(5,Math.min(200,S.target+n)); render() }
+
+function startEntryTimer(){
+  if(timers.entry) return;
+  timers.entry=setTimeout(()=>{S.entry='good';render();timers.entry=setTimeout(()=>{S.mode='ready';S.eye='focus';render();timers.entry=setTimeout(()=>{S.mode='countdown';render()},800)},700)},900);
+}
+function startCountdownTimer(){
+  if(timers.countdown) return;
+  let n=3;
+  timers.countdown=setInterval(()=>{
+    n--;
+    if(n<=0){clearInterval(timers.countdown);timers.countdown=null;S.mode='running';render()}
+    else{const el=$('#cdNum');if(el)el.textContent=n}
+  },800);
+}
+function startWorkoutTimer(){
+  if(timers.workout) return;
+  S.running=true;
+  timers.workout=setInterval(()=>{
+    if(!S.running)return;
+    addCount(1);
+  },1200);
+}
+function addCount(n){
+  if(S.mode!=='running')return;
+  S.count=Math.min(S.target,S.count+n);
+  /* 局部更新，避免完整 render 导致定时器重建 */
+  const bc=$('#bc');
+  const pb=document.querySelector('.progress-bar i');
+  const fb=document.querySelector('.feedback');
+  const a=curAction();
+  if(bc){
+    bc.innerHTML=`${S.count}<small>${a.id==='plank'?'秒':' / '+S.target}</small>`;
+    bc.classList.remove('pop');void bc.offsetWidth;bc.classList.add('pop');
+  }
+  if(pb) pb.style.width=Math.min(100,S.count/S.target*100)+'%';
+  if(fb){
+    const t=S.count>=S.target?'完成！':S.count>=Math.ceil(S.target*.75)?'快完成啦！':S.count>=Math.ceil(S.target*.5)?'一半啦！':S.count>=5?'做得不错！':'';
+    fb.textContent=t;
+  }
+  if(S.count>=S.target) endRun(true);
+}
+function endRun(done){
+  clearAll();S.running=false;
+  const fromTodo=S.currentTodoId;
+  if(done){
+    S.count=S.target;
+    if(S.currentTodoId){
+      const t=todoList.find(x=>x.id===S.currentTodoId);
+      if(t) t.done=true;
+      S.currentTodoId=null;
+    }
+  }
+  S.mode='celebrate';S.eye='celebrate';
+  render();
+  timers.auto=setTimeout(()=>{S.mode=fromTodo?'todo':'result';render()},2200);
+}
+
+function startTodo(id){
+  const t=todoList.find(x=>x.id===id);
+  if(!t||t.done)return;
+  S.currentTodoId=id;
+  S.action=t.actionId;S.target=t.target;S.count=0;
+  S.mode='task_arrive';render();
+}
+function setRankTab(tab){ S.rankTab=tab; render(); }
+
+/* plan flow */
+function completePlanStep(){
+  S.planIndex++;
+  if(S.planIndex<planItems.length){S.mode='plan_rest';render()}
+  else{S.count=planItems.length;S.target=planItems.length;S.mode='celebrate';S.eye='celebrate';render();timers.auto=setTimeout(()=>{S.mode='result';render()},2200)}
+}
+function continuePlan(){ S.mode='plan_step'; render() }
+function postureNeck(){ S.postureName='抬头转转'; S.postureRemain=30; S.postureTip='慢慢左右转头，放松脖子'; S.mode='posture_active'; render(); startPostureTimer(); }
+function postureWalk(){ S.postureName='起身走走'; S.postureRemain=60; S.postureTip='站起来走几步，伸个懒腰'; S.mode='posture_active'; render(); startPostureTimer(); }
+function startPostureTimer(){
+  if(timers.posture) clearInterval(timers.posture);
+  timers.posture=setInterval(()=>{
+    S.postureRemain--;
+    const el=$('#postureTimer');
+    if(el) el.innerHTML=`${S.postureRemain}<small>秒</small>`;
+    if(S.postureRemain<=0){
+      clearInterval(timers.posture); timers.posture=null;
+      S.count=1; S.target=1; S.mode='celebrate'; S.eye='celebrate'; render();
+      timers.auto=setTimeout(()=>{S.mode='idle';render()},2200);
+    }
+  },1000);
+}
+function postureEnd(){ clearAll(); S.mode='idle'; render(); }
+
+/* privacy slider（关闭=物理遮挡：停止识别与计数，恢复后回待机，需重新开始） */
+function togglePrivacy(){
+  S.privacyOpen=!S.privacyOpen;
+  const sl=$('#privacySlider');
+  sl.classList.toggle('open',S.privacyOpen);
+  sl.classList.toggle('closed',!S.privacyOpen);
+  sl.setAttribute('aria-checked',String(S.privacyOpen));
+  if(!S.privacyOpen){
+    clearAll();
+    S.running=false;
+    S.count=0;
+    S.currentTodoId=null;
+    S.mode='privacy';S.eye='rest';
+    render();
+    toast('摄像头已遮挡，计数已停止');
+  }else{
+    if(S.mode==='privacy'){ S.mode='idle'; S.eye='rest'; render(); }
+    toast('隐私盖已打开');
+  }
+}
+
+/* scenario bar active state */
+function updateScenarioBar(){
+  const btns=document.querySelectorAll('.scenario-bar button');
+  const map={idle:0,todo:0,plan:0,rank:0,select:1,target:1,entry:1,ready:1,countdown:1,running:1,pause:1,away:1,celebrate:1,result:1,task_arrive:2,task_alert:2,school_arrive:3,school_alert:3,plan_alert:4,plan_step:4,plan_rest:4,posture:5,posture_active:5,offline:6,error:6,privacy:0};
+  const idx=map[S.mode]??0;
+  btns.forEach((b,i)=>b.classList.toggle('active',i===idx));
+}
+
+/* flow grid */
+function updateFlowGrid(){
+  const steps=[
+    {mode:'idle',icon:'home',label:'待机首页',desc:'学伴表情待机'},
+    {mode:'select',icon:'runner',label:'选择运动',desc:'7种支持动作'},
+    {mode:'target',icon:'target',label:'设定目标',desc:'调节数量/时长'},
+    {mode:'entry',icon:'person',label:'站位引导',desc:'入镜检测'},
+    {mode:'ready',icon:'checkbox',label:'准备就绪',desc:'学伴专注表情'},
+    {mode:'countdown',icon:'timer',label:'3-2-1 倒计时',desc:'运动即将开始'},
+    {mode:'running',icon:'flame',label:'实时计数',desc:'动作识别计数'},
+    {mode:'pause',icon:'pause-circle',label:'暂停/离开',desc:'进度保留可随时继续'},
+    {mode:'celebrate',icon:'star',label:'完成庆祝',desc:'学伴欢呼+积分'},
+    {mode:'result',icon:'trend',label:'结果同步',desc:'数据回传家长端'}
+  ];
+  $('#flowGrid').innerHTML=steps.map(s=>`<button class="flow-card ${S.mode===s.mode?'active-flow':''}" onclick="go('${s.mode}')"><div class="fc-icon">${flat(s.icon,s.label)}</div><b>${s.label}</b><span>${s.desc}</span></button>`).join('');
+}
+
+/* eye gallery（对应表情定稿图 3×3） */
+function initEyeGallery(){
+  const states=[
+    {cls:'rest',label:'待机',desc:'双竖条'},
+    {cls:'normal',label:'自然',desc:'短条眨眼'},
+    {cls:'curious',label:'好奇',desc:'高低条'},
+    {cls:'happy',label:'开心',desc:'弯月笑眼'},
+    {cls:'sleepy',label:'困倦',desc:'横条闭眼'},
+    {cls:'alert',label:'提醒',desc:'惊叹提示'},
+    {cls:'look-left',label:'左看',desc:'双条左移'},
+    {cls:'look-right',label:'右看',desc:'双条右移'},
+    {cls:'celebrate',label:'庆祝',desc:'笑眼+星星'}
+  ];
+  $('#eyeRow').innerHTML=states.map(s=>`<button class="eye-chip" onclick="previewEye('${s.cls}',this)">${miniEyes(s.cls)}<b>${s.label}</b><span>${s.desc}</span></button>`).join('');
+}
+function previewEye(cls,chip){
+  if(S.mode!=='idle') go('idle');
+  S.eye=cls;updateFace();
+  document.querySelectorAll('.eye-chip').forEach(c=>c.classList.remove('active-chip'));
+  if(chip) chip.classList.add('active-chip');
+  setTimeout(()=>{if(S.mode==='idle'){S.eye='rest';updateFace()}},2500);
+}
+
+/* swipe gesture */
+function bindSwipe(){
+  const el=$('#screen');let sx=0,sy=0,drag=false;
+  const end=(x,y)=>{
+    if(!drag)return;drag=false;
+    const dx=x-sx,dy=y-sy;
+    if(Math.abs(dx)<30&&Math.abs(dy)<30)return;
+    const dir=Math.abs(dx)>Math.abs(dy)?(dx<0?'left':'right'):(dy<0?'up':'down');
+    handleSwipe(dir);
+  };
+  el.addEventListener('pointerdown',e=>{sx=e.clientX;sy=e.clientY;drag=true});
+  el.addEventListener('pointerup',e=>end(e.clientX,e.clientY));
+  el.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;drag=true},{passive:true});
+  el.addEventListener('touchend',e=>end(e.changedTouches[0].clientX,e.changedTouches[0].clientY),{passive:true});
+}
+function handleSwipe(dir){
+  if(S.mode==='idle'){
+    if(dir==='up') go('todo');
+    else if(dir==='down') go('plan');
+    else if(dir==='left') go('select');
+    else if(dir==='right') go('rank');
+  }
+  else if(S.mode==='todo'&&dir==='down') go('idle');
+  else if(S.mode==='plan'&&dir==='up') go('idle');
+  else if(S.mode==='select'&&dir==='right') go('idle');
+  else if(S.mode==='rank'&&dir==='left') go('idle');
+}
+
+/* toast */
+let toastT;
+function toast(msg){const el=$('#toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove('show'),1800)}
+
+/* init */
+initEyeGallery();
+bindSwipe();
+render();
+
+/* 屏幕等比缩放：280px 设计基准，随圆屏实际宽度缩放（尺寸适配） */
+const stageEl=$('#stage'), screenEl=$('#screen');
+function fitStage(){ const w=screenEl.clientWidth; if(w) stageEl.style.setProperty('--s',(w/280).toFixed(4)); }
+if(window.ResizeObserver){ new ResizeObserver(fitStage).observe(screenEl); }
+window.addEventListener('resize', fitStage);
+fitStage();
+$('#safeToggle').addEventListener('change', e=>{ screenEl.classList.toggle('show-safe', e.target.checked); });
+</script>
+</body>
+</html>
