@@ -1,0 +1,14 @@
+digraph {graph [bgcolor="transparent",fontname="Microsoft YaHei",fontsize=15,nodesep=.45,ranksep=.60,pad=.25,splines=polyline]; node [shape=box,style="rounded,filled",fillcolor="#f2ecfc",color="#d9cfea",fontcolor="#352b48",fontname="Microsoft YaHei",fontsize=15,margin=".18,.14",penwidth=1.2]; edge [color="#8e839d",fontcolor="#655b76",fontname="Microsoft YaHei",fontsize=12,arrowsize=.65,penwidth=1.1]; rankdir=TB;n0 [id="node_algorithm_0",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="69" HEIGHT="20">无人</TD></TR><TR><TD WIDTH="69" HEIGHT="20">不开始</TD></TR></TABLE>>,fillcolor="#e8f3ee",color="#adcdbc",];
+
+
+n3 [id="node_algorithm_3",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">稳定入镜</TD></TR><TR><TD WIDTH="84" HEIGHT="20">准备满足</TD></TR></TABLE>>,];
+n4 [id="node_algorithm_4",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="99" HEIGHT="20">周期进行中</TD></TR><TR><TD WIDTH="99" HEIGHT="20">半周期不计</TD></TR></TABLE>>,];
+n5 [id="node_algorithm_5",label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="129" HEIGHT="20">有效事件</TD></TR><TR><TD WIDTH="129" HEIGHT="20">次数或有效秒数</TD></TR></TABLE>>,penwidth=2,];
+
+
+n0 -> n3 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="129" HEIGHT="20">人体与站位满足</TD></TR></TABLE>>,id="edge_0_3_0",];
+n3 -> n4 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="84" HEIGHT="20">启动运动</TD></TR></TABLE>>,id="edge_3_4_1",];
+n4 -> n5 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="114" HEIGHT="20">完整动作周期</TD></TR></TABLE>>,id="edge_4_5_2",];
+n5 -> n4 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD WIDTH="99" HEIGHT="20">下一个周期</TD></TR></TABLE>>,id="edge_5_4_3",color="#b57932",fontcolor="#976120",style=dashed,constraint=false,];n0->n3 [style=invis,weight=10];
+n3->n4 [style=invis,weight=10];
+n4->n5 [style=invis,weight=10];}

@@ -1,0 +1,49 @@
+<view class="page">
+  <view class="brand-kicker">TEAMO AI <text>PLAN WITH CARE</text></view>
+  <view class="ai-head">
+    <view class="orb">AI</view>
+    <view><view class="hero-title">AI运动助手</view><view class="hero-sub">先看懂真实运动，再提供适度建议</view></view>
+  </view>
+
+  <view class="insight-entry" bindtap="openLatestAnalysis"><view class="insight-score">析</view><view class="grow"><view class="small">最近一次运动分析</view><view class="strong">查看动作完成度与非医疗建议</view></view><text>›</text></view>
+
+  <view class="module-title"><view><view class="strong">7天运动计划</view><view class="small muted">根据基础信息生成演示计划</view></view><view class="beta">体验功能</view></view>
+
+  <view class="card builder" wx:if="{{!plan}}">
+    <view class="form-label">孩子年龄</view>
+    <view class="stepper"><button data-step="-1" bindtap="changeAge">−</button><text>{{form.age}} 岁</text><button data-step="1" bindtap="changeAge">＋</button></view>
+    <view class="form-label">主要目标</view>
+    <view class="chips"><button wx:for="{{goals}}" wx:key="*this" class="chip {{form.goal===item?'active':''}}" data-value="{{item}}" bindtap="chooseGoal">{{item}}</button></view>
+    <view class="form-label">每次时长</view>
+    <view class="chips"><button wx:for="{{durations}}" wx:key="*this" class="chip {{form.duration===item?'active':''}}" data-value="{{item}}" bindtap="chooseDuration">{{item}}分钟</button></view>
+    <view class="form-label">运动基础</view>
+    <view class="chips"><button wx:for="{{levels}}" wx:key="*this" class="chip {{form.level===item?'active':''}}" data-value="{{item}}" bindtap="chooseLevel">{{item}}</button></view>
+    <button class="btn btn-primary generate" loading="{{loading}}" bindtap="generate">生成 7 天运动计划</button>
+  </view>
+
+  <view wx:else>
+    <view class="plan-hero">
+      <view class="small">AI 模拟计划已生成</view>
+      <view class="plan-title">{{plan.name}}</view>
+      <view class="small">{{plan.summary}}</view>
+    </view>
+    <view class="section-title">七天安排</view>
+    <view class="list day-list">
+      <view class="list-item" wx:for="{{plan.days}}" wx:key="day">
+        <view class="day">D{{item.day}}</view>
+        <view class="grow"><view class="strong" wx:for="{{item.items}}" wx:for-item="exercise" wx:key="name">{{exercise.name}} · {{exercise.target}}{{exercise.unit}}</view></view>
+      </view>
+    </view>
+    <view class="actions"><button class="btn btn-line" bindtap="newPlan">调整条件</button><button class="btn btn-primary" bindtap="sendPlan">发送今天计划</button></view>
+  </view>
+
+  <view class="section-title">问问 AI</view>
+  <view class="card ask-card">
+    <view class="ask-title"><view class="mini-orb">✦</view><view><view class="strong">关于孩子今天的运动</view><view class="small muted">当前为演示回答，正式版需接入AI服务</view></view></view>
+    <view class="quick-questions"><button wx:for="{{quickQuestions}}" wx:key="*this" data-question="{{item}}" bindtap="askQuick">{{item}}</button></view>
+    <view class="ask-input"><input value="{{customQuestion}}" bindinput="inputQuestion" placeholder="也可以直接输入问题" confirm-type="send" bindconfirm="askCustom"/><button bindtap="askCustom">发送</button></view>
+    <view class="ai-answer" wx:if="{{aiAnswer}}"><text>AI建议</text>{{aiAnswer}}</view>
+  </view>
+  <view class="section-title" wx:if="{{plan}}">最近生成</view><view class="history-card" wx:if="{{plan}}"><view class="history-mark">7D</view><view class="grow"><view class="strong">{{plan.name}}</view><view class="small muted">已保存，可继续发送到设备</view></view><text>›</text></view>
+  <view class="ai-note">AI 建议仅用于日常运动陪伴，不替代医疗或专业训练意见。</view>
+</view>

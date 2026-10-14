@@ -1,0 +1,1543 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Teamo 设备端UE工程参考 v0.1.1 · Review</title><style>
+:root{color-scheme:light dark;background:Canvas;color:CanvasText;font-family:system-ui,"Microsoft YaHei",sans-serif;--line:color-mix(in srgb,CanvasText 22%,Canvas)}
+*{box-sizing:border-box}body{margin:0;font-size:15px;line-height:1.8}a{color:inherit;text-decoration:underline;text-underline-offset:3px}a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid GrayText;outline-offset:4px}
+header{border-bottom:1px solid var(--line);padding:24px 32px}header h1{font-size:25px;margin:0 0 6px}header p{margin:4px 0}small,.meta{color:GrayText}button{font:inherit;color:ButtonText;background:ButtonFace;border:1px solid GrayText;border-radius:5px;padding:6px 14px;cursor:pointer}.actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:12px}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1600px;margin:auto}nav{position:sticky;top:0;max-height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line)}nav ul{list-style:none;padding-left:0}nav ul ul{padding-left:14px}nav li{margin:8px 0}nav a{font-size:13px;text-decoration:none}nav a:hover{text-decoration:underline}main{min-width:0;padding:24px 40px 64px}h1,h2,h3,h4,h5{line-height:1.5;scroll-margin-top:20px}main h1{font-size:27px;margin-top:40px}h2{font-size:24px;border-top:1px solid var(--line);padding-top:26px;margin-top:48px}h3{font-size:21px;margin-top:34px}h4{font-size:18px;margin-top:28px}h5{font-size:17px;margin-top:28px;border-left:3px solid GrayText;padding-left:12px}p{margin:12px 0}.table-scroll{overflow:auto;margin:16px 0}table{border-collapse:collapse;width:100%;font-size:14px;min-width:650px}th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}th{font-weight:650}blockquote{border-left:3px solid GrayText;margin:20px 0;padding:2px 16px}pre{overflow:auto;border:1px solid var(--line);padding:16px;white-space:pre}code{font-family:Consolas,monospace}details{border:1px solid var(--line);padding:12px 16px;margin:12px 0}summary{cursor:pointer;font-weight:600}figure{margin:20px 0;padding:20px;border:1px solid var(--line)}.arch-row{display:flex;gap:15px;align-items:center;justify-content:center;flex-wrap:wrap}.arch-row span{padding:14px 20px;border:1px solid GrayText;text-align:center}.arch-support{text-align:center;margin:20px 0 10px}figcaption{font-size:13px;color:GrayText}footer{border-top:1px solid var(--line);padding:18px 32px;font-size:12px;overflow-wrap:anywhere}
+@media(max-width:850px){.layout{display:block}nav{position:static;max-height:320px;border-right:0;border-bottom:1px solid var(--line)}main{padding:18px}header{padding:18px}h2{font-size:21px}}
+@media print{nav,.actions{display:none}.layout{display:block}main{padding:0}body{font-size:10pt;background:white;color:black}header{padding:0 0 12px}h2{break-before:page}h3,h4,h5{break-after:avoid}table{min-width:0;font-size:9pt}tr{break-inside:avoid}.table-scroll{overflow:visible}details{display:block}details>*{display:block}footer{font-size:8pt}a{text-decoration:none}}
+</style></head><body><header><h1>Teamo 设备端UE工程参考</h1><p>v0.1.1 Draft · 控制版本 v0.1.1 · Review · 2026-10-12</p><p class="meta">正式评审材料，未冻结。47项核心需求 · 20项候选 · 17项 OQ · 11项 UE-OQ</p><div class="actions"><button type="button" onclick="document.querySelectorAll('details').forEach(d=>d.open=true)">展开全部问题</button><button type="button" onclick="document.querySelectorAll('details').forEach(d=>d.open=false)">收起问题</button><button type="button" onclick="document.querySelectorAll('details').forEach(d=>d.open=true);window.print()">打印 / 保存 PDF</button><a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">Markdown 源文档</a></div></header><div class="layout"><nav aria-label="文档目录"><strong>评审目录</strong><div class="toc">
+<ul>
+<li><a href="#teamo-mvp-ue">Teamo MVP UE工程附录</a></li>
+<li><a href="#document-control">Document Control</a><ul>
+<li><a href="#a-page">A 详细状态与PAGE线框</a><ul>
+<li><a href="#51-exercise-session-state">5.1 Exercise Session State 运动会话状态</a></li>
+<li><a href="#52-binding-state-model">5.2 Binding State Model 绑定状态</a></li>
+<li><a href="#53-recording-state-model">5.3 Recording State Model 记录状态</a></li>
+<li><a href="#54-page">5.4 PAGE状态线框追溯</a></li>
+<li><a href="#page-00">PAGE-00</a></li>
+<li><a href="#page-01">PAGE-01</a></li>
+<li><a href="#page-02">PAGE-02</a></li>
+<li><a href="#page-03">PAGE-03</a></li>
+<li><a href="#page-04">PAGE-04</a></li>
+<li><a href="#page-05">PAGE-05</a></li>
+<li><a href="#page-06">PAGE-06</a></li>
+<li><a href="#page-07">PAGE-07</a></li>
+<li><a href="#page-08">PAGE-08</a></li>
+<li><a href="#page-09">PAGE-09</a></li>
+</ul>
+</li>
+<li><a href="#b">B 异常业务依据</a></li>
+<li><a href="#c">C 原页面约束</a><ul>
+<li><a href="#page-00_1">PAGE-00 绑定与首次使用</a></li>
+<li><a href="#page-01_1">PAGE-01 首页</a></li>
+<li><a href="#page-02_1">PAGE-02 自主运动入口</a></li>
+<li><a href="#page-03_1">PAGE-03 我的任务</a></li>
+<li><a href="#page-04_1">PAGE-04 运动准备</a></li>
+<li><a href="#page-05_1">PAGE-05 倒计时</a></li>
+<li><a href="#page-06_1">PAGE-06 运动中</a></li>
+<li><a href="#page-07_1">PAGE-07 结果</a></li>
+<li><a href="#page-08_1">PAGE-08 设置</a></li>
+<li><a href="#page-09_1">PAGE-09 候选动作辅助检测</a></li>
+</ul>
+</li>
+<li><a href="#d">D 原功能映射</a></li>
+<li><a href="#e">E 完整评审问题</a></li>
+<li><a href="#f">F 原设计交接依据</a><ul>
+<li><a href="#81-page">8.1 逐PAGE设计输入</a></li>
+<li><a href="#82">8.2 各团队交接输入与输出</a></li>
+<li><a href="#83-ui-flowfr">8.3 后续UI Flow与FR引用要求</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_1"></a><ul>
+<li><a href="#mvp2026-10-12">MVP演示范围确认（2026-10-12）</a></li>
+<li><a href="#_2">原版本记录（保留）</a></li>
+<li><a href="#change-impact">Change Impact</a></li>
+<li><a href="#decision-log">Decision Log</a></li>
+</ul>
+</li>
+<li><a href="#version-history">Version History</a><ul>
+<li><a href="#document-governance-migration-2026-10-12">Document Governance Migration — 2026-10-12</a></li>
+</ul>
+</li>
+<li><a href="#change-impact_1">Change Impact</a></li>
+<li><a href="#decision-log_1">Decision Log</a><ul>
+<li><a href="#change-impact-mvp">Change Impact — MVP演示三动作确认</a></li>
+<li><a href="#decision-log-mvp">Decision Log — MVP演示三动作</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav><main id="content"><h1 id="teamo-mvp-ue">Teamo MVP UE工程附录</h1>
+<blockquote>
+<p>v0.3.1配套引用 · Review / Pending Review · 2026-10-12</p>
+</blockquote>
+<h1 id="document-control">Document Control</h1>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Type</td>
+<td>UE Engineering Reference Appendix</td>
+</tr>
+<tr>
+<td>Current Version</td>
+<td>v0.1.1</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>Owner</td>
+<td>TBD</td>
+</tr>
+<tr>
+<td>Reviewer</td>
+<td>TBD</td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>2026-10-12</td>
+</tr>
+<tr>
+<td>Last Updated</td>
+<td>2026-10-12</td>
+</tr>
+</tbody>
+</table></div>
+<p>本附录保留v0.3既有业务依据，不是已批准工程状态机。不定义API字段、数据结构、客户端枚举、算法实现或验收标准；详细工程处理TBD / FR阶段定义。<a href="Teamo_Device_UE_IA_v0.3.1.md">主文档</a>。</p>
+<p><a id="appendix-a"></a></p>
+<h2 id="a-page">A 详细状态与PAGE线框</h2>
+<p>英文标签仅是设计/研发沟通用语，均为Pending Review，不定义客户端枚举、接口字段、存储结构或算法实现。绑定、运动执行、保存和同步是不同状态维度；PAGE负责呈现与操作确认，不创造事实。</p>
+<h3 id="51-exercise-session-state">5.1 Exercise Session State 运动会话状态</h3>
+<p>INIT、READY、COUNTDOWN、RUNNING、PAUSED、FINISHED描述会话执行；SAVED描述结果保存；SYNCING、SYNCED描述同一记录的同步。后面三个状态不替代会话状态，也不要求用户停留在结果页。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>状态</th>
+<th>进入条件</th>
+<th>可执行行为</th>
+<th>退出条件 / 去向</th>
+<th>关联PAGE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INIT</td>
+<td>已进入自主选择或任务确认上下文；不等于设备开机</td>
+<td>确认儿童、来源、支持动作与目标；返回</td>
+<td>上下文有效进入准备；取消退出，记录创建时机TBD</td>
+<td>PAGE-02/03，儿童确认PAGE-00/08</td>
+</tr>
+<tr>
+<td>READY</td>
+<td>有效动作、目标和归属进入准备阶段</td>
+<td>看说明、隐私检查、必要时调整站位、明确开始或取消</td>
+<td>条件满足且明确开始→COUNTDOWN；不足停留；恢复路线TBD</td>
+<td>PAGE-04</td>
+</tr>
+<tr>
+<td>COUNTDOWN</td>
+<td>开始意愿明确且准备满足</td>
+<td>等待、取消；禁止计数</td>
+<td>完成后复核通过→RUNNING；取消/离画→READY；隐私失效阻断</td>
+<td>PAGE-05</td>
+</tr>
+<tr>
+<td>RUNNING</td>
+<td>初次开始或恢复获准，隐私及准备有效</td>
+<td>可信计数与反馈、暂停、提前结束</td>
+<td>暂停/判定异常→PAUSED；达标或明确结束→FINISHED</td>
+<td>PAGE-06</td>
+</tr>
+<tr>
+<td>PAUSED</td>
+<td>主动暂停或离画/识别异常已判定需暂停</td>
+<td>保留次数，说明原因，继续或结束；不累计</td>
+<td>继续→READY重新检查；结束→FINISHED；超时TBD</td>
+<td>PAGE-06→04</td>
+</tr>
+<tr>
+<td>FINISHED</td>
+<td>达标、主动结束或已确认中断规则生效</td>
+<td>停止采集/计数，生成真实结果并交给保存</td>
+<td>执行事实保持结束；保存成功增加SAVED事实，失败走异常分支</td>
+<td>PAGE-06→07保存衔接</td>
+</tr>
+<tr>
+<td>SAVED</td>
+<td>6.2.1确认本地结果保存成功</td>
+<td>看真实结果、返回首页；允许时后台上传</td>
+<td>已保存事实保持；同步进SYNCING，或离线待同步</td>
+<td>PAGE-07；PAGE-01提示承载</td>
+</tr>
+<tr>
+<td>SYNCING</td>
+<td>已保存且正在上传/补传，尚未获平台业务接收确认</td>
+<td>查看状态；按契约重试，沿用原记录标识</td>
+<td>业务确认→SYNCED；失败→待补传；重试参数TBD</td>
+<td>PAGE-07/01；后台状态</td>
+</tr>
+<tr>
+<td>SYNCED</td>
+<td>平台确认接收同一结果记录</td>
+<td>查看已同步状态，不重复生成结果或奖励</td>
+<td>终态事实保持；冲突处理契约TBD</td>
+<td>PAGE-07/01；后台状态</td>
+</tr>
+</tbody>
+</table></div>
+<p>READY包含准备阶段，并不单凭该标签允许开始；必须另有“准备满足、隐私允许、儿童明确开始”条件。INIT的标签不承诺记录已创建，创建时机仍按6.1.1待确认。</p>
+<pre><code class="language-text">[INIT] -&gt; [READY：检查隐私与准备] -&gt; [COUNTDOWN] -&gt; [RUNNING]
+             ^                         |            |     |
+             | 取消/离画                |            |     +-&gt; [FINISHED]
+             +-------------------------+            v
+             +-- 选择继续并重新准入 ------------ [PAUSED]
+                                                     +-------&gt; [FINISHED]
+恢复是否再次经过COUNTDOWN：TBD。
+</code></pre>
+<p>隐私关闭、撤权或状态未知时立即阻断采集；不强行归入可继续计数状态，具体异常状态承载与撤权响应时限TBD。未确认事件不计，低置信度不作确定纠错。</p>
+<h3 id="52-binding-state-model">5.2 Binding State Model 绑定状态</h3>
+<p>未绑定 → 等待绑定 → 绑定处理中 → 绑定成功 → 当前儿童确认 → 正常使用（PAGE-01）。正常使用可因有效解绑事实或绑定异常进入相应分支，不把解绑/异常当必经结束步骤。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>状态</th>
+<th>业务含义 / 允许去向</th>
+<th>约束与TBD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>未绑定</td>
+<td>无有效家庭绑定上下文，进入PAGE-00</td>
+<td>不创建账号，不虚构关系</td>
+</tr>
+<tr>
+<td>等待绑定</td>
+<td>等待家长发起有权限操作</td>
+<td>联网依赖、绑定方式TBD</td>
+</tr>
+<tr>
+<td>绑定处理中</td>
+<td>请求已发起但尚未收到有效关系确认</td>
+<td>不把扫码/请求发送称绑定成功；超时、取消契约TBD</td>
+</tr>
+<tr>
+<td>绑定成功</td>
+<td>设备收到平台认可的有效绑定状态</td>
+<td>当前儿童仍须明确；成功确认契约TBD</td>
+</tr>
+<tr>
+<td>当前儿童确认</td>
+<td>绑定有效，确认当前使用儿童；未明确不分配成绩</td>
+<td>确认方式与PAGE-00/08承载TBD，不默认人脸识别</td>
+</tr>
+<tr>
+<td>正常使用</td>
+<td>有效绑定、当前儿童明确，按各能力条件使用</td>
+<td>断网不自动解绑；隐私准入独立检查</td>
+</tr>
+<tr>
+<td>解绑状态</td>
+<td>收到经授权确认的解绑事实，按规则回未绑定</td>
+<td>家长端发起/平台管理；设备处置与离线规则TBD，不承诺本机解绑入口</td>
+</tr>
+<tr>
+<td>异常状态</td>
+<td>绑定失败、状态失效或上下文不可确认</td>
+<td>说明原因并按契约恢复；不擅自解除已有有效关系</td>
+</tr>
+</tbody>
+</table></div>
+<p>具体状态枚举、超时、恢复和跨端一致性TBD。二维码及过期重取路径为候选能力 / Pending Review / 优先级TBD，需与整体绑定方案联合评审，不默认二维码技术方案。设备只执行有效上下文，平台维护云端关系。</p>
+<h3 id="53-recording-state-model">5.3 Recording State Model 记录状态</h3>
+<p>完成运动 ≠ 已保存；已保存 ≠ 已同步。三个维度可同时存在，例如“提前结束 / 已保存 / 待同步”，不能用单一“完成”覆盖。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>业务状态</th>
+<th>事实依据</th>
+<th>页面表达与约束</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>执行</td>
+<td>准备、倒计时、运动、暂停、结束</td>
+<td>第3章执行规则与第4章有效事件</td>
+<td>PAGE-04–07；结束区分达标/提前结束，其他中断口径TBD</td>
+</tr>
+<tr>
+<td>保存</td>
+<td>待保存/保存处理中、保存失败、已保存SAVED</td>
+<td>第6.2章本地保存结果</td>
+<td>PAGE-07保存衔接；失败如实说明，恢复保证TBD</td>
+</tr>
+<tr>
+<td>同步</td>
+<td>待同步、SYNCING、失败待补传、SYNCED</td>
+<td>第6.3章平台业务确认</td>
+<td>PAGE-07/01必要提示；网络发送成功不等于业务接收</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code class="language-text">[FINISHED：真实结束]
+          |
+          v
+[生成结果 -&gt; 本地保存] --失败--&gt; [未保存 / 恢复重试，保证TBD]
+          |成功                        | 按确认规则重试
+          v                            +----&gt; 本地保存
+[SAVED：已保存] -&gt; [待同步] -&gt; [SYNCING] -&gt; [SYNCED]
+                    ^             |
+                    +-- 失败待补传+
+页面可返回首页；后台处理沿用同一记录标识。
+</code></pre>
+<p>未保存结果不按已保存记录同步；补传不重建结果。退出页面不改变成绩、来源或同步事实。重启只恢复已可恢复事实，不自动续计，恢复频率与断电保证TBD。任务接收状态与本次运动记录状态也需分别表达。</p>
+<h3 id="54-page">5.4 PAGE状态线框追溯</h3>
+<p>以下只描述业务状态与入口关系，名称不是控件或实体屏幕。全表为Pending Review，转移条件继承v0.4第11章；新增独立分支均为候选能力 / Pending Review / 优先级TBD。</p>
+<h3 id="page-00">PAGE-00</h3>
+<pre><code class="language-text">[ 未绑定 ]
+    |
+    v
+[ 等待绑定 ]
+    |
+    v
+[ 绑定处理中 ]
+    |
+    v
+[ 绑定成功 ]
+    |
+    v
+[ 当前儿童确认 ]
+    |
+    v
+[ PAGE-01 ]
+</code></pre>
+<p>失败/连接异常 → 原因与恢复状态；儿童未明确不分配成绩</p>
+<h3 id="page-01">PAGE-01</h3>
+<pre><code class="language-text">[ 首页 ]
+    |
+    v
+[ 自主运动PAGE-02 / 我的任务PAGE-03 / 设置PAGE-08 ]
+</code></pre>
+<p>PAGE-09等候选入口仅评审获准后出现；离线与隐私状态不隐瞒</p>
+<h3 id="page-02">PAGE-02</h3>
+<pre><code class="language-text">[ 选择动作 ]
+    |
+    v
+[ 确认目标 ]
+    |
+    v
+[ PAGE-04 ]
+</code></pre>
+<p>无效动作/目标不能开始；取消回PAGE-01</p>
+<h3 id="page-03">PAGE-03</h3>
+<pre><code class="language-text">[ 无任务 ↔ 任务列表 ]
+    |
+    v
+[ 任务详情 ]
+    |
+    v
+[ 确认执行 ]
+    |
+    v
+[ PAGE-04 ]
+</code></pre>
+<p>无任务不是必经阶段；有效任务到达后进入列表；返回列表/首页，实体拆分TBD</p>
+<h3 id="page-04">PAGE-04</h3>
+<pre><code class="language-text">[ 待准备 / 必要时调整站位 ]
+    |
+    v
+[ 准备满足 ]
+    |
+    v
+[ 明确开始 ]
+    |
+    v
+[ PAGE-05 ]
+</code></pre>
+<p>准备不足停留；隐私阻断不采集；取消退出并停止采集</p>
+<h3 id="page-05">PAGE-05</h3>
+<pre><code class="language-text">[ 倒计时中 ]
+    |
+    v
+[ 完成并复核条件 ]
+    |
+    v
+[ PAGE-06 ]
+</code></pre>
+<p>取消/离画回PAGE-04；隐私失效阻断</p>
+<h3 id="page-06">PAGE-06</h3>
+<pre><code class="language-text">[ 运动中 ]
+    | 仅在主动暂停或已判定异常时
+    v
+[ 暂停 ]
+    |
+    v
+[ 重新准备PAGE-04 ]
+    |
+    v
+[ 恢复运动 ]
+</code></pre>
+<p>达标/提前结束 → 结束保存；异常按原因暂停或阻断；不新增不确定成绩</p>
+<h3 id="page-07">PAGE-07</h3>
+<pre><code class="language-text">[ 结束保存 ]
+    |
+    v
+[ 已保存 ]
+    |
+    v
+[ 结果查看 ]
+    |
+    v
+[ PAGE-01 ]
+</code></pre>
+<p>保存失败 → 恢复/重试（保证TBD）；同步状态独立，不把同步失败当未完成</p>
+<h3 id="page-08">PAGE-08</h3>
+<pre><code class="language-text">[ 设置概览 ]
+    |
+    v
+[ 分组查看 ]
+    |
+    v
+[ 必要操作确认 ]
+    |
+    v
+[ 处理结果 ]
+</code></pre>
+<p>返回设置/首页；家长权限不满足不执行受限管理</p>
+<h3 id="page-09">PAGE-09</h3>
+<pre><code class="language-text">[ 候选：主动进入 ]
+    |
+    v
+[ 隐私准入 ]
+    |
+    v
+[ 辅助检测 ]
+    |
+    v
+[ 退出 ]
+</code></pre>
+<p>候选能力 / Pending Review / 优先级TBD；退出停止采集，异常与承载TBD</p>
+<p>任务执行状态、页面导航状态、绑定状态及记录同步状态分别维护业务事实；不能用“返回首页”改变已确认成绩或用“离线”推导解绑。</p>
+<p><a id="appendix-b"></a></p>
+<h2 id="b">B 异常业务依据</h2>
+<p>以下整理已有异常职责，均继承Pending Review，不新增诊断能力。提示必须表达已判定原因、当前影响和可行去向；不能确定原因时如实说明不可确认状态，不虚构具体故障。文案示意不作为冻结交互稿。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>异常 / 原因</th>
+<th>发生阶段</th>
+<th>用户影响</th>
+<th>页面 / 功能依据</th>
+<th>用户反馈</th>
+<th>处理与恢复路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>初始化或必要运行服务不可用</td>
+<td>启动/运行</td>
+<td>无法进入可用状态</td>
+<td>PAGE-00/01；1.1、1.2.2</td>
+<td>说明当前启动/服务不可用，具体原因可确认才显示</td>
+<td>约定重试/返回/必要重启→重新初始化；故障范围/时限TBD</td>
+</tr>
+<tr>
+<td>网络断开</td>
+<td>首页/任务/结果</td>
+<td>新任务获取或结果同步受影响</td>
+<td>PAGE-01/03/07/08；7.1、6.3</td>
+<td>说明离线与记录真实同步状态</td>
+<td>保留有效绑定；继续允许的缓存/本地能力；连接恢复按契约补传</td>
+</tr>
+<tr>
+<td>绑定请求失败或关系不可确认</td>
+<td>首次使用/启动</td>
+<td>无法完成有效绑定准入</td>
+<td>PAGE-00；7.2.3</td>
+<td>区分未绑定、处理中失败、关系失效；不称成功</td>
+<td>回等待/引导或既有有效关系状态；恢复契约TBD，不静默解绑</td>
+</tr>
+<tr>
+<td>当前儿童归属不明确</td>
+<td>任务/自主确认</td>
+<td>不能正确关联成绩</td>
+<td>PAGE-00/08，承载TBD；7.2.3、6.1.1</td>
+<td>说明儿童未确认，需完成归属确认</td>
+<td>按有效上下文确认后回原任务/自主准备；不默认人脸识别</td>
+</tr>
+<tr>
+<td>动作/目标/任务有效条件不满足</td>
+<td>选择/任务详情</td>
+<td>无法开始该运动</td>
+<td>PAGE-02/03；3.1.1、3.1.3、3.1.4</td>
+<td>给出已验证的不支持动作、目标无效或任务无效原因</td>
+<td>自主重新选择允许目标，任务返回列表；撤销/过期细则TBD，不静默改家长目标</td>
+</tr>
+<tr>
+<td>隐私关闭、未授权、撤权或状态未知</td>
+<td>准备/倒计时/运动</td>
+<td>无法采集或继续识别</td>
+<td>PAGE-04/05/06/08；8.1</td>
+<td>真实说明采集已阻断/停止及对应隐私原因</td>
+<td>停止采集和新增成绩；有效授权及本地条件恢复后重新准备并确认，响应时限TBD</td>
+</tr>
+<tr>
+<td>无人、身体不完整或画面不可用</td>
+<td>准备/倒计时</td>
+<td>未满足开始条件</td>
+<td>PAGE-04/05；4.1.1、3.2.2</td>
+<td>给一个主要站位/入镜原因</td>
+<td>调整后重新检查；倒计时离画回PAGE-04，不提前计数</td>
+</tr>
+<tr>
+<td>离画、遮挡或识别不可用需暂停</td>
+<td>运动中</td>
+<td>暂停新增成绩</td>
+<td>PAGE-06；4.1.3、3.3.1、5.1.2</td>
+<td>说明已判定原因及成绩保留</td>
+<td>暂停→调整→选择继续→PAGE-04重新准入；可按原规则结束</td>
+</tr>
+<tr>
+<td>单个动作事件不完整/不确定</td>
+<td>运动中</td>
+<td>该事件不计</td>
+<td>PAGE-06；4.1.2、5.1.2</td>
+<td>必要时说明当前无法确认，不作确定纠错</td>
+<td>不计该事件，不必一律暂停；若判定识别异常，按暂停分支处理；阈值TBD</td>
+</tr>
+<tr>
+<td>本地保存失败</td>
+<td>结束保存</td>
+<td>结果尚未可靠记录</td>
+<td>PAGE-07；6.2.3、5.2.2</td>
+<td>说明尚未保存，不能称已记录</td>
+<td>保留可恢复结果供重试；成功后展示已保存，失败恢复保证/退出规则TBD</td>
+</tr>
+<tr>
+<td>上传失败或缺少业务接收确认</td>
+<td>同步</td>
+<td>家长端尚未确认收到</td>
+<td>PAGE-07/01；6.3、5.2.2</td>
+<td>保持已保存，说明待同步/失败待补传</td>
+<td>按契约重试，沿用原记录标识；平台去重，不阻断允许本地运动</td>
+</tr>
+<tr>
+<td>重启/断电后恢复范围不足</td>
+<td>日常启动</td>
+<td>本次进度或记录可能不完整</td>
+<td>PAGE-01/06/07，承载TBD；1.1.2、6.2.2</td>
+<td>仅说明可恢复真实成绩和不能确认部分</td>
+<td>恢复已保存事实，不自动续计或伪造完成；不可恢复处理TBD</td>
+</tr>
+<tr>
+<td>家长权限不满足/不可确认</td>
+<td>受限设备管理</td>
+<td>不能执行该管理操作</td>
+<td>PAGE-08；7.2.3、8.2.2</td>
+<td>说明需有效家长权限，未执行</td>
+<td>保持原有效状态，按责任端重新完成权限确认；入口及方式TBD</td>
+</tr>
+<tr>
+<td>候选绑定二维码凭据失效</td>
+<td>仅二维码获准后</td>
+<td>无法继续该绑定路径</td>
+<td>PAGE-00；候选能力 / Pending Review / 优先级TBD</td>
+<td>区分凭据过期与已有关系失败</td>
+<td>按获准方案重取或替代路径；当前不承诺此技术方案</td>
+</tr>
+</tbody>
+</table></div>
+<p>异常不得触发未经授权采集、清零已确认成绩、虚假达标、重复结果或错误解绑。PAGE-09若获准必须补齐独立场景的异常与恢复规则，当前仅为候选能力 / Pending Review / 优先级TBD。</p>
+<p><a id="appendix-c"></a></p>
+<h2 id="c">C 原页面约束</h2>
+<h3 id="page-00_1">PAGE-00 绑定与首次使用</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>页面目标</td>
+<td>帮助家长判断设备连接、绑定及儿童归属是否满足使用条件</td>
+</tr>
+<tr>
+<td>用户进入原因</td>
+<td>首次未绑定、绑定失效或需要完成有效儿童确认</td>
+</tr>
+<tr>
+<td>页面负责能力</td>
+<td>呈现绑定/连接状态、执行平台认可的绑定上下文与当前儿童确认；失败说明真实原因</td>
+</tr>
+<tr>
+<td>关联功能编号</td>
+<td>7.1.1、7.1.2、7.2.3；2.2.1、2.2.2支撑提示与操作确认</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>Pending Review，继承v0.4；未绑定、等待绑定、绑定处理中、绑定成功、儿童待确认、失败/异常</td>
+</tr>
+<tr>
+<td>待确认项</td>
+<td>绑定契约、联网顺序、配网责任端、儿童确认方式TBD；二维码与专门绑定帮助为候选能力 / Pending Review / 优先级TBD</td>
+</tr>
+</tbody>
+</table></div>
+<p>设备不创建账号，云端关系由平台管理，家长端发起有权限的绑定。扫码或发送请求不等于成功，收到平台有效关系后才称绑定成功。失败不静默解除已有有效关系。</p>
+<h3 id="page-01_1">PAGE-01 首页</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>页面目标</td>
+<td>让儿童理解机器人当前是否可用并快速开始运动</td>
+</tr>
+<tr>
+<td>用户进入原因</td>
+<td>日常启动完成、退出运动或返回主入口</td>
+</tr>
+<tr>
+<td>页面负责能力</td>
+<td>固定角色状态回应；自主运动、我的任务、设置入口；必要设备、网络与隐私状态</td>
+</tr>
+<tr>
+<td>关联功能编号</td>
+<td>2.1.1、2.1.2、2.2.1、7.1.2、8.1.2；5.2.2提供已有记录同步提示</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>Pending Review；可用、离线、隐私阻断、设备异常等业务状态；待同步是记录状态</td>
+</tr>
+<tr>
+<td>待确认项</td>
+<td>最小角色表情与触发深度TBD；今日任务数/完成摘要与PAGE-09入口均为候选能力 / Pending Review / 优先级TBD</td>
+</tr>
+</tbody>
+</table></div>
+<p>角色回应依附已有状态，不增加开放对话或独立陪伴系统。必要状态应让用户理解原因与可行去向，呈现方式留给UI设计。</p>
+<h3 id="page-02_1">PAGE-02 自主运动入口</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>页面目标</td>
+<td>形成可执行的自主动作与目标</td>
+</tr>
+<tr>
+<td>用户进入原因</td>
+<td>从首页选择快速运动/自主运动</td>
+</tr>
+<tr>
+<td>页面负责能力</td>
+<td>选择支持动作、确认允许次数目标，标记自主来源；交给PAGE-04执行</td>
+</tr>
+<tr>
+<td>关联功能编号</td>
+<td>2.1.1、3.1.4；2.2.2确认操作</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>Pending Review；待选动作、待确认目标、目标已确认、不可执行、取消</td>
+</tr>
+<tr>
+<td>待确认项</td>
+<td>目标范围、输入方式TBD；MVP演示仅三动作已确认；整体七动作追踪保留，产品范围衔接仍待评审</td>
+</tr>
+</tbody>
+</table></div>
+<p>当前动作提议为开合跳、深蹲起、高抬腿。此页不计数、不保存另一套成绩，不把自主运动当作家长任务。</p>
+<h3 id="page-03_1">PAGE-03 我的任务</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>页面目标</td>
+<td>理解已接收家长任务并选择执行</td>
+</tr>
+<tr>
+<td>用户进入原因</td>
+<td>从首页查看任务或响应收到任务提示</td>
+</tr>
+<tr>
+<td>页面负责能力</td>
+<td>无任务状态、任务列表、任务详情、动作/目标/来源与执行状态；确认有效任务后交给PAGE-04</td>
+</tr>
+<tr>
+<td>关联功能编号</td>
+<td>3.1.3、3.1.4；3.1.1、3.1.2提供任务有效性与真实接收事实</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>Pending Review；无任务、列表、详情、执行确认；任务事实区分未开始、进行中、达标或提前结束</td>
+</tr>
+<tr>
+<td>待确认项</td>
+<td>列表与详情实体页面是否拆分TBD；任务名称/时间的必要性、撤销/过期/重复规则TBD</td>
+</tr>
+</tbody>
+</table></div>
+<p>收到任务不自动开启摄像头，不跳过儿童开始确认，不允许静默改家长目标。同步状态与执行状态独立。</p>
+<h3 id="page-04_1">PAGE-04 运动准备</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>页面目标</td>
+<td>让儿童理解动作并满足开始条件</td>
+</tr>
+<tr>
+<td>用户进入原因</td>
+<td>自主目标确认、任务执行确认或暂停后选择继续</td>
+</tr>
+<tr>
+<td>页面负责能力</td>
+<td>动作/安全说明、动作与目标确认、隐私准入检查、依据人体与画面结果进行站位引导</td>
+</tr>
+<tr>
+<td>关联功能编号</td>
+<td>3.2.1、3.2.2、4.1.1、8.1.1；3.3.2用于恢复</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>Pending Review；待准备、调整站位、准备满足、隐私阻断、取消/恢复准备</td>
+</tr>
+<tr>
+<td>待确认项</td>
+<td>准备完成标准、说明形式与跳过规则、多人处理TBD；视频预览/骨架显示为候选能力 / Pending Review / 优先级TBD</td>
+</tr>
+</tbody>
+</table></div>
+<p>隐私不允许时不采集，不累计成绩。独立动作辅助检测不能由此页能力自动推导。</p>
+<h3 id="page-05_1">PAGE-05 倒计时</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>页面目标</td>
+<td>给儿童明确开始时机</td>
+</tr>
+<tr>
+<td>用户进入原因</td>
+<td>儿童明确开始且准备条件满足</td>
+</tr>
+<tr>
+<td>页面负责能力</td>
+<td>倒计时及取消；结束复核准备、隐私和可用条件后进入PAGE-06</td>
+</tr>
+<tr>
+<td>关联功能编号</td>
+<td>3.2.3；4.1.1、8.1.1提供准入条件</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>Pending Review；倒计时中、取消、条件失效、完成</td>
+</tr>
+<tr>
+<td>待确认项</td>
+<td>时长、输入方式、恢复运动是否再次倒计时TBD</td>
+</tr>
+</tbody>
+</table></div>
+<p>倒计时不计数；离画回PAGE-04，隐私失效停止采集并阻断开始。</p>
+<h3 id="page-06_1">PAGE-06 运动中</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>页面目标</td>
+<td>完成运动并获得可信进度与适度反馈</td>
+</tr>
+<tr>
+<td>用户进入原因</td>
+<td>倒计时通过，或按确认规则恢复运动</td>
+</tr>
+<tr>
+<td>页面负责能力</td>
+<td>展示有效次数/目标与识别状态、短提示；暂停保留成绩、继续回准备、达标或提前结束</td>
+</tr>
+<tr>
+<td>关联功能编号</td>
+<td>3.3.1–3.3.3、4.1.1–4.1.3、4.2.1–4.2.3、5.1.1–5.1.2、8.1.1–8.1.2</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>Pending Review；运动中、暂停、识别异常、隐私阻断、结束</td>
+</tr>
+<tr>
+<td>待确认项</td>
+<td>有效动作规则、暂停超时、恢复确认、结束输入TBD</td>
+</tr>
+</tbody>
+</table></div>
+<p>暂停是本PAGE的逻辑状态，实体承载TBD；暂停不新增或清零成绩。恢复重新检查隐私和准备；不确定事件不计，低置信度不作确定纠错。结束停止采集并交给记录模块生成保存结果。</p>
+<h3 id="page-07_1">PAGE-07 结果</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>页面目标</td>
+<td>理解本次真实成绩及记录处理结果</td>
+</tr>
+<tr>
+<td>用户进入原因</td>
+<td>达标、主动提前结束或按确认规则结束后</td>
+</tr>
+<tr>
+<td>页面负责能力</td>
+<td>呈现动作、目标、实际次数、用时、达标/提前结束、适度完成鼓励及保存/同步状态</td>
+</tr>
+<tr>
+<td>关联功能编号</td>
+<td>5.1.3、5.2.1、5.2.2；6.1.1–6.3.2提供记录事实与恢复处理</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>Pending Review；结束保存、保存失败、已保存结果；待同步/同步成功/失败独立变化</td>
+</tr>
+<tr>
+<td>待确认项</td>
+<td>用时是否含暂停、保存失败恢复保证、基础运动星/PB深度TBD；不扩展成长体系</td>
+</tr>
+</tbody>
+</table></div>
+<p>“结束保存/失败”是衔接状态，其实体承载TBD；保存前不能称已记录。正常结果展示以真实已保存结果为依据；提前结束不能称达标。补传沿用原记录标识，不重复生成结果或奖励。</p>
+<h3 id="page-08_1">PAGE-08 设置</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>页面目标</td>
+<td>让家长或使用者获知设备状态并执行必要管理</td>
+</tr>
+<tr>
+<td>用户进入原因</td>
+<td>从首页查看状态、处理连接/身份/隐私或必要重启</td>
+</tr>
+<tr>
+<td>页面负责能力</td>
+<td>按下表组织已有状态与管理职责；不承接账号管理</td>
+</tr>
+<tr>
+<td>关联功能编号</td>
+<td>1.2.3、1.2.5、7.1.1–7.1.2、7.2.3、8.1.1–8.1.2；8.2.2–8.2.3仅按既有责任提供支撑</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>Pending Review；设置概览、分组查看、操作确认、处理结果/异常</td>
+</tr>
+<tr>
+<td>待确认项</td>
+<td>分组实体承载、家长确认、配网入口、数据删除和提醒设置责任端TBD；候选项见下表</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>一级分组</th>
+<th>已有职责 / 内容</th>
+<th>未决范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>设备状态</td>
+<td>软件版本1.2.3、绑定状态7.2.3</td>
+<td>状态表达TBD，不据此新增诊断功能</td>
+</tr>
+<tr>
+<td>网络连接</td>
+<td>网络状态7.1.2、必要联网配置7.1.1</td>
+<td>配网入口与责任端TBD；更换网络/专门检测入口为候选能力 / Pending Review / 优先级TBD</td>
+</tr>
+<tr>
+<td>当前儿童</td>
+<td>当前儿童确认7.2.3</td>
+<td>多儿童切换流程TBD；设备不负责账号管理，不默认人脸识别</td>
+</tr>
+<tr>
+<td>隐私控制</td>
+<td>真实摄像头状态、授权允许/阻断状态、停止采集8.1</td>
+<td>本地开关形式TBD；授权由家长端/平台管理；8.2.2本地删除执行不等于已确定设备端删除入口</td>
+</tr>
+<tr>
+<td>系统设置</td>
+<td>必要重启1.2.5</td>
+<td>重启触发与确认TBD；恢复出厂为候选能力 / Pending Review / 优先级TBD</td>
+</tr>
+<tr>
+<td>关于设备</td>
+<td>基础设备说明的候选归类</td>
+<td>设备名称/SN与说明内容为候选能力 / Pending Review / 优先级TBD；可与设备状态合并，TBD，不重复新增版本能力</td>
+</tr>
+</tbody>
+</table></div>
+<p>声音控制不作为默认一级分组或MVP入口：音量、提示音开关均为候选能力 / Pending Review / 优先级TBD。8.2.3已有提醒时段/频率约束继续有效，但不等于设备端声音设置获准。软件更新仅保留v0.4第9章追踪；检查更新入口为候选能力 / Pending Review / 优先级TBD。</p>
+<p>家庭身份变更、解绑、授权及删除需有效家长权限，确认方式TBD。恢复出厂不等于云端解绑或账号注销；本地数据清理与平台关系变更应分别确认。</p>
+<h3 id="page-09_1">PAGE-09 候选动作辅助检测</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>页面目标</td>
+<td>独立于运动任务的辅助检测用途待评审，不预设分析结果</td>
+</tr>
+<tr>
+<td>用户进入原因</td>
+<td>仅在候选能力获准后主动进入；当前无默认入口</td>
+</tr>
+<tr>
+<td>页面负责能力</td>
+<td>候选的人体在场、画面可用性与站位辅助；独立范围尚未确定</td>
+</tr>
+<tr>
+<td>关联功能编号</td>
+<td>4.1.1与3.2.2仅为可复用依据，8.1为隐私约束；无已批准独立功能号</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>候选能力 / Pending Review / 优先级TBD；以下状态仅供评审</td>
+</tr>
+<tr>
+<td>待确认项</td>
+<td>是否纳入、独立采集意图、授权、开始/退出规则、提示范围TBD；骨架显示与动作辅助提示均为候选能力 / Pending Review / 优先级TBD</td>
+</tr>
+</tbody>
+</table></div>
+<p>4.1.1“人体与画面可用性检测”和3.2.2“入镜准备引导”已在运动流程中映射，不等于独立姿态分析。名称不暗示医疗、健康评分、体态或身材分析。若获准，采集仍须满足隐私准入，退出停止采集，原始帧不持久化；不得扩展未验证纠正能力。</p>
+<p><a id="appendix-d"></a></p>
+<h2 id="d">D 原功能映射</h2>
+<p>功能名称沿用v0.4。映射表示页面消费事实或触发已有行为，不把后台功能变成独立页面。范围级编号用于索引，FR应下钻到稳定功能点。除PAGE-09可复用依据外，以下均继承v0.4的Pending Review与原优先级。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>功能编号</th>
+<th>功能名称</th>
+<th>页面 / 关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.1.1、1.1.2</td>
+<td>开机与初始化；恢复启动状态</td>
+<td>PAGE-00/01启动路由支撑，无新增启动PAGE</td>
+</tr>
+<tr>
+<td>1.2.1、1.2.2</td>
+<td>设备运行状态管理；设备故障处理</td>
+<td>PAGE-00–08状态与异常支撑</td>
+</tr>
+<tr>
+<td>1.2.3</td>
+<td>查看设备软件版本</td>
+<td>PAGE-08设备状态</td>
+</tr>
+<tr>
+<td>1.2.4</td>
+<td>故障信息记录</td>
+<td>后台记录支撑，无独立页面承诺</td>
+</tr>
+<tr>
+<td>1.2.5</td>
+<td>设备重启</td>
+<td>PAGE-08系统设置</td>
+</tr>
+<tr>
+<td>2.1.1</td>
+<td>运动入口</td>
+<td>PAGE-01/02/03</td>
+</tr>
+<tr>
+<td>2.1.2</td>
+<td>显示角色状态表情</td>
+<td>PAGE-01；PAGE-04–07按已有运动事件回应，承载TBD</td>
+</tr>
+<tr>
+<td>2.2.1、2.2.2</td>
+<td>设备状态提示；操作接收与确认</td>
+<td>PAGE-00–08通用支撑</td>
+</tr>
+<tr>
+<td>3.1.1、3.1.2</td>
+<td>接收并检查运动任务；反馈任务接收结果</td>
+<td>PAGE-03消费后台接收事实，不新增接收页面</td>
+</tr>
+<tr>
+<td>3.1.3</td>
+<td>展示任务内容与执行状态</td>
+<td>PAGE-03</td>
+</tr>
+<tr>
+<td>3.1.4</td>
+<td>动作与目标确认</td>
+<td>PAGE-02/03</td>
+</tr>
+<tr>
+<td>3.2.1</td>
+<td>动作说明</td>
+<td>PAGE-04</td>
+</tr>
+<tr>
+<td>3.2.2</td>
+<td>入镜准备引导</td>
+<td>PAGE-04；PAGE-09仅候选复用依据</td>
+</tr>
+<tr>
+<td>3.2.3</td>
+<td>开始确认与倒计时</td>
+<td>PAGE-04/05</td>
+</tr>
+<tr>
+<td>3.3.1、3.3.2</td>
+<td>暂停与成绩保留；恢复运动</td>
+<td>PAGE-06/04；再次经过PAGE-05与否TBD</td>
+</tr>
+<tr>
+<td>3.3.3</td>
+<td>达标与提前结束</td>
+<td>PAGE-06 → PAGE-07</td>
+</tr>
+<tr>
+<td>4.1</td>
+<td>识别状态与有效计数</td>
+<td>PAGE-04/05/06；下钻4.1.1–4.1.3</td>
+</tr>
+<tr>
+<td>4.1.1</td>
+<td>人体与画面可用性检测</td>
+<td>PAGE-04/05/06；PAGE-09仅候选复用依据</td>
+</tr>
+<tr>
+<td>4.1.2、4.1.3</td>
+<td>有效动作计数；判定运动识别异常</td>
+<td>PAGE-06，异常准备原因由PAGE-04承接</td>
+</tr>
+<tr>
+<td>4.2.1–4.2.3</td>
+<td>开合跳、深蹲起、高抬腿动作判定</td>
+<td>PAGE-06计数依据，不新增动作范围</td>
+</tr>
+<tr>
+<td>5.1.1、5.1.2</td>
+<td>次数与进度反馈；动作反馈与调整提示</td>
+<td>PAGE-06</td>
+</tr>
+<tr>
+<td>5.1.3</td>
+<td>完成鼓励</td>
+<td>PAGE-07</td>
+</tr>
+<tr>
+<td>5.2</td>
+<td>结果查看与保存提示</td>
+<td>PAGE-07；5.2.2必要同步状态可在PAGE-01提示</td>
+</tr>
+<tr>
+<td>6.1.1、6.1.2</td>
+<td>记录创建与归属；生成运动结果记录</td>
+<td>PAGE-02/03/06/07共用事实支撑，无重复记录系统</td>
+</tr>
+<tr>
+<td>6.2.1–6.2.3</td>
+<td>本地保存；已保存记录恢复；保存失败处理</td>
+<td>PAGE-01/03/06/07消费保存恢复事实；后台处理</td>
+</tr>
+<tr>
+<td>6.3.1、6.3.2</td>
+<td>上传结果并更新同步状态；补传失败结果并防重复</td>
+<td>PAGE-07/01消费独立同步状态，后台处理</td>
+</tr>
+<tr>
+<td>7.1.1、7.1.2</td>
+<td>网络连接管理；联网状态提示</td>
+<td>PAGE-00/08；PAGE-01必要状态提示</td>
+</tr>
+<tr>
+<td>7.2.1</td>
+<td>设备状态同步</td>
+<td>后台同步支撑，非独立页面</td>
+</tr>
+<tr>
+<td>7.2.3</td>
+<td>绑定状态与当前儿童确认</td>
+<td>PAGE-00/08；PAGE-01使用有效上下文</td>
+</tr>
+<tr>
+<td>8.1</td>
+<td>摄像头使用控制</td>
+<td>PAGE-08；PAGE-04/05/06准入与关闭约束</td>
+</tr>
+<tr>
+<td>8.1.1、8.1.2</td>
+<td>检查授权并阻断不允许的采集；摄像头状态提示与关闭</td>
+<td>PAGE-04/05/06/08，PAGE-01必要提示；PAGE-09获准后亦须遵守</td>
+</tr>
+<tr>
+<td>8.2.2</td>
+<td>处理设备数据权限与删除请求</td>
+<td>后台执行与回执；PAGE-08设备端入口TBD</td>
+</tr>
+<tr>
+<td>8.2.3</td>
+<td>提醒时段与频率控制</td>
+<td>PAGE-01/06/07等提示输出约束；PAGE-08设置入口TBD，不等于声音控制</td>
+</tr>
+<tr>
+<td>8.3（约束）</td>
+<td>贯穿全部功能的约束</td>
+<td>全部PAGE；不是新功能点</td>
+</tr>
+<tr>
+<td>无已批准独立编号</td>
+<td>候选动作辅助检测</td>
+<td>PAGE-09：候选能力 / Pending Review / 优先级TBD</td>
+</tr>
+</tbody>
+</table></div>
+<p>历史7.2.2已合并6.3.1、8.2.1已移为8.3约束，保持Deprecated，不重复实现或新建PAGE。OTA等第9章追踪不因设置分组进入MVP。</p>
+<p><a id="appendix-e"></a></p>
+<h2 id="e">E 完整评审问题</h2>
+<p>点击问题可展开背景、待确认内容、影响与所需输入。建议参与方不等于已指派Owner；全部结论仍待评审，描述不批准新能力。</p>
+<details>
+<summary>UE-OQ-01 · 绑定方案、联网依赖、成功确认及失败恢复；是否采用二维码</summary>
+
+关联范围：PAGE-00、绑定模型。状态：TBD。
+
+**问题背景**：首次使用需要获得有效家庭绑定与儿童上下文，但现稿没有选定绑定技术方案；扫码、联网成功与绑定成功是不同事实。
+
+**具体待确认内容**：明确联网与绑定的先后依赖、配网责任端、绑定凭据来源、有效关系确认条件；若采用二维码，确认有效期、失效恢复与替代路径；定义失败、取消、超时和绑定失效后设备回到哪个状态。二维码仍是候选，不能先当默认方案。
+
+**影响与边界**：影响PAGE-00状态转移及首次启动准入。契约未明确时，UI可以探索引导，但FR不能将某一种绑定方式或超时值写成已批准要求。
+
+**评审所需输入 / 建议参与方**：建议产品、设备端、家长端与平台共同提供绑定链路及失败案例；具体Owner待指定。需要正常、断网、凭据失效与已有绑定关系的业务确认依据。
+
+**应形成的结论**：记录绑定方案、跨端职责、成功依据、异常去向和是否采用二维码；未决项分别登记TBD，不以一次“绑定方案通过”覆盖所有分支。
+
+</details>
+
+<details>
+<summary>UE-OQ-02 · 列表/详情及设置分组是否拆分；操作输入和屏幕承载</summary>
+
+关联范围：PAGE-00–08。状态：TBD；不决定硬件。
+
+**问题背景**：PAGE号定义逻辑职责，并没有确定显示硬件、输入方式或实际页面数量。任务列表/详情和设置分组可能合并，也可能分步承载。
+
+**具体待确认内容**：确认哪些信息需要同时理解、哪些需要逐步确认；任务列表与详情是否拆分，设置分组如何进入/返回；在已选硬件条件下，选择、开始、暂停、继续和结束操作能否完成。触控、按键或其他方式仍TBD。
+
+**影响与边界**：影响PAGE-00–08承载与导航。不能由逻辑页面数量推导实体屏幕数量，也不能以信息架构倒推已经选定触控硬件。
+
+**评审所需输入 / 建议参与方**：建议产品、UX、硬件与设备研发提供实际显示/输入约束和儿童操作场景，评审远距可理解性与关键操作可达性；验证方法及标准TBD。
+
+**应形成的结论**：形成逻辑PAGE到实体承载的对应关系，记录输入方式、返回路径及硬件约束；PAGE编号保持稳定。
+
+</details>
+
+<details>
+<summary>UE-OQ-03 · 自主目标范围与三/七动作关系</summary>
+
+关联范围：PAGE-02/06、v0.4 OQ-01。状态：TBD。
+
+**问题背景**：v0.4将开合跳、深蹲起、高抬腿列为当前提议，整体PRD存在七动作口径；自主次数目标的允许范围也尚未确认。
+
+**具体待确认内容**：MVP演示三动作已确认；保留整体七动作追踪，不在本次删除其他动作；逐动作确认允许目标范围、默认值是否需要及无效目标处理。高抬腿单侧/双侧计数口径需与目标和结果一致，不在本稿填入数值。
+
+**影响与边界**：影响PAGE-02可选动作和目标、PAGE-06计数理解及后续FR验收；范围未确认不能把七动作直接加入，也不能宣称其他动作已删除。
+
+**评审所需输入 / 建议参与方**：建议产品负责人结合算法与体育专业的有效规则证据确认，引用v0.4 OQ-01及OQ-03；若改变PRD范围，需另行旧口径—新证据—建议修改变更单。
+
+**应形成的结论**：分别记录动作清单、产品/演示适用范围、每动作目标与计数单位及批准依据；保留未决动作的追踪去向。
+
+</details>
+
+<details>
+<summary>UE-OQ-04 · 任务撤销/过期/重复、多儿童及归属确认</summary>
+
+关联范围：PAGE-00/03/08。状态：TBD。
+
+**问题背景**：任务接收、执行、撤销与同步各自有事实来源；多儿童时还需保证任务及成绩归属于正确儿童。当前尚未定义全部有效性规则。
+
+**具体待确认内容**：确认撤销/过期在未开始、准备和运动中分别如何处理；重复投递如何识别并维持同一接收结果；当前儿童如何确认、多儿童切换何时允许，已有任务和记录如何保持归属。不得默认人脸识别或让儿童修改家长目标。
+
+**影响与边界**：影响PAGE-00/03/08状态与任务执行入口，并影响记录归属。规则缺失可能使已失效任务仍可开始或成绩被分配给错误儿童。
+
+**评审所需输入 / 建议参与方**：建议设备端与平台提供任务标识、有效条件、撤销事实及当前儿童上下文契约，由产品确认业务规则；Owner与具体契约TBD。
+
+**应形成的结论**：按任务阶段列出有效/无效处理和身份切换条件，注明跨端事实来源；执行状态与同步状态分别记录。
+
+</details>
+
+<details>
+<summary>UE-OQ-05 · 准备条件、说明跳过、暂停超时及恢复倒计时</summary>
+
+关联范围：PAGE-04/05/06。状态：TBD。
+
+**问题背景**：准备、开始与恢复共用准入检查，但准备满足标准、说明跳过规则及暂停恢复细节未冻结。
+
+**具体待确认内容**：确认身体完整、画面可用与多人情况怎样形成可开始状态；动作与安全说明是否允许跳过及适用条件；主动暂停、离画和识别异常的恢复条件；暂停超时是否结束，继续前是否再次倒计时。各阈值与时长TBD。
+
+**影响与边界**：影响PAGE-04/05/06转移和取消/恢复分支。恢复始终重新检查隐私与准备，保留成绩，不在未满足条件时继续计数。
+
+**评审所需输入 / 建议参与方**：建议产品、算法、设备研发与体育专业提供准备条件及异常证据；硬件提供隐私状态可用性。需覆盖首次开始和暂停后恢复两种情形。
+
+**应形成的结论**：输出准备准入、可跳过规则、暂停原因—恢复条件、超时及倒计时适用关系；未确认参数不进入验收值。
+
+</details>
+
+<details>
+<summary>UE-OQ-06 · 保存失败承载、断电恢复、用时及同步确认契约</summary>
+
+关联范围：PAGE-07、记录模型。状态：TBD。
+
+**问题背景**：运动结束、本地保存和平台接收是三个独立事实。现稿已要求真实成绩，但保存失败、断电恢复和用时口径仍待确认。
+
+**具体待确认内容**：确认保存中/失败信息由哪个逻辑状态承载、如何重试及可恢复保证；断电后可恢复哪些已确认事实；用时是否包含暂停；平台业务确认与发送完成如何区分，补传与冲突怎样沿用原记录标识。
+
+**影响与边界**：影响PAGE-07结果可信度、恢复路由与家长端一致性；保存失败不得称已记录，发送完成不得称家长已收到，同步失败不得改写达标事实。
+
+**评审所需输入 / 建议参与方**：建议设备端和平台提供记录、保存、恢复与接收确认契约，由产品确认时间定义；存储保留范围、失败保证和冲突策略TBD。
+
+**应形成的结论**：分别记录结束、保存、同步状态及责任端，明确恢复范围和用时定义；保存失败的实体承载可保留TBD但不能丢失分支。
+
+</details>
+
+<details>
+<summary>UE-OQ-07 · 角色表情与基础完成鼓励深度</summary>
+
+关联范围：PAGE-01/07。状态：Pending Review；不改P0。
+
+**问题背景**：角色状态表情与完成鼓励已有功能依据及P0口径，但最小资源、触发事件和运动星/PB深度尚未明确。
+
+**具体待确认内容**：确认待机、准备、暂停、达标及提前结束需要哪些固定回应；表情与短提示的触发、频率及一致性；基础运动星/PB是否属于本轮最小范围。不能由此增加成长体系、开放聊天或新AI陪伴能力。
+
+**影响与边界**：影响PAGE-01/07及运动状态回应；当前P0保持，不因视觉表达丰富程度自行升降级。未达标结果不能通过鼓励表达成达标。
+
+**评审所需输入 / 建议参与方**：建议产品与UX结合v0.4 OQ-05提供最小事件—回应清单和必要性依据；涉及运动内容由相关专业审核，具体OwnerTBD。
+
+**应形成的结论**：记录最小回应范围、适用状态和后置资源，运动星/PB另列结论；保持事实反馈与表现深度的区分。
+
+</details>
+
+<details>
+<summary>UE-OQ-08 · 独立动作辅助检测是否纳入及其授权/退出边界</summary>
+
+关联范围：PAGE-09。状态：候选能力 / Pending Review / 优先级TBD。
+
+**问题背景**：运动准备中的人体/画面检测与入镜引导已经映射，但没有证据说明脱离运动任务的独立检测属于MVP。PAGE-09仅为候选。
+
+**具体待确认内容**：先确认独立用户任务及必要性，再决定是否纳入；若纳入，明确主动进入、采集授权、允许输出、异常、退出停止采集与是否需要动作选择。骨架显示和辅助提示分别评审，不默认姿态评分、体态分析或医疗判断。
+
+**影响与边界**：影响PAGE-09及首页候选入口。未批准前不能列为默认入口、承诺独立功能号或用已有4.1.1/3.2.2证明纳入。
+
+**评审所需输入 / 建议参与方**：建议产品、UX、算法和设备研发提供用途、复用边界及隐私检查；OwnerTBD。独立场景需自己的范围依据，不以技术可复用代替产品批准。
+
+**应形成的结论**：记录纳入/延期/不纳入的评审结论、理由和条件；若纳入需同步功能大纲与FR。当前保持候选能力 / Pending Review / 优先级TBD。
+
+</details>
+
+<details>
+<summary>UE-OQ-09 · 首页摘要、绑定帮助、预览/骨架、关于信息、声音、出厂恢复、更新等是否需要</summary>
+
+关联范围：相关候选分支。状态：候选能力 / Pending Review / 优先级TBD。
+
+**问题背景**：首页摘要、专门绑定帮助、预览/骨架、关于信息、声音、恢复出厂和更新入口均为未批准的呈现或能力提议，不能整组视为必需。
+
+**具体待确认内容**：逐项确认用户问题、必要性和已有功能依据：首页摘要的聚合口径，绑定帮助的内容责任，预览/骨架的隐私及可理解性，设备名称/SN的用途，声音与必要提醒的关系，恢复出厂的本地清理/云端解绑区别，以及OTA是否纳入。
+
+**影响与边界**：影响相关候选分支、资源及跨端契约；不以设置分组或页面示意把候选加入MVP，关于设备也不自动新增诊断工具。
+
+**评审所需输入 / 建议参与方**：建议各候选由产品牵头分别收集UX、硬件、设备端和平台证据，必要时引用v0.4第9章；责任人与优先级均TBD。
+
+**应形成的结论**：每项单独登记纳入/延期/不纳入、功能依据、影响与责任人，不能一条“设置通过”批量批准。全部保持候选能力 / Pending Review / 优先级TBD直至有效评审。
+
+</details>
+
+<details>
+<summary>UE-OQ-10 · 配网、授权、删除、提醒设置及家长确认的责任端与入口</summary>
+
+关联范围：PAGE-00/08。状态：TBD；保持v0.4跨端责任。
+
+**问题背景**：设备执行隐私与身份上下文，家长端负责有权限的管理，平台维护云端关系；已有责任不等于所有设置都应由设备发起。
+
+**具体待确认内容**：确认配网、授权、数据删除与提醒设置由哪端发起，设备负责哪些状态与回执；家长确认如何生效，离线或权限不明时如何处理；本地停止采集不能被远程任务绕过，设备删除不等于账号注销或云端全量删除。
+
+**影响与边界**：影响PAGE-00/08的可执行操作与跨端提示。范围未确认时仅保留必要状态及TBD入口，不能让儿童无授权完成受限管理。
+
+**评审所需输入 / 建议参与方**：建议产品、设备端、家长端与平台共同提供发起—校验—执行—回执职责链及离线处理依据，沿用v0.4第12章；具体人员TBD。
+
+**应形成的结论**：逐操作记录责任端、权限依据、设备入口是否需要、失败回执与数据处置边界；不由本稿更改账号或平台职责。
+
+</details>
+
+<details>
+<summary>UE-OQ-11 · 正式评审Owner、批准记录与后续FR引用版本</summary>
+
+关联范围：全文。状态：TBD。
+
+**问题背景**：文档处于Review，现有PAGE与功能映射可支持FR草拟，但尚缺具体评审Owner、批准证据和未决项处理记录。
+
+**具体待确认内容**：指定每项问题的具体责任人和审核人；确认FR引用的功能大纲/UE版本、可冻结范围、延期条件与未决事项；确定结论如何回写和追踪，不能将文档自检或AI产出当作人工签核。
+
+**影响与边界**：影响全文追溯及后续FR验收依据。Pending Review/TBD不能被直接转成确定的实现或验收要求。
+
+**评审所需输入 / 建议参与方**：由项目Owner组织产品、UX、研发、算法、硬件及平台评审，具体文档Owner与Reviewer待指定；需要明确评审记录而非推断批准。
+
+**应形成的结论**：每项结论记录确认人、日期、证据、影响功能/PAGE、状态及延期理由；批准后按版本规范更新，未经批准继续Review。
+
+</details>
+
+<p><a id="appendix-f"></a></p>
+<h2 id="f">F 原设计交接依据</h2>
+<p>“必须表达”指既有业务信息与状态需可理解，不要求同时常驻、指定控件或新增媒体资源。以下交接仍为Pending Review；UI Flow可细化方案但不能批准候选能力。</p>
+<h3 id="81-page">8.1 逐PAGE设计输入</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>PAGE</th>
+<th>设计必须表达</th>
+<th>状态 / 操作结果必须区分</th>
+<th>禁止默认纳入 / 待确认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PAGE-00</td>
+<td>当前连接与绑定阶段、需家长完成的下一步、有效儿童归属</td>
+<td>连接成功/绑定成功/儿童明确；处理中/失败/异常</td>
+<td>设备创建账号、二维码默认方案；二维码/帮助仍候选</td>
+</tr>
+<tr>
+<td>PAGE-01</td>
+<td>机器人固定状态回应、自主/任务/设置入口、必要设备可用性</td>
+<td>离线、隐私阻断及待同步记录的不同原因</td>
+<td>仅有表情而缺入口；今日摘要/独立检测默认入口；开放聊天</td>
+</tr>
+<tr>
+<td>PAGE-02</td>
+<td>支持动作、待确认自主目标及来源</td>
+<td>未选择/已确认/不可执行/取消</td>
+<td>不支持动作可开练、任意目标；不建立第二套流程</td>
+</tr>
+<tr>
+<td>PAGE-03</td>
+<td>无任务、任务动作/目标/来源与执行状态，列表/详情逻辑</td>
+<td>接收事实/执行状态/同步状态，能否确认执行</td>
+<td>静默改家长目标、自动开采集；页面拆分TBD</td>
+</tr>
+<tr>
+<td>PAGE-04</td>
+<td>当前动作与目标、经审核说明、准备原因、隐私允许/阻断</td>
+<td>待准备/必要调整/准备满足/开始意愿</td>
+<td>未满足直接开始；视频预览/骨架仍候选</td>
+</tr>
+<tr>
+<td>PAGE-05</td>
+<td>开始时机、取消或条件失效的结果</td>
+<td>倒计时中/完成复核/回准备</td>
+<td>倒计时计数、失效条件下继续；时长TBD</td>
+</tr>
+<tr>
+<td>PAGE-06</td>
+<td>当前动作、有效次数、目标进度、识别状态及必要短提示</td>
+<td>运动/暂停，暂停原因与成绩保留，继续/结束结果</td>
+<td>医疗、身材评价、成长等级、未确认AI能力；不确定计数</td>
+</tr>
+<tr>
+<td>PAGE-07</td>
+<td>动作、目标、实际次数、用时、达标或提前结束、完成鼓励及保存/同步事实</td>
+<td>结束/保存失败/已保存/待同步/业务确认</td>
+<td>提前结束称达标、发送称送达；运动星/PB深度TBD</td>
+</tr>
+<tr>
+<td>PAGE-08</td>
+<td>设备状态、网络连接、当前儿童、隐私、必要重启的职责分组</td>
+<td>查看信息/操作已接受/执行结果/需家长权限</td>
+<td>账号管理、云端注销；声音/恢复出厂/更新/关于新增项仍候选</td>
+</tr>
+<tr>
+<td>PAGE-09</td>
+<td>仅获准后表达用途、主动进入、采集准入、真实辅助状态与退出</td>
+<td>独立场景开始/停止及异常规则仍TBD</td>
+<td>当前不纳入默认页面交付范围；不做姿态/医疗/健康评分</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="82">8.2 各团队交接输入与输出</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>团队</th>
+<th>需使用 / 提供的信息</th>
+<th>交接边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>产品经理</td>
+<td>功能大纲版本、范围依据、未决项及评审结论</td>
+<td>批准与候选分开；具体Owner/Reviewer待指派</td>
+</tr>
+<tr>
+<td>UE设计师</td>
+<td>旅程、PAGE职责、导航与异常，形成后续UI Flow候选</td>
+<td>不改功能号，不用交互方案改变范围</td>
+</tr>
+<tr>
+<td>UI设计师</td>
+<td>逐PAGE必需信息、状态差异、可用显示/输入约束</td>
+<td>不推导硬件、不创造默认候选入口；未指定品牌时跟随系统配色</td>
+</tr>
+<tr>
+<td>算法团队</td>
+<td>人体/画面可用性、有效动作事件、识别异常及证据</td>
+<td>不确定事件不计、低置信度不确定纠错；阈值/多人规则TBD</td>
+</tr>
+<tr>
+<td>客户端 / 设备研发</td>
+<td>操作确认、状态转移、唯一记录、保存恢复及真实反馈</td>
+<td>UI不独立生成成绩；英文状态不是冻结实现枚举</td>
+</tr>
+<tr>
+<td>硬件团队</td>
+<td>实际显示/输入条件、摄像头及本地隐私状态可用性</td>
+<td>本文不决定屏幕数量、比例或输入器件</td>
+</tr>
+<tr>
+<td>家长端 / 平台团队</td>
+<td>有效绑定/儿童、任务有效性、授权与业务接收确认</td>
+<td>平台管理关系，设备执行；不远程强制采集、不伪造成绩</td>
+</tr>
+<tr>
+<td>测试团队</td>
+<td>功能号+PAGE+状态条件+异常路径及批准口径</td>
+<td>未决阈值不得写成固定验收值；自检不是实机验证</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="83-ui-flowfr">8.3 后续UI Flow与FR引用要求</h3>
+<p>每项设计或FR至少标明：引用版本、PAGE、功能号、用户任务、前置条件、状态变化、允许/阻断行为、事实来源、异常恢复及关联UE-OQ。英文标签用于沟通，实际接口和数据结构留给正式FR/TR评审。</p>
+<p>交付应覆盖正常、无内容、不可执行、处理中、成功/失败及返回路径中适用的既有状态。只有范围或行为经批准后才能冻结对应验收口径；未决项继续标TBD。UI视觉资产、控件布局、输入手势、尺寸及时间阈值不由本文决定。</p>
+<h1 id="_1"></h1>
+<h2 id="mvp2026-10-12">MVP演示范围确认（2026-10-12）</h2>
+<p>MVP演示确定仅包含开合跳、深蹲起、高抬腿三个动作。OQ-01及UE-OQ-03的“演示动作范围”部分已解决；整体七动作产品追踪保留，目标范围、有效规则、高抬腿计数单位仍TBD。文档全文仍Review，本次范围确认不等于全部需求冻结。</p>
+<h2 id="_2">原版本记录（保留）</h2>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Status</th>
+<th>Change Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v0.1.0</td>
+<td>2026-10-12</td>
+<td>Product Documentation Update</td>
+<td>Review</td>
+<td>迁入v0.3详细业务依据，作为UE主文档独立引用，不新增能力</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="change-impact">Change Impact</h2>
+<p><a href="../../governance/CHANGE-UE-IA-V031-20261012.md">变更单</a>。正文内容保留，工程细则FR阶段确认。</p>
+<h2 id="decision-log">Decision Log</h2>
+<p>仅文档边界调整，无产品范围、优先级或硬件决策。</p>
+<h1 id="version-history">Version History</h1>
+<p>既有版本记录完整保留在正文。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Status</th>
+<th>Change Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v0.1.0</td>
+<td>2026-10-12</td>
+<td>Codex（AI，执行用户指令）</td>
+<td>Review</td>
+<td>Document Governance Migration：规范名称与引用；无需求修改，无版本升级</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="document-governance-migration-2026-10-12">Document Governance Migration — 2026-10-12</h2>
+<p>Change Type: Document Governance Migration</p>
+<ul>
+<li>Rename only（职责命名）；链接迁移及治理记录不改变需求。</li>
+<li>No requirement modification；Function/PAGE/State/OQ/UE-OQ及历史保留。</li>
+<li>旧路径：<code>Teamo_MVP_UE工程附录.md</code>。</li>
+<li><a href="../../governance/CHANGE-DEVICE-NAMING-MIGRATION-20261012.md">迁移变更单</a>。</li>
+</ul>
+<p>| v0.1.1 | 2026-10-12 | Codex（AI，执行用户指令） | Review | 记录用户确认MVP演示仅开合跳、深蹲起、高抬腿；保留整体七动作追踪与其他未决项，编号及优先级不变 |</p>
+<h1 id="change-impact_1">Change Impact</h1>
+<p>本次仅命名、链接及治理记录迁移，无产品/架构决策；详见迁移变更单。</p>
+<h1 id="decision-log_1">Decision Log</h1>
+<p>本次仅命名、链接及治理记录迁移，无产品/架构决策；详见迁移变更单。</p>
+<h3 id="change-impact-mvp">Change Impact — MVP演示三动作确认</h3>
+<p>演示动作范围从待确认改为用户已确认；其他范围/规则未变。详见<a href="../../governance/CHANGE-MVP-THREE-ACTIONS-CONFIRMED-20261012.md">变更单</a>。</p>
+<h3 id="decision-log-mvp">Decision Log — MVP演示三动作</h3>
+<p>2026-10-12用户确认MVP仅演示开合跳、深蹲起、高抬腿；这是已确认演示范围，整体产品七动作追踪及动作规则/单位仍未被本次决策删改。确认来源：用户本轮消息；具体执行Owner待指定。</p></main></div><footer>从固定Markdown导出；内容状态与来源追踪不变。Markdown SHA256：08790b580b2d8d031f6e8721ceb9b27c23cd47db79c5f07d993cf5dfcc27cb5a</footer></body></html>

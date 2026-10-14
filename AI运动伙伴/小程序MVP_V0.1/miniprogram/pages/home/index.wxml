@@ -1,0 +1,74 @@
+<view class="page">
+  <view class="header-row">
+    <view>
+      <view class="brand-kicker">TEAMO <text>MOVE TOGETHER</text></view>
+      <view class="hello">晚上好，{{state.profile.parentName}}</view>
+      <view class="hero-title"><view>一起动，</view><view>更靠近</view></view>
+    </view>
+    <view class="avatar">夏</view>
+  </view>
+
+  <view class="notice" bindtap="openAI">
+    <view class="spark">GO</view>
+    <view class="grow">
+      <view class="strong">小宇，今天也一起动起来</view>
+      <view class="small muted">10 分钟轻运动计划已准备好</view>
+    </view>
+    <text>›</text>
+  </view>
+
+  <view class="section-title">我的设备</view>
+  <view class="card device-card" bindtap="openDevice">
+    <view class="robot"><view class="privacy-slider"><view class="slider-knob"></view></view><view class="camera"></view><view class="face"><view class="eye"></view><view class="eye"></view><view class="teamo-mark">TEAMO</view></view><view class="robot-key"></view></view>
+    <view class="grow">
+      <view class="device-name">{{state.device.name}}</view>
+      <view class="pill status"><view class="dot {{state.device.online ? '' : 'offline'}}"></view>{{state.device.online ? statusText : '设备离线'}}</view>
+      <view class="small muted">电量 {{state.device.battery}}% · {{state.device.wifi}} · 刚刚更新</view>
+    </view>
+    <text class="arrow">›</text>
+  </view>
+
+  <view class="offline-banner" wx:if="{{!state.device.online}}" bindtap="openDevice"><view class="offline-icon">!</view><view class="grow"><view class="strong">设备当前离线</view><view class="small">暂时不能发送运动，点击查看连接状态</view></view><text>›</text></view>
+
+  <button class="ai-cta" bindtap="openAI">
+    <view class="ai-mark">✦</view>
+    <view class="grow left"><view class="strong">AI 运动计划助手</view><view class="small">结合最近表现，生成适合小宇的计划</view></view>
+    <text>›</text>
+  </button>
+
+  <view class="shortcut-grid">
+    <view class="shortcut" bindtap="openLibrary"><view class="shortcut-icon">动</view><view><view class="strong">快速训练</view><view class="small muted">7种动作任选</view></view><text>›</text></view>
+    <view class="shortcut" bindtap="openGrowth"><view class="shortcut-icon dark">★</view><view><view class="strong">学伴成长</view><view class="small muted">{{state.stars}} 颗运动星</view></view><text>›</text></view>
+  </view>
+
+  <view class="section-title">今日运动</view>
+  <view class="card split">
+    <view class="metric"><text>{{state.todayMinutes}}</text><text>分钟</text></view>
+    <view class="metric"><text>{{progress}}%</text><text>任务进度</text></view>
+    <view class="metric"><text>{{state.streak}}天</text><text>连续运动</text></view>
+  </view>
+
+  <view class="section-title title-row"><text>立即开始</text><text class="link" bindtap="openLibrary">查看动作库</text></view>
+  <scroll-view class="action-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="action-row">
+      <view class="action-card {{item.color}}" wx:for="{{quickActions}}" wx:key="id" data-id="{{item.id}}" bindtap="startAction">
+        <view class="action-symbol">{{item.short}}</view><view class="strong">{{item.name}}</view><view class="small muted">建议 {{item.target}}{{item.unit}}</view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="section-title title-row"><text>今日任务</text><text class="link" bindtap="openTasks">查看全部</text></view>
+  <view class="list">
+    <view class="list-item" wx:for="{{todayTasks}}" wx:key="id"><view class="task-icon">动</view><view class="grow"><view class="strong">{{item.name}}</view><view class="small muted">{{item.target}}{{item.unit}} · {{item.time}}</view><view class="receipt">✓ {{item.receipt}}</view></view><view class="pill">{{item.status}}</view></view>
+    <view class="empty" wx:if="{{todayTasks.length===0}}">今天的任务都完成啦</view>
+  </view>
+
+  <view class="section-title title-row"><text>最近运动</text><text class="link" bindtap="openRecords">全部记录</text></view>
+  <view class="card record" bindtap="openAnalysis" wx:if="{{latestRecord}}">
+    <view class="score">{{latestRecord.score}}</view>
+    <view class="grow"><view class="strong">{{latestRecord.name}}</view><view class="small muted">{{latestRecord.date}} · 有效 {{latestRecord.valid}}/{{latestRecord.target}} 次</view></view>
+    <text>›</text>
+  </view>
+  <view class="privacy-note"><text>◉</text> 摄像头带物理遮挡，运动数据仅用于陪伴反馈</view>
+  <view class="safe-bottom"></view>
+</view>

@@ -1,0 +1,1068 @@
+{
+  "date": "2026-10-09",
+  "scope": "28 representative exact-model records across 6 manufacturer catalogs; not exhaustive market or confirmed stock",
+  "candidates": [
+    {
+      "id": "WS01",
+      "model": "Pico-LCD-1.3",
+      "diagonal_in": 1.3,
+      "resolution": [
+        240,
+        240
+      ],
+      "controller": "ST7789VW",
+      "touch_controller": null,
+      "interface": "4-wire SPI",
+      "aa_mm": [
+        23.4,
+        23.4
+      ],
+      "module_mm": [
+        26.5,
+        52
+      ],
+      "thickness_mm": null,
+      "shape": "square",
+      "sources": [
+        "https://www.waveshare.net/wiki/Pico-LCD-1.3",
+        "https://wiki.luckfox.com/Luckfox-Pico-Plus-Mini/Luckfox-Pico-LVGL/"
+      ],
+      "notes": "带按键/摇杆的开发附件，不能用其尺寸反推产品裸屏；Luckfox Pro/Max官方LVGL示例引用此型号。",
+      "compatibility": "官方平台示例引用；具体采购板版本仍需确认",
+      "has_touch": false,
+      "bus": "SPI",
+      "grade": "A",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/WS01.jpg",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.waveshare.com/wiki/Pico-LCD-1.3",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "WS02",
+      "model": "1.28inch LCD Module",
+      "diagonal_in": 1.28,
+      "resolution": [
+        240,
+        240
+      ],
+      "controller": "GC9A01",
+      "touch_controller": null,
+      "interface": "4-wire SPI",
+      "aa_mm": [
+        32.4,
+        32.4
+      ],
+      "module_mm": [
+        40.4,
+        37.5
+      ],
+      "thickness_mm": null,
+      "shape": "round",
+      "sources": [
+        "https://www.waveshare.com/product/1.28inch-touch-lcd.htm"
+      ],
+      "notes": "AA为直径32.4；板体直径37.5，完整包络40.4×37.5含凸出。",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": false,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/WS02.jpg",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.waveshare.com/product/1.28inch-lcd-module.htm",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "WS03",
+      "model": "1.28inch Touch LCD",
+      "diagonal_in": 1.28,
+      "resolution": [
+        240,
+        240
+      ],
+      "controller": "GC9A01",
+      "touch_controller": "CST816S",
+      "interface": "4-wire SPI + I2C touch",
+      "aa_mm": [
+        32.4,
+        32.4
+      ],
+      "module_mm": [
+        39.89,
+        38.5
+      ],
+      "thickness_mm": null,
+      "shape": "round",
+      "sources": [
+        "https://www.waveshare.com/product/1.28inch-touch-lcd.htm"
+      ],
+      "notes": "AA为直径32.4；板体直径38.5，完整包络39.89×38.5。",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": true,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/WS03.jpg",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.waveshare.com/product/1.28inch-touch-lcd.htm",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "WS04",
+      "model": "1.3inch LCD Module",
+      "diagonal_in": 1.3,
+      "resolution": [
+        240,
+        240
+      ],
+      "controller": "ST7789",
+      "touch_controller": null,
+      "interface": "4-wire SPI",
+      "aa_mm": [
+        23.4,
+        23.4
+      ],
+      "module_mm": [
+        45,
+        31
+      ],
+      "thickness_mm": null,
+      "shape": "square",
+      "sources": [
+        "https://www.waveshare.com/catalog/product/view/id/3637/s/1.3inch-lcd-module/category/356/"
+      ],
+      "notes": "",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": false,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/WS04.jpg",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.waveshare.com/wiki/1.3inch_LCD_Module",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "WS05",
+      "model": "1.54inch LCD Module",
+      "diagonal_in": 1.54,
+      "resolution": [
+        240,
+        240
+      ],
+      "controller": "ST7789",
+      "touch_controller": null,
+      "interface": "4-wire SPI",
+      "aa_mm": [
+        27.72,
+        27.72
+      ],
+      "module_mm": [
+        50,
+        35
+      ],
+      "thickness_mm": null,
+      "shape": "square",
+      "sources": [
+        "https://www.waveshare.com/wiki/1.54inch_LCD_Module"
+      ],
+      "notes": "",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": false,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/WS05.jpg",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.waveshare.com/wiki/1.54inch_LCD_Module",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "WS06",
+      "model": "1.54inch Touch LCD Module",
+      "diagonal_in": 1.54,
+      "resolution": [
+        240,
+        240
+      ],
+      "controller": "ST7789S",
+      "touch_controller": "CST816D",
+      "interface": "4-wire SPI + I2C touch",
+      "aa_mm": [
+        27.72,
+        27.72
+      ],
+      "module_mm": [
+        40.2,
+        40.2
+      ],
+      "thickness_mm": null,
+      "shape": "square",
+      "sources": [
+        "https://docs.waveshare.com/1.54inch_Touch_LCD_Module"
+      ],
+      "notes": "新文档CST816D；ESP32驱动板汇总表写CST816S，采购前锁BOM。",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": true,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/WS06.webp",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://docs.waveshare.com/1.54inch_Touch_LCD_Module",
+      "photo_status": "厂家产品图",
+      "other_views": [
+        {
+          "url": "https://docs.waveshare.com/assets/images/1.54-product2-d54e4139d4e0dad162a7181e2af70bca.webp",
+          "caption": "厂家其他视角原图（在线打开，视角与版本需核）"
+        }
+      ],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "WS07",
+      "model": "1.69inch LCD Module",
+      "diagonal_in": 1.69,
+      "resolution": [
+        240,
+        280
+      ],
+      "controller": "ST7789V2",
+      "touch_controller": null,
+      "interface": "4-wire SPI",
+      "aa_mm": [
+        27.972,
+        32.634
+      ],
+      "module_mm": [
+        31.5,
+        39
+      ],
+      "thickness_mm": null,
+      "shape": "rounded-rectangle",
+      "sources": [
+        "https://www.waveshare.com/wiki/1.69inch_LCD_Module"
+      ],
+      "notes": "",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": false,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/WS07.jpg",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.waveshare.com/wiki/1.69inch_LCD_Module",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "WS08",
+      "model": "1.69inch Touch LCD Module",
+      "diagonal_in": 1.69,
+      "resolution": [
+        240,
+        280
+      ],
+      "controller": "ST7789V2",
+      "touch_controller": null,
+      "interface": "4-wire SPI + I2C touch",
+      "aa_mm": [
+        27.972,
+        32.634
+      ],
+      "module_mm": [
+        33.13,
+        41.13
+      ],
+      "thickness_mm": null,
+      "shape": "rounded-rectangle",
+      "sources": [
+        "https://www.waveshare.com/product/1.69inch-touch-lcd-module.htm",
+        "https://www.waveshare.com/wiki/1.69inch_Touch_LCD_Module"
+      ],
+      "notes": "商品页CST816T；旧wikiCST816S，触控IC字段null表示待核不是无触控。不是完整圆形，标题中的Round不可据此画圆。",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": true,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/WS08.jpg",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.waveshare.com/product/1.69inch-touch-lcd-module.htm",
+      "photo_status": "厂家产品图",
+      "other_views": [
+        {
+          "url": "https://www.waveshare.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/1/_/1.69inch-touch-lcd-module-2.jpg",
+          "caption": "厂家其他视角原图（在线打开，视角与版本需核）"
+        },
+        {
+          "url": "https://www.waveshare.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/1/_/1.69inch-touch-lcd-module-3.jpg",
+          "caption": "厂家其他视角原图（在线打开，视角与版本需核）"
+        }
+      ],
+      "missing_reason": null,
+      "drawing": "../selection-visual-20261008/assets/LCD169-Touch-drawing.png"
+    },
+    {
+      "id": "WS09",
+      "model": "1.8inch LCD Module",
+      "diagonal_in": 1.8,
+      "resolution": [
+        128,
+        160
+      ],
+      "controller": "ST7735S",
+      "touch_controller": null,
+      "interface": "4-wire SPI",
+      "aa_mm": [
+        28.3,
+        34.5
+      ],
+      "module_mm": [
+        56.5,
+        34
+      ],
+      "thickness_mm": null,
+      "shape": "rectangle",
+      "sources": [
+        "https://www.waveshare.com/catalog/product/view/id/5540/s/1.69inch-lcd-module/category/356/"
+      ],
+      "notes": "仅128×160，分辨率偏低；该来源官方选型表。",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": false,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": null,
+      "photo_caption": "未取得精确型号产品图",
+      "photo_source": null,
+      "photo_status": "未取得精确型号产品图",
+      "other_views": [],
+      "missing_reason": "厂家网页抓取未成功，尚未取得对应1.8寸128×160模组图。",
+      "drawing": null
+    },
+    {
+      "id": "WS10",
+      "model": "1.83inch LCD Module Rev2",
+      "diagonal_in": 1.83,
+      "resolution": [
+        240,
+        284
+      ],
+      "controller": null,
+      "touch_controller": null,
+      "interface": "4-wire SPI",
+      "aa_mm": [
+        29.52,
+        34.93
+      ],
+      "module_mm": [
+        33,
+        40
+      ],
+      "thickness_mm": null,
+      "shape": "rounded-rectangle",
+      "sources": [
+        "https://www.waveshare.com/wiki/1.83inch_LCD_Module",
+        "https://www.waveshare.com/product/raspberry-pi/displays/1.83inch-lcd-module.htm"
+      ],
+      "notes": "Wiki Rev2写ST7789P，商品页仍写ST7789B，IC待核；Rev1例程不兼容。",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": false,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/WS10.jpg",
+      "photo_caption": "厂家1.83型号页图；图片未证明Rev2版本，待核",
+      "photo_source": "https://www.waveshare.com/wiki/1.83inch_LCD_Module",
+      "photo_status": "型号页版本待核",
+      "other_views": [
+        {
+          "url": "https://www.waveshare.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/1/_/1.83inch-lcd-module-2.jpg",
+          "caption": "厂家其他视角原图（在线打开，视角与版本需核）"
+        }
+      ],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "WS11",
+      "model": "1.83inch Touch LCD Module",
+      "diagonal_in": 1.83,
+      "resolution": [
+        240,
+        284
+      ],
+      "controller": "ST7789P",
+      "touch_controller": "CST816D",
+      "interface": "4-wire SPI + I2C touch",
+      "aa_mm": [
+        29.52,
+        34.93
+      ],
+      "module_mm": [
+        35,
+        42
+      ],
+      "thickness_mm": null,
+      "shape": "rounded-rectangle",
+      "sources": [
+        "https://docs.waveshare.com/1.83inch_Touch_LCD_Module"
+      ],
+      "notes": "",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": true,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/WS11.webp",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://docs.waveshare.com/1.83inch_Touch_LCD_Module",
+      "photo_status": "厂家产品图",
+      "other_views": [
+        {
+          "url": "https://docs.waveshare.com/assets/images/1.83-product2-edc2ece660b1e88144ad23158bdd43ae.webp",
+          "caption": "厂家其他视角原图（在线打开，视角与版本需核）"
+        }
+      ],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "WS12",
+      "model": "2inch LCD Module",
+      "diagonal_in": 2,
+      "resolution": [
+        240,
+        320
+      ],
+      "controller": "ST7789VW",
+      "touch_controller": null,
+      "interface": "4-wire SPI",
+      "aa_mm": [
+        30.6,
+        40.8
+      ],
+      "module_mm": [
+        58,
+        35
+      ],
+      "thickness_mm": null,
+      "shape": "rectangle",
+      "sources": [
+        "https://www.waveshare.com/product/displays/lcd-oled/2inch-lcd-module.htm"
+      ],
+      "notes": "",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": false,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/WS12.jpg",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.waveshare.com/product/displays/lcd-oled/2inch-lcd-module.htm",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "WS13",
+      "model": "2inch Capacitive Touch LCD",
+      "diagonal_in": 2,
+      "resolution": [
+        240,
+        320
+      ],
+      "controller": "ST7789T3",
+      "touch_controller": "CST816D",
+      "interface": "4-wire SPI + I2C touch",
+      "aa_mm": [
+        30.6,
+        40.8
+      ],
+      "module_mm": [
+        37.1,
+        58.8
+      ],
+      "thickness_mm": null,
+      "shape": "rectangle",
+      "sources": [
+        "https://www.waveshare.com/product/displays/lcd-oled/lcd-oled-3/2inch-capacitive-touch-lcd.htm"
+      ],
+      "notes": "ESP32驱动板汇总表CST816S，产品标题CST816D，采购确认当批版本。",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": true,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/WS13.jpg",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.waveshare.com/product/displays/lcd-oled/lcd-oled-3/2inch-capacitive-touch-lcd.htm",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "WS14",
+      "model": "2.4inch LCD Module",
+      "diagonal_in": 2.4,
+      "resolution": [
+        240,
+        320
+      ],
+      "controller": "ILI9341",
+      "touch_controller": null,
+      "interface": "4-wire SPI",
+      "aa_mm": [
+        36.72,
+        48.96
+      ],
+      "module_mm": [
+        70.5,
+        43.3
+      ],
+      "thickness_mm": null,
+      "shape": "rectangle",
+      "sources": [
+        "https://www.waveshare.com/product/2.4inch-lcd-module.htm"
+      ],
+      "notes": "",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": false,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/WS14.jpg",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.waveshare.com/product/2.4inch-lcd-module.htm",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "WS15",
+      "model": "2.8inch Capacitive Touch LCD",
+      "diagonal_in": 2.8,
+      "resolution": [
+        240,
+        320
+      ],
+      "controller": "ST7789T3",
+      "touch_controller": "CST328",
+      "interface": "4-wire SPI + I2C touch",
+      "aa_mm": [
+        43.2,
+        57.6
+      ],
+      "module_mm": [
+        50.54,
+        73.06
+      ],
+      "thickness_mm": null,
+      "shape": "rectangle",
+      "sources": [
+        "https://www.waveshare.com/catalog/product/view/id/6414/s/2.8inch-capacitive-touch-lcd/category/346/"
+      ],
+      "notes": "",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": true,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/WS15.jpg",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.waveshare.com/catalog/product/view/id/6414/s/2.8inch-capacitive-touch-lcd/category/346/",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "WS16",
+      "model": "3.5inch Capacitive Touch LCD",
+      "diagonal_in": 3.5,
+      "resolution": [
+        320,
+        480
+      ],
+      "controller": "ST7796S",
+      "touch_controller": "FT6336U",
+      "interface": "4-wire SPI + I2C touch",
+      "aa_mm": [
+        48.96,
+        73.44
+      ],
+      "module_mm": [
+        61,
+        92.44
+      ],
+      "thickness_mm": null,
+      "shape": "rectangle",
+      "sources": [
+        "https://www.waveshare.com/product/3.5inch-capacitive-touch-lcd.htm"
+      ],
+      "notes": "",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": true,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": null,
+      "photo_caption": "未取得精确型号产品图",
+      "photo_source": null,
+      "photo_status": "未取得精确型号产品图",
+      "other_views": [],
+      "missing_reason": "厂家网页抓取未成功；不得使用480×800、HDMI或ESP整板版本代图。",
+      "drawing": null
+    },
+    {
+      "id": "WS17",
+      "model": "1.83inch LCD Module Rev1",
+      "diagonal_in": 1.83,
+      "resolution": [
+        240,
+        280
+      ],
+      "controller": "NV3030B",
+      "touch_controller": null,
+      "interface": "4-wire SPI",
+      "aa_mm": [
+        30.197,
+        35.23
+      ],
+      "module_mm": [
+        33,
+        40
+      ],
+      "thickness_mm": null,
+      "shape": "rounded-rectangle",
+      "sources": [
+        "https://www.waveshare.com/wiki/1.83inch_LCD_Module"
+      ],
+      "notes": "历史Rev1；不把当前在售Rev2的报价/供货套用到本型号，先确认库存版本。",
+      "compatibility": "协议候选；RV1106适配待验证",
+      "has_touch": false,
+      "bus": "SPI",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": null,
+      "photo_caption": "未取得精确型号产品图",
+      "photo_source": null,
+      "photo_status": "未取得精确型号产品图",
+      "other_views": [],
+      "missing_reason": "历史Rev1尚未取得版本可识别产品图；当前Rev2图片不能证明Rev1外观。",
+      "drawing": null
+    },
+    {
+      "id": "EX01",
+      "model": "ND018TCM360360-A01",
+      "diagonal_in": 1.8,
+      "resolution": [
+        360,
+        360
+      ],
+      "bus": "QSPI",
+      "interface": "QSPI",
+      "controller": "ST77916",
+      "module_mm": [
+        48.08,
+        49.59
+      ],
+      "shape": "round",
+      "has_touch": false,
+      "touch_controller": null,
+      "aa_mm": [
+        45.68,
+        45.68
+      ],
+      "thickness_mm": 1.96,
+      "sources": [
+        "https://www.nosedisplay.com/products/tft-display-1-8-inch-round-display-ips-360x360-resolution-qspi-4-line/"
+      ],
+      "notes": "针数/电压口径冲突；QSPI主机与驱动未闭环。",
+      "grade": "C",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/EX01.webp",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.nosedisplay.com/products/tft-display-1-8-inch-round-display-ips-360x360-resolution-qspi-4-line/",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "EX02",
+      "model": "1.85inch Touch LCD Module SKU35079",
+      "diagonal_in": 1.85,
+      "resolution": [
+        360,
+        360
+      ],
+      "bus": "QSPI",
+      "interface": "QSPI",
+      "controller": "ST77916",
+      "module_mm": [
+        55,
+        55
+      ],
+      "shape": "round",
+      "has_touch": true,
+      "touch_controller": null,
+      "aa_mm": [
+        45.68,
+        45.68
+      ],
+      "thickness_mm": null,
+      "sources": [
+        "https://docs.waveshare.com/1.85inch_Touch_LCD_Module"
+      ],
+      "notes": "独立QSPI屏板，不是ESP整板；完整T与RV驱动未知。",
+      "grade": "C",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/EX02.webp",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://docs.waveshare.com/1.85inch_Touch_LCD_Module",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": "../selection-visual-20261008/assets/screen185-drawing.webp"
+    },
+    {
+      "id": "EX03",
+      "model": "ESP32-S3-Touch-LCD-1.85 无B/C后缀",
+      "diagonal_in": 1.85,
+      "resolution": [
+        360,
+        360
+      ],
+      "bus": "UART/协处理器",
+      "interface": "UART/协处理器",
+      "controller": "ESP32-S3 + ST77916",
+      "module_mm": [
+        55,
+        55
+      ],
+      "shape": "round",
+      "has_touch": true,
+      "touch_controller": null,
+      "aa_mm": [
+        45.68,
+        45.68
+      ],
+      "thickness_mm": null,
+      "sources": [
+        "https://docs.waveshare.com/ESP32-S3-Touch-LCD-1.85"
+      ],
+      "notes": "需指定触控版本；UART事件协议与UI工程待开发，不能当裸屏直接RV驱动。",
+      "grade": "D",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/EX03.webp",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://docs.waveshare.com/ESP32-S3-Touch-LCD-1.85",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "EX04",
+      "model": "LF40-480480-ARK",
+      "diagonal_in": 4,
+      "resolution": [
+        480,
+        480
+      ],
+      "bus": "RGB",
+      "interface": "RGB",
+      "controller": "待厂家指定",
+      "module_mm": [
+        84.2,
+        84.2
+      ],
+      "shape": "square",
+      "has_touch": true,
+      "touch_controller": null,
+      "aa_mm": [
+        71.86,
+        70.18
+      ],
+      "thickness_mm": null,
+      "sources": [
+        "https://www.luckfox.com/LF40-480480-ARK"
+      ],
+      "notes": "Ultra/Ultra W官方支持；仅台架，尺寸超产品池。",
+      "grade": "A",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/EX04.jpg",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.luckfox.com/LF40-480480-ARK",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "EX05",
+      "model": "LF40-720720-ARK",
+      "diagonal_in": 4,
+      "resolution": [
+        720,
+        720
+      ],
+      "bus": "RGB",
+      "interface": "RGB",
+      "controller": "待厂家指定",
+      "module_mm": [
+        84,
+        84
+      ],
+      "shape": "square",
+      "has_touch": true,
+      "touch_controller": null,
+      "aa_mm": [
+        71.93,
+        71.93
+      ],
+      "thickness_mm": null,
+      "sources": [
+        "https://www.luckfox.com/LF40-720720-ARK"
+      ],
+      "notes": "Ultra/Ultra W官方支持；720与480款尺寸不同，勿复用。",
+      "grade": "A",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/EX05.jpg",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.luckfox.com/LF40-720720-ARK",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "EX06",
+      "model": "1.46inch Touch LCD Module SKU34955",
+      "diagonal_in": 1.46,
+      "resolution": [
+        412,
+        412
+      ],
+      "bus": "QSPI",
+      "interface": "QSPI",
+      "controller": "SPD2010",
+      "module_mm": [
+        44.77,
+        44.77
+      ],
+      "shape": "round",
+      "has_touch": true,
+      "touch_controller": null,
+      "aa_mm": [
+        36.96,
+        36.96
+      ],
+      "thickness_mm": null,
+      "sources": [
+        "https://www.waveshare.com/product/displays/1.46inch-touch-lcd-module.htm"
+      ],
+      "notes": "完整板框紧凑，但QSPI不是普通SPI；厂家例程ESP/Pico/STM32，不证明RV可用。",
+      "grade": "C",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/EX06.jpg",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.waveshare.com/product/displays/1.46inch-touch-lcd-module.htm",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    },
+    {
+      "id": "EX07",
+      "model": "TTH185BRS-01C",
+      "diagonal_in": 1.85,
+      "resolution": [
+        360,
+        360
+      ],
+      "bus": "多模式待确认",
+      "interface": "多模式待确认",
+      "controller": "ST77916",
+      "module_mm": [
+        55,
+        55
+      ],
+      "shape": "round",
+      "has_touch": true,
+      "touch_controller": null,
+      "aa_mm": [
+        45.68,
+        45.68
+      ],
+      "thickness_mm": null,
+      "sources": [
+        "https://tailorpixels.com/wp-content/uploads/2024/06/TTH185BRS-01C_1.85-inch-Round-LCD-360x360-MIPI-QSPI-SRGB-8BIT.pdf"
+      ],
+      "notes": "LCM48.08×49.95×1.52；带触控外框55×55。资料列MIPI/QSPI/8BIT/SRGB，需锁IM配置、39pin与自研板驱动；不是任意接口可直接用。",
+      "grade": "C",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": null,
+      "photo_caption": "未取得精确型号产品图",
+      "photo_source": null,
+      "photo_status": "未取得精确型号产品图",
+      "other_views": [],
+      "missing_reason": "目前只有对应型号厂家PDF资料，未取得产品照片。",
+      "drawing": null
+    },
+    {
+      "id": "EX08",
+      "model": "ER-TFT021-1-5714",
+      "diagonal_in": 2.1,
+      "resolution": [
+        480,
+        480
+      ],
+      "bus": "RGB",
+      "interface": "RGB",
+      "controller": "ST7701S",
+      "module_mm": null,
+      "shape": "round",
+      "has_touch": true,
+      "touch_controller": null,
+      "aa_mm": null,
+      "thickness_mm": null,
+      "sources": [
+        "https://www.buydisplay.com/chinese/catalog/product/view/id/1987/s/480x480-round-ips-tft-lcd-display-2-1-inch-capacitive-touch-circle-screen/"
+      ],
+      "notes": "厂家指定3SPI初始化＋18RGB像素接口；不与ER-TFT021-2纯MIPI款混淆。完整包络/时序/交期待询。",
+      "grade": "C",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": null,
+      "photo_caption": "未取得精确型号产品图",
+      "photo_source": null,
+      "photo_status": "未取得精确型号产品图",
+      "other_views": [],
+      "missing_reason": "厂家页面返回403；对应5714触控版照片未取得。",
+      "drawing": null
+    },
+    {
+      "id": "EX09",
+      "model": "ER-TFT1.28-3 无触控版",
+      "diagonal_in": 1.28,
+      "resolution": [
+        240,
+        240
+      ],
+      "bus": "SPI",
+      "interface": "SPI",
+      "controller": "待指定版本确认",
+      "module_mm": [
+        35.59,
+        37.74
+      ],
+      "shape": "round",
+      "has_touch": false,
+      "touch_controller": null,
+      "aa_mm": [
+        32.4,
+        32.4
+      ],
+      "thickness_mm": 1.6,
+      "sources": [
+        "https://www.buydisplay.com/1-28-inch-tft-lcd-display-240x240-round-circle-screen-for-smart-watch"
+      ],
+      "notes": "厂家目录/图纸可查；普通SPI模式、控制器与Pinout需锁单；触控版另计包络。",
+      "grade": "C",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": null,
+      "photo_caption": "未取得精确型号产品图",
+      "photo_source": null,
+      "photo_status": "未取得精确型号产品图",
+      "other_views": [],
+      "missing_reason": "厂家页面返回403；无触控版照片未取得。",
+      "drawing": null
+    },
+    {
+      "id": "EX10",
+      "model": "ER-TFT021-1-5982 智能屏",
+      "diagonal_in": 2.1,
+      "resolution": [
+        480,
+        480
+      ],
+      "bus": "UART/协处理器",
+      "interface": "UART/协处理器",
+      "controller": "内置MCU",
+      "module_mm": null,
+      "shape": "round",
+      "has_touch": true,
+      "touch_controller": null,
+      "aa_mm": null,
+      "thickness_mm": null,
+      "sources": [
+        "https://www.buydisplay.com/2-1-inch-480x480-hmi-intelligent-smart-uart-spi-round-capacitive-touch"
+      ],
+      "notes": "页面56.18×59.71×2.2未证明MCU/屏蔽罩/控制板完整包络；保留整套尺寸未知。需厂家智能屏协议/UI工具。",
+      "grade": "D",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": null,
+      "photo_caption": "未取得精确型号产品图",
+      "photo_source": null,
+      "photo_status": "未取得精确型号产品图",
+      "other_views": [],
+      "missing_reason": "厂家页面返回403；5982带MCU智能屏照片未取得。",
+      "drawing": null
+    },
+    {
+      "id": "EX11",
+      "model": "Adafruit #4421 1.54 TFT",
+      "diagonal_in": 1.54,
+      "resolution": [
+        240,
+        240
+      ],
+      "bus": "SPI",
+      "interface": "SPI",
+      "controller": "ST7789",
+      "module_mm": null,
+      "shape": "square",
+      "has_touch": false,
+      "touch_controller": null,
+      "aa_mm": null,
+      "thickness_mm": null,
+      "sources": [
+        "https://www.adafruit.com/product/4421"
+      ],
+      "notes": "真实裸屏与Waveshare板不是同包络；本轮完整机械数据未核，不以照片测尺寸。",
+      "grade": "B",
+      "stock": "国内库存/指定版本报价待确认",
+      "photo": "assets/EX11.jpg",
+      "photo_caption": "厂家型号页产品图；点击查看原图",
+      "photo_source": "https://www.adafruit.com/product/4421",
+      "photo_status": "厂家产品图",
+      "other_views": [],
+      "missing_reason": null,
+      "drawing": null
+    }
+  ]
+}

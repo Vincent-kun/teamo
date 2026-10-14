@@ -1,0 +1,72 @@
+[
+  {
+    "id": "B1",
+    "name": "Luckfox Pico Pro / Max",
+    "group": "pro-max",
+    "size": "21×72mm；整板含连接器T未知",
+    "soc": "Pro：RV1106G2/128MB；Max：G3/256MB",
+    "cue": "细长条，末端一个RJ45，USB-C在另一端；有带/不带预焊排针版本。外形近似，不能靠照片判断RAM。",
+    "use": "视觉/CSI/SPI/UART验证；256MB NAND。没有官方确认内置Wi-Fi。",
+    "page": "https://www.luckfox.com/EN-Luckfox-Pico-Pro"
+  },
+  {
+    "id": "B2",
+    "name": "Luckfox Pico Ultra / Ultra W",
+    "group": "ultra",
+    "size": "50×50mm；RJ45/USB/排针/线头总T未知",
+    "soc": "RV1106G3，256MB、8GB eMMC；W加无线",
+    "cue": "近正方形，有RJ45、USB-A、摄像头与LCD接口；W须看无线配置与订单。",
+    "use": "RGB屏、相机、音频台架；W无线验证。PoE叠板另计。",
+    "page": "https://www.luckfox.com/EN-Luckfox-Pico-Ultra"
+  },
+  {
+    "id": "B3",
+    "name": "Luckfox Pico Zero",
+    "group": "zero",
+    "size": "65×30mm；元件/排针/插线T未知",
+    "soc": "RV1106G3，256MB、8GB eMMC、Wi-Fi6/BT",
+    "cue": "长方形、40pin排针、板载天线、USB-C与CSI；官方器件表未列RJ45。",
+    "use": "无线、视觉、音频验证；4lane CSI的线缆/传感器需按本型号核对。",
+    "page": "https://www.luckfox.com/luckfox-pico-zero"
+  },
+  {
+    "id": "B4",
+    "name": "Luckfox Pico Pi A/B，含W版本",
+    "group": "pi",
+    "size": "85×56mm图示；接口有边缘突出，总T未知",
+    "soc": "A：G3/256MB；B：G2/128MB；W加无线",
+    "cue": "大载板上焊30mm核心板，四个USB Host、RJ45、40pin；M.2/Nano SIM。",
+    "use": "核心板＋载板架构、4G/USB/音频验证；板上槽位不等于套装已含4G模组。",
+    "page": "https://www.luckfox.com/luckfox-pico-pi"
+  },
+  {
+    "id": "B5",
+    "name": "Luckfox Core1106（核心板）",
+    "group": "core",
+    "size": "30×30mm；图示总厚5.50mm，PCB1.60±0.10mm",
+    "soc": "G2/G3、128/256MB及存储/无线多个订货码",
+    "cue": "小正方形、四周112邮票孔，没有完整开发板上的RJ45等插座。",
+    "use": "核心板参考；独立核心板不等于可直接插线验证的平台，另需底板。最终用户要求自研产品主板，未选择此核心板路线。",
+    "page": "https://www.luckfox.com/Core1106"
+  },
+  {
+    "id": "B6",
+    "name": "野火 鲁班猫RV06整板/核心板",
+    "group": "lubancat",
+    "size": "机械宽高厚未取得；不从图片反推",
+    "soc": "官网列RV1106；具体后缀/内存需订单与型号资料",
+    "cue": "蓝色载板上有核心板，官方提供核心板与整板两张低分辨率图。",
+    "use": "国内开发平台补充候选；本轮还不能对SDK完整度或采购型号下结论。",
+    "page": "https://embedfire.com/products-3/"
+  },
+  {
+    "id": "B7",
+    "name": "Luckfox Pico 86 Panel",
+    "group": "86",
+    "size": "86.50×86.50mm前面板；图示整体深36.50mm，非裸PCB尺寸",
+    "soc": "Core1106，G2/G3变体",
+    "cue": "86盒白壳与方形屏，背面RJ45、继电器/RS485端子。",
+    "use": "工业屏/控制开发平台补充；用途与机器人台架差异较大，不能据此排除已采购可能。",
+    "page": "https://www.luckfox.com/Luckfox-Pico-86-Panel"
+  }
+]

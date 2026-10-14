@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+const file='prototype/requirements-review-template.html';
+let t=fs.readFileSync(file,'utf8');
+t=t.replace('操作 → 方案 → 需求','怎么用 · 为什么 · 要什么');
+t=t.replace("const s=story[storyIndex];","const s=story[storyIndex],p=s.plain;");
+const prefix='byId(\'story-detail\').innerHTML=`<h3>${escapeHTML(s.title)}</h3>';
+const replacement='byId(\'story-detail\').innerHTML=`<h3>${escapeHTML(s.title)}</h3><p style="margin:14px 0;font-size:18px">${escapeHTML(p.example)}</p><div class="plain-facts">${[["用户怎么操作",p.operation],["软件要做到什么",p.software],["需要什么硬件",p.hardware],["为什么建议这样做",p.why],["现在要讨论什么",p.question]].map(([label,value])=>`<div><strong>${label}</strong><p>${escapeHTML(value)}</p></div>`).join(\'\')}</div><p class="muted" style="margin-top:16px">这是建议方案，尚待团队确认。下面保留具体实现和测试依据。</p><details><summary>展开：方案比较、技术要求与测试方法</summary>';
+if(!t.includes(prefix))throw Error('Missing renderer');
+t=t.replace(prefix,replacement);
+t=t.replace('</div><div class="tools" style="margin-top:16px">${s.refs.map','</div></details><details><summary>查看原始需求与待讨论记录</summary><div class="tools" style="margin-top:16px">${s.refs.map');
+t=t.replace("${id}</button>`).join('')}</div>`;","${id}</button>`).join('')}</div></details>`;");
+fs.writeFileSync(file,t);

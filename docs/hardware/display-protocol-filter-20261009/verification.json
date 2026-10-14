@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-09",
+  "status": "passed",
+  "catalog": 28,
+  "initial": {
+    "passed": [
+      "WS05",
+      "WS06",
+      "WS07",
+      "WS08",
+      "WS10",
+      "WS11",
+      "WS17"
+    ],
+    "visible": 28
+  },
+  "touch": {
+    "passed": [
+      "WS06",
+      "WS08",
+      "WS11"
+    ],
+    "visible": 28
+  },
+  "small": {
+    "passed": [
+      "WS07",
+      "WS10",
+      "WS17"
+    ],
+    "visible": 28
+  },
+  "officialSPI": {
+    "passed": [
+      "WS01"
+    ],
+    "visible": 28
+  },
+  "officialRGB": {
+    "passed": [
+      "EX04",
+      "EX05"
+    ],
+    "visible": 28
+  },
+  "qspi": {
+    "passed": [
+      "EX01",
+      "EX02"
+    ],
+    "visible": 28
+  },
+  "widths": [
+    1440,
+    768,
+    390,
+    320
+  ],
+  "pageErrors": [],
+  "scope": "filter and display only; not electrical compatibility verification",
+  "version_note": "补图前验证，补图后浏览器验证被自动审批服务额度不足拦下；图片文件和SHA256静态检查通过"
+}

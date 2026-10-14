@@ -1,0 +1,252 @@
+[
+  {
+    "file": "pro-max-front.jpg",
+    "source_url": "https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pro/Luckfox-Pico-Max-1-1600x1200.jpg",
+    "page": "https://www.luckfox.com/EN-Luckfox-Pico-Pro",
+    "role": "front",
+    "date": "2026-10-09",
+    "sha256": "56d0b644141d0b4b0a42ca8a56530d1d20d8670bc50350686c64624bb0caee1d",
+    "bytes": 196773,
+    "status": "ok"
+  },
+  {
+    "file": "pro-max-back.jpg",
+    "source_url": "https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pro/Luckfox-Pico-Max-2-1600x1200.jpg",
+    "page": "https://www.luckfox.com/EN-Luckfox-Pico-Pro",
+    "role": "back",
+    "date": "2026-10-09",
+    "sha256": "d1bd9d469fed63884eb76700e2ab88cb7874972220738134847ef6b048f42476",
+    "bytes": 204951,
+    "status": "ok"
+  },
+  {
+    "file": "pro-max-drawing.jpg",
+    "source_url": "https://www.luckfox.com/image/catalog/development-board/Luckfox-Pico-Pro/Luckfox-Pico-Pro-details-size.jpg",
+    "page": "https://www.luckfox.com/EN-Luckfox-Pico-Pro",
+    "role": "drawing",
+    "date": "2026-10-09",
+    "sha256": "dffb625cec7928360da8ce4467f7e89da3517eb40c18a84f9f233d3cd14e378b",
+    "bytes": 136606,
+    "status": "ok"
+  },
+  {
+    "file": "Luckfox-Pico-Pro-1_93.jpg",
+    "source_url": "https://www.luckfox.com/image/catalog/development-board/Luckfox-Pico-Pro/Luckfox-Pico-Pro-1_93.jpg",
+    "page": "https://www.luckfox.com/EN-Luckfox-Pico-Pro",
+    "role": "variant-thumbnail",
+    "date": "2026-10-09",
+    "sha256": "63a0952fae7a11499f90c0a6a0880358a14dc5218a1def9832e664e38164e1b6",
+    "bytes": 15234,
+    "status": "ok"
+  },
+  {
+    "file": "Luckfox-Pico-Pro-M-1_93.jpg",
+    "source_url": "https://www.luckfox.com/image/catalog/development-board/Luckfox-Pico-Pro/Luckfox-Pico-Pro-M-1_93.jpg",
+    "page": "https://www.luckfox.com/EN-Luckfox-Pico-Pro",
+    "role": "variant-thumbnail",
+    "date": "2026-10-09",
+    "sha256": "b3f2ad1bef98304bb9d42287feca7a35c122a43a0ee5abf6742158f90605d1cc",
+    "bytes": 21618,
+    "status": "ok"
+  },
+  {
+    "file": "Luckfox-Pico-Max-M-1_93.jpg",
+    "source_url": "https://www.luckfox.com/image/catalog/development-board/Luckfox-Pico-Pro/Luckfox-Pico-Max-M-1_93.jpg",
+    "page": "https://www.luckfox.com/EN-Luckfox-Pico-Pro",
+    "role": "variant-thumbnail",
+    "date": "2026-10-09",
+    "sha256": "558b6ee864c48c5f4bb10c7e0662b2d988eab17db875ab30dd2f55f70b7c6ac5",
+    "bytes": 21985,
+    "status": "ok"
+  },
+  {
+    "file": "ultra-front.jpg",
+    "source_url": "https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Ultra/Luckfox-Pico-Ultra-1-1600x1200.jpg",
+    "page": "https://www.luckfox.com/EN-Luckfox-Pico-Ultra",
+    "role": "front",
+    "date": "2026-10-09",
+    "sha256": "e1111bd324f1509ce0f0cbe18d1b049629c90207e7c1f06c7af297297d7b88b3",
+    "bytes": 475870,
+    "status": "ok"
+  },
+  {
+    "file": "ultra-back.jpg",
+    "source_url": "https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Ultra/Luckfox-Pico-Ultra-2-1600x1200.jpg",
+    "page": "https://www.luckfox.com/EN-Luckfox-Pico-Ultra",
+    "role": "back",
+    "date": "2026-10-09",
+    "sha256": "c79bbd357a98fe8d260c7430fe64bbac5ffc3ab666eeb58d5af14f5ec9369e9c",
+    "bytes": 265881,
+    "status": "ok"
+  },
+  {
+    "file": "ultra-drawing.jpg",
+    "source_url": "https://www.luckfox.com/image/catalog/development-board/Luckfox-Pico-Ultra/Luckfox-Pico-Ultra-details-size.jpg",
+    "page": "https://www.luckfox.com/EN-Luckfox-Pico-Ultra",
+    "role": "drawing",
+    "date": "2026-10-09",
+    "sha256": "e299dc34cff352d3f1ef75b1c2ea645b6491a0eb40ac5f26b810a91ca094082d",
+    "bytes": 182582,
+    "status": "ok"
+  },
+  {
+    "file": "Luckfox-Pico-Ultra-W-3_93.jpg",
+    "source_url": "https://www.luckfox.com/image/catalog/development-board/Luckfox-Pico-Ultra-W/Luckfox-Pico-Ultra-W-3_93.jpg",
+    "page": "https://www.luckfox.com/EN-Luckfox-Pico-Ultra",
+    "role": "variant-thumbnail",
+    "date": "2026-10-09",
+    "sha256": "77e1734186257061710b1001b4635b2d38fcd9134a98899f41723a394db6475b",
+    "bytes": 21641,
+    "status": "ok"
+  },
+  {
+    "file": "core-front.jpg",
+    "source_url": "https://www.luckfox.com/image/cache/catalog/development-board/Core11061408/Core11061408/Core11061408-1-1600x1200.jpg",
+    "page": "https://www.luckfox.com/Core1106",
+    "role": "front",
+    "date": "2026-10-09",
+    "sha256": "a485f83f85f829ed0750e7e5bb5ac7c618727214cb1f5804a73f107e1f12f0e6",
+    "bytes": 224740,
+    "status": "ok"
+  },
+  {
+    "file": "core-back.jpg",
+    "source_url": "https://www.luckfox.com/image/cache/catalog/development-board/Core11061408/Core11061408/Core11061408-2-1600x1200.jpg",
+    "page": "https://www.luckfox.com/Core1106",
+    "role": "back",
+    "date": "2026-10-09",
+    "sha256": "e81cadde2ddc028fdb8928f5bc98b8cce7545cd8e5562b00710c52e358fdf4c4",
+    "bytes": 214871,
+    "status": "ok"
+  },
+  {
+    "file": "core-drawing.jpg",
+    "source_url": "https://www.luckfox.com/image/catalog/development-board/Core11061408/Core11061408-details-size.jpg",
+    "page": "https://www.luckfox.com/Core1106",
+    "role": "drawing",
+    "date": "2026-10-09",
+    "sha256": "6bb259345d32ffc9eafde450c2c0661825b4f8a0867725bce5a1dc941c4d8575",
+    "bytes": 170662,
+    "status": "ok"
+  },
+  {
+    "file": "pi-front.jpg",
+    "source_url": "https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-1-1600x1200.jpg",
+    "page": "https://www.luckfox.com/luckfox-pico-pi",
+    "role": "front",
+    "date": "2026-10-09",
+    "sha256": "58eb15cab5e3fa3d991d873887f138466d4a85de3caa8e6d91e00e58bd8363e6",
+    "bytes": 311728,
+    "status": "ok"
+  },
+  {
+    "file": "pi-back.jpg",
+    "source_url": "https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-2-1600x1200.jpg",
+    "page": "https://www.luckfox.com/luckfox-pico-pi",
+    "role": "back",
+    "date": "2026-10-09",
+    "sha256": "dad75ee8598732ddd87cac64a095be6f18ab53b6bd7f89b6ab422cc6e10fb6dc",
+    "bytes": 357562,
+    "status": "ok"
+  },
+  {
+    "file": "pi-drawing.jpg",
+    "source_url": "https://www.luckfox.com/image/catalog/development-board/Luckfox-Pico-Pi-A/Luckfox-Pico-Pi-A-details-size.jpg",
+    "page": "https://www.luckfox.com/luckfox-pico-pi",
+    "role": "drawing",
+    "date": "2026-10-09",
+    "sha256": "f60b240ed4cf17dd36105d9d74f9246c7b57ba3634635d7185fb9d32aa68e10a",
+    "bytes": 209168,
+    "status": "ok"
+  },
+  {
+    "file": "zero-front.jpg",
+    "source_url": "https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Zero/Luckfox-Pico-Zero-1-1600x1200.jpg",
+    "page": "https://www.luckfox.com/luckfox-pico-zero",
+    "role": "front",
+    "date": "2026-10-09",
+    "sha256": "8d37d3b26f5577f8847f92cc2c920e251b6cc0e793eada6766310e0ea07c03da",
+    "bytes": 319409,
+    "status": "ok"
+  },
+  {
+    "file": "zero-back.jpg",
+    "source_url": "https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-Zero/Luckfox-Pico-Zero-2-1600x1200.jpg",
+    "page": "https://www.luckfox.com/luckfox-pico-zero",
+    "role": "back",
+    "date": "2026-10-09",
+    "sha256": "efe8ad25e993a75b5584a6602a200b5f9b9b3701221ca7266911fdf8243ea317",
+    "bytes": 295598,
+    "status": "ok"
+  },
+  {
+    "file": "zero-drawing.jpg",
+    "source_url": "https://www.luckfox.com/image/catalog/development-board/Luckfox-Pico-Zero/Luckfox-Pico-Zero-details-size.jpg",
+    "page": "https://www.luckfox.com/luckfox-pico-zero",
+    "role": "drawing",
+    "date": "2026-10-09",
+    "sha256": "46f030e00dfecf34b48395dc5c3493239a60aaa5003b8d78a854130330b6fd6d",
+    "bytes": 156392,
+    "status": "ok"
+  },
+  {
+    "file": "86-front.jpg",
+    "source_url": "https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-86-Panel-0408/Luckfox-Pico-86-Panel-0408-1-1600x1200.jpg",
+    "page": "https://www.luckfox.com/Luckfox-Pico-86-Panel",
+    "role": "front",
+    "date": "2026-10-09",
+    "sha256": "76a6ee547610eb519d1101a366bced76e0b466fb0712dd9fe947367f252bd956",
+    "bytes": 143902,
+    "status": "ok"
+  },
+  {
+    "file": "86-back.jpg",
+    "source_url": "https://www.luckfox.com/image/cache/catalog/development-board/Luckfox-Pico-86-Panel-0408/Luckfox-Pico-86-Panel-0408-2-1600x1200.jpg",
+    "page": "https://www.luckfox.com/Luckfox-Pico-86-Panel",
+    "role": "back",
+    "date": "2026-10-09",
+    "sha256": "da6b1ef2962feeda9e65daf43c8e71c1680a6cc028589ae1fae038affc65ffff",
+    "bytes": 130430,
+    "status": "ok"
+  },
+  {
+    "file": "86-drawing.jpg",
+    "source_url": "https://www.luckfox.com/image/catalog/development-board/Luckfox-Pico-86-Panel-0408/Luckfox-Pico-86-Panel-0408-details-size.jpg",
+    "page": "https://www.luckfox.com/Luckfox-Pico-86-Panel",
+    "role": "drawing",
+    "date": "2026-10-09",
+    "sha256": "f53aec2f3ea9460ff0c64ad33fb910259205d50dc079f466a513952ecdaa69ad",
+    "bytes": 148036,
+    "status": "ok"
+  },
+  {
+    "file": "lubancat-core.jpg",
+    "source_url": "https://data.embedfire.com/2026/06/%E9%B2%81%E7%8F%AD%E7%8C%ABRV06%E6%A0%B8%E5%BF%83%E6%9D%BF.jpg",
+    "page": "https://embedfire.com/products-3/",
+    "role": "factory-photo",
+    "date": "2026-10-09",
+    "sha256": "4757a6608d733e51315c028eb8600a71387f61f599e5cb8531d14be131c0a1c0",
+    "bytes": 22422,
+    "status": "ok"
+  },
+  {
+    "file": "lubancat-board.jpg",
+    "source_url": "https://data.embedfire.com/2026/06/%E9%B2%81%E7%8F%AD%E7%8C%ABRV06%E6%95%B4%E6%9D%BF.jpg",
+    "page": "https://embedfire.com/products-3/",
+    "role": "factory-photo",
+    "date": "2026-10-09",
+    "sha256": "df781d7833698969bc11809d4aef8c87ee32ca99e8cabcb51ab240fcacf8fd92",
+    "bytes": 33691,
+    "status": "ok"
+  },
+  {
+    "file": "firefly-ct36l.png",
+    "source_url": "https://community.t-firefly.com/wiki-api/assets/objects/08a683b699518f8df26e2eeb5fae1f4d5b800907c570acb2d1219bc76c77b154/CT36L.png",
+    "page": "https://community.t-firefly.com/",
+    "role": "factory-photo",
+    "date": "2026-10-09",
+    "sha256": "08a683b699518f8df26e2eeb5fae1f4d5b800907c570acb2d1219bc76c77b154",
+    "bytes": 380932,
+    "status": "ok"
+  }
+]

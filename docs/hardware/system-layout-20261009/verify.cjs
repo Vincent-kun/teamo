@@ -1,0 +1,25 @@
+const {chromium}=require('C:/Users/13896/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');const fs=require('fs');
+(async()=>{const b=await chromium.launch({headless:true,executablePath:'C:/Users/13896/AppData/Local/ms-playwright/chromium-1234/chrome-win64/chrome.exe'});const p=await b.newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));const root='file:///'+__dirname.replace(/\\/g,'/');await p.goto(root+'/index.html');
+if(await p.locator('#libContent tr.row').count()!==147)throw Error('catalog rows');
+await p.locator('.lib-cat[data-cat="喇叭"]').click();
+if(await p.locator('#libContent tr.row').count()!==8)throw Error('speaker category');
+await p.locator('#libSearch').fill('CMS-28528');
+if(await p.locator('#libContent tr.row').count()!==1)throw Error('search');
+await p.locator('#libSearch').fill('');
+await p.locator('.lib-cat[data-cat="全部"]').click();
+await p.locator('.fchip[data-tag="SPI"]').click();
+const spi=await p.locator('#libContent tr.row').count();
+if(spi<1)throw Error('SPI filter');
+await p.locator('.fchip[data-tag="SPI"]').click();
+await p.locator('input[name="imgf"][value="2"]').click();
+if(await p.locator('#libContent .nothumb').length<1)throw Error('noimg filter');
+await p.locator('input[name="imgf"][value="0"]').click();
+await p.locator('#libContent tr.row').first().click();
+if(await p.locator('#libContent tr.detail').count()!==1)throw Error('detail row');
+await p.locator('.lib-cat[data-cat="全部"]').click();
+if(await p.locator('#libContent tr.row').count()!==147)throw Error('all rows');
+await p.locator('.vbtn[data-view="cards"]').click();
+if(await p.locator('#libContent .card').count()!==147)throw Error('cards view');
+await p.locator('.vbtn[data-view="table"]').click();
+for(const width of [1440,768,390,320]){await p.setViewportSize({width,height:1000});if(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('overflow '+width);await p.screenshot({path:__dirname+'/review-'+width+'.png'});}
+await p.goto(root+'/../battery-selection-20261009/index.html');if(await p.locator('#rows tr').count()!==13)throw Error('battery count');await p.locator('#only').check();if(await p.locator('#rows tr').count()!==6)throw Error('battery filtered count');await p.locator('#reset').click();await p.locator('#search').fill('BAT04');const model=await p.locator('#rows tr').count();await p.locator('#search').fill('2011');if(await p.locator('#rows tr').count()!==13){};await p.locator('#only').check();if(await p.locator('#rows tr').count()!==1)throw Error('battery search');await p.locator('#reset').click();for(const width of [1440,390,320]){await p.setViewportSize({width,height:1000});if(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('battery overflow '+width);await p.screenshot({path:__dirname+'/../battery-selection-20261009/review-'+width+'.png'});}if(errors.length)throw Error(errors.join());console.log('Passed browser filters and responsive layouts; mechanical/RF/electrical validation excluded.');await b.close()})().catch(e=>{console.error(e);process.exit(1)});

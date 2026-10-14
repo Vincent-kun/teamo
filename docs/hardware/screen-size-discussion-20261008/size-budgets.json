@@ -1,0 +1,128 @@
+{
+  "date": "2026-10-08",
+  "phi": 1.618033988749895,
+  "units": "mm",
+  "status": "discussion proposals; not verified CAD",
+  "plans": [
+    {
+      "id": "P1",
+      "title": "方屏 · 核心板",
+      "d": 38,
+      "screen": [
+        33.13,
+        41.13
+      ],
+      "pic": "LCD169-Touch-drawing.png",
+      "model": "1.69inch Touch LCD Module",
+      "board": [
+        42,
+        55
+      ],
+      "budget": 36,
+      "terms": [
+        9.5,
+        1,
+        10,
+        1,
+        7.2,
+        3,
+        4.3
+      ],
+      "note": "Core30×30×5.50；载板42×55×10为待设计占位。SPI显示/I2C触控仍需适配。",
+      "w": 61.48529157249601,
+      "h": 99.48529157249601,
+      "remaining": 2,
+      "width_min": 47.5,
+      "front_height_min": 74.63
+    },
+    {
+      "id": "P2",
+      "title": "圆屏 · 双处理器",
+      "d": 42,
+      "screen": [
+        55,
+        55
+      ],
+      "pic": "esp32.jpg",
+      "model": "ESP32-S3-Touch-LCD-1.85",
+      "board": [
+        42,
+        55
+      ],
+      "budget": 39.5,
+      "terms": [
+        13,
+        1,
+        10,
+        1,
+        7.2,
+        3,
+        4.3
+      ],
+      "note": "55×55真实整板；T暂占13，不是厂家厚度。ESP负责UI，RV负责视觉；协议待开发。",
+      "w": 67.95742752749558,
+      "h": 109.95742752749558,
+      "remaining": 2.5,
+      "width_min": 60.5,
+      "front_height_min": 88.5
+    },
+    {
+      "id": "P3",
+      "title": "裸圆屏 · 产品化",
+      "d": 35,
+      "screen": [
+        48.08,
+        49.59
+      ],
+      "pic": "round.webp",
+      "model": "ND018TCM360360-A01",
+      "board": [
+        42,
+        55
+      ],
+      "budget": 31.3,
+      "terms": [
+        24,
+        3,
+        4.3
+      ],
+      "note": "屏厚1.96已公开；此路线深度由24mm相机安装占位主导。QSPI/FPC/电压未闭环。",
+      "w": 56.63118960624632,
+      "h": 91.63118960624632,
+      "remaining": 3.6999999999999993,
+      "width_min": 53.58,
+      "front_height_min": 83.09
+    },
+    {
+      "id": "P4",
+      "title": "开发平台 · 非产品尺寸",
+      "d": 52,
+      "screen": [
+        33.13,
+        41.13
+      ],
+      "pic": "LCD169-Touch-drawing.png",
+      "model": "Pico Max + 1.69inch Touch LCD Module",
+      "board": [
+        21,
+        72
+      ],
+      "budget": 51,
+      "terms": [
+        9.5,
+        1,
+        25,
+        1,
+        7.2,
+        3,
+        4.3
+      ],
+      "note": "21×72真实板框，含插线T暂占25。52mm深度保留同截面电池预算；连接器超预算需扩大。",
+      "w": 84.13776741499453,
+      "h": 136.13776741499453,
+      "remaining": 1,
+      "width_min": 41.5,
+      "front_height_min": 74.63
+    }
+  ]
+}

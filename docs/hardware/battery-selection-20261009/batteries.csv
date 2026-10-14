@@ -1,0 +1,14 @@
+﻿ID,型号,容量mAh,电压V,包体WHT,连续参考A,PCM,NTC,价格,来源,缺项
+BAT01,LiPol LP503450 / 850mAh PCM,850,3.7,"[34, 50, 5]",0.85,True,False,RFQ,https://www.lipolbattery.com/LiPo-Battery-Datahseet/LiPo_Battery_LP503450_3.7V_850mAh.pdf,同型号不同厂家容量可能不同；保护阈值不是允许连续电流。
+BAT02,LiPol LP603450 / 1100mAh PCM+NTC,1100,3.7,"[34, 50, 6]",1.1,True,True,RFQ,https://www.lipolbattery.com/LiPo-Battery-Datahseet/LiPo_Battery_LP603450_3.7V_1100mAh.pdf,厂家PDF明确PCM+10k NTC、3pin Molex；需当批确认。
+BAT03,Adafruit #258 / 1200mAh,1200,3.7,"[35, 62, 5]",,True,False,USD 9.95 / 零售,https://www.adafruit.com/product/258,商品写34×62×5，链接图纸35±0.3×62±0.3×5±0.3；本轮以35mm保守参考，冲突未闭环。2A线材不代表电芯连续2A。
+BAT04,Adafruit #2011 / 2000mAh,2000,3.7,"[36, 60, 7]",,True,False,USD 12.50 / 零售,https://www.adafruit.com/product/2011,标准放电约0.5A，不作为最大连续值；JST-PH、无NTC。旧资料缺货已过时，本轮不保证国内库存。
+BAT05,Adafruit #328 / 2500mAh,2500,3.7,"[50, 60, 7.3]",,True,False,USD 14.95 / 零售,https://www.adafruit.com/product/328,较宽软包，放入60mm外宽机身时须扣壁厚、支架和公差；最大连续待数据表核。
+BAT06,Adafruit #1578 / 500mAh,500,3.7,"[29, 36, 4.75]",,True,False,USD 7.95 / 零售,https://www.adafruit.com/product/1578,小容量对照；不是RV1106+4G主电池推荐。线长102mm另计收纳。
+BAT07,Adafruit #1781 / 2200mAh,2200,3.7,"[18, 69, 18]",1,True,False,USD 9.95 / 零售,https://www.adafruit.com/product/1781,带保护的整包长69mm，不能按裸18650的65mm画槽；厂家建议持续负载低于约1A，4.4A为峰值。
+BAT08,Adafruit #354 / 4400mAh 1S2P,4400,3.7,"[37, 69, 18]",2.2,True,False,USD 19.95 / 零售,https://www.adafruit.com/product/354,两芯并联成品包；2.2A为厂家建议最大放电值，线材/接口电流另核。
+BAT09,Adafruit #353 / 6600mAh 1S3P,6600,3.7,"[54, 69, 18]",3.3,True,False,USD 24.50 / 零售,https://www.adafruit.com/product/353,三芯并联包；容量高但宽厚，不宜紧凑首选。连接器是否支持3.3A需单独核对。
+BAT10,Molicel INR-18650-P28A / 2800mAh,2800,3.6,"[18.6, 65.2, 18.6]",,False,,RFQ,https://www.molicel.com/product/inr-18650-p28a/,裸电芯最大直径18.6/高65.2；最大放电35A是电芯规格，未作为整包连续评级。PCM、NTC、镍带和绝缘尺寸另设计。
+BAT11,EEMB LP603450HA,1100,3.7,"[34.5, 52, 6.3]",,False,,RFQ,https://www.eemb.com/product-252,裸芯最大外缘L1≤52；最大11A/10C未另列持续温升条件，成品连续/PCM/NTC待定。
+BAT12,EEMB LP803560HA,1700,3.7,"[35.5, 62, 8.3]",,False,,RFQ,https://www.eemb.com/product-253,裸芯L1≤62；最大17A/10C，不作为成品包持续供电能力。
+BAT13,EEMB LP103454LC,2000,3.7,"[34.5, 56, 10.3]",,False,,RFQ,https://www.eemb.com/product-161,低温裸芯L1≤56；常温最大4A，保护包外形及连续温升条件待核。

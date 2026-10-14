@@ -1,0 +1,270 @@
+{
+ "M02": {
+  "url": "https://wiki.luckfox.com/zh/Core1106/Introduction/",
+  "status": "BAD ct=application/xml len=387 img=https://files.luckfox.com/wiki/Luckfox-Pico/Picture/Luckfox%20Pico.png"
+ },
+ "C03": {
+  "url": "https://www.waveshare.com/wiki/SC3336_3MP_Camera_%28A%29",
+  "status": "OK jpg 9975B https://www.waveshare.com/w/upload/7/75/SC3336_3MP_Camera_%28A%29.jpg"
+ },
+ "C04": {
+  "url": "https://www.waveshare.com/sc3336-3mp-camera-b.htm",
+  "status": "OK jpg 217707B https://www.waveshare.com/img/devkit/accBoard/SC3336-3MP-Camera-B/SC3336-3MP-Camera-B-deta"
+ },
+ "C05": {
+  "url": "https://docs.waveshare.com/IMX415-8MP-USB-Camera-A",
+  "status": "OK webp 298854B https://docs.waveshare.com/assets/images/IMX415-8MP-USB-Camera-A-details-1-7ab033765fdc7cc"
+ },
+ "C06": {
+  "url": "https://www.vanxoak.com/camera/hd-csi-2093.html",
+  "status": "OK png 9332B https://18821080.s21i.faiusr.com/4/ABUIABAEGAAg2Jqa0AYonvq6ygUwiwQ47wM!500x500.png.webp"
+ },
+ "C08": {
+  "url": "https://usb-cameramodule.company.frbiz.com/p121876991-mipi-5mp-camera-sensor-module-60fps-sc530ai-anti-fog.html",
+  "status": "NOIMG"
+ },
+ "C09": {
+  "url": "http://m.oe1.com/product/6983714281336885248.html",
+  "status": "ERR page.goto: net::ERR_CONNECTION_TIMED_OUT at http://m.oe1.com/product/6983714281336885248.html\nCall log:\n\u001b[2m  - navigating to \"http://m.oe1."
+ },
+ "C10": {
+  "url": "https://en.gcoreinc.com/products/index?cid=14&subcid=19",
+  "status": "NOIMG"
+ },
+ "N03": {
+  "url": "https://docs.openluat.com/air780er/product/",
+  "status": "OK jpg 870977B https://docs.openluat.com/cdn/wxqrcode.jpg"
+ },
+ "N04": {
+  "url": "https://cn.simcom.com/product/A7670X.html",
+  "status": "OK png 73393B https://cn.simcom.com/Uploads/image/20250305/67c8019e3ec4d.png"
+ },
+ "N05": {
+  "url": "https://www.quectel.com/content/uploads/2024/03/Quectel_EG915U_Series_LTE_Standard_Module_Specification_V1.6.pdf",
+  "status": "NOIMG"
+ },
+ "N06": {
+  "url": "https://documentation.espressif.com/esp32-c3-mini-1_datasheet_en.html",
+  "status": "NOIMG"
+ },
+ "N07": {
+  "url": "https://wiki.luckfox.com/Luckfox-Pico-Ultra/WiFi-BT/",
+  "status": "OK jpg 32400B https://wiki.luckfox.com/img/docusaurus-social-card.jpg"
+ },
+ "N09": {
+  "url": "https://www.ampak.com.tw/product/WiFi-Bluetooth/stamp-type-1T1R/AP6256",
+  "status": "OK jpg 124541B https://www.ampak.com.tw/images/ogShare.jpg"
+ },
+ "N10": {
+  "url": "https://www.tp-link.com.cn/product_740.html?v=specification",
+  "status": "OK jpg 53406B https://media.tp-link.com.cn/webresource/www_data/products/800/740/1.jpg"
+ },
+ "ANT03": {
+  "url": "https://www.taoglas.com/product/fxp40-2g3g-flexible-antenna-2/",
+  "status": "OK png 140473B https://cdn.taoglas.com/wp-content/uploads/2023/03/FXP40.07.0085A.png"
+ },
+ "ANT07": {
+  "url": "https://www.molex.com/en-us/products/part-detail/2069940100",
+  "status": "NOIMG"
+ },
+ "ANT08": {
+  "url": "https://www.molex.com/en-us/products/part-detail/2069941100",
+  "status": "ERR apiRequestContext.get: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - → GET https://www.molex.com/content/dam/molex/molex-dot-com/products/auto"
+ },
+ "ANT09": {
+  "url": "https://www.molex.com/en-us/products/series-chart/146153",
+  "status": "NOIMG"
+ },
+ "ANT11": {
+  "url": "https://www.everythingrf.com/products/all-antennas/taoglas/741-318-fxp74-07-0100a",
+  "status": "NOIMG"
+ },
+ "EX07": {
+  "url": "https://tailorpixels.com/wp-content/uploads/2024/06/TTH185BRS-01C_1.85-inch-Round-LCD-360x360-MIPI-QSPI-SRGB-8BIT.pdf",
+  "status": "NOIMG"
+ },
+ "EX08": {
+  "url": "https://www.buydisplay.com/chinese/catalog/product/view/id/1987/s/480x480-round-ips-tft-lcd-display-2-1-inch-capacitive-touch-circle-screen/",
+  "status": "NOIMG"
+ },
+ "EX09": {
+  "url": "https://www.buydisplay.com/1-28-inch-tft-lcd-display-240x240-round-circle-screen-for-smart-watch",
+  "status": "NOIMG"
+ },
+ "EX10": {
+  "url": "https://www.buydisplay.com/2-1-inch-480x480-hmi-intelligent-smart-uart-spi-round-capacitive-touch",
+  "status": "NOIMG"
+ },
+ "WS09": {
+  "url": "https://www.waveshare.com/catalog/product/view/id/5540/s/1.69inch-lcd-module/category/356/",
+  "status": "OK jpg 161177B https://www.waveshare.com/img/devkit/LCD/1.69inch-LCD-Module/1.69inch-LCD-Module-details-s"
+ },
+ "WS16": {
+  "url": "https://www.waveshare.com/product/3.5inch-capacitive-touch-lcd.htm",
+  "status": "OK jpg 304981B https://www.waveshare.com/img/devkit/LCD/3.5inch-Capacitive-Touch-LCD/3.5inch-Capacitive-T"
+ },
+ "WS17": {
+  "url": "https://www.waveshare.com/wiki/1.83inch_LCD_Module",
+  "status": "OK jpg 8034B https://www.waveshare.com/w/upload/9/93/1.83inch_LCD_Module.jpg"
+ },
+ "BAT01": {
+  "url": "https://www.lipolbattery.com/LiPo-Battery-Datahseet/LiPo_Battery_LP503450_3.7V_850mAh.pdf",
+  "status": "NOIMG"
+ },
+ "BAT02": {
+  "url": "https://www.lipolbattery.com/LiPo-Battery-Datahseet/LiPo_Battery_LP603450_3.7V_1100mAh.pdf",
+  "status": "NOIMG"
+ },
+ "BAT10": {
+  "url": "https://www.molicel.com/product/inr-18650-p28a/",
+  "status": "OK png 733451B https://www.molicel.com/wp-content/uploads/molicel-social_share_image.png"
+ },
+ "BAT11": {
+  "url": "https://www.eemb.com/product-252",
+  "status": "OK png 185253B https://eemb.oss-accelerate.aliyuncs.com//uploads/20230902/4530081178839baa78e55e386cd02cc"
+ },
+ "BAT12": {
+  "url": "https://www.eemb.com/product-253",
+  "status": "OK png 203122B https://eemb.oss-accelerate.aliyuncs.com//uploads/20230902/92c461b7699fa625bc180a4b437bc79"
+ },
+ "BAT13": {
+  "url": "https://www.eemb.com/product-161",
+  "status": "OK png 270514B https://eemb.oss-accelerate.aliyuncs.com//uploads/20230311/222516ed4d78d3f17aac23527226bb4"
+ },
+ "PWR01": {
+  "url": "https://www.ti.com/product/BQ24074",
+  "status": "NOIMG"
+ },
+ "PWR02": {
+  "url": "https://www.ti.com/product/TPS61088",
+  "status": "NOIMG"
+ },
+ "PWR06": {
+  "url": "https://sales.dzsc.com/480534.html",
+  "status": "OK jpg 17760B https://www.dzsc.com/uploadfile/shopic/65946/s201371010326205.jpg"
+ },
+ "PWR09": {
+  "url": "https://www.monolithicpower.com/en/catalog/product/view/id/872/s/mp2315",
+  "status": "ERR page.evaluate: Execution context was destroyed, most likely because of a navigation"
+ },
+ "PWR11": {
+  "url": "https://www.sg-micro.com/product/SGM2212",
+  "status": "OK png 38757B https://www.sg-micro.com/api/assets/6bf6d343-68f3-42ea-92b3-65ba1f01fbf8?access_token=JB0x"
+ },
+ "PWR13": {
+  "url": "https://item.szlcsc.com/details/waldom/MT3608%E8%A5%BF%E5%AE%89%E8%88%AA%E5%A4%A9%E6%B0%91%E8%8A%AF2%E5%B9%B4%E5%86%85.html",
+  "status": "OK jpg 192597B https://alimg.szlcsc.com/upload/public/home/page/advertising/20260807/DBF75E95976CF43B2159"
+ },
+ "PWR14": {
+  "url": "http://www.mmic.net.cn/pro/53855/478_603391_449895.html",
+  "status": "OK jpg 59434B http://www.mmic.net.cn/Images/UserFiles/Sale_Product/2017-07/(53855)CW2015CSAD(4).jpg"
+ },
+ "AMP02": {
+  "url": "https://www.analog.com/en/products/max98357a.html",
+  "status": "OK png 18710B https://mds.analog.com/api/public/content/8218.png"
+ },
+ "AMP03": {
+  "url": "http://www.szczkjgs.com/UploadFiles/fujian/3725/NS4168.pdf",
+  "status": "NOIMG"
+ },
+ "AUD01": {
+  "url": "https://www.ti.com/product/TLV320AIC3104",
+  "status": "NOIMG"
+ },
+ "MIC01": {
+  "url": "https://www.adafruit.com/product/3421",
+  "status": "OK jpg 42954B https://www.adafruit.com/images/480x360/3421-03.jpg"
+ },
+ "MIC02": {
+  "url": "https://www.denovocn.com/node/6251",
+  "status": "NOIMG"
+ },
+ "CN04": {
+  "url": "https://www.jlcsmt.com/lcsc/detail?componentCode=C30167326&stockNumber=10&presaleOrderSource=shop",
+  "status": "OK jpg 173686B https://alimg.szlcsc.com/upload/public/product/source/20240727/33C6B883BFCEF02656409361CAB"
+ },
+ "CN07": {
+  "url": "https://jlcpcb.com/partdetail/JXTCONN-NANO_SIM_6P_1_4HHINGE/C53207805",
+  "status": "OK png 48905B https://rs.jlcpcb.com/webResource/jlcpcb/component-platform-static/images/parts/detail/ass"
+ },
+ "CN08": {
+  "url": "https://www.hirose.com/en/product/p/CL0586-0524-9-55",
+  "status": "OK jpg 23435B https://www.hirose.com/_next/image?url=https%3A%2F%2Fgated.hirose.com%2Fseries%2Fimages%2F"
+ },
+ "CN09": {
+  "url": "https://www.jlc-smt.com/lcsc/detail/C11055.html",
+  "status": "OK jpg 167689B https://alimg.szlcsc.com/upload/public/product/source/20221228/972F66FDC4D963A43B4AA5395CC"
+ },
+ "CN10": {
+  "url": "https://item.szlcsc.com/6119902.html",
+  "status": "OK jpg 17601B https://alimg.szlcsc.com/upload/public/product/breviary/20230111/9231C54C926D41CE7DF30DB61"
+ },
+ "CN11": {
+  "url": "https://www.jlcsmt.com/lcsc/detail?componentCode=C52750879&stockNumber=10&presaleOrderSource=shop",
+  "status": "ERR page.goto: net::ERR_CONNECTION_TIMED_OUT at https://www.jlcsmt.com/lcsc/detail?componentCode=C52750879&stockNumber=10&presaleOrderSource=sho"
+ },
+ "CN12": {
+  "url": "https://www.jlc-smt.com/lcsc/detail/C225112.html",
+  "status": "OK jpg 137422B https://alimg.szlcsc.com/upload/public/product/source/20230108/7CD3B88B594831F9BCF38A4D989"
+ },
+ "CN13": {
+  "url": "https://item.szlcsc.com/123714.html",
+  "status": "OK jpg 11471B https://alimg.szlcsc.com/upload/public/product/breviary/20230101/ECC7021FD638BA24EF1B249EB"
+ },
+ "CN14": {
+  "url": "https://www.jlc-smt.com/lcsc/detail/C265101.html",
+  "status": "OK jpg 131283B https://alimg.szlcsc.com/upload/public/product/source/20230109/6D870B51624F4436ED5470D01F5"
+ },
+ "CN15": {
+  "url": "https://www.szlcsc.com/info/12671.html",
+  "status": "OK png 57468B https://static.szlcsc.com/ecp/assets/newWeb/www/home/og-logo.png"
+ },
+ "CN16": {
+  "url": "https://www.szlcsc.com/info/12671.html",
+  "status": "OK png 57468B https://static.szlcsc.com/ecp/assets/newWeb/www/home/og-logo.png"
+ },
+ "CN19": {
+  "url": "https://item.szlcsc.com/55013780.html",
+  "status": "OK png 22507B https://lceda.cn/components_pngs/C52190655_pcb.png"
+ },
+ "CN21": {
+  "url": "https://www.jlc-smt.com/lcsc/detail?componentCode=C2681570",
+  "status": "OK jpg 160664B https://alimg.szlcsc.com/upload/public/product/source/20250824/C4626331FF8EC7AAE2378C5C6AA"
+ },
+ "CN22": {
+  "url": "https://item.szlcsc.com/mro/54656833.html",
+  "status": "OK jpg 4906B https://alimg.szlcsc.com/upload/public/product/breviary/20251027/63605D95328D0B3BC850B3AA1"
+ },
+ "CN23": {
+  "url": "https://item.szlcsc.com/54656693.html",
+  "status": "OK jpg 4367B https://alimg.szlcsc.com/upload/public/product/breviary/20251027/D80C9368530AC89074B97F1C0"
+ },
+ "CN24": {
+  "url": "https://dmwj1688.cn.b2b168.com/shop/supply/61893020.html",
+  "status": "ERR apiRequestContext.get: connect ETIMEDOUT 198.18.0.183:443\nCall log:\n\u001b[2m  - → GET https://l.b2b168.com/2016/08/04/16/201608041603561567054.j"
+ },
+ "CN25": {
+  "url": "https://www.hi1718.com/top-products/1-19369905.html",
+  "status": "ERR apiRequestContext.get: connect ETIMEDOUT 198.18.0.202:443\nCall log:\n\u001b[2m  - → GET https://file.hi1718.com/dzsc/15/7255/15725542.jpg\u001b[22m\n\u001b[2"
+ },
+ "CN26": {
+  "url": "https://www.hi1718.com/top-products/1-19369905.html",
+  "status": "OK jpg 356185B https://file.hi1718.com/dzsc/13/4445/13444553.jpg"
+ },
+ "CN27": {
+  "url": "https://item.szlcsc.com/mro/56735657.html",
+  "status": "OK jpg 3342B https://alimg.szlcsc.com/upload/public/product/breviary/20260709/C4F01B9116743154C6C5774C7"
+ },
+ "CN28": {
+  "url": "https://item.szlcsc.com/mro/2970135.html",
+  "status": "OK jpg 3077B https://alimg.szlcsc.com/upload/public/product/breviary/20230523/6167CE39E65E056A0FDD57138"
+ },
+ "CN29": {
+  "url": "https://www.tntecomp.com/products/0-5mm-pitch-20-pin-200mm-fpc-a-type-ribbon-flexible-flat-cable",
+  "status": "OK jpg 17122B http://www.tntecomp.com/cdn/shop/files/05mm-pitch-20-pin-200mm-fpc-a-type-ribbon-flexible-"
+ },
+ "CN30": {
+  "url": "https://kamami.pl/en/ffc-fpc-cables/1184888-20-cm-ffc-fpc-tape-with-20-cm-length-and-05-mm-pitch-type-a-b-5906623450244.html",
+  "status": "OK jpg 85446B https://kamami.pl/78500-large_default/20-cm-ffc-fpc-tape-with-20-cm-length-and-05-mm-pitch"
+ }
+}

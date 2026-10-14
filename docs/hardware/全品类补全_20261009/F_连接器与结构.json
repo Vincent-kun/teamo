@@ -1,0 +1,793 @@
+[
+ {
+  "id": "CN01",
+  "category": "连接器与结构",
+  "model": "KH-TYPE-C-16P",
+  "manufacturer": "kinghelm(金航标)",
+  "w": 7.81,
+  "h": null,
+  "t": null,
+  "url": "https://www.szlcsc.com/product/details_747093.html",
+  "notes": "功能:USB-C 2.0 母座(数据+充电),16pin 卧贴无弹,3A/30V,插拔寿命1万次,体长7.81mm,-40~+85℃。插拔区需在壳体开口留公头插入深度≥8mm 并含线缆弯折空间。缺项:板高H、总高包络、有无固定脚需下载规格书确认。",
+  "price": "5+ ¥0.4746",
+  "photo": "assets/CN01.jpg",
+  "photo_note": "立创商品主图已下载并Read核对为USB-C母座实物",
+  "sources": [
+   {
+    "fact": "16P卧贴/3A/插拔1万次/体长7.81mm",
+    "url": "https://www.szlcsc.com/product/details_747093.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "板上高度H",
+   "固定脚形式",
+   "插入口壳体开口公差配合"
+  ]
+ },
+ {
+  "id": "CN02",
+  "category": "连接器与结构",
+  "model": "TYPE-C-31-M-12",
+  "manufacturer": "Korean Hroparts Elec(韩国韩荣)",
+  "w": 7.35,
+  "h": null,
+  "t": null,
+  "url": "https://item.szlcsc.com/177331.html",
+  "notes": "功能:USB-C 母座16pin卧贴(USB2.0+5A充电),5A/20V,插拔1万次,体长7.35mm,-30~+80℃。嘉立创SMT常用爆款,封装库现成(C165948)。缺项:板高与固定脚需规格书确认。",
+  "price": "1+ ¥1.051 / 1000+ ¥0.585",
+  "photo": "assets/CN02.jpg",
+  "photo_note": "已下载核对为USB-C卧贴母座实物",
+  "sources": [
+   {
+    "fact": "16P卧贴/5A 20V/插拔1万次/体长7.35mm",
+    "url": "https://item.szlcsc.com/177331.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "品牌/封装/插拔循环参数",
+    "url": "https://jlcpcb.com/partdetail/C165948",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "板上高度H",
+   "固定脚形式"
+  ]
+ },
+ {
+  "id": "CN03",
+  "category": "连接器与结构",
+  "model": "TYPE-C-6PBS-Z2-5.5",
+  "manufacturer": "CAX(创都)",
+  "w": 5.5,
+  "h": null,
+  "t": null,
+  "url": "https://item.szlcsc.com/56234686.html",
+  "notes": "功能:USB-C 只充电母座 6pin 卧贴(板上中2脚无弹),体长仅5.5mm,额定2A/5V,插拔5千次,-20~+85℃。适合砍掉USB数据只留充电+调试走无线/烧录座的布局;立创电流参数栏列'250mA;2A;1.25A',需以规格书确认单pin额定。缺项:板高、线缆弯折区。",
+  "price": null,
+  "photo": "assets/CN03.jpg",
+  "photo_note": "已下载核对为6pin短体USB-C母座实物",
+  "sources": [
+   {
+    "fact": "6P卧贴/体长5.5mm/5V/插拔5千次",
+    "url": "https://item.szlcsc.com/56234686.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "单pin额定电流规格书确认",
+   "板上高度H"
+  ]
+ },
+ {
+  "id": "CN04",
+  "category": "连接器与结构",
+  "model": "TYPE-C 6P WTL6.8 108",
+  "manufacturer": "SHOU HAN(首韩)",
+  "w": 6.8,
+  "h": null,
+  "t": null,
+  "url": "https://www.jlcsmt.com/lcsc/detail?componentCode=C30167326&stockNumber=10&presaleOrderSource=shop",
+  "notes": "功能:USB-C 只充电母座 6pin 卧贴,体长6.8mm,3A/5V,插拔5千次,-20~+85℃。与CN03二选一:6.8mm更稳但多占1.3mm。缺项:板高、固定脚。",
+  "price": "1+ ¥0.218 / 4500+ ¥0.12",
+  "photo": "assets/CN04.jpg",
+  "photo_note": "型号页主图（浏览器补抓 2026-10-09）；来源页与型号对应关系待逐项复核",
+  "sources": [
+   {
+    "fact": "6P卧贴/体长6.8mm/3A/5V/插拔5千次",
+    "url": "https://www.jlcsmt.com/lcsc/detail?componentCode=C30167326",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "板上高度H",
+   "规格书PDF"
+  ]
+ },
+ {
+  "id": "CN05",
+  "category": "连接器与结构",
+  "model": "5001B-SIM125-118",
+  "manufacturer": "JMEconn(文章济美)",
+  "w": null,
+  "h": 1.25,
+  "t": null,
+  "url": "https://item.szlcsc.com/56342797.html",
+  "notes": "功能:Nano SIM 自弹式(push-push)卡座,本体最大高度1.25mm,6pin,带插卡检测,0.5A/30V,插拔寿命5000次,插入力≤10N。取卡方向:正面插入再按弹出半程,壳体需在插入口留≥15mm 取卡操作空间(镊子/手指),不利于封闭后盖。缺项:长宽包络需规格书。",
+  "price": null,
+  "photo": "assets/CN05.jpg",
+  "photo_note": "已下载核对为自弹式SIM卡座实物",
+  "sources": [
+   {
+    "fact": "自弹式NanoSIM/H1.25/带检测/0.5A 30V/5000次",
+    "url": "https://item.szlcsc.com/56342797.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "长宽包络",
+   "弹卡行程尺寸"
+  ]
+ },
+ {
+  "id": "CN06",
+  "category": "连接器与结构",
+  "model": "MUP-C7803-1",
+  "manufacturer": "MUP(德海威)",
+  "w": null,
+  "h": 1.38,
+  "t": null,
+  "url": "https://item.szlcsc.com/5756840.html",
+  "notes": "功能:Nano SIM 卡托式卡座,本体最大高度1.38mm,带插卡检测,需配套卡托 MUP-C7803-31,-40~+85℃。卡托式取卡需侧面开窄槽+退卡方向留卡托行程,对掌心机侧面开孔影响需排布评估。缺项:长宽、卡托行程。",
+  "price": null,
+  "photo": "assets/CN06.jpg",
+  "photo_note": "已下载核对为卡托式SIM卡座实物",
+  "sources": [
+   {
+    "fact": "卡托式NanoSIM/H1.38/带检测/配套卡托C7803-31",
+    "url": "https://item.szlcsc.com/5756840.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "长宽包络",
+   "卡托行程",
+   "卡托库存/价格"
+  ]
+ },
+ {
+  "id": "CN07",
+  "category": "连接器与结构",
+  "model": "NANO SIM 6P 1.4H HINGE",
+  "manufacturer": "JXTCONN(聚兴泰)",
+  "w": 14,
+  "h": 1.4,
+  "t": 12.1,
+  "url": "https://jlcpcb.com/partdetail/JXTCONN-NANO_SIM_6P_1_4HHINGE/C53207805",
+  "notes": "功能:Nano SIM 掀盖(hinge)卡座,长14×宽12.1×高1.4mm,50V,无卡检测,-25~+85℃。掀盖开合需上方留翻盖空间,适合装在中板镂空处。缺项:翻盖开启角度方向、立创在售状态。",
+  "price": "$0.1091(1+)",
+  "photo": "assets/CN07.png",
+  "photo_note": "立创商品图（缩略），型号对应待逐项复核",
+  "sources": [
+   {
+    "fact": "掀盖式NanoSIM/14x12.1x1.4/50V/无检测",
+    "url": "https://jlcpcb.com/partdetail/JXTCONN-NANO_SIM_6P_1_4HHINGE/C53207805",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "立创商城在售链接",
+   "翻盖方向与开启空间"
+  ]
+ },
+ {
+  "id": "CN08",
+  "category": "连接器与结构",
+  "model": "FH12-20S-0.5SH(55)",
+  "manufacturer": "Hirose(广濑)",
+  "w": 14.1,
+  "h": 2,
+  "t": 6.4,
+  "url": "https://www.hirose.com/en/product/p/CL0586-0524-9-55",
+  "notes": "功能:0.5mm 20pin FPC/FFC 母座(CSI摄像头/屏共用规格),翻盖旋转ZIF、下接点,连接器长14.1×宽6.4×高2.0mm,0.5A/50V,配0.3mm厚FPC,插拔寿命约20次,操作锁合力约6.9N。翻盖打开后Z方向需留掀盖空间;弯折半径另计(≥排线厚10倍工程惯例)。缺项:国产替代(钜硕AFC07)供货对比。",
+  "price": null,
+  "photo": "assets/CN08.jpg",
+  "photo_note": "型号页主图（浏览器补抓 2026-10-09）；来源页与型号对应关系待逐项复核",
+  "sources": [
+   {
+    "fact": "0.5mm/20P/ZIF翻盖/下接/14.1x6.4x2.0/0.5A/0.3mm FPC",
+    "url": "https://www.hirose.com/en/product/p/CL0586-0524-9-55",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "插拔20次/锁合力6.9N/翻盖结构",
+    "url": "https://www.elcodis.com/parts/235378/FH12-20S-05SH.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "官网产品图下载(403)",
+   "价格与国内渠道库存"
+  ]
+ },
+ {
+  "id": "CN09",
+  "category": "连接器与结构",
+  "model": "AFC07-S20FCC-00",
+  "manufacturer": "JS(钜硕电子)",
+  "w": null,
+  "h": 2,
+  "t": null,
+  "url": "https://www.jlc-smt.com/lcsc/detail/C11055.html",
+  "notes": "功能:0.5mm 20pin FPC 抽屉式下接母座(CSI/屏国产替代),板上高度2.0mm,0.4A/50V,配0.3mm FPC,磷青铜镀锡,-25~+85℃。抽屉式无需掀盖,Z向更省空间但插拔方向需留抽屉滑出行程约5mm。同系上接款AFC07-S20ECC-00(C11090)可配背对背排线。缺项:长宽包络需规格书。",
+  "price": "1+ ¥0.585",
+  "photo": "assets/CN09.jpg",
+  "photo_note": "型号页主图（浏览器补抓 2026-10-09）；来源页与型号对应关系待逐项复核",
+  "sources": [
+   {
+    "fact": "0.5mm/20P/抽屉式/下接/H2.0/0.4A/0.3mm",
+    "url": "https://www.jlc-smt.com/lcsc/detail/C11055.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "长宽包络",
+   "抽屉行程尺寸"
+  ]
+ },
+ {
+  "id": "CN10",
+  "category": "连接器与结构",
+  "model": "FPC-0.5FX-8PWBH10",
+  "manufacturer": "XUNPU(讯普)",
+  "w": null,
+  "h": 1,
+  "t": null,
+  "url": "https://item.szlcsc.com/6119902.html",
+  "notes": "功能:0.5mm 8pin FPC 翻盖式下接母座(小PIN数:按键排/麦克风排/喇叭弹片转接),板上高度仅1.0mm,0.4A/50V,配0.3mm FPC,-55~+85℃。缺项:长宽包络。",
+  "price": null,
+  "photo": "assets/CN10.jpg",
+  "photo_note": "立创商品图（缩略），型号对应待逐项复核",
+  "sources": [
+   {
+    "fact": "0.5mm/8P/翻盖/下接/H1.0/0.4A/0.3mm",
+    "url": "https://item.szlcsc.com/6119902.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "长宽包络"
+  ]
+ },
+ {
+  "id": "CN11",
+  "category": "连接器与结构",
+  "model": "MLD-FPC-05-8P-H10",
+  "manufacturer": "Minlenda(敏连达)",
+  "w": null,
+  "h": 1,
+  "t": null,
+  "url": "https://www.jlcsmt.com/lcsc/detail?componentCode=C52750879&stockNumber=10&presaleOrderSource=shop",
+  "notes": "功能:0.5mm 8pin FPC 翻盖(前插后翻)双侧触点/上下接母座,H1.0mm,0.5A/50V,-55~+85℃,正反插不分方向,装配友好。缺项:长宽包络、规格书。",
+  "price": "1+ ¥0.282",
+  "photo_note": "未抓图",
+  "sources": [
+   {
+    "fact": "0.5mm/8P/前插后翻/双侧触点/H1.0/0.5A",
+    "url": "https://www.jlcsmt.com/lcsc/detail?componentCode=C52750879",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "长宽包络",
+   "规格书PDF"
+  ]
+ },
+ {
+  "id": "CN12",
+  "category": "连接器与结构",
+  "model": "A1251WR-S-3P",
+  "manufacturer": "CJT(长江连接器)",
+  "w": 9,
+  "h": 3.2,
+  "t": 5.16,
+  "url": "https://www.jlc-smt.com/lcsc/detail/C225112.html",
+  "notes": "功能:电池线对板针座 1.25mm 卧贴 3P(V+/GND/NTC),板包络9×5.16×3.2mm,额定1A/125V,-40~+105℃;配套胶壳A1251H-3P、端子SSH-003T-P0.2-H,适配线径偏细。红线:额定1A,1S电池2A脉冲需按厂家降额曲线评估(短脉冲一般可过)或转CN14;线径匹配建议28-30AWG。缺项:降额曲线、胶壳现货。",
+  "price": "1+ ¥0.585",
+  "photo": "assets/CN12.jpg",
+  "photo_note": "型号页主图（浏览器补抓 2026-10-09）；来源页与型号对应关系待逐项复核",
+  "sources": [
+   {
+    "fact": "1.25mm卧贴3P/9x5.16x3.2/1A 125V/-40~105℃",
+    "url": "https://www.jlc-smt.com/lcsc/detail/C225112.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "A1251系列尺寸/配对胶壳A1251H",
+    "url": "https://cjt.com/upload/A1251.pdf",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "2A脉冲降额曲线",
+   "配套胶壳/端子现货价"
+  ]
+ },
+ {
+  "id": "CN13",
+  "category": "连接器与结构",
+  "model": "51021-0300",
+  "manufacturer": "MOLEX(莫仕)",
+  "w": null,
+  "h": null,
+  "t": null,
+  "url": "https://item.szlcsc.com/123714.html",
+  "notes": "功能:PicoBlade 1.25mm 3P 胶壳(电池线端,摩擦锁),每触点额定1A(AWG32降为0.8A),-40~+85℃;板端需配 53047-0300 卧贴针座+50079 压接端子组成完整链路。国际大厂,一致性最好但三件套成本高。缺项:53047-0300板端尺寸与现货。",
+  "price": null,
+  "photo": "assets/CN13.jpg",
+  "photo_note": "型号页主图（浏览器补抓 2026-10-09）；来源页与型号对应关系待逐项复核",
+  "sources": [
+   {
+    "fact": "PicoBlade 1.25mm 3P胶壳/每触点1A(AWG32为0.8A)",
+    "url": "https://www.marutsu.co.jp/contents/shop/marutsu/datasheet/51021-0300.pdf",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "立创在售胶壳C122445",
+    "url": "https://item.szlcsc.com/123714.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "53047-0300板端尺寸/现货",
+   "胶壳+端子+针座三件套总价"
+  ]
+ },
+ {
+  "id": "CN14",
+  "category": "连接器与结构",
+  "model": "S3B-PH-SM4-TB(LF)(SN)",
+  "manufacturer": "JST",
+  "w": 9.9,
+  "h": 5.5,
+  "t": 8.6,
+  "url": "https://www.jlc-smt.com/lcsc/detail/C265101.html",
+  "notes": "功能:电池接头备选 PH 2.0mm 卧贴 3P,包络9.9×8.6×板高5.5mm,额定2A/100V,-25~+85℃,配SPH-002T端子(24-30AWG),带卧贴辅助焊脚。直接满足2A无需降额论证,但5.5mm板高与9.9mm占位对掌心堆叠压力大;作为CN12不满足电流时的兜底。缺项:2P版本(S2B-PH-SM4-TB)价格。",
+  "price": "1+ ¥1.721",
+  "photo": "assets/CN14.jpg",
+  "photo_note": "型号页主图（浏览器补抓 2026-10-09）；来源页与型号对应关系待逐项复核",
+  "sources": [
+   {
+    "fact": "PH2.0卧贴3P/9.9x8.6x5.5/2A 100V",
+    "url": "https://www.jlc-smt.com/lcsc/detail/C265101.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "PH系列额定2A/端子线径24-32AWG",
+    "url": "https://www.szlcsc.com/info/12671.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "2P版本参数页",
+   "与电池引线线径匹配确认"
+  ]
+ },
+ {
+  "id": "CN15",
+  "category": "连接器与结构",
+  "model": "S2B-PH-SM4-TB(LF)(SN)",
+  "manufacturer": "JST",
+  "w": null,
+  "h": 5.5,
+  "t": null,
+  "url": "https://www.szlcsc.com/info/12671.html",
+  "notes": "功能:喇叭接头方案A,JST PH 2.0mm 2P 卧贴,系列额定2A/100V,适配8Ω 2W喇叭(工作电流远低于额定)。2P占位小,喇叭2W峰值电流约0.7A 余量足。尺寸按PH系列立贴/卧贴家族,2P具体包络需规格书。缺项:2P卧贴具体长宽。",
+  "price": null,
+  "photo": null,
+  "photo_note": "补抓所得为立创站点 logo，已剔除；精确型号原图待补（不以近似图充数）",
+  "sources": [
+   {
+    "fact": "PH2.0系列2P卧贴S2B-PH-SM4-TB存在/系列额定2A 100V",
+    "url": "https://www.szlcsc.com/info/12671.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "2P卧贴包络尺寸",
+   "立创商品页直链"
+  ]
+ },
+ {
+  "id": "CN16",
+  "category": "连接器与结构",
+  "model": "S3B-XH-SM4-TB",
+  "manufacturer": "JST",
+  "w": null,
+  "h": null,
+  "t": null,
+  "url": "https://www.szlcsc.com/info/12671.html",
+  "notes": "功能:喇叭接头方案B,XH2.54 3P 卧贴,系列额定3A/250V,封装高约9.8mm 系,体积最大、最皮实,适合开发板验证期(反复插拔);量产掌心机空间紧张时改CN15或焊线直连。插拔方向需在壳内留≥12mm 直插空间。缺项:卧贴具体包络。",
+  "price": null,
+  "photo": null,
+  "photo_note": "补抓所得为立创站点 logo，已剔除；精确型号原图待补（不以近似图充数）",
+  "sources": [
+   {
+    "fact": "XH系列3P卧贴S3B-XH-SM4-TB存在/系列额定3A 250V",
+    "url": "https://www.szlcsc.com/info/12671.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "卧贴包络尺寸",
+   "立创商品页直链"
+  ]
+ },
+ {
+  "id": "CN17",
+  "category": "连接器与结构",
+  "model": "SKRPACE010",
+  "manufacturer": "ALPS ALPINE(阿尔卑斯阿尔派)",
+  "w": 4.2,
+  "h": 2.5,
+  "t": 3.2,
+  "url": "https://item.szlcsc.com/151122.html",
+  "notes": "功能:顶按轻触开关(电源/功能键),4.2×3.2×高2.5mm 立贴,作用力2.6N(2.55N),行程0.2mm,寿命5万次,50mA/16V。行程短手感偏'硬脆';穿2mm 3D打印壳可行,但按钮帽与壳孔间隙建议0.15-0.25mm 试片验证,行程余量需帽高出壳0.3mm 以上。缺项:壳孔配合公差实测。",
+  "price": null,
+  "photo": "assets/CN17.jpg",
+  "photo_note": "已下载核对为顶按轻触开关实物",
+  "sources": [
+   {
+    "fact": "4.2x3.2x2.5立贴/2.6N/行程0.2mm/5万次",
+    "url": "https://item.szlcsc.com/151122.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "动作力2.55N/行程0.2mm/寿命5万次",
+    "url": "https://m.dianyuan.com/bbs/2477483.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "打印壳孔配合公差试片数据"
+  ]
+ },
+ {
+  "id": "CN18",
+  "category": "连接器与结构",
+  "model": "HX TS34CAZJ 160gf",
+  "manufacturer": "hanxia(韩下)",
+  "w": 4.9,
+  "h": 2.6,
+  "t": 2.95,
+  "url": "https://item.szlcsc.com/26898575.html",
+  "notes": "功能:侧按轻触开关(侧键),3×4 mini 侧按沉板式卧贴带支架,总包络4.9×2.95×2.6mm,作用力160gf,寿命10万次,50mA/12V,-25~+70℃。沉板式可让壳体按键臂斜顶触发;侧键力臂传力设计需壳体留0.3mm 过盈量试片。缺项:触发头行程0.x mm 数值。",
+  "price": "1+ ¥0.564",
+  "photo": "assets/CN18.jpg",
+  "photo_note": "已下载核对为侧按轻触开关实物",
+  "sources": [
+   {
+    "fact": "3x4侧按沉板/160gf/10万次/包络4.9x2.95x2.6",
+    "url": "https://item.szlcsc.com/26898575.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "触发头行程数值",
+   "壳体按键臂配合试片"
+  ]
+ },
+ {
+  "id": "CN19",
+  "category": "连接器与结构",
+  "model": "TS-1187A-BAB",
+  "manufacturer": "XYECONN(辛译)",
+  "w": 5.1,
+  "h": 1.5,
+  "t": 5.1,
+  "url": "https://item.szlcsc.com/55013780.html",
+  "notes": "功能:低背顶按轻触开关(背灯键/复位等备选),4×4×1.5mm(封装5.2×5.2),作用力160gf,50mA/12V,10万次。TS-1187A 系列行程0.15-0.2mm、100/160/250gf 三档可选。比CN17 更矮(1.5mm),适合贴中板顶部。缺项:立创页未列行程/寿命明细,需规格书。",
+  "price": null,
+  "photo": null,
+  "photo_note": "补抓所得为封装库图，与记录型号对应关系无法核实，已剔除；精确型号原图待补（不以近似图充数）",
+  "sources": [
+   {
+    "fact": "4x4x1.5/160gf/50mA 12V/封装5.2x5.2",
+    "url": "https://item.szlcsc.com/55013780.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "TS-1187A系列100/160/250gf、行程0.2±0.1mm、寿命10万次",
+    "url": "https://m.jdzj.com/jiage/3_144221639.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "行程与寿命规格书",
+   "触发行程与打印壳匹配"
+  ]
+ },
+ {
+  "id": "CN20",
+  "category": "连接器与结构",
+  "model": "MSK12C02",
+  "manufacturer": "SHOU HAN(首韩)",
+  "w": 8,
+  "h": 1.4,
+  "t": 2.8,
+  "url": "https://item.szlcsc.com/427897.html",
+  "notes": "功能:SPDT 拨动开关(开机/模式切换备选),卧贴,本体8×2.8×1.4mm,手柄高1.5mm 另计(总高约2.9mm),操作力150gf,行程1.6mm,50mA/12V,寿命1万次,铍青铜镀银。壳体拨槽宽度需≥2.0mm 且留行程位移空间;信号电平开关(不切功率)50mA 足够。缺项:含柄总高确认。",
+  "price": "10+ $0.0571",
+  "photo": "assets/CN20.jpg",
+  "photo_note": "已下载核对为卧贴拨动开关实物",
+  "sources": [
+   {
+    "fact": "SPDT卧贴/8x2.8/本体高1.4/150gf/行程1.6mm/1万次",
+    "url": "https://item.szlcsc.com/427897.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "含柄总高",
+   "壳体拨槽配合"
+  ]
+ },
+ {
+  "id": "CN21",
+  "category": "连接器与结构",
+  "model": "MINI MSK12C02",
+  "manufacturer": "SHOU HAN(首韩)",
+  "w": 5,
+  "h": 1.4,
+  "t": 2.75,
+  "url": "https://www.jlc-smt.com/lcsc/detail?componentCode=C2681570",
+  "notes": "功能:迷你SPDT拨动开关备选,5×2.75×1.4mm,160gf,行程仅1mm,50mA/12V,-25~+70℃。空间再紧张时替换CN20。缺项:含柄总高。",
+  "price": null,
+  "photo": "assets/CN21.jpg",
+  "photo_note": "型号页主图（浏览器补抓 2026-10-09）；来源页与型号对应关系待逐项复核",
+  "sources": [
+   {
+    "fact": "SPDT卧贴/5x2.75x1.4/160gf/行程1mm",
+    "url": "https://www.jlc-smt.com/lcsc/detail?componentCode=C2681570",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "含柄总高"
+  ]
+ },
+ {
+  "id": "CN22",
+  "category": "连接器与结构",
+  "model": "SZGZ0102",
+  "manufacturer": "XHHD(新宏辉达)",
+  "w": 3,
+  "h": 3.5,
+  "t": 3.5,
+  "url": "https://item.szlcsc.com/mro/54656833.html",
+  "notes": "功能:M2 黄铜热熔埋植螺母(工王直纹通孔):螺纹M2(孔径1.65~1.75mm),牙距0.4mm,外径Φ3.5mm,中柱Φ2.8mm,总高3mm,C3604黄铜滚花,单颗0.12g。3D打印埋入:热熔(烙铁/专用热熔头,约200-230℃)对PLA/PETG 可行,PA12-CF 建议超声;打印底孔按外径-0.2~0.3mm 试片(Φ3.2/3.3/3.4 三档)。缺项:打印材料专用底孔参数(靠试片)。",
+  "price": "1+ ¥0.0721",
+  "photo": "assets/CN22.jpg",
+  "photo_note": "立创商品图（缩略），型号对应待逐项复核",
+  "sources": [
+   {
+    "fact": "M2螺纹/外径3.5/中柱2.8/总高3/C3604黄铜滚花",
+    "url": "https://item.szlcsc.com/mro/54656833.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "3D打印底孔/热熔温度试片数据"
+  ]
+ },
+ {
+  "id": "CN23",
+  "category": "连接器与结构",
+  "model": "SZTB1073",
+  "manufacturer": "XHHD(新宏辉达)",
+  "w": 3,
+  "h": 3.5,
+  "t": 3.5,
+  "url": "https://item.szlcsc.com/54656693.html",
+  "notes": "功能:M2 双斜纹(土八)热熔铜螺母备选:总高3mm,A外径3.5mm,B外径2.98mm,C3604,双斜纹抗旋抗拉优于直纹。与CN22 二选一做试片对比拉拔力。缺项:同CN22。",
+  "price": null,
+  "photo": "assets/CN23.jpg",
+  "photo_note": "立创商品图（缩略），型号对应待逐项复核",
+  "sources": [
+   {
+    "fact": "M2/总高3/A外径3.5/B外径2.98/双斜纹C3604",
+    "url": "https://item.szlcsc.com/54656693.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "拉拔力对比数据"
+  ]
+ },
+ {
+  "id": "CN24",
+  "category": "连接器与结构",
+  "model": "PA/KA M2×6 十字盘头自攻螺钉(GB/T 845 风格)",
+  "manufacturer": "行业通用(德茂五金等)",
+  "w": 6,
+  "h": null,
+  "t": null,
+  "url": "https://dmwj1688.cn.b2b168.com/shop/supply/61893020.html",
+  "notes": "功能:配CN22/直接自攻入打印壳的M2×6 十字盘头自攻钉(尖尾,长6mm 不含头),镀镍碳钢。注意:GB/T 845-2017 直径系列最小ST2.2,M2 属行业企业标准小规格,采购需注明'PA M2×6 镀镍'。入塑料底孔建议Φ1.6-1.7mm,三档试片1.6/1.65/1.7。缺项:头径(k≈Φ3.9-4)需到货实测。",
+  "price": "约¥5/千只",
+  "photo_note": "未抓图",
+  "sources": [
+   {
+    "fact": "PA/GB845 M2×6 十字盘头自攻 镀镍 长度4-16可选",
+    "url": "https://dmwj1688.cn.b2b168.com/shop/supply/61893020.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "GB/T 845-2017 标准尺寸体系(最小ST2.2)",
+    "url": "https://www.18luosi.com/product_detail_5628.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "头径实测",
+   "立创工业品直链"
+  ]
+ },
+ {
+  "id": "CN25",
+  "category": "连接器与结构",
+  "model": "PET麦拉绝缘片(模切定制)",
+  "manufacturer": "品类(坚达/文鸿等模切厂)",
+  "w": null,
+  "h": 0.1,
+  "t": null,
+  "url": "https://www.hi1718.com/top-products/1-19369905.html",
+  "notes": "功能:主板与电池/喇叭金属件之间绝缘隔离,常用厚度0.05/0.075/0.1/0.125/0.188/0.25mm,耐热约120℃,0.1mm 耐压约3kV,黑色/透明,可背胶,按实际开样模切。本机重点位置:电池下方整片、喇叭磁体对板背面。缺项:整机开样图纸。",
+  "price": "约25-40元/㎡",
+  "photo_note": "品类条目无单一商品图",
+  "sources": [
+   {
+    "fact": "PET麦拉厚度档0.05-0.25mm/耐热120℃/ROHS",
+    "url": "https://www.hi1718.com/top-products/1-19369905.html",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "0.1mm麦拉耐压约3000V/价格20-100元/㎡",
+    "url": "https://b2bwiki.baidu.com/encyclopedic/plastic-mylar-insulation-sheet",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "按排布开样的模切图纸"
+  ]
+ },
+ {
+  "id": "CN26",
+  "category": "连接器与结构",
+  "model": "EVA泡棉密封垫/硅胶密封圈(模切定制)",
+  "manufacturer": "品类(模切厂)",
+  "w": null,
+  "h": 1,
+  "t": null,
+  "url": "https://www.hi1718.com/top-products/1-19369905.html",
+  "notes": "功能:喇叭后腔密封、电池仓缓冲、屏幕四周减震。EVA 泡棉典型厚0.5/0.8/1.0/2.0mm 单面背胶,压缩量按25-50% 设计;麦克风声孔用硅胶圈更佳(回弹耐久)。密封等级目标仅生活防尘,不做IPX 防水。厚度与压缩比需按实际腔体开样验证。缺项:声腔漏气测试。",
+  "price": null,
+  "photo": "assets/CN26.jpg",
+  "photo_note": "供应商页参考图，型号对应待逐项复核",
+  "sources": [
+   {
+    "fact": "模切厂可供EVA胶垫/硅橡胶垫片/PET复合(坚达工艺范围)",
+    "url": "https://www.hi1718.com/top-products/1-19369905.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "实际腔体尺寸开样",
+   "喇叭后腔漏气验证"
+  ]
+ },
+ {
+  "id": "CN27",
+  "category": "连接器与结构",
+  "model": "NDST-CP120-T100-0.5T",
+  "manufacturer": "NDST(诺德斯特)",
+  "w": 100,
+  "h": 0.5,
+  "t": 100,
+  "url": "https://item.szlcsc.com/mro/56735657.html",
+  "notes": "功能:RV1106 导热垫候选A,1.0W/m·K 导热硅胶片100×100×0.5mm 灰白,单面自粘,可压缩贴合,击穿≥6kV/mm,-50~+150℃,UL94 V-0。整张采购自行模切成 SoC 尺寸;0.5mm 厚适配芯片顶面到打印壳内壁的间隙(需按实测压缩)。缺项:RV1106 到内壁实测间隙。",
+  "price": "¥260/张",
+  "photo": "assets/CN27.jpg",
+  "photo_note": "立创商品图（缩略），型号对应待逐项复核",
+  "sources": [
+   {
+    "fact": "1W/mK/100x100x0.5/击穿6kV/mm/-50~150℃/UL94 V-0",
+    "url": "https://item.szlcsc.com/mro/56735657.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "芯片到壳内壁间隙实测"
+  ]
+ },
+ {
+  "id": "CN28",
+  "category": "连接器与结构",
+  "model": "NDST 导热硅胶片 1W 20×26×0.3mm",
+  "manufacturer": "NDST(诺德斯特)",
+  "w": 20,
+  "h": 0.3,
+  "t": 26,
+  "url": "https://item.szlcsc.com/mro/2970135.html",
+  "notes": "功能:RV1106 导热垫候选B,1W/m·K,20×26×0.3mm 灰色,硬度70±5 Shore A,比重1.7±0.1,公差±0.1mm,可背胶、易裁切。0.3mm 薄款适合芯片直接贴中板金属/石墨片的场景。缺项:0.3mm 压缩量小,对平面度要求高。",
+  "price": "¥0.0463/片(50起)",
+  "photo": "assets/CN28.jpg",
+  "photo_note": "立创商品图（缩略），型号对应待逐项复核",
+  "sources": [
+   {
+    "fact": "1W/mK/20x26x0.3/硬度70±5/公差±0.1mm",
+    "url": "https://item.szlcsc.com/mro/2970135.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "贴合面平面度要求"
+  ]
+ },
+ {
+  "id": "CN29",
+  "category": "连接器与结构",
+  "model": "FFC 软排线 0.5mm-20P A型(同向)",
+  "manufacturer": "品类(BTC/市售标准FFC)",
+  "w": 200,
+  "h": 0.3,
+  "t": 10,
+  "url": "https://www.tntecomp.com/products/0-5mm-pitch-20-pin-200mm-fpc-a-type-ribbon-flexible-flat-cable",
+  "notes": "功能:CSI 摄像头/屏 FPC 转接排线(同向A型:两端触点同面),0.5mm 20P,厚0.3mm,宽10mm,额定60V,长度档50/100/150/200/300/500mm 可选,两端加强板。机内走线建议100-150mm;弯折寿命:静态安装弯折半径≥5mm(约10倍线厚),避免动态弯折;布线避开喇叭磁体与4G天线区。缺项:供应商耐弯折寿命数据。",
+  "price": null,
+  "photo": "assets/CN29.jpg",
+  "photo_note": "型号页主图（浏览器补抓 2026-10-09）；来源页与型号对应关系待逐项复核",
+  "sources": [
+   {
+    "fact": "0.5mm 20P A型/厚0.3/宽10/60V/长200mm档",
+    "url": "https://www.tntecomp.com/products/0-5mm-pitch-20-pin-200mm-fpc-a-type-ribbon-flexible-flat-cable",
+    "date": "2026-10-09"
+   },
+   {
+    "fact": "长度档位50-500mm可选",
+    "url": "https://makerbazar.in/collections/latest-products/products/0-5mm-pitch-20-pins-fpc-type-a-straight-ribbon-flexible-flat-cable",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "弯折寿命数据",
+   "国内立创工业品直链"
+  ]
+ },
+ {
+  "id": "CN30",
+  "category": "连接器与结构",
+  "model": "FFC 软排线 0.5mm-20P B型(反向)",
+  "manufacturer": "品类(BTC Korporacja/市售标准FFC)",
+  "w": 200,
+  "h": 0.3,
+  "t": 10,
+  "url": "https://kamami.pl/en/ffc-fpc-cables/1184888-20-cm-ffc-fpc-tape-with-20-cm-length-and-05-mm-pitch-type-a-b-5906623450244.html",
+  "notes": "功能:CSI/屏 FPC 转接排线(反向B型:两端触点异面),用于摄像头与主板连接器同面朝向时的翻转走线;0.5mm 20P,长20cm。A/B 型选择取决于两端连接器下接/上接组合,排布定稿后统一采购。缺项:国内渠道同规格。",
+  "price": "PLN3.20",
+  "photo": "assets/CN30.jpg",
+  "photo_note": "型号页主图（浏览器补抓 2026-10-09）；来源页与型号对应关系待逐项复核",
+  "sources": [
+   {
+    "fact": "0.5mm 20P B型(A-B反向)/20cm/两端异面触点",
+    "url": "https://kamami.pl/en/ffc-fpc-cables/1184888-20-cm-ffc-fpc-tape-with-20-cm-length-and-05-mm-pitch-type-a-b-5906623450244.html",
+    "date": "2026-10-09"
+   }
+  ],
+  "missing": [
+   "国内渠道直链",
+   "按最终排布定长度"
+  ]
+ }
+]

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>儿童AI运动伙伴｜摄像模组技术方案 V0.1</title>
+<link rel="icon" href="data:,">
+<style>
+:root{--navy:#10233f;--ink:#15253a;--muted:#64748b;--line:#dce5ee;--paper:#fff;--bg:#f3f7fa;--blue:#1769e0;--cyan:#00a6a6;--green:#16805b;--amber:#d97706;--red:#be3636;--violet:#7257d9;--shadow:0 12px 32px rgba(17,41,71,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--bg);font:15px/1.72 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}a{color:var(--blue);text-decoration:none}.wrap{max-width:1180px;margin:auto;padding:0 28px}.hero{color:#fff;padding:64px 0 48px;background:radial-gradient(circle at 84% 10%,rgba(0,200,190,.28),transparent 28%),linear-gradient(135deg,#09182d,#163b68 62%,#0f766e)}.eyebrow{font:700 12px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.14em;color:#86efe7}.hero h1{font-size:44px;line-height:1.12;margin:18px 0 14px;letter-spacing:-.04em}.hero .lead{font-size:18px;color:#d9e7f5;max-width:850px}.meta,.chips{display:flex;gap:9px;flex-wrap:wrap}.meta{margin-top:22px}.pill,.chip{border-radius:999px;padding:5px 11px;font-size:12px}.pill{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08)}.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:18px;margin-top:30px}.hero-card{padding:22px;border:1px solid rgba(255,255,255,.18);border-radius:18px;background:rgba(255,255,255,.09);backdrop-filter:blur(8px)}.hero-card small{color:#9ee9e1}.hero-card strong{font-size:21px;display:block;margin:5px 0}.hero-card p{margin:0;color:#dceaf5}.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);box-shadow:0 3px 14px rgba(14,35,61,.05);backdrop-filter:blur(10px)}.nav .wrap{display:grid;grid-template-columns:repeat(9,1fr)}.nav a{text-align:center;padding:10px 3px 9px;color:var(--muted);font-size:11px;border-bottom:3px solid transparent}.nav a:hover,.nav a.active{color:var(--blue);border-color:var(--cyan)}.nav b{display:block;font-size:10px;color:var(--blue)}.section{padding:48px 0;border-bottom:1px solid var(--line);scroll-margin-top:62px}.section-head{display:flex;gap:15px;margin-bottom:24px}.no{font:800 29px/1 ui-monospace,Consolas,monospace;color:var(--cyan);min-width:43px}.section h2{font-size:29px;line-height:1.25;margin:0;letter-spacing:-.025em}.section-head p{margin:6px 0 0;color:var(--muted)}h3{font-size:20px;margin:25px 0 10px}p{margin:8px 0}.grid2,.grid3,.grid4{display:grid;gap:16px}.grid2{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:repeat(3,1fr)}.grid4{grid-template-columns:repeat(4,1fr)}.card,.metric,.callout,.figure,.decision{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow)}.card h3{margin:0 0 8px}.card p:last-child{margin-bottom:0}.metric strong{font-size:25px;display:block;color:var(--blue)}.metric small{color:var(--muted)}.callout{box-shadow:none;border-left:5px solid var(--blue)}.callout.green{border-left-color:var(--green);background:#f0fbf6}.callout.amber{border-left-color:var(--amber);background:#fff8eb}.callout.red{border-left-color:var(--red);background:#fff3f3}.label{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.04em;border-radius:999px;padding:3px 8px;margin-bottom:8px}.fact{color:#1555ad;background:#e8f2ff}.target{color:#08716d;background:#dff9f6}.verify{color:#9a5a00;background:#fff0cc}.tag{display:inline-block;padding:2px 8px;margin:2px;border-radius:999px;background:#edf2f7;color:#506078;font-size:12px}.flow{display:flex;gap:8px;align-items:stretch;flex-wrap:wrap}.node{flex:1;min-width:130px;background:#fff;border:1px solid #bcd0e4;border-radius:13px;padding:14px}.node b{display:block}.node small{color:var(--muted)}.arrow{align-self:center;color:var(--cyan);font-size:23px}.table-wrap{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow)}table{width:100%;min-width:760px;border-collapse:collapse}th,td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}th{background:#f6f9fb;color:#35465b}tr:last-child td{border-bottom:0}.spec{font-weight:800;color:var(--blue)}.diagram{background:#0d213d;color:#e6f1fc;border-radius:18px;padding:22px;overflow:hidden}.diagram svg{width:100%;height:auto;display:block}.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:12px;color:#bcd0e3}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.calc{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px;align-items:stretch}.control{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}.control label{display:block;font-weight:750;margin:14px 0 4px}.control input[type=range]{width:100%;accent-color:var(--cyan)}.readout{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.readout div{flex:1;min-width:110px;padding:12px;border-radius:12px;background:#edf7f7}.readout strong{display:block;font-size:22px;color:#087d79}.cone{min-height:290px;background:linear-gradient(#0f2748,#153959);border-radius:16px;position:relative;overflow:hidden}.cone .camera{position:absolute;left:28px;top:130px;width:42px;height:42px;border:5px solid #93eee5;border-radius:50%}.cone .beam{position:absolute;left:65px;top:40px;width:calc(100% - 85px);height:220px;clip-path:polygon(0 42%,100% 0,100% 100%,0 58%);background:linear-gradient(90deg,rgba(0,208,194,.5),rgba(0,208,194,.08));border-right:2px dashed #8df3e9}.cone .human{position:absolute;right:34px;bottom:35px;width:34px;height:126px}.human:before{content:"";position:absolute;left:8px;top:0;width:18px;height:18px;border-radius:50%;background:#fff}.human:after{content:"";position:absolute;left:15px;top:18px;width:5px;height:65px;background:#fff;box-shadow:-15px 35px 0 -1px #fff,15px 35px 0 -1px #fff,-8px 92px 0 -1px #fff,8px 92px 0 -1px #fff;transform-origin:top}.cone .measure{position:absolute;left:88px;bottom:16px;color:#c9e5ef;font:12px ui-monospace,monospace}.bars{display:grid;gap:12px}.bar-row{display:grid;grid-template-columns:170px 1fr 70px;gap:10px;align-items:center}.bar{height:12px;background:#e9eef3;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--cyan))}.decision{position:relative;padding-left:60px}.decision .gate{position:absolute;left:18px;top:19px;width:29px;height:29px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--blue);font-weight:800}.decision h3{margin:0}.decision p{margin-bottom:0}.source-list{padding-left:20px}.source-list li{margin:8px 0}.toolbar{position:fixed;right:20px;bottom:20px;display:flex;gap:8px;z-index:30}.toolbar button{border:0;border-radius:999px;padding:10px 14px;color:#fff;background:#163b68;box-shadow:var(--shadow);cursor:pointer}.footer{padding:34px 0 70px;color:var(--muted);font-size:13px}.only-print{display:none}
+@media(max-width:900px){.nav .wrap{grid-template-columns:repeat(5,1fr)}.hero-grid,.grid4{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:1fr 1fr}.calc{grid-template-columns:1fr}.hero h1{font-size:35px}.bar-row{grid-template-columns:130px 1fr 60px}}
+@media(max-width:600px){.wrap{padding:0 16px}.hero{padding-top:42px}.hero h1{font-size:30px}.hero-grid,.grid2,.grid3,.grid4{grid-template-columns:1fr}.nav .wrap{grid-template-columns:repeat(3,1fr)}.flow{display:block}.node{margin:7px 0}.arrow{text-align:center;display:block;transform:rotate(90deg);height:22px}.section{padding:36px 0}.section h2{font-size:25px}.bar-row{grid-template-columns:110px 1fr 55px}}
+@media print{body{background:#fff;font-size:11px}.nav,.toolbar{display:none}.hero{padding:28px 0;background:#102b4e}.section{padding:25px 0}.card,.metric,.callout,.figure,.table-wrap{box-shadow:none}.wrap{max-width:none}.page-break{break-before:page}.only-print{display:block}.diagram,.cone{print-color-adjust:exact;-webkit-print-color-adjust:exact}.hero h1{font-size:32px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">CAMERA MODULE TECHNICAL PROPOSAL · V0.1 · 2026-09-21</div>
+  <h1>儿童 AI 运动伙伴<br>摄像模组技术方案</h1>
+  <p class="lead">围绕一个决策展开：如何在家庭客厅中，以可控的体积、功耗和研发风险，稳定获得可用于儿童全身动作识别的画面。</p>
+  <div class="meta"><span class="pill">受众：产品 / 硬件 / 算法 / 结构 / 供应链</span><span class="pill">阶段：需求冻结 → RFQ → PoC → EVT</span><span class="pill">边界：单人 · 室内 · 本地推理 · 视频默认不保存</span></div>
+  <div class="hero-grid">
+    <div class="hero-card"><small>推荐方案</small><strong>单目 5MP BSI + 120°～130° DFOV + MIPI CSI-2</strong><p>2-Lane 起步、4-Lane 预留；5MP用于采集和裁切余量，姿态估计模型输入为640×384或640×640。</p></div>
+    <div class="hero-card"><small>本次不确定</small><strong>具体 Sensor 与镜头物料型号</strong><p>只有在 RV1106B 目标板完成驱动、图像质量调试、三动作和热稳定测试后才能确定物料型号。</p></div>
+  </div>
+</div></header>
+
+<nav class="nav"><div class="wrap">
+  <a href="#s0"><b>00</b>结论</a><a href="#s1"><b>01</b>问题</a><a href="#s2"><b>02</b>选择逻辑</a><a href="#s3"><b>03</b>架构</a><a href="#s4"><b>04</b>光学</a><a href="#s5"><b>05</b>硬件</a><a href="#s6"><b>06</b>体积功耗</a><a href="#s7"><b>07</b>验证</a><a href="#s8"><b>08</b>输出</a>
+</div></nav>
+
+<main>
+<section class="section" id="s0"><div class="wrap">
+  <div class="section-head"><div class="no">00</div><div><h2>先给决策结论</h2><p>先统一选择，再讨论证据和实现。</p></div></div>
+  <div class="grid4">
+    <div class="metric"><strong>5MP</strong><small>采集分辨率；保留畸变校正与裁切余量</small></div>
+    <div class="metric"><strong>120°–130°</strong><small>对角视场主测区间；160°不默认采用</small></div>
+    <div class="metric"><strong>≤0.5W</strong><small>摄像模组连续功耗目标</small></div>
+    <div class="metric"><strong>≤25×25mm</strong><small>模组PCB目标包络</small></div>
+  </div>
+  <div class="callout green" style="margin-top:18px"><b>建议冻结：</b>单目5MP BSI Rolling Shutter，1/2.7～1/2.8英寸、约2.0μm像素，RAW10 25/30fps；MIPI CSI-2 2-Lane接入RV1106B并预留4-Lane；定焦120°～130° DFOV、IR-cut，覆盖1.5～3.0m单人全身运动。</div>
+  <h3>当前技术评审阶段</h3>
+  <div class="flow"><div class="node" style="border-color:#16805b"><b>系统需求评审（SRR）</b><small>待确认摄像模组需求</small></div><div class="arrow">→</div><div class="node"><b>初步设计评审（PDR）</b><small>需要RFQ回复与样件数据</small></div><div class="arrow">→</div><div class="node"><b>关键设计评审（CDR）</b><small>需要原理图、PCB和结构设计</small></div><div class="arrow">→</div><div class="node"><b>测试准备评审（TRR）</b><small>需要测试计划与测试集</small></div></div>
+  <div class="grid3" style="margin-top:18px">
+    <div class="card"><span class="label fact">继承竞品证据</span><h3>5MP + MIPI + 本地ISP/NPU</h3><p>BodyPark说明这条硬件链路具有产品可行性；RV1106官方能力也覆盖5MP ISP和MIPI输入。</p></div>
+    <div class="card"><span class="label target">针对儿童改造</span><h3>视场收敛到120°～130°</h3><p>保留小客厅全身入镜能力，同时减少160°超广角带来的边缘拉伸和关键点退化。</p></div>
+    <div class="card"><span class="label verify">必须实测</span><h3>Sensor、镜头与IQ组合</h3><p>规格书只能筛候选；最终选择由目标板上的动作准确率、低照、热机和边缘表现决定。</p></div>
+  </div>
+</div></section>
+
+<section class="section" id="s1"><div class="wrap">
+  <div class="section-head"><div class="no">01</div><div><h2>问题不是“拍得清”，而是“识别得稳”</h2><p>把技术参数放回真实使用情境。</p></div></div>
+  <div class="grid2">
+    <div class="card"><h3>使用情境</h3><p><span class="tag">6～15岁</span><span class="tag">115～175cm</span><span class="tag">1.5～3.0m</span><span class="tag">100～800 lux</span><span class="tag">50Hz灯光</span></p><p>动作包含开合跳、深蹲、跳绳；既要看见头、手、脚，也要控制快速肢体的拖影。</p></div>
+    <div class="card"><h3>成功条件</h3><p>完整入镜、关键点稳定、边缘仍可用、反馈足够快、30分钟不崩溃，并且用户能确定摄像头是否真的关闭。</p></div>
+  </div>
+  <h3>需求链：每个参数都必须追溯到用户任务</h3>
+  <div class="flow"><div class="node"><b>家庭空间</b><small>距离短、摆位不稳定</small></div><div class="arrow">→</div><div class="node"><b>光学需求</b><small>足够宽但不过度畸变</small></div><div class="arrow">→</div><div class="node"><b>成像需求</b><small>短曝光、低噪声、30fps</small></div><div class="arrow">→</div><div class="node"><b>AI指标</b><small>全身入镜、关键点、计数</small></div><div class="arrow">→</div><div class="node"><b>系统约束</b><small>体积、功耗、隐私、成本</small></div></div>
+  <div class="callout amber" style="margin-top:18px"><b>科学方法：</b>按 ISO 9241-11 的思路，先明确用户、目标、任务与环境，再定义有效性、效率和满意度指标。对本项目而言，摄像头的“有效性”是动作识别结果，不是样张主观好看。</div>
+</div></section>
+
+<section class="section" id="s2"><div class="wrap">
+  <div class="section-head"><div class="no">02</div><div><h2>为什么选择这一组参数</h2><p>不是堆料，而是在识别效果与工程代价之间找平衡。</p></div></div>
+  <div class="table-wrap"><table><thead><tr><th>决策项</th><th>采用</th><th>不采用</th><th>理由</th></tr></thead><tbody>
+    <tr><td>分辨率</td><td class="spec">5MP</td><td>2MP / 8MP</td><td>2MP经超广角矫正与裁切后余量不足；8MP增加带宽、内存、热和调试成本，MVP收益有限。</td></tr>
+    <tr><td>Sensor尺寸</td><td class="spec">1/2.7～1/2.8英寸，约2.0μm</td><td>小底高密像素</td><td>室内运动需要更短曝光；进光量比纸面像素数量更重要。</td></tr>
+    <tr><td>视场</td><td class="spec">120°～130° DFOV</td><td>默认160°</td><td>在1.5～3m覆盖全身，同时控制边缘畸变、裁切损失和关键点漂移。</td></tr>
+    <tr><td>帧率</td><td class="spec">25/30fps</td><td>15fps / 60fps</td><td>30fps足以覆盖MVP动作阶段；15fps可能漏过快速动作，60fps增加系统负担。</td></tr>
+    <tr><td>深度</td><td class="spec">单目2D Pose</td><td>双目 / ToF</td><td>MVP任务不依赖精确深度；先避免标定、接口、功耗和结构复杂度。</td></tr>
+    <tr><td>快门</td><td class="spec">卷帘快门（Rolling Shutter）+ 短曝光</td><td>全局快门（Global Shutter）</td><td>成本和供应链更友好；用1/100s或更短曝光控制运动拖影。</td></tr>
+  </tbody></table></div>
+  <h3>可交互视场估算</h3>
+  <div class="calc">
+    <div class="control">
+      <label>人与设备距离：<span id="distLabel">2.0</span> m</label><input id="dist" type="range" min="1.2" max="3.5" value="2" step="0.1">
+      <label>水平视场角：<span id="fovLabel">110</span>°</label><input id="fov" type="range" min="90" max="150" value="110" step="1">
+      <div class="readout"><div><strong id="widthOut">5.71m</strong><small>理论水平覆盖宽度</small></div><div><strong id="edgeOut">2.86m</strong><small>中心到边缘宽度</small></div></div>
+      <p class="small">公式：宽度 = 2 × 距离 × tan(HFOV/2)。这是几何覆盖，不代表边缘人体一定可识别；最终仍需用关键点与计数验证。</p>
+    </div>
+    <div class="cone"><div class="camera"></div><div class="beam"></div><div class="human"></div><div class="measure" id="measure">距离 2.0m · HFOV 110° · 覆盖 5.71m</div></div>
+  </div>
+</div></section>
+
+<section class="section" id="s3"><div class="wrap">
+  <div class="section-head"><div class="no">03</div><div><h2>系统架构：高分辨率采集，低分辨率推理</h2><p>把画质余量留给ISP，把算力集中到动作识别。</p></div></div>
+  <div class="diagram"><svg viewBox="0 0 1120 270" role="img" aria-label="摄像头到AI反馈的数据链路">
+    <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#11c9bc"/><stop offset="1" stop-color="#4e8ff5"/></linearGradient><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8z" fill="#69d9d1"/></marker></defs>
+    <g fill="#132f50" stroke="#65d8d0" stroke-width="2"><rect x="20" y="75" width="170" height="110" rx="16"/><rect x="245" y="75" width="170" height="110" rx="16"/><rect x="470" y="25" width="185" height="70" rx="16"/><rect x="470" y="105" width="185" height="70" rx="16"/><rect x="470" y="185" width="185" height="60" rx="16"/><rect x="715" y="75" width="170" height="110" rx="16"/><rect x="940" y="75" width="160" height="110" rx="16"/></g>
+    <g fill="#eaf6ff" text-anchor="middle" font-family="sans-serif"><text x="105" y="116" font-size="18" font-weight="700">5MP摄像模组</text><text x="105" y="143" font-size="14">RAW10 · 25/30fps</text><text x="330" y="115" font-size="18" font-weight="700">RV1106B ISP</text><text x="330" y="143" font-size="14">自动曝光 · 白平衡 · 降噪 · 畸变校正</text><text x="562" y="55" font-size="17" font-weight="700">1920×1080</text><text x="562" y="78" font-size="13">调试 / 预览</text><text x="562" y="135" font-size="17" font-weight="700">1280×720</text><text x="562" y="158" font-size="13">业务预览</text><text x="562" y="218" font-size="16" font-weight="700">640×384 / 640×640</text><text x="562" y="238" font-size="13">姿态估计模型输入</text><text x="800" y="115" font-size="18" font-weight="700">人体检测 / 姿态估计</text><text x="800" y="143" font-size="14">人体 · 关键点</text><text x="1020" y="115" font-size="18" font-weight="700">动作状态机</text><text x="1020" y="143" font-size="14">计数 · 质量 · 反馈</text></g>
+    <g stroke="#69d9d1" stroke-width="3" fill="none" marker-end="url(#arr)"><path d="M190 130H240"/><path d="M415 130H455"/><path d="M655 215C690 215 675 130 710 130"/><path d="M885 130H935"/></g>
+  </svg><div class="legend"><span><i class="dot" style="background:#11c9bc"></i>实时主链路</span><span><i class="dot" style="background:#4e8ff5"></i>预览流默认不保存</span><span>畸变参数与 Sensor + 镜头 + 装配组合绑定</span></div></div>
+  <div class="grid3" style="margin-top:18px"><div class="card"><h3>图像采集</h3><p>5MP提供全身、小关节、畸变校正和数字裁切余量。</p></div><div class="card"><h3>图像信号处理器（ISP）</h3><p>完成曝光、防闪烁、降噪、畸变校正和多路缩放，不把原始5MP图像长期送入NPU。</p></div><div class="card"><h3>动作识别</h3><p>使用640×384或640×640图像完成人体检测和姿态估计，再由动作状态机负责计数和反馈。</p></div></div>
+</div></section>
+
+<section class="section" id="s4"><div class="wrap">
+  <div class="section-head"><div class="no">04</div><div><h2>光学与模组规格</h2><p>区分“必须满足”“目标值”和“需要样测”。</p></div></div>
+  <div class="table-wrap"><table><thead><tr><th>子系统</th><th>P0必须项</th><th>P1目标项</th><th>验证方式</th></tr></thead><tbody>
+    <tr><td>Sensor</td><td>≥5MP、BSI、RAW10、5MP≥25fps</td><td>1/2.7～1/2.8英寸、像素≥2.0μm、双曝光HDR</td><td>原厂资料 + 目标板枚举 + RAW实拍</td></tr>
+    <tr><td>镜头</td><td>定焦、匹配Sensor、1.2～4m清晰</td><td>DFOV 120°～130°、F/2.0级、提供MTF/畸变曲线</td><td>标定板 + 三身高组 + 三动作</td></tr>
+    <tr><td>IR系统</td><td>IR-cut</td><td>可追溯滤光片批次</td><td>日光/灯光色偏、AWB稳定性</td></tr>
+    <tr><td>光学窗口</td><td>不侵入视锥、消光、防鬼影</td><td>提供透过率与材料批次</td><td>强光、窗边、偏心装配测试</td></tr>
+    <tr><td>标定</td><td>镜头畸变参数可交付</td><td>批次追溯与出厂画质检查</td><td>重投影误差 + 边缘关键点指标</td></tr>
+  </tbody></table></div>
+  <div class="callout red" style="margin-top:18px"><b>不要用单一参数替代系统验证：</b>“视场角够大”不等于“边缘可识别”，“5MP”不等于“运动不模糊”，“HDR”不等于“逆光动作准确”。每个光学指标最终都要回到三动作准确率。</div>
+</div></section>
+
+<section class="section page-break" id="s5"><div class="wrap">
+  <div class="section-head"><div class="no">05</div><div><h2>接口、电源与主板要求</h2><p>把摄像模组从“一个器件”变成可落板的接口合同。</p></div></div>
+  <div class="grid2">
+    <div class="card"><span class="label fact">带宽</span><h3>2-Lane够首版，4-Lane留升级余量</h3><p><code>2592×1944×30×10 ≈ 1.51Gbit/s</code></p><p>计入blanking和协议余量，链路按1.8～2.0Gbit/s设计，即每Lane约0.9～1.0Gbit/s。</p></div>
+    <div class="card"><span class="label target">连接器</span><h3>24-pin FPC建议定义</h3><p>MIPI CLK±、DATA0/1±、预留DATA2/3±、AVDD/DVDD/IOVDD、I²C、MCLK、RESET、PWDN与多个GND。</p></div>
+  </div>
+  <h3>关键硬件规则</h3>
+  <div class="grid3">
+    <div class="card"><h3>信号完整性</h3><p><b>MIPI 100Ω±10%</b><br>P/N对内skew优先&lt;0.15mm，最大&lt;0.5mm；连续GND参考，过孔优先0。</p></div>
+    <div class="card"><h3>电源域</h3><p><b>兼容目标：2.8V / 1.2V / 1.8V</b><br>AVDD用低噪声LDO；最终电压和时序服从锁定Sensor手册。</p></div>
+    <div class="card"><h3>干扰隔离</h3><p>避开DC/DC SW节点、2.4GHz天线和Class-D扬声器输出；MIPI线上不放长stub测试点。</p></div>
+  </div>
+  <div class="flow" style="margin-top:20px"><div class="node"><b>电源稳定</b><small>按Sensor顺序</small></div><div class="arrow">→</div><div class="node"><b>MCLK建立</b><small>频率按模组要求</small></div><div class="arrow">→</div><div class="node"><b>释放RESET/PWDN</b><small>满足延时</small></div><div class="arrow">→</div><div class="node"><b>I²C读取ID</b><small>确认器件</small></div><div class="arrow">→</div><div class="node"><b>加载Mode/IQ</b><small>启动MIPI Stream</small></div></div>
+</div></section>
+
+<section class="section" id="s6"><div class="wrap">
+  <div class="section-head"><div class="no">06</div><div><h2>体积、功耗与热设计</h2><p>明确哪个部分真正决定整机尺寸与续航。</p></div></div>
+  <div class="grid2">
+    <div class="card"><h3>结构包络</h3><div class="bars">
+      <div class="bar-row"><span>模组PCB</span><div class="bar"><i style="width:62%"></i></div><b>≤25mm</b></div>
+      <div class="bar-row"><span>镜头前后高度</span><div class="bar"><i style="width:62%"></i></div><b>15–25</b></div>
+      <div class="bar-row"><span>模组安装空间</span><div class="bar"><i style="width:75%"></i></div><b>≥30mm</b></div>
+      <div class="bar-row"><span>含物理遮挡机构</span><div class="bar"><i style="width:100%"></i></div><b>约40mm</b></div>
+    </div><p class="small">量产方向采用小型FPC或20～25mm小板模组，不以38×38mm安防开发板作为结构基线。镜头、视锥和遮挡机构比5MP本身更影响厚度。</p></div>
+    <div class="card"><h3>功耗预算</h3><div class="bars">
+      <div class="bar-row"><span>Sensor有效采集</span><div class="bar"><i style="width:35%"></i></div><b>.2–.35W</b></div>
+      <div class="bar-row"><span>完整摄像模组</span><div class="bar"><i style="width:50%"></i></div><b>≤.5W</b></div>
+      <div class="bar-row"><span>SoC+ISP+AI</span><div class="bar"><i style="width:75%"></i></div><b>.8–1.5W</b></div>
+      <div class="bar-row"><span>整机运动识别</span><div class="bar"><i style="width:100%"></i></div><b>≤3W</b></div>
+    </div><p class="small">数值为方案阶段预算；物料型号确定后用模组实测替换。峰值电源按5W整机设计，以覆盖无线与扬声器同时工作。</p></div>
+  </div>
+  <div class="grid3" style="margin-top:18px"><div class="card"><h3>电池判断</h3><p>1S 2000mAh约7.4Wh。按整机2.5～3W估算，连续识别约1.8～2.6小时；更适合“插电常驻，电池短时移动”。</p></div><div class="card"><h3>散热判断</h3><p>Sensor本身不是主要热源；重点把RV1106B热量导向铜皮/支架，并让Sensor远离SoC、PMIC、功放和电池。</p></div><div class="card"><h3>省电策略</h3><p>无人时关闭Sensor电源域和NPU任务；降低屏幕亮度与无线占空比，优先于牺牲Sensor尺寸和动作画质。</p></div></div>
+</div></section>
+
+<section class="section" id="s7"><div class="wrap">
+  <div class="section-head"><div class="no">07</div><div><h2>验证方法：从样张升级为可重复实验</h2><p>使用测试矩阵、对照变量和明确的Go/No-Go门槛。</p></div></div>
+  <div class="grid3">
+    <div class="card"><span class="label fact">控制变量</span><h3>同一Sensor换三档镜头</h3><p>120°、130°、150°保持Sensor、位置、光照、动作和算法版本一致，避免把镜头差异与其他变化混在一起。</p></div>
+    <div class="card"><span class="label target">分层样本</span><h3>覆盖身高、距离和边缘</h3><p>三身高组 × 六距离 × 中心/50%/70%/85%画面位置 × 三动作 × 多光照。</p></div>
+    <div class="card"><span class="label verify">结果指标</span><h3>从画质落到AI结果</h3><p>完整入镜率、关键点可用率、计数误差、反馈延迟、掉帧率、热机退化和隐私一致性。</p></div>
+  </div>
+  <h3>最小测试矩阵</h3>
+  <div class="table-wrap"><table><thead><tr><th>维度</th><th>水平</th><th>记录结果</th></tr></thead><tbody>
+    <tr><td>镜头</td><td>120° / 130° / 150°</td><td>实测HFOV/VFOV、畸变、边缘裁切</td></tr>
+    <tr><td>距离</td><td>1.2 / 1.5 / 2.0 / 2.5 / 3.0 / 3.5m</td><td>完整入镜率、人体像素高度</td></tr>
+    <tr><td>身高</td><td>115～135 / 136～155 / 156～175cm</td><td>头手脚完整性、关键点置信度</td></tr>
+    <tr><td>光照</td><td>50 / 100 / 300 / 800lux + 逆光</td><td>曝光、增益、拖影、噪声、计数</td></tr>
+    <tr><td>动作</td><td>开合跳 / 深蹲 / 跳绳</td><td>每组30次的绝对误差</td></tr>
+    <tr><td>耐久</td><td>30min连续运行 / 100次开关流</td><td>温升、掉帧、恢复时间、焦点漂移</td></tr>
+  </tbody></table></div>
+  <h3>Go / No-Go门槛</h3>
+  <div class="grid4"><div class="metric"><strong>≥95%</strong><small>主要范围完整入镜率</small></div><div class="metric"><strong>≥95%</strong><small>核心关键点可用帧占比</small></div><div class="metric"><strong>≤3pp</strong><small>边缘相对中心计数误差增量</small></div><div class="metric"><strong>≤300ms</strong><small>动作完成到反馈P95</small></div></div>
+  <div class="callout amber" style="margin-top:18px"><b>评测纪律：</b>先冻结测试脚本、算法版本、阈值和失败定义，再采集结果；保留失败样本和反例。否则不同模组之间没有可比性。</div>
+  <h3>需求追溯矩阵（RTM）示例</h3>
+  <div class="table-wrap"><table><thead><tr><th>需求ID</th><th>来源情境</th><th>设计响应</th><th>验证方法</th><th>当前状态</th></tr></thead><tbody>
+    <tr><td><b>CAM-FOV-001</b></td><td>1.5～3m内覆盖115～175cm儿童全身</td><td>120°/130°/150°三镜头对照，机位与俯仰联合验证</td><td>完整入镜率 + 边缘关键点 + 计数</td><td><span class="label verify">待样测</span></td></tr>
+    <tr><td><b>CAM-IQ-002</b></td><td>100～800lux稳定识别快速动作</td><td>大像素BSI、50Hz防闪烁、运动AE</td><td>SNR/拖影 + 三动作结果</td><td><span class="label verify">待样测</span></td></tr>
+    <tr><td><b>CAM-PWR-003</b></td><td>小体积与2000mAh电池预算</td><td>模组≤0.5W、独立电源域、无人断电</td><td>稳态/峰值功耗 + 30min温升</td><td><span class="label target">目标已定义</span></td></tr>
+    <tr><td><b>CAM-PRI-004</b></td><td>儿童视频默认不保存且关闭可感知</td><td>物理遮挡 + 硬件指示 + PWDN/断电</td><td>遮挡、抓包、存储审计、异常状态</td><td><span class="label target">设计约束</span></td></tr>
+  </tbody></table></div>
+</div></section>
+
+<section class="section" id="s8"><div class="wrap">
+  <div class="section-head"><div class="no">08</div><div><h2>怎么输出：按不同对象切成三份</h2><p>同一事实基线，不同受众使用不同信息密度。</p></div></div>
+  <div class="grid3">
+    <div class="card"><span class="label target">10分钟决策汇报</span><h3>给老板 / 项目评审</h3><p>只讲00～02、06、07：选什么、为什么、体积功耗代价、怎么证明、需要确认什么。</p><p><b>输出：</b>本HTML演示，控制在8～10分钟。</p></div>
+    <div class="card"><span class="label fact">工程设计评审</span><h3>给硬件 / 算法 / 结构</h3><p>完整讲03～07，重点确认接口合同、电源时序、包络、测试矩阵和Gate。</p><p><b>输出：</b>HTML + 技术Markdown + 评审纪要。</p></div>
+    <div class="card"><span class="label verify">对外询价</span><h3>给模组供应商</h3><p>只输出P0/P1规格、接口、包络、样件组合和RFQ字段，不附内部成本判断与竞品推断。</p><p><b>输出：</b>RFQ表格/PDF附件。</p></div>
+  </div>
+  <h3>推荐讲解顺序</h3>
+  <div class="flow"><div class="node"><b>1. 决策</b><small>先说选什么</small></div><div class="arrow">→</div><div class="node"><b>2. 场景</b><small>为什么需要</small></div><div class="arrow">→</div><div class="node"><b>3. 取舍</b><small>为何不是其他方案</small></div><div class="arrow">→</div><div class="node"><b>4. 架构</b><small>如何实现</small></div><div class="arrow">→</div><div class="node"><b>5. 代价</b><small>体积功耗成本</small></div><div class="arrow">→</div><div class="node"><b>6. 证据</b><small>如何验证与冻结</small></div></div>
+  <h3>四项技术评审</h3>
+  <div class="decision"><div class="gate">A</div><h3>需求冻结</h3><p>5MP、单目、120°～130°主测、2-Lane起步/4-Lane预留，使用情境与验收口径通过。</p></div>
+  <div class="decision"><div class="gate">B</div><h3>候选冻结</h3><p>至少两家供应商完整回复RFQ，交付驱动、IQ、样件、功耗和3D资料。</p></div>
+  <div class="decision"><div class="gate">C</div><h3>料号冻结</h3><p>在同一RV1106B目标板通过三动作、边缘、低照、热机、恢复和隐私测试。</p></div>
+  <div class="decision"><div class="gate">D</div><h3>EVT放行</h3><p>冻结FPC pinout、电源时序、MIPI timing、镜头视锥和装配基准，完成SI/PI/热/隐私检查。</p></div>
+  <h3>成熟方法与一手来源</h3>
+  <ol class="source-list">
+    <li><a href="https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf" target="_blank" rel="noreferrer">NASA Systems Engineering Handbook</a>：需求追溯、生命周期技术评审和下一阶段就绪度；用于Gate与RTM结构。</li>
+    <li><a href="https://www.iso.org/standard/77520.html" target="_blank" rel="noreferrer">ISO 9241-11:2018</a>：以特定用户、目标、任务和环境定义可用性情境；用于组织“场景—指标—验收”。</li>
+    <li><a href="https://www.nist.gov/publications/nistsematech-e-handbook-statistical-methods" target="_blank" rel="noreferrer">NIST/SEMATECH e-Handbook of Statistical Methods</a>：实验设计、测量过程与统计分析；用于控制变量和测试矩阵。</li>
+    <li><a href="https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html" target="_blank" rel="noreferrer">OpenCV Camera Calibration 官方文档</a>：相机矩阵、畸变系数与重投影误差；用于镜头标定和矫正验证。</li>
+    <li><a href="https://www.emva.org/standards-technology/emva-1288/" target="_blank" rel="noreferrer">EMVA 1288</a>、<a href="https://www.iso.org/standard/88626.html" target="_blank" rel="noreferrer">ISO 12233:2024</a>、<a href="https://www.iso.org/standard/82233.html" target="_blank" rel="noreferrer">ISO 15739:2023</a>：Sensor、SFR、噪声和动态范围的客观成像测量框架。</li>
+    <li><a href="https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf" target="_blank" rel="noreferrer">NIST AI RMF 1.0</a>：可重复、留痕、分组和端到端的AI测试评估。</li>
+    <li><a href="https://www.rock-chips.com/uploads/pdf/2022.8.26/192/RV1106%20Brief%20Datasheet.pdf" target="_blank" rel="noreferrer">Rockchip RV1106 Brief Datasheet</a>：5MP ISP、MIPI输入、NPU与功耗能力边界。</li>
+    <li><a href="https://www.ovt.com/products/os05a20/" target="_blank" rel="noreferrer">OMNIVISION OS05A20 官方产品页</a>：5MP、1/2.7英寸、2.0μm、RAW10/12、MIPI等可行量级参考。</li>
+    <li>项目内部：<code>BodyPark拆解/路线.md</code>、<code>参考与拆解/归档与分析报告.md</code>、本目录技术Markdown。</li>
+  </ol>
+  <div class="callout green"><b>本轮建议决策：</b>通过摄像模组系统需求评审（SRR），并使用同一Sensor、三档镜头启动样件测试。暂不确定具体Sensor和镜头物料型号，也不基于纸面参数直接进入自研主板设计。</div>
+</div></section>
+</main>
+
+<footer class="footer"><div class="wrap">儿童AI运动伙伴｜摄像模组技术方案 V0.1 · 参数中未注明原厂值的部分均为方案阶段工程预算，必须由供应商资料与样机实测替换。</div></footer>
+<div class="toolbar"><button onclick="window.print()">打印 / 导出PDF</button></div>
+<script>
+const dist=document.getElementById('dist'),fov=document.getElementById('fov');
+function updateCalc(){const d=Number(dist.value),a=Number(fov.value),w=2*d*Math.tan(a*Math.PI/360);document.getElementById('distLabel').textContent=d.toFixed(1);document.getElementById('fovLabel').textContent=a;document.getElementById('widthOut').textContent=w.toFixed(2)+'m';document.getElementById('edgeOut').textContent=(w/2).toFixed(2)+'m';document.getElementById('measure').textContent=`距离 ${d.toFixed(1)}m · HFOV ${a}° · 覆盖 ${w.toFixed(2)}m`;}
+dist.addEventListener('input',updateCalc);fov.addEventListener('input',updateCalc);updateCalc();
+const links=[...document.querySelectorAll('.nav a')],sections=[...document.querySelectorAll('.section')];
+addEventListener('scroll',()=>{let current=sections[0].id;for(const s of sections){if(s.getBoundingClientRect().top<110)current=s.id}links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));},{passive:true});
+</script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<svg role="img" aria-label="运动伙伴 · 一次运动的跨端协作泳道" width="1099pt" height="847pt"
+ viewBox="0 0 1099 847" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>运动伙伴 · 一次运动的跨端协作泳道</title><desc>列表示责任主体，步骤由上到下；正常主链示意</desc><text x="18" y="25" font-family="Microsoft YaHei" font-size="17" fill="#352b48">运动伙伴 · 一次运动的跨端协作泳道</text><text x="18" y="47" font-family="Microsoft YaHei" font-size="12" fill="#746b83">列表示责任主体，步骤由上到下；正常主链示意</text><g transform="translate(0,60)">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 709.4)">
+<!-- ph -->
+<g id="node1" class="node">
+<title>ph</title>
+<path fill="#f0eafa" stroke="#d9cfea" stroke-width="2" d="M146.76,-691.4C146.76,-691.4 23.16,-691.4 23.16,-691.4 17.16,-691.4 11.16,-685.4 11.16,-679.4 11.16,-679.4 11.16,-660.2 11.16,-660.2 11.16,-654.2 17.16,-648.2 23.16,-648.2 23.16,-648.2 146.76,-648.2 146.76,-648.2 152.76,-648.2 158.76,-654.2 158.76,-660.2 158.76,-660.2 158.76,-679.4 158.76,-679.4 158.76,-685.4 152.76,-691.4 146.76,-691.4"/>
+<text xml:space="preserve" text-anchor="start" x="68.09" y="-663.8" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">家长端</text>
+</g>
+<!-- p1 -->
+<g id="lane_task" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('task')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('task')}">
+<title>p1</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M151.92,-599.2C151.92,-599.2 18,-599.2 18,-599.2 12,-599.2 6,-593.2 6,-587.2 6,-587.2 6,-568 6,-568 6,-562 12,-556 18,-556 18,-556 151.92,-556 151.92,-556 157.92,-556 163.92,-562 163.92,-568 163.92,-568 163.92,-587.2 163.92,-587.2 163.92,-593.2 157.92,-599.2 151.92,-599.2"/>
+<text xml:space="preserve" text-anchor="start" x="45.59" y="-571.6" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">1 创建运动任务</text>
+</g>
+<!-- ph&#45;&gt;p1 -->
+<!-- p2 -->
+<!-- p1&#45;&gt;p2 -->
+<!-- b1 -->
+<g id="node9" class="node">
+<title>b1</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M440.42,-599.2C440.42,-599.2 309.5,-599.2 309.5,-599.2 303.5,-599.2 297.5,-593.2 297.5,-587.2 297.5,-587.2 297.5,-568 297.5,-568 297.5,-562 303.5,-556 309.5,-556 309.5,-556 440.42,-556 440.42,-556 446.42,-556 452.42,-562 452.42,-568 452.42,-568 452.42,-587.2 452.42,-587.2 452.42,-593.2 446.42,-599.2 440.42,-599.2"/>
+<text xml:space="preserve" text-anchor="start" x="335.59" y="-571.6" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">校验并下发命令</text>
+</g>
+<!-- p1&#45;&gt;b1 -->
+<!-- p1&#45;&gt;b1 -->
+<g id="edge43" class="edge">
+<title>p1&#45;&gt;b1</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M164.2,-577.6C202.96,-577.6 249.66,-577.6 289.25,-577.6"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="288.9,-579.88 295.4,-577.6 288.9,-575.33 288.9,-579.88"/>
+<text xml:space="preserve" text-anchor="start" x="221.71" y="-585.8" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">提交</text>
+</g>
+<!-- p3 -->
+<!-- p2&#45;&gt;p3 -->
+<!-- b2 -->
+<!-- p2&#45;&gt;b2 -->
+<!-- p4 -->
+<!-- p3&#45;&gt;p4 -->
+<!-- b3 -->
+<!-- p3&#45;&gt;b3 -->
+<!-- p5 -->
+<!-- p4&#45;&gt;p5 -->
+<!-- b4 -->
+<!-- p4&#45;&gt;b4 -->
+<!-- p6 -->
+<g id="node7" class="node">
+<title>p6</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M157.92,-43.2C157.92,-43.2 12,-43.2 12,-43.2 6,-43.2 0,-37.2 0,-31.2 0,-31.2 0,-12 0,-12 0,-6 6,0 12,0 12,0 157.92,0 157.92,0 163.92,0 169.92,-6 169.92,-12 169.92,-12 169.92,-31.2 169.92,-31.2 169.92,-37.2 163.92,-43.2 157.92,-43.2"/>
+<text xml:space="preserve" text-anchor="start" x="39.96" y="-15.6" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">家长查看真实记录</text>
+</g>
+<!-- p5&#45;&gt;p6 -->
+<!-- b5 -->
+<g id="node13" class="node">
+<title>b5</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M440.42,-154.4C440.42,-154.4 309.5,-154.4 309.5,-154.4 303.5,-154.4 297.5,-148.4 297.5,-142.4 297.5,-142.4 297.5,-123.2 297.5,-123.2 297.5,-117.2 303.5,-111.2 309.5,-111.2 309.5,-111.2 440.42,-111.2 440.42,-111.2 446.42,-111.2 452.42,-117.2 452.42,-123.2 452.42,-123.2 452.42,-142.4 452.42,-142.4 452.42,-148.4 446.42,-154.4 440.42,-154.4"/>
+<text xml:space="preserve" text-anchor="start" x="335.59" y="-126.8" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">接收并去重结果</text>
+</g>
+<!-- p5&#45;&gt;b5 -->
+<!-- b6 -->
+<g id="node14" class="node">
+<title>b6</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M441.92,-43.2C441.92,-43.2 308,-43.2 308,-43.2 302,-43.2 296,-37.2 296,-31.2 296,-31.2 296,-12 296,-12 296,-6 302,0 308,0 308,0 441.92,0 441.92,0 447.92,0 453.92,-6 453.92,-12 453.92,-12 453.92,-31.2 453.92,-31.2 453.92,-37.2 447.92,-43.2 441.92,-43.2"/>
+<text xml:space="preserve" text-anchor="start" x="335.59" y="-15.6" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">6 确认接收结果</text>
+</g>
+<!-- p6&#45;&gt;b6 -->
+<!-- bh -->
+<g id="node8" class="node">
+<title>bh</title>
+<path fill="#f6f3fa" stroke="#d9cfea" stroke-width="2" d="M436.76,-691.4C436.76,-691.4 313.16,-691.4 313.16,-691.4 307.16,-691.4 301.16,-685.4 301.16,-679.4 301.16,-679.4 301.16,-660.2 301.16,-660.2 301.16,-654.2 307.16,-648.2 313.16,-648.2 313.16,-648.2 436.76,-648.2 436.76,-648.2 442.76,-648.2 448.76,-654.2 448.76,-660.2 448.76,-660.2 448.76,-679.4 448.76,-679.4 448.76,-685.4 442.76,-691.4 436.76,-691.4"/>
+<text xml:space="preserve" text-anchor="start" x="346.84" y="-663.8" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">同步与数据</text>
+</g>
+<!-- bh&#45;&gt;b1 -->
+<!-- b1&#45;&gt;b2 -->
+<!-- d1 -->
+<g id="node16" class="node">
+<title>d1</title>
+<path fill="#e8f3ee" stroke="#d9cfea" stroke-width="1.2" d="M758.42,-599.2C758.42,-599.2 597.5,-599.2 597.5,-599.2 591.5,-599.2 585.5,-593.2 585.5,-587.2 585.5,-587.2 585.5,-568 585.5,-568 585.5,-562 591.5,-556 597.5,-556 597.5,-556 758.42,-556 758.42,-556 764.42,-556 770.42,-562 770.42,-568 770.42,-568 770.42,-587.2 770.42,-587.2 770.42,-593.2 764.42,-599.2 758.42,-599.2"/>
+<text xml:space="preserve" text-anchor="start" x="627.34" y="-571.6" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">收到任务，等待儿童</text>
+</g>
+<!-- b1&#45;&gt;d1 -->
+<!-- b1&#45;&gt;d1 -->
+<g id="edge44" class="edge">
+<title>b1&#45;&gt;d1</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M452.99,-577.6C490.8,-577.6 536.66,-577.6 577.09,-577.6"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="576.94,-579.88 583.44,-577.6 576.94,-575.33 576.94,-579.88"/>
+<text xml:space="preserve" text-anchor="start" x="509.96" y="-585.8" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">下发</text>
+</g>
+<!-- b2&#45;&gt;b3 -->
+<!-- d2 -->
+<g id="lane_session" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('session')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('session')}">
+<title>d2</title>
+<path fill="#e8f3ee" stroke="#d9cfea" stroke-width="1.2" d="M744.92,-488C744.92,-488 611,-488 611,-488 605,-488 599,-482 599,-476 599,-476 599,-456.8 599,-456.8 599,-450.8 605,-444.8 611,-444.8 611,-444.8 744.92,-444.8 744.92,-444.8 750.92,-444.8 756.92,-450.8 756.92,-456.8 756.92,-456.8 756.92,-476 756.92,-476 756.92,-482 750.92,-488 744.92,-488"/>
+<text xml:space="preserve" text-anchor="start" x="638.59" y="-460.4" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">2 儿童选择开始</text>
+</g>
+<!-- b2&#45;&gt;d2 -->
+<!-- b3&#45;&gt;b4 -->
+<!-- d3 -->
+<g id="node18" class="node">
+<title>d3</title>
+<path fill="#e8f3ee" stroke="#d9cfea" stroke-width="1.2" d="M757.92,-376.8C757.92,-376.8 598,-376.8 598,-376.8 592,-376.8 586,-370.8 586,-364.8 586,-364.8 586,-345.6 586,-345.6 586,-339.6 592,-333.6 598,-333.6 598,-333.6 757.92,-333.6 757.92,-333.6 763.92,-333.6 769.92,-339.6 769.92,-345.6 769.92,-345.6 769.92,-364.8 769.92,-364.8 769.92,-370.8 763.92,-376.8 757.92,-376.8"/>
+<text xml:space="preserve" text-anchor="start" x="629.21" y="-349.2" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">3 倒计时 → 运动中</text>
+</g>
+<!-- b3&#45;&gt;d3 -->
+<!-- b4&#45;&gt;b5 -->
+<!-- d4 -->
+<g id="node19" class="node">
+<title>d4</title>
+<path fill="#e8f3ee" stroke="#d9cfea" stroke-width="1.2" d="M752.42,-265.6C752.42,-265.6 603.5,-265.6 603.5,-265.6 597.5,-265.6 591.5,-259.6 591.5,-253.6 591.5,-253.6 591.5,-234.4 591.5,-234.4 591.5,-228.4 597.5,-222.4 603.5,-222.4 603.5,-222.4 752.42,-222.4 752.42,-222.4 758.42,-222.4 764.42,-228.4 764.42,-234.4 764.42,-234.4 764.42,-253.6 764.42,-253.6 764.42,-259.6 758.42,-265.6 752.42,-265.6"/>
+<text xml:space="preserve" text-anchor="start" x="632.96" y="-238" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">4 计数与即时反馈</text>
+</g>
+<!-- b4&#45;&gt;d4 -->
+<!-- b5&#45;&gt;b6 -->
+<!-- b5&#45;&gt;b6 -->
+<g id="edge52" class="edge">
+<title>b5&#45;&gt;b6</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M385.79,-110.81C391.75,-99.24 397.96,-87.2 397.96,-87.2 397.96,-87.2 397.96,-67.2 397.96,-67.2 397.96,-67.2 394.02,-59.56 389.4,-50.6"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="391.55,-49.81 386.55,-45.07 387.51,-51.89 391.55,-49.81"/>
+<text xml:space="preserve" text-anchor="start" x="421.96" y="-72.4" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">可靠接收</text>
+</g>
+<!-- d5 -->
+<g id="lane_sync" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('sync')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('sync')}">
+<title>d5</title>
+<path fill="#e8f3ee" stroke="#d9cfea" stroke-width="1.2" d="M765.42,-154.4C765.42,-154.4 590.5,-154.4 590.5,-154.4 584.5,-154.4 578.5,-148.4 578.5,-142.4 578.5,-142.4 578.5,-123.2 578.5,-123.2 578.5,-117.2 584.5,-111.2 590.5,-111.2 590.5,-111.2 765.42,-111.2 765.42,-111.2 771.42,-111.2 777.42,-117.2 777.42,-123.2 777.42,-123.2 777.42,-142.4 777.42,-142.4 777.42,-148.4 771.42,-154.4 765.42,-154.4"/>
+<text xml:space="preserve" text-anchor="start" x="623.59" y="-126.8" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">5 保存结果 → 待上传</text>
+</g>
+<!-- b5&#45;&gt;d5 -->
+<!-- b6&#45;&gt;p6 -->
+<g id="edge53" class="edge">
+<title>b6&#45;&gt;p6</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M295.58,-21.6C259.34,-21.6 216.17,-21.6 178.38,-21.6"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="178.57,-19.33 172.07,-21.6 178.57,-23.88 178.57,-19.33"/>
+<text xml:space="preserve" text-anchor="start" x="214.96" y="-29.8" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">记录查询</text>
+</g>
+<!-- d6 -->
+<g id="node21" class="node">
+<title>d6</title>
+<path fill="#e8f3ee" stroke="#d9cfea" stroke-width="1.2" d="M750.92,-43.2C750.92,-43.2 605,-43.2 605,-43.2 599,-43.2 593,-37.2 593,-31.2 593,-31.2 593,-12 593,-12 593,-6 599,0 605,0 605,0 750.92,0 750.92,0 756.92,0 762.92,-6 762.92,-12 762.92,-12 762.92,-31.2 762.92,-31.2 762.92,-37.2 756.92,-43.2 750.92,-43.2"/>
+<text xml:space="preserve" text-anchor="start" x="632.96" y="-15.6" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">确认后清上传队列</text>
+</g>
+<!-- b6&#45;&gt;d6 -->
+<!-- b6&#45;&gt;d6 -->
+<g id="edge54" class="edge">
+<title>b6&#45;&gt;d6</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M454.17,-21.6C494.12,-21.6 542.82,-21.6 584.58,-21.6"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="584.4,-23.88 590.9,-21.6 584.4,-19.33 584.4,-23.88"/>
+<text xml:space="preserve" text-anchor="start" x="505.46" y="-29.8" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">上传确认</text>
+</g>
+<!-- dh -->
+<g id="node15" class="node">
+<title>dh</title>
+<path fill="#e8f3ee" stroke="#d9cfea" stroke-width="2" d="M739.76,-691.4C739.76,-691.4 616.16,-691.4 616.16,-691.4 610.16,-691.4 604.16,-685.4 604.16,-679.4 604.16,-679.4 604.16,-660.2 604.16,-660.2 604.16,-654.2 610.16,-648.2 616.16,-648.2 616.16,-648.2 739.76,-648.2 739.76,-648.2 745.76,-648.2 751.76,-654.2 751.76,-660.2 751.76,-660.2 751.76,-679.4 751.76,-679.4 751.76,-685.4 745.76,-691.4 739.76,-691.4"/>
+<text xml:space="preserve" text-anchor="start" x="655.46" y="-663.8" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">儿童设备</text>
+</g>
+<!-- dh&#45;&gt;d1 -->
+<!-- d1&#45;&gt;d2 -->
+<!-- d1&#45;&gt;d2 -->
+<g id="edge45" class="edge">
+<title>d1&#45;&gt;d2</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M633.44,-555.48C609.14,-543.95 583.96,-532 583.96,-532 583.96,-532 583.96,-512 583.96,-512 583.96,-512 604.46,-502.27 626.32,-491.9"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="627.04,-494.08 631.93,-489.24 625.09,-489.97 627.04,-494.08"/>
+<text xml:space="preserve" text-anchor="start" x="607.96" y="-517.2" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">本地选择</text>
+</g>
+<!-- a1 -->
+<!-- d1&#45;&gt;a1 -->
+<!-- d2&#45;&gt;d3 -->
+<!-- a2 -->
+<g id="node24" class="node">
+<title>a2</title>
+<path fill="#fdf4e8" stroke="#d9cfea" stroke-width="1.2" d="M1030.42,-488C1030.42,-488 899.5,-488 899.5,-488 893.5,-488 887.5,-482 887.5,-476 887.5,-476 887.5,-456.8 887.5,-456.8 887.5,-450.8 893.5,-444.8 899.5,-444.8 899.5,-444.8 1030.42,-444.8 1030.42,-444.8 1036.42,-444.8 1042.42,-450.8 1042.42,-456.8 1042.42,-456.8 1042.42,-476 1042.42,-476 1042.42,-482 1036.42,-488 1030.42,-488"/>
+<text xml:space="preserve" text-anchor="start" x="925.59" y="-460.4" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">检查全身与站位</text>
+</g>
+<!-- d2&#45;&gt;a2 -->
+<!-- d2&#45;&gt;a2 -->
+<g id="edge46" class="edge">
+<title>d2&#45;&gt;a2</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M757.14,-466.4C794.94,-466.4 840.24,-466.4 878.89,-466.4"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="878.86,-468.68 885.36,-466.4 878.86,-464.13 878.86,-468.68"/>
+<text xml:space="preserve" text-anchor="start" x="813.21" y="-474.6" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">检查</text>
+</g>
+<!-- d3&#45;&gt;d4 -->
+<!-- a3 -->
+<g id="lane_algorithm" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('algorithm')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('algorithm')}">
+<title>a3</title>
+<path fill="#fdf4e8" stroke="#d9cfea" stroke-width="1.2" d="M1051.42,-376.8C1051.42,-376.8 878.5,-376.8 878.5,-376.8 872.5,-376.8 866.5,-370.8 866.5,-364.8 866.5,-364.8 866.5,-345.6 866.5,-345.6 866.5,-339.6 872.5,-333.6 878.5,-333.6 878.5,-333.6 1051.42,-333.6 1051.42,-333.6 1057.42,-333.6 1063.42,-339.6 1063.42,-345.6 1063.42,-345.6 1063.42,-364.8 1063.42,-364.8 1063.42,-370.8 1057.42,-376.8 1051.42,-376.8"/>
+<text xml:space="preserve" text-anchor="start" x="910.59" y="-349.2" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">完整动作 → 有效事件</text>
+</g>
+<!-- d3&#45;&gt;a3 -->
+<!-- d3&#45;&gt;a3 -->
+<g id="edge48" class="edge">
+<title>d3&#45;&gt;a3</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M770.35,-355.2C798.36,-355.2 829.36,-355.2 858.23,-355.2"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="858.14,-357.48 864.64,-355.2 858.14,-352.93 858.14,-357.48"/>
+<text xml:space="preserve" text-anchor="start" x="809.21" y="-363.4" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">识别</text>
+</g>
+<!-- d4&#45;&gt;d5 -->
+<!-- d4&#45;&gt;d5 -->
+<g id="edge50" class="edge">
+<title>d4&#45;&gt;d5</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M688.79,-222.01C694.75,-210.44 700.96,-198.4 700.96,-198.4 700.96,-198.4 700.96,-178.4 700.96,-178.4 700.96,-178.4 697.02,-170.76 692.4,-161.8"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="694.55,-161.01 689.55,-156.27 690.51,-163.09 694.55,-161.01"/>
+<text xml:space="preserve" text-anchor="start" x="733.79" y="-183.6" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">达标/提前结束</text>
+</g>
+<!-- a4 -->
+<!-- d4&#45;&gt;a4 -->
+<!-- d5&#45;&gt;b5 -->
+<g id="edge51" class="edge">
+<title>d5&#45;&gt;b5</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M578.14,-132.8C540.32,-132.8 497.62,-132.8 461.15,-132.8"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="461.15,-130.53 454.65,-132.8 461.15,-135.08 461.15,-130.53"/>
+<text xml:space="preserve" text-anchor="start" x="497.46" y="-141" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">结果补传</text>
+</g>
+<!-- d5&#45;&gt;d6 -->
+<!-- a5 -->
+<!-- d5&#45;&gt;a5 -->
+<!-- a6 -->
+<!-- d6&#45;&gt;a6 -->
+<!-- ah -->
+<g id="node22" class="node">
+<title>ah</title>
+<path fill="#fdf4e8" stroke="#d9cfea" stroke-width="2" d="M1026.76,-691.4C1026.76,-691.4 903.16,-691.4 903.16,-691.4 897.16,-691.4 891.16,-685.4 891.16,-679.4 891.16,-679.4 891.16,-660.2 891.16,-660.2 891.16,-654.2 897.16,-648.2 903.16,-648.2 903.16,-648.2 1026.76,-648.2 1026.76,-648.2 1032.76,-648.2 1038.76,-654.2 1038.76,-660.2 1038.76,-660.2 1038.76,-679.4 1038.76,-679.4 1038.76,-685.4 1032.76,-691.4 1026.76,-691.4"/>
+<text xml:space="preserve" text-anchor="start" x="942.46" y="-663.8" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">视觉算法</text>
+</g>
+<!-- ah&#45;&gt;a1 -->
+<!-- a1&#45;&gt;a2 -->
+<!-- a2&#45;&gt;d3 -->
+<g id="edge47" class="edge">
+<title>a2&#45;&gt;d3</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M909.28,-444.22C861.06,-425.87 791.34,-399.34 741.07,-380.21"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="741.92,-378.1 735.04,-377.92 740.3,-382.36 741.92,-378.1"/>
+<text xml:space="preserve" text-anchor="start" x="871.17" y="-406" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">准备满足</text>
+</g>
+<!-- a2&#45;&gt;a3 -->
+<!-- a3&#45;&gt;d4 -->
+<g id="edge49" class="edge">
+<title>a3&#45;&gt;d4</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M909.28,-333.02C861.06,-314.67 791.34,-288.14 741.07,-269.01"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="741.92,-266.9 735.04,-266.72 740.3,-271.16 741.92,-266.9"/>
+<text xml:space="preserve" text-anchor="start" x="871.17" y="-294.8" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">有效事件</text>
+</g>
+<!-- a3&#45;&gt;a4 -->
+<!-- a4&#45;&gt;a5 -->
+<!-- a5&#45;&gt;a6 -->
+</g>
+</g><text x="18" y="825" font-family="Microsoft YaHei" font-size="12" fill="#746b83">箭头：交接与触发  ·  任务收到、开始、保存、同步分别确认</text></svg>

@@ -1,0 +1,155 @@
+{
+  "engine": "Graphviz 14.1.3",
+  "metrics": [
+    {
+      "id": "session_main",
+      "nodes": 7,
+      "nodeOverlaps": 0,
+      "bb": "0,0,264,805.12"
+    },
+    {
+      "id": "session_full",
+      "nodes": 9,
+      "nodeOverlaps": 0,
+      "bb": "0,0,327.46,1053.4"
+    },
+    {
+      "id": "task_main",
+      "nodes": 5,
+      "nodeOverlaps": 0,
+      "bb": "0,0,178.96,556.8"
+    },
+    {
+      "id": "task_full",
+      "nodes": 9,
+      "nodeOverlaps": 0,
+      "bb": "0,0,476.46,556.8"
+    },
+    {
+      "id": "binding_main",
+      "nodes": 6,
+      "nodeOverlaps": 0,
+      "bb": "0,0,223.96,680.96"
+    },
+    {
+      "id": "binding_full",
+      "nodes": 9,
+      "nodeOverlaps": 0,
+      "bb": "0,0,471.43,805.12"
+    },
+    {
+      "id": "sync_main",
+      "nodes": 4,
+      "nodeOverlaps": 0,
+      "bb": "0,0,241,432.64"
+    },
+    {
+      "id": "sync_full",
+      "nodes": 9,
+      "nodeOverlaps": 0,
+      "bb": "0,0,467.5,805.12"
+    },
+    {
+      "id": "privacy_main",
+      "nodes": 4,
+      "nodeOverlaps": 0,
+      "bb": "0,0,334.9,432.64"
+    },
+    {
+      "id": "privacy_full",
+      "nodes": 9,
+      "nodeOverlaps": 0,
+      "bb": "0,0,438.48,805.12"
+    },
+    {
+      "id": "algorithm_main",
+      "nodes": 4,
+      "nodeOverlaps": 0,
+      "bb": "0,0,271,432.64"
+    },
+    {
+      "id": "algorithm_full",
+      "nodes": 9,
+      "nodeOverlaps": 0,
+      "bb": "0,0,635.79,556.8"
+    },
+    {
+      "id": "analysis_main",
+      "nodes": 6,
+      "nodeOverlaps": 0,
+      "bb": "0,0,223.96,680.96"
+    },
+    {
+      "id": "analysis_full",
+      "nodes": 9,
+      "nodeOverlaps": 0,
+      "bb": "0,0,404.72,805.12"
+    },
+    {
+      "id": "posture_main",
+      "nodes": 6,
+      "nodeOverlaps": 0,
+      "bb": "0,0,324,680.96"
+    },
+    {
+      "id": "posture_full",
+      "nodes": 9,
+      "nodeOverlaps": 0,
+      "bb": "0,0,568.08,680.96"
+    },
+    {
+      "id": "school_main",
+      "nodes": 7,
+      "nodeOverlaps": 0,
+      "bb": "0,0,231.46,805.12"
+    },
+    {
+      "id": "school_full",
+      "nodes": 9,
+      "nodeOverlaps": 0,
+      "bb": "0,0,419.42,805.12"
+    },
+    {
+      "id": "growth_main",
+      "nodes": 6,
+      "nodeOverlaps": 0,
+      "bb": "0,0,201.46,680.96"
+    },
+    {
+      "id": "growth_full",
+      "nodes": 9,
+      "nodeOverlaps": 0,
+      "bb": "0,0,486.42,680.96"
+    },
+    {
+      "id": "maintenance_main",
+      "nodes": 5,
+      "nodeOverlaps": 0,
+      "bb": "0,0,307.57,556.8"
+    },
+    {
+      "id": "maintenance_full",
+      "nodes": 9,
+      "nodeOverlaps": 0,
+      "bb": "0,0,550.2,556.8"
+    },
+    {
+      "id": "capability",
+      "nodes": 16,
+      "nodeOverlaps": 0,
+      "bb": "0,0,607.76,980.16"
+    },
+    {
+      "id": "architecture",
+      "nodes": 7,
+      "nodeOverlaps": 0,
+      "bb": "0,0,1398.7,400"
+    },
+    {
+      "id": "journey",
+      "nodes": 28,
+      "nodeOverlaps": 0,
+      "bb": "0,0,1063.4,691.4"
+    }
+  ]
+}

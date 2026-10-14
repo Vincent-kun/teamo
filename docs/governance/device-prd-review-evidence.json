@@ -1,0 +1,694 @@
+{
+  "date": "2026-10-12",
+  "source_sha256": {
+    "Teamo_Device_Requirement_Baseline_v0.1.1.md": "3f7fa857e14d8a849e05ec755e40e522f91b4cca007950f93a7fb89dd34e6aa8",
+    "Teamo_Device_Function_Specification_v0.5.2.md": "cf0e09aebc83594cce7b3f92372f99bbff0f5219590f901f82dc3e68bc1db040",
+    "Teamo_Device_UE_IA_v0.3.1.md": "4d2cf7e0a1f9f7c6dadee2320dcecfa9c82395298ac20b9feb1f471d7b328ee5",
+    "Teamo_Device_UE_Engineering_Reference_v0.1.0.md": "0a850435a8ddc3638c40f9429e40f8b8f80c215b4073389664bc2ab10f9323ab"
+  },
+  "prd_sha256": "31f9387bcc8b234bb762d0ea6a22bc60bdc75945f796c90da48f5bd383fdce94",
+  "core_count": 47,
+  "candidate_count": 20,
+  "retired_count": 2,
+  "core_traceability": [
+    {
+      "function": "1.1.1",
+      "name": "开机与初始化",
+      "priority": "P0",
+      "owner": "设备启动与运行",
+      "pending": "启动时长待确认",
+      "page": "PAGE-00/01启动路由支撑，无新增启动PAGE",
+      "state": "启动/恢复（非INIT）",
+      "baseline": [
+        "FR-DEVICE-001"
+      ]
+    },
+    {
+      "function": "1.1.2",
+      "name": "恢复启动状态",
+      "priority": "P0",
+      "owner": "设备启动与运行",
+      "pending": "恢复进入哪个状态待确认",
+      "page": "PAGE-00/01启动路由支撑，无新增启动PAGE",
+      "state": "启动/恢复（非INIT）",
+      "baseline": [
+        "FR-DEVICE-001"
+      ]
+    },
+    {
+      "function": "1.2.1",
+      "name": "设备运行状态管理",
+      "priority": "P0",
+      "owner": "设备启动与运行",
+      "pending": "—",
+      "page": "PAGE-00–08状态与异常支撑",
+      "state": "设备/故障展示",
+      "baseline": [
+        "FR-DEVICE-001",
+        "FR-DEVICE-003"
+      ]
+    },
+    {
+      "function": "1.2.2",
+      "name": "设备故障处理",
+      "priority": "P0",
+      "owner": "设备启动与运行",
+      "pending": "故障范围与恢复时限待确认",
+      "page": "PAGE-00–08状态与异常支撑",
+      "state": "设备/故障展示",
+      "baseline": [
+        "FR-DEVICE-001",
+        "FR-DEVICE-003"
+      ]
+    },
+    {
+      "function": "1.2.3",
+      "name": "查看设备软件版本",
+      "priority": "P0",
+      "owner": "设备启动与运行",
+      "pending": "—",
+      "page": "PAGE-08设备状态",
+      "state": "设备/故障展示",
+      "baseline": [
+        "FR-DEVICE-001",
+        "FR-DEVICE-003"
+      ]
+    },
+    {
+      "function": "1.2.4",
+      "name": "故障信息记录",
+      "priority": "P0",
+      "owner": "设备启动与运行",
+      "pending": "日志内容与保存周期待确认",
+      "page": "后台记录支撑，无独立页面承诺",
+      "state": "设备/故障展示",
+      "baseline": [
+        "FR-DEVICE-001",
+        "FR-DEVICE-003"
+      ]
+    },
+    {
+      "function": "1.2.5",
+      "name": "设备重启",
+      "priority": "P0",
+      "owner": "设备启动与运行",
+      "pending": "重启触发方式待确认",
+      "page": "PAGE-08系统设置",
+      "state": "设备/故障展示",
+      "baseline": [
+        "FR-DEVICE-001",
+        "FR-DEVICE-003"
+      ]
+    },
+    {
+      "function": "2.1.1",
+      "name": "运动入口",
+      "priority": "P0",
+      "owner": "设备交互",
+      "pending": "—",
+      "page": "PAGE-01/02/03",
+      "state": "首页/运动状态回应",
+      "baseline": [
+        "FR-DEVICE-001",
+        "FR-DEVICE-002"
+      ]
+    },
+    {
+      "function": "2.1.2",
+      "name": "显示角色状态表情",
+      "priority": "P0",
+      "owner": "设备交互",
+      "pending": "表情事件与资源待确认",
+      "page": "PAGE-01；PAGE-04–07按已有运动事件回应，承载TBD",
+      "state": "首页/运动状态回应",
+      "baseline": [
+        "FR-DEVICE-001",
+        "FR-DEVICE-002"
+      ]
+    },
+    {
+      "function": "2.2.1",
+      "name": "设备状态提示",
+      "priority": "P0",
+      "owner": "设备交互",
+      "pending": "表达方式待确认",
+      "page": "PAGE-00–08通用支撑",
+      "state": "操作反馈/状态展示",
+      "baseline": [
+        "FR-DEVICE-001",
+        "FR-SPORT-004",
+        "FR-SPORT-006"
+      ]
+    },
+    {
+      "function": "2.2.2",
+      "name": "操作接收与确认",
+      "priority": "P0",
+      "owner": "设备交互",
+      "pending": "触控、按键或其他输入方式待确认",
+      "page": "PAGE-00–08通用支撑",
+      "state": "操作反馈/状态展示",
+      "baseline": [
+        "FR-DEVICE-001",
+        "FR-SPORT-004",
+        "FR-SPORT-006"
+      ]
+    },
+    {
+      "function": "3.1.1",
+      "name": "接收并检查运动任务",
+      "priority": "P0",
+      "owner": "设备任务与执行",
+      "pending": "任务检查规则待确认",
+      "page": "PAGE-03消费后台接收事实，不新增接收页面",
+      "state": "INIT / 任务有效性",
+      "baseline": [
+        "FR-TASK-001",
+        "FR-SPORT-001"
+      ]
+    },
+    {
+      "function": "3.1.2",
+      "name": "反馈任务接收结果",
+      "priority": "P0",
+      "owner": "设备任务与执行",
+      "pending": "—",
+      "page": "PAGE-03消费后台接收事实，不新增接收页面",
+      "state": "INIT / 任务有效性",
+      "baseline": [
+        "FR-TASK-001",
+        "FR-SPORT-001"
+      ]
+    },
+    {
+      "function": "3.1.3",
+      "name": "展示任务内容与执行状态",
+      "priority": "P0",
+      "owner": "设备任务与执行",
+      "pending": "任务状态及撤销规则待确认",
+      "page": "PAGE-03",
+      "state": "INIT / 任务有效性",
+      "baseline": [
+        "FR-TASK-001",
+        "FR-SPORT-001"
+      ]
+    },
+    {
+      "function": "3.1.4",
+      "name": "动作与目标确认",
+      "priority": "P0",
+      "owner": "设备任务与执行",
+      "pending": "自主目标范围待确认",
+      "page": "PAGE-02/03",
+      "state": "INIT / 任务有效性",
+      "baseline": [
+        "FR-TASK-001",
+        "FR-SPORT-001"
+      ]
+    },
+    {
+      "function": "3.2.1",
+      "name": "动作说明",
+      "priority": "P0",
+      "owner": "设备任务与执行",
+      "pending": "媒体形态/可跳过规则待确认",
+      "page": "PAGE-04",
+      "state": "READY / COUNTDOWN",
+      "baseline": [
+        "FR-SPORT-002",
+        "FR-SPORT-003",
+        "FR-SPORT-004"
+      ]
+    },
+    {
+      "function": "3.2.2",
+      "name": "入镜准备引导",
+      "priority": "P0",
+      "owner": "设备任务与执行",
+      "pending": "准备完成条件待确认",
+      "page": "PAGE-04；PAGE-09仅候选复用依据",
+      "state": "READY / COUNTDOWN",
+      "baseline": [
+        "FR-SPORT-002",
+        "FR-SPORT-003",
+        "FR-SPORT-004"
+      ]
+    },
+    {
+      "function": "3.2.3",
+      "name": "开始确认与倒计时",
+      "priority": "P0",
+      "owner": "设备任务与执行",
+      "pending": "输入方式待确认",
+      "page": "PAGE-04/05",
+      "state": "READY / COUNTDOWN",
+      "baseline": [
+        "FR-SPORT-002",
+        "FR-SPORT-003",
+        "FR-SPORT-004"
+      ]
+    },
+    {
+      "function": "3.3.1",
+      "name": "暂停与成绩保留",
+      "priority": "P0",
+      "owner": "设备任务与执行",
+      "pending": "—",
+      "page": "PAGE-06/04；再次经过PAGE-05与否TBD",
+      "state": "RUNNING / PAUSED / FINISHED",
+      "baseline": [
+        "FR-SPORT-006",
+        "FR-SPORT-007"
+      ]
+    },
+    {
+      "function": "3.3.2",
+      "name": "恢复运动",
+      "priority": "P0",
+      "owner": "设备任务与执行",
+      "pending": "恢复时重新判断动作起点；恢复确认方式待确认",
+      "page": "PAGE-06/04；再次经过PAGE-05与否TBD",
+      "state": "RUNNING / PAUSED / FINISHED",
+      "baseline": [
+        "FR-SPORT-006",
+        "FR-SPORT-007"
+      ]
+    },
+    {
+      "function": "3.3.3",
+      "name": "达标与提前结束",
+      "priority": "P0",
+      "owner": "设备任务与执行",
+      "pending": "自动超时结束规则待确认",
+      "page": "PAGE-06 → PAGE-07",
+      "state": "FINISHED",
+      "baseline": [
+        "FR-SPORT-006",
+        "FR-SPORT-007"
+      ]
+    },
+    {
+      "function": "4.1.1",
+      "name": "人体与画面可用性检测",
+      "priority": "P0",
+      "owner": "设备识别能力",
+      "pending": "多人处理及适用距离待确认",
+      "page": "PAGE-04/05/06；PAGE-09仅候选复用依据",
+      "state": "READY / COUNTDOWN / RUNNING / PAUSED",
+      "baseline": [
+        "FR-SPORT-003",
+        "FR-SPORT-005",
+        "FR-SPORT-006"
+      ]
+    },
+    {
+      "function": "4.1.2",
+      "name": "有效动作计数",
+      "priority": "P0",
+      "owner": "设备识别能力",
+      "pending": "阈值待确认",
+      "page": "PAGE-06，异常准备原因由PAGE-04承接",
+      "state": "READY / COUNTDOWN / RUNNING / PAUSED",
+      "baseline": [
+        "FR-SPORT-003",
+        "FR-SPORT-005",
+        "FR-SPORT-006"
+      ]
+    },
+    {
+      "function": "4.1.3",
+      "name": "判定运动识别异常",
+      "priority": "P0",
+      "owner": "设备识别能力",
+      "pending": "—",
+      "page": "PAGE-06，异常准备原因由PAGE-04承接",
+      "state": "READY / COUNTDOWN / RUNNING / PAUSED",
+      "baseline": [
+        "FR-SPORT-003",
+        "FR-SPORT-005",
+        "FR-SPORT-006"
+      ]
+    },
+    {
+      "function": "4.2.1",
+      "name": "开合跳动作判定",
+      "priority": "P0",
+      "owner": "设备识别能力",
+      "pending": "有效幅度与规则待确认",
+      "page": "PAGE-06计数依据，不新增动作范围",
+      "state": "RUNNING",
+      "baseline": [
+        "FR-SPORT-005"
+      ]
+    },
+    {
+      "function": "4.2.2",
+      "name": "深蹲起动作判定",
+      "priority": "P0",
+      "owner": "设备识别能力",
+      "pending": "安全与有效幅度规则待确认",
+      "page": "PAGE-06计数依据，不新增动作范围",
+      "state": "RUNNING",
+      "baseline": [
+        "FR-SPORT-005"
+      ]
+    },
+    {
+      "function": "4.2.3",
+      "name": "高抬腿动作判定",
+      "priority": "P0",
+      "owner": "设备识别能力",
+      "pending": "单侧一次或双侧一轮待确认",
+      "page": "PAGE-06计数依据，不新增动作范围",
+      "state": "RUNNING",
+      "baseline": [
+        "FR-SPORT-005"
+      ]
+    },
+    {
+      "function": "5.1.1",
+      "name": "次数与进度反馈",
+      "priority": "P0",
+      "owner": "设备反馈呈现",
+      "pending": "频率待确认",
+      "page": "PAGE-06",
+      "state": "RUNNING / FINISHED",
+      "baseline": [
+        "FR-SPORT-005",
+        "FR-DEVICE-002"
+      ]
+    },
+    {
+      "function": "5.1.2",
+      "name": "动作反馈与调整提示",
+      "priority": "P0",
+      "owner": "设备反馈呈现",
+      "pending": "—",
+      "page": "PAGE-06",
+      "state": "RUNNING / FINISHED",
+      "baseline": [
+        "FR-SPORT-005",
+        "FR-DEVICE-002"
+      ]
+    },
+    {
+      "function": "5.1.3",
+      "name": "完成鼓励",
+      "priority": "P0",
+      "owner": "设备反馈呈现",
+      "pending": "运动星/PB深度待确认",
+      "page": "PAGE-07",
+      "state": "RUNNING / FINISHED",
+      "baseline": [
+        "FR-SPORT-005",
+        "FR-DEVICE-002"
+      ]
+    },
+    {
+      "function": "5.2.1",
+      "name": "运动结果查看",
+      "priority": "P0",
+      "owner": "设备反馈呈现",
+      "pending": "用时是否含暂停待确认",
+      "page": "PAGE-07",
+      "state": "FINISHED / SAVED / SYNCING / SYNCED",
+      "baseline": [
+        "FR-SPORT-007"
+      ]
+    },
+    {
+      "function": "5.2.2",
+      "name": "保存与同步提示",
+      "priority": "P0",
+      "owner": "设备反馈呈现",
+      "pending": "—",
+      "page": "PAGE-07；必要同步提示PAGE-01",
+      "state": "FINISHED / SAVED / SYNCING / SYNCED",
+      "baseline": [
+        "FR-SPORT-007"
+      ]
+    },
+    {
+      "function": "6.1.1",
+      "name": "记录创建与归属",
+      "priority": "P0",
+      "owner": "设备记录与同步",
+      "pending": "开始记录时机待确认",
+      "page": "PAGE-02/03/06/07共用事实支撑，无重复记录系统",
+      "state": "创建时机TBD / FINISHED",
+      "baseline": [
+        "FR-SPORT-007"
+      ]
+    },
+    {
+      "function": "6.1.2",
+      "name": "生成运动结果记录",
+      "priority": "P0",
+      "owner": "设备记录与同步",
+      "pending": "—",
+      "page": "PAGE-02/03/06/07共用事实支撑，无重复记录系统",
+      "state": "创建时机TBD / FINISHED",
+      "baseline": [
+        "FR-SPORT-007"
+      ]
+    },
+    {
+      "function": "6.2.1",
+      "name": "本地保存",
+      "priority": "P0",
+      "owner": "设备记录与同步",
+      "pending": "存储容量/保留周期待确认",
+      "page": "PAGE-01/03/06/07消费保存恢复事实；后台处理",
+      "state": "保存维度：SAVED / 未保存",
+      "baseline": [
+        "FR-SPORT-007",
+        "FR-DEVICE-001"
+      ]
+    },
+    {
+      "function": "6.2.2",
+      "name": "已保存记录恢复",
+      "priority": "P0",
+      "owner": "设备记录与同步",
+      "pending": "保存频率及断电可恢复范围待确认",
+      "page": "PAGE-01/03/06/07消费保存恢复事实；后台处理",
+      "state": "保存/恢复：SAVED或失败",
+      "baseline": [
+        "FR-SPORT-007",
+        "FR-DEVICE-001"
+      ]
+    },
+    {
+      "function": "6.2.3",
+      "name": "保存失败处理",
+      "priority": "P0",
+      "owner": "设备记录与同步",
+      "pending": "失败恢复保证待确认",
+      "page": "PAGE-01/03/06/07消费保存恢复事实；后台处理",
+      "state": "保存/恢复：SAVED或失败",
+      "baseline": [
+        "FR-SPORT-007",
+        "FR-DEVICE-001"
+      ]
+    },
+    {
+      "function": "6.3.1",
+      "name": "上传结果并更新同步状态",
+      "priority": "P0",
+      "owner": "设备记录与同步",
+      "pending": "协议待确认",
+      "page": "PAGE-07/01消费独立同步状态，后台处理",
+      "state": "SAVED / SYNCING / SYNCED",
+      "baseline": [
+        "FR-SPORT-007"
+      ]
+    },
+    {
+      "function": "6.3.2",
+      "name": "补传失败结果并防重复",
+      "priority": "P0",
+      "owner": "设备记录与同步",
+      "pending": "重试/冲突策略待确认",
+      "page": "PAGE-07/01消费独立同步状态，后台处理",
+      "state": "SAVED / SYNCING / SYNCED",
+      "baseline": [
+        "FR-SPORT-007"
+      ]
+    },
+    {
+      "function": "7.1.1",
+      "name": "网络连接管理",
+      "priority": "P0",
+      "owner": "设备联网与使用者管理",
+      "pending": "配网流程及责任端待确认",
+      "page": "PAGE-00/08；PAGE-01必要状态提示",
+      "state": "在线/离线（独立维度）",
+      "baseline": [
+        "FR-TASK-001",
+        "FR-SPORT-007"
+      ]
+    },
+    {
+      "function": "7.1.2",
+      "name": "联网状态提示",
+      "priority": "P0",
+      "owner": "设备联网与使用者管理",
+      "pending": "—",
+      "page": "PAGE-00/08；PAGE-01必要状态提示",
+      "state": "在线/离线（独立维度）",
+      "baseline": [
+        "FR-TASK-001",
+        "FR-SPORT-007"
+      ]
+    },
+    {
+      "function": "7.2.1",
+      "name": "设备状态同步",
+      "priority": "P0",
+      "owner": "设备联网与使用者管理",
+      "pending": "同步内容、时机与连接方式待确认",
+      "page": "后台同步支撑，非独立页面",
+      "state": "绑定/儿童/设备状态",
+      "baseline": [
+        "FR-TASK-001",
+        "FR-DEVICE-003"
+      ]
+    },
+    {
+      "function": "7.2.3",
+      "name": "绑定状态与当前儿童确认",
+      "priority": "P0",
+      "owner": "设备联网与使用者管理",
+      "pending": "绑定流程、多儿童切换待确认",
+      "page": "PAGE-00/08；PAGE-01使用有效上下文",
+      "state": "绑定/儿童/设备状态",
+      "baseline": [
+        "FR-TASK-001",
+        "FR-DEVICE-003"
+      ]
+    },
+    {
+      "function": "8.1.1",
+      "name": "检查授权并阻断不允许的采集",
+      "priority": "P0",
+      "owner": "设备隐私与权限",
+      "pending": "—",
+      "page": "PAGE-04/05/06/08，PAGE-01必要提示；PAGE-09获准后亦须遵守",
+      "state": "隐私准入/采集状态",
+      "baseline": [
+        "FR-SPORT-003",
+        "FR-SPORT-006",
+        "FR-DEVICE-003"
+      ]
+    },
+    {
+      "function": "8.1.2",
+      "name": "摄像头状态提示与关闭",
+      "priority": "P0",
+      "owner": "设备隐私与权限",
+      "pending": "状态提示方式与撤权响应待确认",
+      "page": "PAGE-04/05/06/08，PAGE-01必要提示；PAGE-09获准后亦须遵守",
+      "state": "隐私准入/采集状态",
+      "baseline": [
+        "FR-SPORT-003",
+        "FR-SPORT-006",
+        "FR-DEVICE-003"
+      ]
+    },
+    {
+      "function": "8.2.2",
+      "name": "处理设备数据权限与删除请求",
+      "priority": "P0",
+      "owner": "设备隐私与权限",
+      "pending": "删除范围与离线响应待确认",
+      "page": "后台执行与回执；PAGE-08设备端入口TBD",
+      "state": "权限/提醒约束",
+      "baseline": [
+        "FR-DEVICE-002",
+        "FR-DEVICE-003"
+      ]
+    },
+    {
+      "function": "8.2.3",
+      "name": "提醒时段与频率控制",
+      "priority": "P0",
+      "owner": "设备隐私与权限",
+      "pending": "设置责任端、时段与频率待确认",
+      "page": "PAGE-01/06/07等提示输出约束；PAGE-08设置入口TBD，不等于声音控制",
+      "state": "权限/提醒约束",
+      "baseline": [
+        "FR-DEVICE-002",
+        "FR-DEVICE-003"
+      ]
+    }
+  ],
+  "oq_ids": [
+    "OQ-01",
+    "OQ-02",
+    "OQ-03",
+    "OQ-04",
+    "OQ-05",
+    "OQ-06",
+    "OQ-07",
+    "OQ-08",
+    "OQ-09",
+    "OQ-10",
+    "OQ-11",
+    "OQ-12",
+    "OQ-13",
+    "OQ-14",
+    "OQ-15",
+    "OQ-16",
+    "OQ-17"
+  ],
+  "ue_oq_ids": [
+    "UE-OQ-01",
+    "UE-OQ-02",
+    "UE-OQ-03",
+    "UE-OQ-04",
+    "UE-OQ-05",
+    "UE-OQ-06",
+    "UE-OQ-07",
+    "UE-OQ-08",
+    "UE-OQ-09",
+    "UE-OQ-10",
+    "UE-OQ-11"
+  ],
+  "source_unchanged": true,
+  "local_links_checked": 317,
+  "broken_links": [],
+  "scope_document_control_errors": [],
+  "global_preexisting_errors": [
+    "docs/governance/CHANGE-AGENTS-V021-20261012.md: missing Document Control",
+    "docs/governance/CHANGE-AGENTS-V021-20261012.md: missing Version History",
+    "docs/governance/CHANGE-AGENTS-V021-20261012.md: missing Change Impact",
+    "docs/governance/CHANGE-AGENTS-V021-20261012.md: missing Decision Log",
+    "docs/governance/CHANGE-AGENTS-V021-20261012.md: current/history mismatch",
+    "docs/governance/CHANGE-AGENTS-V021-20261012.md: updated/history date mismatch",
+    "docs/governance/CHANGE-FEATURE-OUTLINE-UE-SYNC-20261012.md: missing Document Control",
+    "docs/governance/CHANGE-FEATURE-OUTLINE-UE-SYNC-20261012.md: missing Version History",
+    "docs/governance/CHANGE-FEATURE-OUTLINE-UE-SYNC-20261012.md: missing Decision Log",
+    "docs/governance/CHANGE-FEATURE-OUTLINE-UE-SYNC-20261012.md: current/history mismatch",
+    "docs/governance/CHANGE-FEATURE-OUTLINE-UE-SYNC-20261012.md: updated/history date mismatch",
+    "docs/governance/CHANGE-UE-IA-V03-20261012.md: missing Document Control",
+    "docs/governance/CHANGE-UE-IA-V03-20261012.md: missing Version History",
+    "docs/governance/CHANGE-UE-IA-V03-20261012.md: missing Decision Log",
+    "docs/governance/CHANGE-UE-IA-V03-20261012.md: current/history mismatch",
+    "docs/governance/CHANGE-UE-IA-V03-20261012.md: updated/history date mismatch",
+    "docs/governance/CHANGE-UE-IA-V031-20261012.md: missing Document Control",
+    "docs/governance/CHANGE-UE-IA-V031-20261012.md: missing Version History",
+    "docs/governance/CHANGE-UE-IA-V031-20261012.md: missing Decision Log",
+    "docs/governance/CHANGE-UE-IA-V031-20261012.md: current/history mismatch",
+    "docs/governance/CHANGE-UE-IA-V031-20261012.md: updated/history date mismatch",
+    "docs/governance/CHANGE-UE-OPEN-QUESTIONS-20261012.md: missing Document Control",
+    "docs/governance/CHANGE-UE-OPEN-QUESTIONS-20261012.md: missing Version History",
+    "docs/governance/CHANGE-UE-OPEN-QUESTIONS-20261012.md: missing Decision Log",
+    "docs/governance/CHANGE-UE-OPEN-QUESTIONS-20261012.md: current/history mismatch",
+    "docs/governance/CHANGE-UE-OPEN-QUESTIONS-20261012.md: updated/history date mismatch",
+    "docs/governance/CHANGE-UE-STATE-WIREFRAMES-20261012.md: missing Document Control",
+    "docs/governance/CHANGE-UE-STATE-WIREFRAMES-20261012.md: missing Version History",
+    "docs/governance/CHANGE-UE-STATE-WIREFRAMES-20261012.md: missing Decision Log",
+    "docs/governance/CHANGE-UE-STATE-WIREFRAMES-20261012.md: current/history mismatch",
+    "docs/governance/CHANGE-UE-STATE-WIREFRAMES-20261012.md: updated/history date mismatch"
+  ]
+}

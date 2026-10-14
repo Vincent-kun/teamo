@@ -1,0 +1,64 @@
+<svg role="img" aria-label="网络与结果同步 · 正常主链" width="640pt" height="589pt"
+ viewBox="0 0 640 589" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>网络与结果同步 · 正常主链</title><desc>范围：设备记录 + 接收确认；设计候选，交付范围待PM确认</desc><text x="18" y="25" font-family="Microsoft YaHei" font-size="17" fill="#352b48">网络与结果同步 · 正常主链</text><text x="18" y="47" font-family="Microsoft YaHei" font-size="12" fill="#746b83">范围：设备记录 + 接收确认；设计候选，交付范围待PM确认</text><g transform="translate(181.5,60)">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 450.64)">
+<!-- n3 -->
+<g id="node_sync_3" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(3)}">
+<title>n3</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M159.46,-432.64C159.46,-432.64 58.54,-432.64 58.54,-432.64 52.54,-432.64 46.54,-426.64 46.54,-420.64 46.54,-420.64 46.54,-384.48 46.54,-384.48 46.54,-378.48 52.54,-372.48 58.54,-372.48 58.54,-372.48 159.46,-372.48 159.46,-372.48 165.46,-372.48 171.46,-378.48 171.46,-384.48 171.46,-384.48 171.46,-420.64 171.46,-420.64 171.46,-426.64 165.46,-432.64 159.46,-432.64"/>
+<text xml:space="preserve" text-anchor="start" x="92.12" y="-406.56" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">待上传</text>
+<text xml:space="preserve" text-anchor="start" x="80.88" y="-386.56" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">已可靠保存</text>
+</g>
+<!-- n4 -->
+<g id="node_sync_4" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(4)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(4)}">
+<title>n4</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M166.96,-308.48C166.96,-308.48 51.04,-308.48 51.04,-308.48 45.04,-308.48 39.04,-302.48 39.04,-296.48 39.04,-296.48 39.04,-260.32 39.04,-260.32 39.04,-254.32 45.04,-248.32 51.04,-248.32 51.04,-248.32 166.96,-248.32 166.96,-248.32 172.96,-248.32 178.96,-254.32 178.96,-260.32 178.96,-260.32 178.96,-296.48 178.96,-296.48 178.96,-302.48 172.96,-308.48 166.96,-308.48"/>
+<text xml:space="preserve" text-anchor="start" x="92.12" y="-282.4" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">上传中</text>
+<text xml:space="preserve" text-anchor="start" x="75.25" y="-262.4" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">同幂等键重试</text>
+</g>
+<!-- n3&#45;&gt;n4 -->
+<g id="edge_3_4_0" class="edge">
+<title>n3&#45;&gt;n4</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M46.23,-372.14C22,-360.79 0,-350.48 0,-350.48 0,-350.48 0,-330.48 0,-330.48 0,-330.48 17.6,-322.23 38.66,-312.36"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="39.48,-314.49 44.4,-309.67 37.55,-310.37 39.48,-314.49"/>
+<text xml:space="preserve" text-anchor="start" x="24" y="-335.68" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">联网上传</text>
+</g>
+<!-- n3&#45;&gt;n4 -->
+<!-- n5 -->
+<g id="node_sync_5" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(5)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(5)}">
+<title>n5</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M174.46,-184.32C174.46,-184.32 43.54,-184.32 43.54,-184.32 37.54,-184.32 31.54,-178.32 31.54,-172.32 31.54,-172.32 31.54,-136.16 31.54,-136.16 31.54,-130.16 37.54,-124.16 43.54,-124.16 43.54,-124.16 174.46,-124.16 174.46,-124.16 180.46,-124.16 186.46,-130.16 186.46,-136.16 186.46,-136.16 186.46,-172.32 186.46,-172.32 186.46,-178.32 180.46,-184.32 174.46,-184.32"/>
+<text xml:space="preserve" text-anchor="start" x="92.12" y="-158.24" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">待确认</text>
+<text xml:space="preserve" text-anchor="start" x="69.62" y="-138.24" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">接收确认未到达</text>
+</g>
+<!-- n4&#45;&gt;n5 -->
+<g id="edge_4_5_1" class="edge">
+<title>n4&#45;&gt;n5</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M45.91,-247.83C21.81,-236.54 0,-226.32 0,-226.32 0,-226.32 0,-206.32 0,-206.32 0,-206.32 17.6,-198.07 38.66,-188.2"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="39.48,-190.33 44.4,-185.51 37.55,-186.21 39.48,-190.33"/>
+<text xml:space="preserve" text-anchor="start" x="24" y="-211.52" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">服务收到</text>
+</g>
+<!-- n4&#45;&gt;n5 -->
+<!-- n5&#45;&gt;n4 -->
+<g id="edge_5_4_3" class="edge">
+<title>n5&#45;&gt;n4</title>
+<path fill="none" stroke="#b57932" stroke-width="1.1" stroke-dasharray="5,2" d="M119.37,-184.66C123.37,-196.01 127,-206.32 127,-206.32 127,-206.32 127,-226.32 127,-226.32 127,-226.32 124.87,-232.36 122.08,-240.29"/>
+<polygon fill="#b57932" stroke="#b57932" stroke-width="1.1" points="119.93,-239.53 119.92,-246.41 124.23,-241.04 119.93,-239.53"/>
+<text xml:space="preserve" text-anchor="start" x="157" y="-211.52" font-family="Microsoft YaHei" font-size="12.00" fill="#976120">确认丢失重试</text>
+</g>
+<!-- n6 -->
+<g id="node_sync_6" class="node atlas-node" role="button" tabindex="0" onclick="selectNode(6)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(6)}">
+<title>n6</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="2" d="M166.96,-60.16C166.96,-60.16 51.04,-60.16 51.04,-60.16 45.04,-60.16 39.04,-54.16 39.04,-48.16 39.04,-48.16 39.04,-12 39.04,-12 39.04,-6 45.04,0 51.04,0 51.04,0 166.96,0 166.96,0 172.96,0 178.96,-6 178.96,-12 178.96,-12 178.96,-48.16 178.96,-48.16 178.96,-54.16 172.96,-60.16 166.96,-60.16"/>
+<text xml:space="preserve" text-anchor="start" x="92.12" y="-34.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">已同步</text>
+<text xml:space="preserve" text-anchor="start" x="75.25" y="-14.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">清理确认队列</text>
+</g>
+<!-- n5&#45;&gt;n6 -->
+<g id="edge_5_6_2" class="edge">
+<title>n5&#45;&gt;n6</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M45.91,-123.67C21.81,-112.38 0,-102.16 0,-102.16 0,-102.16 0,-82.16 0,-82.16 0,-82.16 17.14,-74.13 37.83,-64.43"/>
+<polygon fill="#8e839d" stroke="#8e839d" stroke-width="1.1" points="38.54,-66.61 43.46,-61.8 36.61,-62.49 38.54,-66.61"/>
+<text xml:space="preserve" text-anchor="start" x="24" y="-87.36" font-family="Microsoft YaHei" font-size="12.00" fill="#655b76">确认收到</text>
+</g>
+<!-- n5&#45;&gt;n6 -->
+</g>
+</g><text x="18" y="567" font-family="Microsoft YaHei" font-size="12" fill="#746b83">实线：正常路径  ·  橙色虚线：异常 / 返回  ·  点击节点查看条件</text></svg>

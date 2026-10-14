@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "widths": [
+    1440,
+    768,
+    390,
+    320
+  ],
+  "cards": 4,
+  "imageDecode": "passed",
+  "pageErrors": [],
+  "scope": "display verification only, not CAD fit"
+}

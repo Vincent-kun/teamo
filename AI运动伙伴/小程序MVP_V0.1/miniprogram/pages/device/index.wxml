@@ -1,0 +1,51 @@
+<view class="page device-page">
+  <view class="device-heading"><view class="brand-kicker">TEAMO <text>DEVICE</text></view><view class="hero-title">小宇的运动伙伴</view><view class="hero-sub">看见动作，也守护隐私</view></view>
+  <view class="device-shell">
+    <view class="privacy-track"><view class="privacy-knob"></view></view>
+    <view class="camera"></view>
+    <view class="screen">
+      <block wx:if="{{state.device.status==='running' || state.device.status==='paused'}}">
+        <view class="screen-kicker">TEAMO · {{currentAction.name}}</view>
+        <view class="big-count">{{count}}<text>/ {{target}}</text></view>
+        <view class="device-progress"><view style="width:{{count/target*100}}%"></view></view>
+        <view class="screen-copy">{{state.device.status==='paused'?'已暂停，进度已保存':'一起动，保持现在的节奏'}}</view>
+      </block>
+      <block wx:elif="{{state.device.status==='completed'}}">
+        <view class="eyes happy"><view class="eye"></view><view class="eye"></view></view>
+        <view class="screen-title">完成啦！</view>
+        <view class="screen-copy">做得真棒，结果已同步给家长</view>
+      </block>
+      <block wx:else>
+        <view class="eyes"><view class="eye"></view><view class="eye"></view></view>
+        <view class="screen-title">{{state.device.online?'准备好陪你运动':'设备暂时离线'}}</view>
+        <view class="screen-copy">{{state.device.online?'选择任务后，设备会自动引导':'连接恢复后任务会自动同步'}}</view>
+      </block>
+    </view>
+    <view class="device-base"></view>
+  </view>
+
+  <view class="privacy-tip"><view class="shield">✓</view><view><view class="strong">物理隐私滑盖</view><view class="small muted">橙色滑块关闭时，摄像头被真实遮挡</view></view></view>
+
+  <view class="card status-card">
+    <view class="row"><view class="grow"><view class="strong">{{state.device.name}}</view><view class="small muted">设备编号 {{state.device.id}}</view></view><view class="pill"><view class="dot {{state.device.online?'':'offline'}}"></view>{{state.device.online?'在线':'离线'}}</view></view>
+    <view class="device-meta"><view><text>{{state.device.battery}}%</text><text>电量</text></view><view><text>{{state.device.wifi}}</text><text>网络</text></view><view><text>{{statusText}}</text><text>真实状态</text></view></view>
+    <view class="current-task" wx:if="{{state.latestCommand}}"><view class="small muted">当前任务</view><view class="row"><view class="grow strong">{{currentAction.name}} · {{target}}{{currentAction.unit}}</view><view class="sync">已同步</view></view></view>
+  </view>
+
+  <view class="controls">
+    <button class="btn btn-line" bindtap="toggleOnline">{{state.device.online?'模拟离线':'重新连接'}}</button>
+    <button wx:if="{{state.device.status!=='running' && state.device.status!=='paused'}}" class="btn btn-primary" bindtap="start">开始{{currentAction.name}}</button>
+    <button wx:else class="btn btn-soft" bindtap="pause">{{running?'暂停':'继续'}}</button>
+    <button wx:if="{{state.device.status==='running' || state.device.status==='paused'}}" class="btn btn-danger" bindtap="finish">结束运动</button>
+    <button wx:if="{{state.device.status==='completed'}}" class="btn btn-soft" bindtap="openAnalysis">查看运动分析</button>
+  </view>
+  <view class="section-title">设备能力</view>
+  <view class="list feature-list">
+    <view class="list-item"><view class="grow"><view class="strong">摄像头与动作识别</view><view class="small muted">用于入镜、动作计数和姿态判断</view></view><switch color="#0e5662" checked="{{state.device.camera}}" data-key="camera" bindchange="toggleFeature"/></view>
+    <view class="list-item"><view class="grow"><view class="strong">语音与声音反馈</view><view class="small muted">播报倒计时、动作提示和完成鼓励</view></view><switch color="#0e5662" checked="{{state.device.voice}}" data-key="voice" bindchange="toggleFeature"/></view>
+    <view class="list-item"><view class="grow"><view class="strong">日常姿态提醒</view><view class="small muted">提醒低头、距离过近和明显坐姿问题</view></view><switch color="#0e5662" checked="{{state.device.posture}}" data-key="posture" bindchange="toggleFeature"/></view>
+    <view class="list-item"><view class="grow"><view class="strong">主动运动提醒</view><view class="small muted">在非免打扰时段提醒未完成任务</view></view><switch color="#0e5662" checked="{{state.device.proactive}}" data-key="proactive" bindchange="toggleFeature"/></view>
+  </view>
+  <view class="section-title">最近动态</view>
+  <view class="timeline"><view class="timeline-item" wx:for="{{state.deviceTimeline}}" wx:key="time"><view class="timeline-dot"></view><view class="grow"><view class="strong">{{item.text}}</view><view class="small muted">{{item.time}}</view></view></view></view>
+</view>

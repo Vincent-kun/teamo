@@ -1,0 +1,188 @@
+<svg role="img" aria-label="运动伙伴 · 完整软件能力树" width="644pt" height="1136pt"
+ viewBox="0 0 644 1136" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>运动伙伴 · 完整软件能力树</title><desc>树枝表示包含关系，不代表执行顺序</desc><text x="18" y="25" font-family="Microsoft YaHei" font-size="17" fill="#352b48">运动伙伴 · 完整软件能力树</text><text x="18" y="47" font-family="Microsoft YaHei" font-size="12" fill="#746b83">树枝表示包含关系，不代表执行顺序</text><g transform="translate(0,60)">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 998.16)">
+<!-- root -->
+<g id="node1" class="node">
+<title>root</title>
+<path fill="#e8def8" stroke="#d9cfea" stroke-width="2" d="M157.92,-474.16C157.92,-474.16 12,-474.16 12,-474.16 6,-474.16 0,-468.16 0,-462.16 0,-462.16 0,-426 0,-426 0,-420 6,-414 12,-414 12,-414 157.92,-414 157.92,-414 163.92,-414 169.92,-420 169.92,-426 169.92,-426 169.92,-462.16 169.92,-462.16 169.92,-468.16 163.92,-474.16 157.92,-474.16"/>
+<text xml:space="preserve" text-anchor="start" x="62.46" y="-448.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">运动伙伴</text>
+<text xml:space="preserve" text-anchor="start" x="39.96" y="-428.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">完整软件能力范围</text>
+</g>
+<!-- g0 -->
+<g id="node2" class="node">
+<title>g0</title>
+<path fill="#f7f5fa" stroke="#d9cfea" stroke-width="1.2" d="M318.34,-832.16C318.34,-832.16 232.42,-832.16 232.42,-832.16 226.42,-832.16 220.42,-826.16 220.42,-820.16 220.42,-820.16 220.42,-804 220.42,-804 220.42,-798 226.42,-792 232.42,-792 232.42,-792 318.34,-792 318.34,-792 324.34,-792 330.34,-798 330.34,-804 330.34,-804 330.34,-820.16 330.34,-820.16 330.34,-826.16 324.34,-832.16 318.34,-832.16"/>
+<text xml:space="preserve" text-anchor="start" x="252.88" y="-806.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">运动执行</text>
+</g>
+<!-- root&#45;&gt;g0 -->
+<g id="edge1" class="edge">
+<title>root&#45;&gt;g0</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M101.86,-475.14C139.39,-548.44 232.66,-730.6 263.96,-791.72"/>
+</g>
+<!-- g1 -->
+<g id="node6" class="node">
+<title>g1</title>
+<path fill="#f7f5fa" stroke="#d9cfea" stroke-width="1.2" d="M318.34,-556.16C318.34,-556.16 232.42,-556.16 232.42,-556.16 226.42,-556.16 220.42,-550.16 220.42,-544.16 220.42,-544.16 220.42,-528 220.42,-528 220.42,-522 226.42,-516 232.42,-516 232.42,-516 318.34,-516 318.34,-516 324.34,-516 330.34,-522 330.34,-528 330.34,-528 330.34,-544.16 330.34,-544.16 330.34,-550.16 324.34,-556.16 318.34,-556.16"/>
+<text xml:space="preserve" text-anchor="start" x="252.88" y="-530.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">家庭管理</text>
+</g>
+<!-- root&#45;&gt;g1 -->
+<g id="edge5" class="edge">
+<title>root&#45;&gt;g1</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M149.49,-475.1C176.73,-488.4 207.82,-503.58 232.16,-515.47"/>
+</g>
+<!-- g2 -->
+<g id="node10" class="node">
+<title>g2</title>
+<path fill="#f7f5fa" stroke="#d9cfea" stroke-width="1.2" d="M325.84,-326.16C325.84,-326.16 224.92,-326.16 224.92,-326.16 218.92,-326.16 212.92,-320.16 212.92,-314.16 212.92,-314.16 212.92,-298 212.92,-298 212.92,-292 218.92,-286 224.92,-286 224.92,-286 325.84,-286 325.84,-286 331.84,-286 337.84,-292 337.84,-298 337.84,-298 337.84,-314.16 337.84,-314.16 337.84,-320.16 331.84,-326.16 325.84,-326.16"/>
+<text xml:space="preserve" text-anchor="start" x="247.25" y="-300.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">反馈与扩展</text>
+</g>
+<!-- root&#45;&gt;g2 -->
+<g id="edge9" class="edge">
+<title>root&#45;&gt;g2</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M128.25,-413.11C164.27,-386.73 215.02,-349.56 246.25,-326.68"/>
+</g>
+<!-- g3 -->
+<g id="node15" class="node">
+<title>g3</title>
+<path fill="#f7f5fa" stroke="#d9cfea" stroke-width="1.2" d="M318.34,-152.16C318.34,-152.16 232.42,-152.16 232.42,-152.16 226.42,-152.16 220.42,-146.16 220.42,-140.16 220.42,-140.16 220.42,-124 220.42,-124 220.42,-118 226.42,-112 232.42,-112 232.42,-112 318.34,-112 318.34,-112 324.34,-112 330.34,-118 330.34,-124 330.34,-124 330.34,-140.16 330.34,-140.16 330.34,-146.16 324.34,-152.16 318.34,-152.16"/>
+<text xml:space="preserve" text-anchor="start" x="252.88" y="-126.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">运行保障</text>
+</g>
+<!-- root&#45;&gt;g3 -->
+<g id="edge14" class="edge">
+<title>root&#45;&gt;g3</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M104.72,-413.02C143.16,-349.37 229.98,-205.6 262.11,-152.39"/>
+</g>
+<!-- session -->
+<g id="map_session" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('session')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('session')}">
+<title>session</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M552.26,-980.16C552.26,-980.16 436.34,-980.16 436.34,-980.16 430.34,-980.16 424.34,-974.16 424.34,-968.16 424.34,-968.16 424.34,-932 424.34,-932 424.34,-926 430.34,-920 436.34,-920 436.34,-920 552.26,-920 552.26,-920 558.26,-920 564.26,-926 564.26,-932 564.26,-932 564.26,-968.16 564.26,-968.16 564.26,-974.16 558.26,-980.16 552.26,-980.16"/>
+<text xml:space="preserve" text-anchor="start" x="466.18" y="-954.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">运动主状态</text>
+<text xml:space="preserve" text-anchor="start" x="460.55" y="-934.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">设备会话模块</text>
+</g>
+<!-- g0&#45;&gt;session -->
+<g id="edge2" class="edge">
+<title>g0&#45;&gt;session</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M299.82,-832.73C330.62,-859.85 380.84,-904.08 380.84,-904.08 380.84,-904.08 400.86,-912.27 424,-921.73"/>
+</g>
+<!-- algorithm -->
+<g id="map_algorithm" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('algorithm')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('algorithm')}">
+<title>algorithm</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M559.76,-888.16C559.76,-888.16 428.84,-888.16 428.84,-888.16 422.84,-888.16 416.84,-882.16 416.84,-876.16 416.84,-876.16 416.84,-840 416.84,-840 416.84,-834 422.84,-828 428.84,-828 428.84,-828 559.76,-828 559.76,-828 565.76,-828 571.76,-834 571.76,-840 571.76,-840 571.76,-876.16 571.76,-876.16 571.76,-882.16 565.76,-888.16 559.76,-888.16"/>
+<text xml:space="preserve" text-anchor="start" x="466.18" y="-862.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">动作与入镜</text>
+<text xml:space="preserve" text-anchor="start" x="454.93" y="-842.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">视觉算法适配器</text>
+</g>
+<!-- g0&#45;&gt;algorithm -->
+<g id="edge3" class="edge">
+<title>g0&#45;&gt;algorithm</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M330.84,-823.63C356.69,-829.11 388.04,-835.76 416.28,-841.75"/>
+</g>
+<!-- task -->
+<g id="map_task" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('task')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('task')}">
+<title>task</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M588.26,-796.16C588.26,-796.16 400.34,-796.16 400.34,-796.16 394.34,-796.16 388.34,-790.16 388.34,-784.16 388.34,-784.16 388.34,-748 388.34,-748 388.34,-742 394.34,-736 400.34,-736 400.34,-736 588.26,-736 588.26,-736 594.26,-736 600.26,-742 600.26,-748 600.26,-748 600.26,-784.16 600.26,-784.16 600.26,-790.16 594.26,-796.16 588.26,-796.16"/>
+<text xml:space="preserve" text-anchor="start" x="466.18" y="-770.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">任务与计划</text>
+<text xml:space="preserve" text-anchor="start" x="435.7" y="-750.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">发布方配置 + 设备执行</text>
+</g>
+<!-- g0&#45;&gt;task -->
+<g id="edge4" class="edge">
+<title>g0&#45;&gt;task</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M330.84,-800.53C348.28,-796.83 368.23,-792.6 388.03,-788.4"/>
+</g>
+<!-- binding -->
+<g id="map_binding" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('binding')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('binding')}">
+<title>binding</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M580.76,-704.16C580.76,-704.16 407.84,-704.16 407.84,-704.16 401.84,-704.16 395.84,-698.16 395.84,-692.16 395.84,-692.16 395.84,-656 395.84,-656 395.84,-650 401.84,-644 407.84,-644 407.84,-644 580.76,-644 580.76,-644 586.76,-644 592.76,-650 592.76,-656 592.76,-656 592.76,-692.16 592.76,-692.16 592.76,-698.16 586.76,-704.16 580.76,-704.16"/>
+<text xml:space="preserve" text-anchor="start" x="454.93" y="-678.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">账号与设备绑定</text>
+<text xml:space="preserve" text-anchor="start" x="441.32" y="-658.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">家长身份 + 设备归属</text>
+</g>
+<!-- g1&#45;&gt;binding -->
+<g id="edge6" class="edge">
+<title>g1&#45;&gt;binding</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M299.82,-556.73C330.62,-583.85 380.84,-628.08 380.84,-628.08 380.84,-628.08 397.83,-635.03 418.6,-643.53"/>
+</g>
+<!-- privacy -->
+<g id="map_privacy" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('privacy')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('privacy')}">
+<title>privacy</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M580.76,-612.16C580.76,-612.16 407.84,-612.16 407.84,-612.16 401.84,-612.16 395.84,-606.16 395.84,-600.16 395.84,-600.16 395.84,-564 395.84,-564 395.84,-558 401.84,-552 407.84,-552 407.84,-552 580.76,-552 580.76,-552 586.76,-552 592.76,-558 592.76,-564 592.76,-564 592.76,-600.16 592.76,-600.16 592.76,-606.16 586.76,-612.16 580.76,-612.16"/>
+<text xml:space="preserve" text-anchor="start" x="466.18" y="-586.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">采集与隐私</text>
+<text xml:space="preserve" text-anchor="start" x="441.32" y="-566.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">物理状态 + 家长授权</text>
+</g>
+<!-- g1&#45;&gt;privacy -->
+<g id="edge7" class="edge">
+<title>g1&#45;&gt;privacy</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M330.84,-547.63C350.42,-551.78 373.15,-556.6 395.29,-561.3"/>
+</g>
+<!-- sync -->
+<g id="map_sync" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('sync')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('sync')}">
+<title>sync</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M580.76,-520.16C580.76,-520.16 407.84,-520.16 407.84,-520.16 401.84,-520.16 395.84,-514.16 395.84,-508.16 395.84,-508.16 395.84,-472 395.84,-472 395.84,-466 401.84,-460 407.84,-460 407.84,-460 580.76,-460 580.76,-460 586.76,-460 592.76,-466 592.76,-472 592.76,-472 592.76,-508.16 592.76,-508.16 592.76,-514.16 586.76,-520.16 580.76,-520.16"/>
+<text xml:space="preserve" text-anchor="start" x="454.93" y="-494.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">网络与结果同步</text>
+<text xml:space="preserve" text-anchor="start" x="441.32" y="-474.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">设备记录 + 接收确认</text>
+</g>
+<!-- g1&#45;&gt;sync -->
+<g id="edge8" class="edge">
+<title>g1&#45;&gt;sync</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M330.84,-524.53C350.42,-520.38 373.15,-515.56 395.29,-510.86"/>
+</g>
+<!-- growth -->
+<g id="map_growth" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('growth')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('growth')}">
+<title>growth</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M567.26,-428.16C567.26,-428.16 421.34,-428.16 421.34,-428.16 415.34,-428.16 409.34,-422.16 409.34,-416.16 409.34,-416.16 409.34,-380 409.34,-380 409.34,-374 415.34,-368 421.34,-368 421.34,-368 567.26,-368 567.26,-368 573.26,-368 579.26,-374 579.26,-380 579.26,-380 579.26,-416.16 579.26,-416.16 579.26,-422.16 573.26,-428.16 567.26,-428.16"/>
+<text xml:space="preserve" text-anchor="start" x="466.18" y="-402.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">陪伴与成长</text>
+<text xml:space="preserve" text-anchor="start" x="449.3" y="-382.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">真实运动记录派生</text>
+</g>
+<!-- g2&#45;&gt;growth -->
+<g id="edge10" class="edge">
+<title>g2&#45;&gt;growth</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M323.11,-326.66C350.92,-338.91 380.84,-352.08 380.84,-352.08 380.84,-352.08 397.83,-359.03 418.6,-367.53"/>
+</g>
+<!-- analysis -->
+<g id="map_analysis" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('analysis')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('analysis')}">
+<title>analysis</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M580.76,-336.16C580.76,-336.16 407.84,-336.16 407.84,-336.16 401.84,-336.16 395.84,-330.16 395.84,-324.16 395.84,-324.16 395.84,-288 395.84,-288 395.84,-282 401.84,-276 407.84,-276 407.84,-276 580.76,-276 580.76,-276 586.76,-276 592.76,-282 592.76,-288 592.76,-288 592.76,-324.16 592.76,-324.16 592.76,-330.16 586.76,-336.16 580.76,-336.16"/>
+<text xml:space="preserve" text-anchor="start" x="454.93" y="-310.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">分析与训练计划</text>
+<text xml:space="preserve" text-anchor="start" x="441.32" y="-290.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">授权摘要 + 规则审核</text>
+</g>
+<!-- g2&#45;&gt;analysis -->
+<g id="edge11" class="edge">
+<title>g2&#45;&gt;analysis</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M338.25,-306.08C356.03,-306.08 375.88,-306.08 395.27,-306.08"/>
+</g>
+<!-- posture -->
+<g id="map_posture" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('posture')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('posture')}">
+<title>posture</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M552.26,-244.16C552.26,-244.16 436.34,-244.16 436.34,-244.16 430.34,-244.16 424.34,-238.16 424.34,-232.16 424.34,-232.16 424.34,-196 424.34,-196 424.34,-190 430.34,-184 436.34,-184 436.34,-184 552.26,-184 552.26,-184 558.26,-184 564.26,-190 564.26,-196 564.26,-196 564.26,-232.16 564.26,-232.16 564.26,-238.16 558.26,-244.16 552.26,-244.16"/>
+<text xml:space="preserve" text-anchor="start" x="460.55" y="-218.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">学习体态提醒</text>
+<text xml:space="preserve" text-anchor="start" x="460.55" y="-198.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">独立采集模式</text>
+</g>
+<!-- g2&#45;&gt;posture -->
+<g id="edge12" class="edge">
+<title>g2&#45;&gt;posture</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M323.11,-285.5C350.92,-273.25 380.84,-260.08 380.84,-260.08 380.84,-260.08 400.86,-251.89 424,-242.43"/>
+</g>
+<!-- school -->
+<g id="map_school" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('school')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('school')}">
+<title>school</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M595.76,-152.16C595.76,-152.16 392.84,-152.16 392.84,-152.16 386.84,-152.16 380.84,-146.16 380.84,-140.16 380.84,-140.16 380.84,-104 380.84,-104 380.84,-98 386.84,-92 392.84,-92 392.84,-92 595.76,-92 595.76,-92 601.76,-92 607.76,-98 607.76,-104 607.76,-104 607.76,-140.16 607.76,-140.16 607.76,-146.16 601.76,-152.16 595.76,-152.16"/>
+<text xml:space="preserve" text-anchor="start" x="454.93" y="-126.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">学校任务与权限</text>
+<text xml:space="preserve" text-anchor="start" x="430.07" y="-106.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">学校发布 + 家长独立授权</text>
+</g>
+<!-- g2&#45;&gt;school -->
+<g id="edge13" class="edge">
+<title>g2&#45;&gt;school</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M292.02,-285.42C321.16,-246.92 380.84,-168.08 380.84,-168.08 380.84,-168.08 397.83,-161.13 418.6,-152.63"/>
+</g>
+<!-- maintenance -->
+<g id="map_maintenance" class="node atlas-node" role="button" tabindex="0" onclick="selectDomain('maintenance')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDomain('maintenance')}">
+<title>maintenance</title>
+<path fill="#f2ecfc" stroke="#d9cfea" stroke-width="1.2" d="M559.76,-60.16C559.76,-60.16 428.84,-60.16 428.84,-60.16 422.84,-60.16 416.84,-54.16 416.84,-48.16 416.84,-48.16 416.84,-12 416.84,-12 416.84,-6 422.84,0 428.84,0 428.84,0 559.76,0 559.76,0 565.76,0 571.76,-6 571.76,-12 571.76,-12 571.76,-48.16 571.76,-48.16 571.76,-54.16 565.76,-60.16 559.76,-60.16"/>
+<text xml:space="preserve" text-anchor="start" x="454.93" y="-34.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">设备故障与升级</text>
+<text xml:space="preserve" text-anchor="start" x="454.93" y="-14.08" font-family="Microsoft YaHei" font-size="15.00" fill="#352b48">设备运行与版本</text>
+</g>
+<!-- g3&#45;&gt;maintenance -->
+<g id="edge15" class="edge">
+<title>g3&#45;&gt;maintenance</title>
+<path fill="none" stroke="#8e839d" stroke-width="1.1" d="M314.68,-111.55C344.5,-95.56 380.84,-76.08 380.84,-76.08 380.84,-76.08 397.83,-69.13 418.6,-60.63"/>
+</g>
+</g>
+</g><text x="18" y="1114" font-family="Microsoft YaHei" font-size="12" fill="#746b83">连接线：包含关系  ·  四个分组保留完整范围</text></svg>

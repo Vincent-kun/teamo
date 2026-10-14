@@ -1,0 +1,273 @@
+{
+  "mapping": [
+    {
+      "old": "设备端需求基线_评审稿_V0.1_20261010.md",
+      "new": "Teamo_Device_Requirement_Baseline_v0.1.1.md",
+      "before": "c4c950fa87053b1e8776018a5b5d002c9f964abd62edee72821962ff162fbb5b",
+      "after": "3f7fa857e14d8a849e05ec755e40e522f91b4cca007950f93a7fb89dd34e6aa8",
+      "alias_after": "9902b4fe5d5e82e1ff3facbe77d53f0bbf9083a7d9f40d1a2c7254ffb11e2b47"
+    },
+    {
+      "old": "Teamo_MVP_设备端软件功能大纲_v0.5_UE功能同步评审_20261012.md",
+      "new": "Teamo_Device_Function_Specification_v0.5.2.md",
+      "before": "6203ac091a2cf0c2e696b2d182e7fbec161d7eed76d4210226c5bee27654db7f",
+      "after": "cf0e09aebc83594cce7b3f92372f99bbff0f5219590f901f82dc3e68bc1db040",
+      "alias_after": "4bf04d1ccb5689dd6be26c6b94b6ac4df73f7a2578a8f4e867b169c1dff80c3b"
+    },
+    {
+      "old": "Teamo_MVP_设备端UE信息架构_v0.3.1_20261012.md",
+      "new": "Teamo_Device_UE_IA_v0.3.1.md",
+      "before": "f210af2f34817e4c6b261c1c5056f4a3942d2382554f21c2ff96f5a70294c18e",
+      "after": "4d2cf7e0a1f9f7c6dadee2320dcecfa9c82395298ac20b9feb1f471d7b328ee5",
+      "alias_after": "e0c865470a83682247c3da29199d1e59f8ccd9396f45fad1e417dbdea48079d8"
+    },
+    {
+      "old": "Teamo_MVP_UE工程附录.md",
+      "new": "Teamo_Device_UE_Engineering_Reference_v0.1.0.md",
+      "before": "cd40ce928a054821cbba0f0118de28d3c88da1b47e5e0785ec562baaf2dcee4c",
+      "after": "0a850435a8ddc3638c40f9429e40f8b8f80c215b4073389664bc2ab10f9323ab",
+      "alias_after": "5455b10f7619eb993b720636fec68857db89af9b96ba90ca13e2f439a1d74d96"
+    },
+    {
+      "old": "Teamo_MVP_Device_PRD_v0.6_Draft.md",
+      "new": "Teamo_Device_PRD_v0.6.0_Draft.md",
+      "before": "4ac2418fbb66300829885eedac202834caaedb71e43465e92ac305831edf3ef3",
+      "after": "83eb2fed8d071eaf5a8d3e516ba77cf9c06250b26a3f56683aebcfa367b29520",
+      "alias_after": "89f6523f83ce72c62ca7cdfe7fb220697242302c1b3f201f656f5b13cf945bf6"
+    },
+    {
+      "old": "Teamo_MVP_设备端软件功能大纲_v0.5_UE功能同步评审_20261012.html",
+      "new": "Teamo_Device_Function_Specification_v0.5.2.html",
+      "before": "f603b1e7342bdc48ffd5b1a22452112c073f458dd302da1ab4783ed25fae3fb2",
+      "after": "57ea9f6ad5283907545c21a0927090898b9c2edb184184878ab475fc3a88e297",
+      "alias_after": "ce97247aba4366f95ea28aa5467f753d655314193fa38db9cd62dd5f93f2cd94"
+    },
+    {
+      "old": "Teamo_MVP_设备端UE信息架构_v0.3.1_20261012.html",
+      "new": "Teamo_Device_UE_IA_v0.3.1.html",
+      "before": "f63e8b8e5bc915713bc52c236d5b7aad4aea28403c78f068dd7d1e881d67daec",
+      "after": "a052249e1c78a6a8d110e338b5435a37bbef92e12f6bcb25dc134acb857c4785",
+      "alias_after": "73caa6fd8a9eae7bd47a2cef4cb649690ca17fa5c712f93f8911019957f9d25d"
+    },
+    {
+      "old": "Teamo_MVP_UE工程附录.html",
+      "new": "Teamo_Device_UE_Engineering_Reference_v0.1.0.html",
+      "before": "228d635ee44c20aa844c7c1a718ea39f7f8896990667553448d4534e8e959e20",
+      "after": "a22f3b6a6d2fa8757cc7650b1c6046ea4086b4ba1c04d379fc8f090c7b99fffe",
+      "alias_after": "e29daad0e486637e00061602a2b608756d8090a8f3aa8baa962ab63ec171e33a"
+    }
+  ],
+  "historical_unchanged": [
+    "03_儿童AI运动陪伴机器人_PRD_V3.0.html",
+    "Teamo_MVP_设备端UE信息架构_v0.1_20261012.html",
+    "Teamo_MVP_设备端UE信息架构_v0.1_20261012.md",
+    "Teamo_MVP_设备端UE信息架构_v0.2_20261012.html",
+    "Teamo_MVP_设备端UE信息架构_v0.2_20261012.md",
+    "Teamo_MVP_设备端UE信息架构_v0.3_20261012.html",
+    "Teamo_MVP_设备端UE信息架构_v0.3_20261012.md",
+    "Teamo_MVP_设备端软件功能大纲_PRD前置文档_v0.1_20261012.html",
+    "Teamo_MVP_设备端软件功能大纲_PRD前置文档_v0.1_20261012.md",
+    "Teamo_MVP_设备端软件功能大纲_v0.2_20261012.html",
+    "Teamo_MVP_设备端软件功能大纲_v0.2_20261012.md",
+    "Teamo_MVP_设备端软件功能大纲_v0.3_20261012.html",
+    "Teamo_MVP_设备端软件功能大纲_v0.3_20261012.md",
+    "Teamo_MVP_设备端软件功能大纲_v0.4_冻结候选_20261012.html",
+    "Teamo_MVP_设备端软件功能大纲_v0.4_冻结候选_20261012.md"
+  ],
+  "content_checks": [
+    {
+      "file": "Teamo_Device_Requirement_Baseline_v0.1.1.md",
+      "original_business_content_preserved": true
+    },
+    {
+      "file": "Teamo_Device_Function_Specification_v0.5.2.md",
+      "original_business_content_preserved": true
+    },
+    {
+      "file": "Teamo_Device_UE_IA_v0.3.1.md",
+      "original_business_content_preserved": true
+    },
+    {
+      "file": "Teamo_Device_UE_Engineering_Reference_v0.1.0.md",
+      "original_business_content_preserved": true
+    },
+    {
+      "file": "Teamo_Device_PRD_v0.6.0_Draft.md",
+      "original_business_content_preserved": true
+    }
+  ],
+  "links_before": 267,
+  "links_after": 416,
+  "broken_before": [],
+  "broken_after": [],
+  "alternate_html_preserved": true,
+  "all_original_file_hashes": [
+    {
+      "path": "docs/product/requirements/03_儿童AI运动陪伴机器人_PRD_V3.0.html",
+      "before": "47139751d9734567886af8dbfabdc5d893aadd4e440f94f46a5ff6564a16d86f",
+      "after": "47139751d9734567886af8dbfabdc5d893aadd4e440f94f46a5ff6564a16d86f"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_Device_PRD_v0.6_Draft.md",
+      "before": "4ac2418fbb66300829885eedac202834caaedb71e43465e92ac305831edf3ef3",
+      "after": "89f6523f83ce72c62ca7cdfe7fb220697242302c1b3f201f656f5b13cf945bf6"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_UE工程附录.html",
+      "before": "228d635ee44c20aa844c7c1a718ea39f7f8896990667553448d4534e8e959e20",
+      "after": "e29daad0e486637e00061602a2b608756d8090a8f3aa8baa962ab63ec171e33a"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_UE工程附录.md",
+      "before": "cd40ce928a054821cbba0f0118de28d3c88da1b47e5e0785ec562baaf2dcee4c",
+      "after": "5455b10f7619eb993b720636fec68857db89af9b96ba90ca13e2f439a1d74d96"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端UE信息架构_v0.1_20261012.html",
+      "before": "79a3d79503de196f6037a4e2299d4b27ed346b84f7ba3d0fd7fec5e84d4980dd",
+      "after": "79a3d79503de196f6037a4e2299d4b27ed346b84f7ba3d0fd7fec5e84d4980dd"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端UE信息架构_v0.1_20261012.md",
+      "before": "5d80754abe1af0fc0db47a838814c9065b2adc57f2c3bf2548c07ce0921ecb38",
+      "after": "5d80754abe1af0fc0db47a838814c9065b2adc57f2c3bf2548c07ce0921ecb38"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端UE信息架构_v0.2_20261012.html",
+      "before": "8e2c007c279288cbd796749a1b30148d365b5af1b81ef7669669e3e9b5f2853a",
+      "after": "8e2c007c279288cbd796749a1b30148d365b5af1b81ef7669669e3e9b5f2853a"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端UE信息架构_v0.2_20261012.md",
+      "before": "efac080d45b89260cba3581c112efc1af874350b19c1e9757a93a87c03e5b031",
+      "after": "efac080d45b89260cba3581c112efc1af874350b19c1e9757a93a87c03e5b031"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端UE信息架构_v0.3.1_20261012.html",
+      "before": "f63e8b8e5bc915713bc52c236d5b7aad4aea28403c78f068dd7d1e881d67daec",
+      "after": "73caa6fd8a9eae7bd47a2cef4cb649690ca17fa5c712f93f8911019957f9d25d"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端UE信息架构_v0.3.1_20261012.md",
+      "before": "f210af2f34817e4c6b261c1c5056f4a3942d2382554f21c2ff96f5a70294c18e",
+      "after": "e0c865470a83682247c3da29199d1e59f8ccd9396f45fad1e417dbdea48079d8"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端UE信息架构_v0.3_20261012.html",
+      "before": "89cdd59acbe9e1fa2d80d17cf000dc85680f1e9bdd7c17c8b6dfadca6249f6e4",
+      "after": "89cdd59acbe9e1fa2d80d17cf000dc85680f1e9bdd7c17c8b6dfadca6249f6e4"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端UE信息架构_v0.3_20261012.md",
+      "before": "024bcf259ed8145ecb96d0ffaefba9aa340f086c54636f33d4b16880515f33c0",
+      "after": "024bcf259ed8145ecb96d0ffaefba9aa340f086c54636f33d4b16880515f33c0"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端软件功能大纲_PRD前置文档_v0.1_20261012.html",
+      "before": "48e0fe4dd56c400d28d4a6157ec043b74fcdd55dd1bee83ce1561d9357c31a45",
+      "after": "48e0fe4dd56c400d28d4a6157ec043b74fcdd55dd1bee83ce1561d9357c31a45"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端软件功能大纲_PRD前置文档_v0.1_20261012.md",
+      "before": "104f224416edf3274423c5841ed1ae3cbc56e24457151fe005a5a7f8d15fbea1",
+      "after": "104f224416edf3274423c5841ed1ae3cbc56e24457151fe005a5a7f8d15fbea1"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端软件功能大纲_v0.2_20261012.html",
+      "before": "05b159d8d76d34c0872c09439ab07dbc7f02450f3573f0522b2e006a5d72221c",
+      "after": "05b159d8d76d34c0872c09439ab07dbc7f02450f3573f0522b2e006a5d72221c"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端软件功能大纲_v0.2_20261012.md",
+      "before": "31a219f11d249fdcbfc31e66bdd601f9f06e4cb704c3f001a27322c27b319d56",
+      "after": "31a219f11d249fdcbfc31e66bdd601f9f06e4cb704c3f001a27322c27b319d56"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端软件功能大纲_v0.3_20261012.html",
+      "before": "60a83d2b68afe2c2fec326c5ef1a1b7a584b43ed9a3f444b640f96bc7a2900e6",
+      "after": "60a83d2b68afe2c2fec326c5ef1a1b7a584b43ed9a3f444b640f96bc7a2900e6"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端软件功能大纲_v0.3_20261012.md",
+      "before": "740a7e326f1fd29b9b1278f049707c047a301908645dd99dc41e4744cb361641",
+      "after": "740a7e326f1fd29b9b1278f049707c047a301908645dd99dc41e4744cb361641"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端软件功能大纲_v0.4_冻结候选_20261012.html",
+      "before": "9e516de58a99bc2e120ebe703f174fe0f52867e016f6bcd818b81c4918d1abca",
+      "after": "9e516de58a99bc2e120ebe703f174fe0f52867e016f6bcd818b81c4918d1abca"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端软件功能大纲_v0.4_冻结候选_20261012.md",
+      "before": "a70347a6ac32781d9ae8e5b33112f20c70d31b7055f843b02602ac075d0d08a9",
+      "after": "a70347a6ac32781d9ae8e5b33112f20c70d31b7055f843b02602ac075d0d08a9"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端软件功能大纲_v0.5_UE功能同步评审_20261012.html",
+      "before": "f603b1e7342bdc48ffd5b1a22452112c073f458dd302da1ab4783ed25fae3fb2",
+      "after": "ce97247aba4366f95ea28aa5467f753d655314193fa38db9cd62dd5f93f2cd94"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端软件功能大纲_v0.5_UE功能同步评审_20261012.md",
+      "before": "6203ac091a2cf0c2e696b2d182e7fbec161d7eed76d4210226c5bee27654db7f",
+      "after": "4bf04d1ccb5689dd6be26c6b94b6ac4df73f7a2578a8f4e867b169c1dff80c3b"
+    },
+    {
+      "path": "docs/product/requirements/Teamo_MVP_设备端软件功能大纲_v0.5_UE功能同步评审_20261012.md.html",
+      "before": "c5aa6fea2b1a0837a143fcea7f835fa7f1c42f25505caf863bdd112b1566ffdd",
+      "after": "48b88887d6134cc4d8c194935b0e38999a89e4c47221bf82b21b08fd0df9184a"
+    },
+    {
+      "path": "docs/product/requirements/设备端需求基线_评审稿_V0.1_20261010.md",
+      "before": "c4c950fa87053b1e8776018a5b5d002c9f964abd62edee72821962ff162fbb5b",
+      "after": "9902b4fe5d5e82e1ff3facbe77d53f0bbf9083a7d9f40d1a2c7254ffb11e2b47"
+    },
+    {
+      "path": "docs/governance/DOCUMENT_REGISTER.md",
+      "before": "1bec4617c78bc75d0eb683bf0d95b5543e636fa3b47abbd6c6ba87f9bfa7601c",
+      "after": "d3b4c3cbc617fde700551dd0a6e2c319a5d9d76410949c91d3426a4a6db3c1c8"
+    },
+    {
+      "path": "docs/governance/managed-documents.json",
+      "before": "595c749832a1f8ec7d6a3d7c6e3136efef2b55fcaee6d03ecffc772f53f1a69c",
+      "after": "ce0bae4962d95fbd89ef3cb84f95fae726c142e0def28a10c6d22e8e63983f31"
+    }
+  ],
+  "document_control": {
+    "exit_code": 1,
+    "current_scope_errors": [],
+    "preexisting_errors": [
+      "docs/governance/CHANGE-AGENTS-V021-20261012.md: missing Document Control",
+      "docs/governance/CHANGE-AGENTS-V021-20261012.md: missing Version History",
+      "docs/governance/CHANGE-AGENTS-V021-20261012.md: missing Change Impact",
+      "docs/governance/CHANGE-AGENTS-V021-20261012.md: missing Decision Log",
+      "docs/governance/CHANGE-AGENTS-V021-20261012.md: current/history mismatch",
+      "docs/governance/CHANGE-AGENTS-V021-20261012.md: updated/history date mismatch",
+      "docs/governance/CHANGE-FEATURE-OUTLINE-UE-SYNC-20261012.md: missing Document Control",
+      "docs/governance/CHANGE-FEATURE-OUTLINE-UE-SYNC-20261012.md: missing Version History",
+      "docs/governance/CHANGE-FEATURE-OUTLINE-UE-SYNC-20261012.md: missing Decision Log",
+      "docs/governance/CHANGE-FEATURE-OUTLINE-UE-SYNC-20261012.md: current/history mismatch",
+      "docs/governance/CHANGE-FEATURE-OUTLINE-UE-SYNC-20261012.md: updated/history date mismatch",
+      "docs/governance/CHANGE-UE-IA-V03-20261012.md: missing Document Control",
+      "docs/governance/CHANGE-UE-IA-V03-20261012.md: missing Version History",
+      "docs/governance/CHANGE-UE-IA-V03-20261012.md: missing Decision Log",
+      "docs/governance/CHANGE-UE-IA-V03-20261012.md: current/history mismatch",
+      "docs/governance/CHANGE-UE-IA-V03-20261012.md: updated/history date mismatch",
+      "docs/governance/CHANGE-UE-IA-V031-20261012.md: missing Document Control",
+      "docs/governance/CHANGE-UE-IA-V031-20261012.md: missing Version History",
+      "docs/governance/CHANGE-UE-IA-V031-20261012.md: missing Decision Log",
+      "docs/governance/CHANGE-UE-IA-V031-20261012.md: current/history mismatch",
+      "docs/governance/CHANGE-UE-IA-V031-20261012.md: updated/history date mismatch",
+      "docs/governance/CHANGE-UE-OPEN-QUESTIONS-20261012.md: missing Document Control",
+      "docs/governance/CHANGE-UE-OPEN-QUESTIONS-20261012.md: missing Version History",
+      "docs/governance/CHANGE-UE-OPEN-QUESTIONS-20261012.md: missing Decision Log",
+      "docs/governance/CHANGE-UE-OPEN-QUESTIONS-20261012.md: current/history mismatch",
+      "docs/governance/CHANGE-UE-OPEN-QUESTIONS-20261012.md: updated/history date mismatch",
+      "docs/governance/CHANGE-UE-STATE-WIREFRAMES-20261012.md: missing Document Control",
+      "docs/governance/CHANGE-UE-STATE-WIREFRAMES-20261012.md: missing Version History",
+      "docs/governance/CHANGE-UE-STATE-WIREFRAMES-20261012.md: missing Decision Log",
+      "docs/governance/CHANGE-UE-STATE-WIREFRAMES-20261012.md: current/history mismatch",
+      "docs/governance/CHANGE-UE-STATE-WIREFRAMES-20261012.md: updated/history date mismatch"
+    ]
+  }
+}

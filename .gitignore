@@ -11,3 +11,37 @@ node_modules/
 .env.*
 !.env.example
 
+# 工具/缓存/部署目录（不上传）
+.workbuddy/
+.sites-deploy/
+.docx-review/
+.playwright-cli/
+
+# 构建产物
+dist/
+site-dist/
+
+# 内部状态/产物
+*.genie
+.wbapp_*
+
+# 日志与编辑器杂项
+*.log
+*.swp
+*.swo
+
+# 大文件/压缩包
+*.zip
+
+
+# 误建垃圾与中间产物（2026-10-14 整理）
+nul
+http.proxy=
+_shots/
+_publish/
+docs/governance/backups/
+*.inspect.ndjson
+
+# 原始帧与检查截图（本地留存，不入库）
+00_Raw_Source/
+_check/
