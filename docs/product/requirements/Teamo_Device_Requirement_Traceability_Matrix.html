@@ -1,0 +1,6165 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Teamo 设备端需求追踪矩阵 RTM v1.1.0 · Review</title><style>
+:root{color-scheme:light dark;background:Canvas;color:CanvasText;font-family:system-ui,"Microsoft YaHei",sans-serif;--line:color-mix(in srgb,CanvasText 22%,Canvas)}
+*{box-sizing:border-box}body{margin:0;font-size:15px;line-height:1.8}a{color:inherit;text-decoration:underline;text-underline-offset:3px}a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid GrayText;outline-offset:4px}
+header{border-bottom:1px solid var(--line);padding:24px 32px}header h1{font-size:25px;margin:0 0 6px}header p{margin:4px 0}small,.meta{color:GrayText}button{font:inherit;color:ButtonText;background:ButtonFace;border:1px solid GrayText;border-radius:5px;padding:6px 14px;cursor:pointer}.actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:12px}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1600px;margin:auto}nav{position:sticky;top:0;max-height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line)}nav ul{list-style:none;padding-left:0}nav ul ul{padding-left:14px}nav li{margin:8px 0}nav a{font-size:13px;text-decoration:none}nav a:hover{text-decoration:underline}main{min-width:0;padding:24px 40px 64px}h1,h2,h3,h4,h5{line-height:1.5;scroll-margin-top:20px}main h1{font-size:27px;margin-top:40px}h2{font-size:24px;border-top:1px solid var(--line);padding-top:26px;margin-top:48px}h3{font-size:21px;margin-top:34px}h4{font-size:18px;margin-top:28px}h5{font-size:17px;margin-top:28px;border-left:3px solid GrayText;padding-left:12px}p{margin:12px 0}.table-scroll{overflow:auto;margin:16px 0}table{border-collapse:collapse;width:100%;font-size:14px;min-width:650px}th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}th{font-weight:650}blockquote{border-left:3px solid GrayText;margin:20px 0;padding:2px 16px}pre{overflow:auto;border:1px solid var(--line);padding:16px;white-space:pre}code{font-family:Consolas,monospace}details{border:1px solid var(--line);padding:12px 16px;margin:12px 0}summary{cursor:pointer;font-weight:600}figure{margin:20px 0;padding:20px;border:1px solid var(--line)}.arch-row{display:flex;gap:15px;align-items:center;justify-content:center;flex-wrap:wrap}.arch-row span{padding:14px 20px;border:1px solid GrayText;text-align:center}.arch-support{text-align:center;margin:20px 0 10px}figcaption{font-size:13px;color:GrayText}footer{border-top:1px solid var(--line);padding:18px 32px;font-size:12px;overflow-wrap:anywhere}
+@media(max-width:850px){.layout{display:block}nav{position:static;max-height:320px;border-right:0;border-bottom:1px solid var(--line)}main{padding:18px}header{padding:18px}h2{font-size:21px}}
+@media print{nav,.actions{display:none}.layout{display:block}main{padding:0}body{font-size:10pt;background:white;color:black}header{padding:0 0 12px}h2{break-before:page}h3,h4,h5{break-after:avoid}table{min-width:0;font-size:9pt}tr{break-inside:avoid}.table-scroll{overflow:visible}details{display:block}details>*{display:block}footer{font-size:8pt}a{text-decoration:none}}
+</style></head><body><header><h1>Teamo 设备端需求追踪矩阵 RTM</h1><p>v1.1.0 Draft · 控制版本 v1.1.0 · Review · 2026-10-12</p><p class="meta">正式评审材料，未冻结。47项核心需求 · 20项候选 · 17项 OQ · 11项 UE-OQ</p><div class="actions"><button type="button" onclick="document.querySelectorAll('details').forEach(d=>d.open=true)">展开全部问题</button><button type="button" onclick="document.querySelectorAll('details').forEach(d=>d.open=false)">收起问题</button><button type="button" onclick="document.querySelectorAll('details').forEach(d=>d.open=true);window.print()">打印 / 保存 PDF</button><a href="Teamo_Device_Requirement_Traceability_Matrix.md">Markdown 源文档</a></div></header><div class="layout"><nav aria-label="文档目录"><strong>评审目录</strong><div class="toc">
+<ul>
+<li><a href="#teamo-rtm">Teamo 设备端需求追踪矩阵 RTM</a></li>
+<li><a href="#document-control">Document Control</a><ul>
+<li><a href="#_1">使用规则</a></li>
+<li><a href="#mvp2026-10-12">MVP演示范围确认（2026-10-12）</a></li>
+<li><a href="#1">1. 核心需求追踪</a></li>
+<li><a href="#2">2. 历史候选与停用追踪</a><ul>
+<li><a href="#_2">停用源条目完整记录</a></li>
+</ul>
+</li>
+<li><a href="#3">3. 固定来源</a></li>
+<li><a href="#4">4. 完整逐项需求卡（从旧正文迁入）</a></li>
+<li><a href="#5">5. 功能需求</a><ul>
+<li><a href="#50">5.0 阅读与验收约定</a></li>
+<li><a href="#51">5.1 一级功能：设备启动与运行管理</a></li>
+<li><a href="#52">5.2 一级功能：运动入口与操作</a></li>
+<li><a href="#53">5.3 一级功能：运动任务与执行</a></li>
+<li><a href="#54">5.4 一级功能：动作识别与计数</a></li>
+<li><a href="#55">5.5 一级功能：运动反馈与结果展示</a></li>
+<li><a href="#56">5.6 一级功能：运动记录与同步</a></li>
+<li><a href="#57">5.7 一级功能：联网与使用者管理</a></li>
+<li><a href="#58">5.8 一级功能：隐私控制与数据管理</a></li>
+<li><a href="#59-mvp">5.9 历史候选：不纳入默认MVP交付</a></li>
+<li><a href="#510-p1">5.10 停用编号与原P1/未决范围</a></li>
+</ul>
+</li>
+<li><a href="#5_1">5. 状态、异常与问题映射</a></li>
+<li><a href="#6">6. 状态模型</a><ul>
+<li><a href="#61_1">6.1 会话、保存与同步状态</a></li>
+<li><a href="#62_1">6.2 三个独立维度</a></li>
+<li><a href="#63_1">6.3 绑定、网络与隐私</a></li>
+</ul>
+</li>
+<li><a href="#8">8. 异常流程</a><ul>
+<li><a href="#oque-oq">原OQ与UE-OQ完整关联</a></li>
+<li><a href="#132-ue">13.2 与UE评审问题的关联</a></li>
+<li><a href="#_3">来源差异与工程未决</a></li>
+<li><a href="#94">9.4 输入差异与评审处理</a></li>
+</ul>
+</li>
+<li><a href="#feature-specification-v06">Feature Specification v0.6 — 完整源条目</a></li>
+<li><a href="#feature-state-mapping">Feature-State Mapping</a><ul>
+<li><a href="#113-ue">11.3 UE业务状态引用</a></li>
+<li><a href="#142-ue">14.2 历史候选与UE页面关联</a></li>
+<li><a href="#143">14.3 变更管理结果</a></li>
+<li><a href="#144-page">14.4 核心需求—功能—PAGE—状态—测试追踪</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#version-history">Version History</a></li>
+<li><a href="#change-impact">Change Impact</a></li>
+<li><a href="#decision-log">Decision Log</a><ul>
+<li><a href="#change-impact-mvp">Change Impact — MVP演示三动作确认</a></li>
+<li><a href="#decision-log-mvp">Decision Log — MVP演示三动作</a></li>
+<li><a href="#change-impact-feature-separation">Change Impact — Feature separation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav><main id="content"><h1 id="teamo-rtm">Teamo 设备端需求追踪矩阵 RTM</h1>
+<h1 id="document-control">Document Control</h1>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Type</td>
+<td>Requirement Traceability Matrix</td>
+</tr>
+<tr>
+<td>Current Version</td>
+<td>v1.1.0</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Review</td>
+</tr>
+<tr>
+<td>Owner</td>
+<td>待确认（项目协调：魏子奇；不等同文档审批责任人）</td>
+</tr>
+<tr>
+<td>Reviewer</td>
+<td>待指派</td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>2026-10-12</td>
+</tr>
+<tr>
+<td>Last Updated</td>
+<td>2026-10-12</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="_1">使用规则</h2>
+<p>本矩阵与PRD v1.1.0配套。Requirement ID仅引用需求基线已有FR号，不新增REQ号；其关联为已有意图整理，正式FR映射仍待评审。Function ID与Priority唯一来源是功能规格；UI ID使用UE的PAGE号，不新增UI号；State为原沟通标签，不定义实现枚举；Test Case未建立均TC-TBD，不虚构编号。</p>
+<p>版本、范围与状态分开管理。47核心P0 / Pending Review、20候选优先级TBD、2停用追溯保持不变。候选不能因为进入矩阵被当作MVP。正文链接指向稳定PRD路径及新章节。</p>
+<p><a href="Teamo_Device_PRD_v1.0.0_Draft.md">阅读PRD</a> · <a href="Teamo_Device_PRD_v1.0.0_Draft.html">评审HTML</a></p>
+<h2 id="mvp2026-10-12">MVP演示范围确认（2026-10-12）</h2>
+<p>MVP演示确定仅包含开合跳、深蹲起、高抬腿三个动作。OQ-01及UE-OQ-03的“演示动作范围”部分已解决；整体七动作产品追踪保留，目标范围、有效规则、高抬腿计数单位仍TBD。文档全文仍Review，本次范围确认不等于全部需求冻结。</p>
+<h2 id="1">1. 核心需求追踪</h2>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>Requirement ID（已有意图）</th>
+<th>需求描述</th>
+<th>PRD章节</th>
+<th>Function ID</th>
+<th>UI ID / PAGE关系</th>
+<th>State</th>
+<th>Test Case ID</th>
+<th>Priority</th>
+<th>状态</th>
+<th>Behavior Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-DEVICE-001</td>
+<td>开机与初始化</td>
+<td>5.1.1</td>
+<td>1.1.1</td>
+<td>PAGE-00/01启动路由支撑，无新增启动PAGE</td>
+<td>启动/恢复（非INIT）</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备启动与运行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-DEVICE-001</td>
+<td>恢复启动状态</td>
+<td>5.1.1</td>
+<td>1.1.2</td>
+<td>PAGE-00/01启动路由支撑，无新增启动PAGE</td>
+<td>启动/恢复（非INIT）</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备启动与运行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-DEVICE-001、FR-DEVICE-003</td>
+<td>设备运行状态管理</td>
+<td>5.1.2</td>
+<td>1.2.1</td>
+<td>PAGE-00–08状态与异常支撑</td>
+<td>设备/故障展示</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备启动与运行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-DEVICE-001、FR-DEVICE-003</td>
+<td>设备故障处理</td>
+<td>5.1.2</td>
+<td>1.2.2</td>
+<td>PAGE-00–08状态与异常支撑</td>
+<td>设备/故障展示</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备启动与运行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-DEVICE-001、FR-DEVICE-003</td>
+<td>查看设备软件版本</td>
+<td>5.1.2</td>
+<td>1.2.3</td>
+<td>PAGE-08设备状态</td>
+<td>设备/故障展示</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备启动与运行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-DEVICE-001、FR-DEVICE-003</td>
+<td>故障信息记录</td>
+<td>5.1.2</td>
+<td>1.2.4</td>
+<td>后台记录支撑，无独立页面承诺</td>
+<td>设备/故障展示</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备启动与运行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-DEVICE-001、FR-DEVICE-003</td>
+<td>设备重启</td>
+<td>5.1.2</td>
+<td>1.2.5</td>
+<td>PAGE-08系统设置</td>
+<td>设备/故障展示</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备启动与运行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-DEVICE-001、FR-DEVICE-002</td>
+<td>运动入口</td>
+<td>5.2.1</td>
+<td>2.1.1</td>
+<td>PAGE-01/02/03</td>
+<td>首页/运动状态回应</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备交互；人员TBD</td>
+</tr>
+<tr>
+<td>FR-DEVICE-001、FR-DEVICE-002</td>
+<td>显示角色状态表情</td>
+<td>5.2.1</td>
+<td>2.1.2</td>
+<td>PAGE-01；PAGE-04–07按已有运动事件回应，承载TBD</td>
+<td>首页/运动状态回应</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备交互；人员TBD</td>
+</tr>
+<tr>
+<td>FR-DEVICE-001、FR-SPORT-004、FR-SPORT-006</td>
+<td>设备状态提示</td>
+<td>5.2.2</td>
+<td>2.2.1</td>
+<td>PAGE-00–08通用支撑</td>
+<td>操作反馈/状态展示</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备交互；人员TBD</td>
+</tr>
+<tr>
+<td>FR-DEVICE-001、FR-SPORT-004、FR-SPORT-006</td>
+<td>操作接收与确认</td>
+<td>5.2.2</td>
+<td>2.2.2</td>
+<td>PAGE-00–08通用支撑</td>
+<td>操作反馈/状态展示</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备交互；人员TBD</td>
+</tr>
+<tr>
+<td>FR-TASK-001、FR-SPORT-001</td>
+<td>接收并检查运动任务</td>
+<td>5.3.1</td>
+<td>3.1.1</td>
+<td>PAGE-03消费后台接收事实，不新增接收页面</td>
+<td>INIT / 任务有效性</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备任务与执行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-TASK-001、FR-SPORT-001</td>
+<td>反馈任务接收结果</td>
+<td>5.3.1</td>
+<td>3.1.2</td>
+<td>PAGE-03消费后台接收事实，不新增接收页面</td>
+<td>INIT / 任务有效性</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备任务与执行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-TASK-001、FR-SPORT-001</td>
+<td>展示任务内容与执行状态</td>
+<td>5.3.1</td>
+<td>3.1.3</td>
+<td>PAGE-03</td>
+<td>INIT / 任务有效性</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备任务与执行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-TASK-001、FR-SPORT-001</td>
+<td>动作与目标确认</td>
+<td>5.3.1</td>
+<td>3.1.4</td>
+<td>PAGE-02/03</td>
+<td>INIT / 任务有效性</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备任务与执行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-002、FR-SPORT-003、FR-SPORT-004</td>
+<td>动作说明</td>
+<td>5.3.2</td>
+<td>3.2.1</td>
+<td>PAGE-04</td>
+<td>READY / COUNTDOWN</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备任务与执行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-002、FR-SPORT-003、FR-SPORT-004</td>
+<td>入镜准备引导</td>
+<td>5.3.2</td>
+<td>3.2.2</td>
+<td>PAGE-04；PAGE-09仅候选复用依据</td>
+<td>READY / COUNTDOWN</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备任务与执行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-002、FR-SPORT-003、FR-SPORT-004</td>
+<td>开始确认与倒计时</td>
+<td>5.3.2</td>
+<td>3.2.3</td>
+<td>PAGE-04/05</td>
+<td>READY / COUNTDOWN</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备任务与执行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-006、FR-SPORT-007</td>
+<td>暂停与成绩保留</td>
+<td>5.3.3</td>
+<td>3.3.1</td>
+<td>PAGE-06/04；再次经过PAGE-05与否TBD</td>
+<td>RUNNING / PAUSED / FINISHED</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备任务与执行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-006、FR-SPORT-007</td>
+<td>恢复运动</td>
+<td>5.3.3</td>
+<td>3.3.2</td>
+<td>PAGE-06/04；再次经过PAGE-05与否TBD</td>
+<td>RUNNING / PAUSED / FINISHED</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备任务与执行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-006、FR-SPORT-007</td>
+<td>达标与提前结束</td>
+<td>5.3.3</td>
+<td>3.3.3</td>
+<td>PAGE-06 → PAGE-07</td>
+<td>FINISHED</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备任务与执行；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-003、FR-SPORT-005、FR-SPORT-006</td>
+<td>人体与画面可用性检测</td>
+<td>5.4.1</td>
+<td>4.1.1</td>
+<td>PAGE-04/05/06；PAGE-09仅候选复用依据</td>
+<td>READY / COUNTDOWN / RUNNING / PAUSED</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备识别能力；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-003、FR-SPORT-005、FR-SPORT-006</td>
+<td>有效动作计数</td>
+<td>5.4.1</td>
+<td>4.1.2</td>
+<td>PAGE-06，异常准备原因由PAGE-04承接</td>
+<td>READY / COUNTDOWN / RUNNING / PAUSED</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备识别能力；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-003、FR-SPORT-005、FR-SPORT-006</td>
+<td>判定运动识别异常</td>
+<td>5.4.1</td>
+<td>4.1.3</td>
+<td>PAGE-06，异常准备原因由PAGE-04承接</td>
+<td>READY / COUNTDOWN / RUNNING / PAUSED</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备识别能力；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-005</td>
+<td>开合跳动作判定</td>
+<td>5.4.2</td>
+<td>4.2.1</td>
+<td>PAGE-06计数依据，不新增动作范围</td>
+<td>RUNNING</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备识别能力；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-005</td>
+<td>深蹲起动作判定</td>
+<td>5.4.2</td>
+<td>4.2.2</td>
+<td>PAGE-06计数依据，不新增动作范围</td>
+<td>RUNNING</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备识别能力；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-005</td>
+<td>高抬腿动作判定</td>
+<td>5.4.2</td>
+<td>4.2.3</td>
+<td>PAGE-06计数依据，不新增动作范围</td>
+<td>RUNNING</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备识别能力；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-005、FR-DEVICE-002</td>
+<td>次数与进度反馈</td>
+<td>5.5.1</td>
+<td>5.1.1</td>
+<td>PAGE-06</td>
+<td>RUNNING / FINISHED</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备反馈呈现；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-005、FR-DEVICE-002</td>
+<td>动作反馈与调整提示</td>
+<td>5.5.1</td>
+<td>5.1.2</td>
+<td>PAGE-06</td>
+<td>RUNNING / FINISHED</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备反馈呈现；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-005、FR-DEVICE-002</td>
+<td>完成鼓励</td>
+<td>5.5.1</td>
+<td>5.1.3</td>
+<td>PAGE-07</td>
+<td>RUNNING / FINISHED</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备反馈呈现；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-007</td>
+<td>运动结果查看</td>
+<td>5.5.2</td>
+<td>5.2.1</td>
+<td>PAGE-07</td>
+<td>FINISHED / SAVED / SYNCING / SYNCED</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备反馈呈现；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-007</td>
+<td>保存与同步提示</td>
+<td>5.5.2</td>
+<td>5.2.2</td>
+<td>PAGE-07；必要同步提示PAGE-01</td>
+<td>FINISHED / SAVED / SYNCING / SYNCED</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备反馈呈现；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-007</td>
+<td>记录创建与归属</td>
+<td>5.6.1</td>
+<td>6.1.1</td>
+<td>PAGE-02/03/06/07共用事实支撑，无重复记录系统</td>
+<td>创建时机TBD / FINISHED</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备记录与同步；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-007</td>
+<td>生成运动结果记录</td>
+<td>5.6.1</td>
+<td>6.1.2</td>
+<td>PAGE-02/03/06/07共用事实支撑，无重复记录系统</td>
+<td>创建时机TBD / FINISHED</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备记录与同步；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-007、FR-DEVICE-001</td>
+<td>本地保存</td>
+<td>5.6.2</td>
+<td>6.2.1</td>
+<td>PAGE-01/03/06/07消费保存恢复事实；后台处理</td>
+<td>保存维度：SAVED / 未保存</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备记录与同步；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-007、FR-DEVICE-001</td>
+<td>已保存记录恢复</td>
+<td>5.6.2</td>
+<td>6.2.2</td>
+<td>PAGE-01/03/06/07消费保存恢复事实；后台处理</td>
+<td>保存/恢复：SAVED或失败</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备记录与同步；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-007、FR-DEVICE-001</td>
+<td>保存失败处理</td>
+<td>5.6.2</td>
+<td>6.2.3</td>
+<td>PAGE-01/03/06/07消费保存恢复事实；后台处理</td>
+<td>保存/恢复：SAVED或失败</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备记录与同步；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-007</td>
+<td>上传结果并更新同步状态</td>
+<td>5.6.3</td>
+<td>6.3.1</td>
+<td>PAGE-07/01消费独立同步状态，后台处理</td>
+<td>SAVED / SYNCING / SYNCED</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备记录与同步；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-007</td>
+<td>补传失败结果并防重复</td>
+<td>5.6.3</td>
+<td>6.3.2</td>
+<td>PAGE-07/01消费独立同步状态，后台处理</td>
+<td>SAVED / SYNCING / SYNCED</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备记录与同步；人员TBD</td>
+</tr>
+<tr>
+<td>FR-TASK-001、FR-SPORT-007</td>
+<td>网络连接管理</td>
+<td>5.7.1</td>
+<td>7.1.1</td>
+<td>PAGE-00/08；PAGE-01必要状态提示</td>
+<td>在线/离线（独立维度）</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备联网与使用者管理；人员TBD</td>
+</tr>
+<tr>
+<td>FR-TASK-001、FR-SPORT-007</td>
+<td>联网状态提示</td>
+<td>5.7.1</td>
+<td>7.1.2</td>
+<td>PAGE-00/08；PAGE-01必要状态提示</td>
+<td>在线/离线（独立维度）</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备联网与使用者管理；人员TBD</td>
+</tr>
+<tr>
+<td>FR-TASK-001、FR-DEVICE-003</td>
+<td>设备状态同步</td>
+<td>5.7.2</td>
+<td>7.2.1</td>
+<td>后台同步支撑，非独立页面</td>
+<td>绑定/儿童/设备状态</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备联网与使用者管理；人员TBD</td>
+</tr>
+<tr>
+<td>FR-TASK-001、FR-DEVICE-003</td>
+<td>绑定状态与当前儿童确认</td>
+<td>5.7.2</td>
+<td>7.2.3</td>
+<td>PAGE-00/08；PAGE-01使用有效上下文</td>
+<td>绑定/儿童/设备状态</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备联网与使用者管理；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-003、FR-SPORT-006、FR-DEVICE-003</td>
+<td>检查授权并阻断不允许的采集</td>
+<td>5.8.1</td>
+<td>8.1.1</td>
+<td>PAGE-04/05/06/08，PAGE-01必要提示；PAGE-09获准后亦须遵守</td>
+<td>隐私准入/采集状态</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备隐私与权限；人员TBD</td>
+</tr>
+<tr>
+<td>FR-SPORT-003、FR-SPORT-006、FR-DEVICE-003</td>
+<td>摄像头状态提示与关闭</td>
+<td>5.8.1</td>
+<td>8.1.2</td>
+<td>PAGE-04/05/06/08，PAGE-01必要提示；PAGE-09获准后亦须遵守</td>
+<td>隐私准入/采集状态</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备隐私与权限；人员TBD</td>
+</tr>
+<tr>
+<td>FR-DEVICE-002、FR-DEVICE-003</td>
+<td>处理设备数据权限与删除请求</td>
+<td>5.8.2</td>
+<td>8.2.2</td>
+<td>后台执行与回执；PAGE-08设备端入口TBD</td>
+<td>权限/提醒约束</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备隐私与权限；人员TBD</td>
+</tr>
+<tr>
+<td>FR-DEVICE-002、FR-DEVICE-003</td>
+<td>提醒时段与频率控制</td>
+<td>5.8.2</td>
+<td>8.2.3</td>
+<td>PAGE-01/06/07等提示输出约束；PAGE-08设置入口TBD，不等于声音控制</td>
+<td>权限/提醒约束</td>
+<td>TC-TBD</td>
+<td>P0</td>
+<td>Pending Review</td>
+<td>设备隐私与权限；人员TBD</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="2">2. 历史候选与停用追踪</h2>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>需求描述</th>
+<th>PRD章节</th>
+<th>Function ID</th>
+<th>UI ID / State</th>
+<th>Test Case ID</th>
+<th>Priority</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>查看设备基本信息</td>
+<td>5.9</td>
+<td>1.2.6</td>
+<td>PAGE-08；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>恢复设备出厂状态</td>
+<td>5.9</td>
+<td>1.2.7</td>
+<td>PAGE-08/PAGE-00；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>检查设备软件更新</td>
+<td>5.9</td>
+<td>1.2.8</td>
+<td>PAGE-08；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>展示今日运动与任务摘要</td>
+<td>5.9</td>
+<td>2.1.3</td>
+<td>PAGE-01；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>调整设备提示音量</td>
+<td>5.9</td>
+<td>2.2.3</td>
+<td>PAGE-08；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>设置运动提示音开关</td>
+<td>5.9</td>
+<td>2.2.4</td>
+<td>PAGE-08；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>查看今日家长任务列表</td>
+<td>5.9</td>
+<td>3.1.5</td>
+<td>PAGE-03；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>查看家长任务详情</td>
+<td>5.9</td>
+<td>3.1.6</td>
+<td>PAGE-03；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>启动与退出独立动作辅助检测</td>
+<td>5.9</td>
+<td>4.3.1</td>
+<td>PAGE-09；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>显示姿态关键点辅助信息</td>
+<td>5.9</td>
+<td>4.3.2</td>
+<td>PAGE-09；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>更换设备连接网络</td>
+<td>5.9</td>
+<td>7.1.3</td>
+<td>PAGE-08/PAGE-00；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>检查设备联网情况</td>
+<td>5.9</td>
+<td>7.1.4</td>
+<td>PAGE-08；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>引导首次设备绑定</td>
+<td>5.9</td>
+<td>7.2.4</td>
+<td>PAGE-00；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>展示设备绑定二维码</td>
+<td>5.9</td>
+<td>7.2.5</td>
+<td>PAGE-00；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>更新失效绑定二维码</td>
+<td>5.9</td>
+<td>7.2.6</td>
+<td>PAGE-00；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>提供设备绑定帮助</td>
+<td>5.9</td>
+<td>7.2.7</td>
+<td>PAGE-00；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>切换当前使用儿童</td>
+<td>5.9</td>
+<td>7.2.8</td>
+<td>PAGE-08；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>执行设备解绑请求</td>
+<td>5.9</td>
+<td>7.2.9</td>
+<td>PAGE-08；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>设置本地摄像头使用状态</td>
+<td>5.9</td>
+<td>8.1.3</td>
+<td>PAGE-08；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>TBD（不补造需求号）</td>
+<td>查看设备数据使用说明</td>
+<td>5.9</td>
+<td>8.2.4</td>
+<td>PAGE-08；State TBD</td>
+<td>TC-TBD</td>
+<td>TBD</td>
+<td>Candidate / Pending Review</td>
+</tr>
+<tr>
+<td>原追溯，不新增</td>
+<td>运动结果通信（历史）</td>
+<td>1.3 / 5.9</td>
+<td>7.2.2</td>
+<td>沿用6.3.1 / 同步维度</td>
+<td>TC-TBD（不重复用例）</td>
+<td>历史P0，不计核心</td>
+<td>Deprecated / 保留追溯</td>
+</tr>
+<tr>
+<td>原追溯，不新增</td>
+<td>儿童视频不保存（历史）</td>
+<td>1.3 / 5.9</td>
+<td>8.2.1</td>
+<td>全部PAGE / 全局约束</td>
+<td>TC-TBD（不重复用例）</td>
+<td>历史P0，不计核心</td>
+<td>Deprecated / 保留追溯</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="_2">停用源条目完整记录</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>功能点</th>
+<th>行为</th>
+<th>用户价值</th>
+<th>原优先级</th>
+<th>状态</th>
+<th>行为归属</th>
+<th>原历史说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7.2.2</td>
+<td>运动结果通信（历史）</td>
+<td>已合并到6.3.1，不重复实现。</td>
+<td>保留追溯。</td>
+<td>历史P0，不计有效范围</td>
+<td>已停用（保留追溯）</td>
+<td>6.3结果同步</td>
+<td>v0.3已合并</td>
+</tr>
+<tr>
+<td>8.2.1</td>
+<td>儿童视频不保存（历史）</td>
+<td>移为8.3全局约束。</td>
+<td>保护隐私。</td>
+<td>历史P0，不计有效范围</td>
+<td>已停用（保留追溯）</td>
+<td>全局约束</td>
+<td>v0.3已移为约束</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="3">3. 固定来源</h2>
+<ul>
+<li><a href="Teamo_Device_Requirement_Baseline_v0.1.1.md">Teamo_Device_Requirement_Baseline_v0.1.1.md</a>；SHA256 <code>3f7fa857e14d8a849e05ec755e40e522f91b4cca007950f93a7fb89dd34e6aa8</code>。</li>
+<li><a href="Teamo_Device_Function_Specification_v0.5.2.md">Teamo_Device_Function_Specification_v0.5.2.md</a>；SHA256 <code>cf0e09aebc83594cce7b3f92372f99bbff0f5219590f901f82dc3e68bc1db040</code>。</li>
+<li><a href="Teamo_Device_UE_IA_v0.3.1.md">Teamo_Device_UE_IA_v0.3.1.md</a>；SHA256 <code>4d2cf7e0a1f9f7c6dadee2320dcecfa9c82395298ac20b9feb1f471d7b328ee5</code>。</li>
+<li><a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">Teamo_Device_UE_Engineering_Reference_v0.1.0.md</a>；SHA256 <code>0a850435a8ddc3638c40f9429e40f8b8f80c215b4073389664bc2ab10f9323ab</code>。</li>
+</ul>
+<h2 id="4">4. 完整逐项需求卡（从旧正文迁入）</h2>
+<p>以下保留原47张核心卡及候选/停用原记录，以便核对完整输入、输出、前置、异常、验收和追踪。其中原5.x标题是迁入来源标识，不是新PRD章节；新章节以矩阵为准。</p>
+<h2 id="5">5. 功能需求</h2>
+<h3 id="50">5.0 阅读与验收约定</h3>
+<p>本章以F的一级→二级→Function ID展开47项核心需求，20项历史候选单列，2项停用另记。每卡有场景、描述、价值、输入/输出、前置、状态、异常、页面、验收和来源。描述继承F；基于用户价值整理场景，不增加行为。卡片的验收检查仅检视输入中的业务不变量，正式量化验收及Test Case仍TC-TBD。</p>
+<p>F为Priority和Function唯一来源；U §6为PAGE/State原关系，包含支持而非独立页面承诺。待确认内容完整保留，原条目“—”不等于所有工程细则已确认。</p>
+<h3 id="51">5.1 一级功能：设备启动与运行管理</h3>
+<h4 id="11">二级功能 1.1：启动与运行</h4>
+<h5 id="function-111">Function 1.1.1：开机与初始化</h5>
+<p><strong>用户场景</strong>：在设备启动与运行管理的开机与初始化环节，家庭需要“让家庭知道设备能否开始使用。”。</p>
+<p><strong>需求描述</strong>：设备应启动软件并验证必要运行条件，进入可用或明确异常状态。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>让家庭知道设备能否开始使用。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备启动与运行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>上电/重启事件、必要运行条件</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>可用状态或已确认启动异常</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>设备上电或重启；隐私状态未明不得采集</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>启动/恢复（非INIT）；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>启动/必要服务不可用，按1.2.2处理；范围与时限TBD</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-00/01启动路由支撑，无新增启动PAGE</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>验证必要运行条件后进入可用或明确异常状态；启动时长TBD。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>启动时长待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-DEVICE-001；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 1.1.1 开机与初始化；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §1.1。</li>
+<li>PAGE: PAGE-00/01启动路由支撑，无新增启动PAGE；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 启动/恢复（非INIT）；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-112">Function 1.1.2：恢复启动状态</h5>
+<p><strong>用户场景</strong>：在设备启动与运行管理的恢复启动状态环节，家庭需要“重启后回到正确状态，不自动续计或伪称完成。”。</p>
+<p><strong>需求描述</strong>：设备应根据6.2.2恢复的任务、结果和隐私状态，输出待机、恢复提示或异常；不重复负责读取记录。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>重启后回到正确状态，不自动续计或伪称完成。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备启动与运行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>6.2.2给出的可恢复任务、记录、隐私与同步事实</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>待机、恢复提示或异常去向</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>启动后已取得恢复结果；恢复状态TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>启动/恢复（非INIT）；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>无法确认的进度不补造，具体不可恢复处理TBD</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-00/01启动路由支撑，无新增启动PAGE</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>只恢复可确认事实，不自动续计、不将未完成会话表示为完成。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>恢复进入哪个状态待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-DEVICE-001；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 1.1.2 恢复启动状态；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §1.1。</li>
+<li>PAGE: PAGE-00/01启动路由支撑，无新增启动PAGE；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 启动/恢复（非INIT）；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h4 id="12">二级功能 1.2：状态与异常</h4>
+<h5 id="function-121">Function 1.2.1：设备运行状态管理</h5>
+<p><strong>用户场景</strong>：在设备启动与运行管理的设备运行状态管理环节，家庭需要“状态一致，避免同一操作在不同入口产生冲突。”。</p>
+<p><strong>需求描述</strong>：设备应统一维护当前运行状态和允许的操作；运动过程的暂停、恢复与结束由第3章定义。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>状态一致，避免同一操作在不同入口产生冲突。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备启动与运行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>启动、任务、运动、保存、同步及异常业务事实</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>当前可执行操作和一致的业务状态</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>相应状态事实可用；各守卫由所属功能维护</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>设备/故障展示；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>故障、权限或识别异常按所属分支，恢复契约TBD</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-00–08状态与异常支撑</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>同一业务操作在不同入口遵循相同状态约束；执行、保存、同步分别表达。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-DEVICE-001、FR-DEVICE-003；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 1.2.1 设备运行状态管理；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §1.2。</li>
+<li>PAGE: PAGE-00–08状态与异常支撑；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 设备/故障展示；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-122">Function 1.2.2：设备故障处理</h5>
+<p><strong>用户场景</strong>：在设备启动与运行管理的设备故障处理环节，家庭需要“故障时能够理解原因并恢复使用。”。</p>
+<p><strong>需求描述</strong>：设备应处理启动失败、运行服务不可用等设备级故障，给出重试、返回或重启入口；识别异常由4.1.3判断。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>故障时能够理解原因并恢复使用。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备启动与运行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>已确认启动失败或必要运行服务不可用原因</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>原因说明及约定重试、返回或必要重启去向</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>已判定为设备级故障</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>设备/故障展示；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>原因未知如实说明不可确认；故障范围/恢复时限TBD</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-00–08状态与异常支撑</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>只展示可确认故障，恢复后重新验证；不替代4.1.3识别异常判定。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>故障范围与恢复时限待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-DEVICE-001、FR-DEVICE-003；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 1.2.2 设备故障处理；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §1.2。</li>
+<li>PAGE: PAGE-00–08状态与异常支撑；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 设备/故障展示；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-123">Function 1.2.3：查看设备软件版本</h5>
+<p><strong>用户场景</strong>：在设备启动与运行管理的查看设备软件版本环节，家庭需要“便于核对设备版本和定位兼容问题。”。</p>
+<p><strong>需求描述</strong>：设备应提供当前软件版本，供家长或维护人员核对；属于维护支撑，不扩展OTA或远程运维。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>便于核对设备版本和定位兼容问题。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备启动与运行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>当前设备软件版本事实</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>供家长/维护人员核对的真实版本</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>可读取软件版本；展示入口按UE映射</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>设备/故障展示；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>读取失败表达规则TBD，不补造版本</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-08设备状态</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>展示与设备事实一致的软件版本；不由版本查看引入OTA或远程运维。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-DEVICE-001、FR-DEVICE-003；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 1.2.3 查看设备软件版本；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §1.2。</li>
+<li>PAGE: PAGE-08设备状态；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 设备/故障展示；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-124">Function 1.2.4：故障信息记录</h5>
+<p><strong>用户场景</strong>：在设备启动与运行管理的故障信息记录环节，家庭需要“故障可定位、可复盘。”。</p>
+<p><strong>需求描述</strong>：设备应记录必要的故障原因和发生时间，供诊断使用。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>故障可定位、可复盘。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备启动与运行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>必要故障原因和发生时间</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>供诊断使用的必要故障记录</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>发生可记录故障；日志范围/周期TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>设备/故障展示；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>记录失败处理TBD；日志不得包含原始儿童摄像帧</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>后台记录支撑，无独立页面承诺</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>故障记录限必要信息，原始帧不进入日志；记录字段与周期TBD。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>日志内容与保存周期待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-DEVICE-001、FR-DEVICE-003；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 1.2.4 故障信息记录；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §1.2。</li>
+<li>PAGE: 后台记录支撑，无独立页面承诺；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 设备/故障展示；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-125">Function 1.2.5：设备重启</h5>
+<p><strong>用户场景</strong>：在设备启动与运行管理的设备重启环节，家庭需要“无法正常使用时有恢复入口。”。</p>
+<p><strong>需求描述</strong>：设备应提供必要重启操作，重启后按1.1.2恢复状态。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>无法正常使用时有恢复入口。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备启动与运行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>获准的重启操作</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>设备重启及1.1.2恢复结果</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>重启触发方式与适用权限TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>设备/故障展示；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>重启失败与恢复不足按1.2.2/6.2.2；细则TBD</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-08系统设置</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>重启后进入启动/恢复检查，不直接续计或伪造完成记录。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>重启触发方式待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-DEVICE-001、FR-DEVICE-003；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 1.2.5 设备重启；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §1.2。</li>
+<li>PAGE: PAGE-08系统设置；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 设备/故障展示；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h3 id="52">5.2 一级功能：运动入口与操作</h3>
+<h4 id="21">二级功能 2.1：运动入口与角色回应</h4>
+<h5 id="function-211">Function 2.1.1：运动入口</h5>
+<p><strong>用户场景</strong>：在运动入口与操作的运动入口环节，家庭需要“减少寻找入口和开练阻力。”。</p>
+<p><strong>需求描述</strong>：设备应提供任务与自主运动入口，显示必要可用状态。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>减少寻找入口和开练阻力。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备交互；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>当前任务/自主能力及必要设备可用状态</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>任务与自主运动可理解入口</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>设备进入可用首页；动作与身份按对应功能检查</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>首页/运动状态回应；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>不可用状态说明原因，不将候选入口默认开放</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-01/02/03</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>任务和自主运动入口均可理解，进入共用准备路径；不新增独立运动闭环。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-DEVICE-001、FR-DEVICE-002；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 2.1.1 运动入口；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §2.1。</li>
+<li>PAGE: PAGE-01/02/03；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 首页/运动状态回应；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-212">Function 2.1.2：显示角色状态表情</h5>
+<p><strong>用户场景</strong>：在运动入口与操作的显示角色状态表情环节，家庭需要“运动中获得一致且适度的角色回应。”。</p>
+<p><strong>需求描述</strong>：设备应按已有运动状态显示固定表情，输出一致的角色回应；鼓励及提示内容由第5章决定。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>运动中获得一致且适度的角色回应。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备交互；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>已有运动状态与固定表情资源</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>与运动事实一致的固定角色回应</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>状态事件已确认；事件/资源清单TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>首页/运动状态回应；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>资源不可用与降级表达TBD，不承诺新增AI对话</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-01；PAGE-04–07按已有运动事件回应，承载TBD</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>角色回应与真实状态一致；原P0保留，表情丰富度和运动星/PB深度另评审。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>表情事件与资源待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-DEVICE-001、FR-DEVICE-002；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 2.1.2 显示角色状态表情；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §2.1。</li>
+<li>PAGE: PAGE-01；PAGE-04–07按已有运动事件回应，承载TBD；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 首页/运动状态回应；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h4 id="22">二级功能 2.2：状态提示与操作确认</h4>
+<h5 id="function-221">Function 2.2.1：设备状态提示</h5>
+<p><strong>用户场景</strong>：在运动入口与操作的设备状态提示环节，家庭需要“知道设备当前是否可用，以及怎样处理问题。”。</p>
+<p><strong>需求描述</strong>：设备应呈现设备不可用、操作不可执行等通用状态；任务内容、实时成绩和结束结果分别由第3章和第5章定义。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>知道设备当前是否可用，以及怎样处理问题。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备交互；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>设备不可用或操作不可执行的已确认状态</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>状态、当前影响及可处理原因</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>设备状态事实可用；表达方式TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>操作反馈/状态展示；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>原因未确认时说明不可确认，不编造故障</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-00–08通用支撑</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>提示说明是否可用及可行去向；任务、成绩、结果由各主功能提供。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>表达方式待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-DEVICE-001、FR-SPORT-004、FR-SPORT-006；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 2.2.1 设备状态提示；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §2.2。</li>
+<li>PAGE: PAGE-00–08通用支撑；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 操作反馈/状态展示；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-222">Function 2.2.2：操作接收与确认</h5>
+<p><strong>用户场景</strong>：在运动入口与操作的操作接收与确认环节，家庭需要“清楚操作是否生效。”。</p>
+<p><strong>需求描述</strong>：设备应接收选择、开始、取消、暂停、继续、结束及返回操作，并告知是否接受；各操作业务结果由所属功能负责。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>清楚操作是否生效。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备交互；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>选择、开始、取消、暂停、继续、结束、返回意图</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>操作是否被接受的反馈</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>所属业务状态允许该操作；实际输入方式TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>操作反馈/状态展示；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>不允许/未接受须区分；业务失败由所属功能说明</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-00–08通用支撑</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>接收确认与业务执行结果分别表达；不默认触控、语音或手势。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>触控、按键或其他输入方式待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-DEVICE-001、FR-SPORT-004、FR-SPORT-006；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 2.2.2 操作接收与确认；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §2.2。</li>
+<li>PAGE: PAGE-00–08通用支撑；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 操作反馈/状态展示；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h3 id="53">5.3 一级功能：运动任务与执行</h3>
+<h4 id="31">二级功能 3.1：任务接收与查看</h4>
+<h5 id="function-311">Function 3.1.1：接收并检查运动任务</h5>
+<p><strong>用户场景</strong>：在运动任务与执行的接收并检查运动任务环节，家庭需要“收到可执行而非无效任务。”。</p>
+<p><strong>需求描述</strong>：设备应检查送达任务的儿童归属、支持动作、目标和有效条件，输出接受资格或拒绝原因；最终接收回执由3.1.2负责。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>收到可执行而非无效任务。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备任务与执行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>送达任务的儿童归属、支持动作、目标、有效条件</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>接受资格或拒绝原因</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>收到任务，相关规则可检查；细则TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>INIT / 任务有效性；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>归属/动作/目标/有效性不满足则给可确认原因</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-03消费后台接收事实，不新增接收页面</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>未通过检查不称可执行；任务到达不自动开始或开启摄像头。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>任务检查规则待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-TASK-001、FR-SPORT-001；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 3.1.1 接收并检查运动任务；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §3.1。</li>
+<li>PAGE: PAGE-03消费后台接收事实，不新增接收页面；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: INIT / 任务有效性；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-312">Function 3.1.2：反馈任务接收结果</h5>
+<p><strong>用户场景</strong>：在运动任务与执行的反馈任务接收结果环节，家庭需要“家长知道任务是否真实送达。”。</p>
+<p><strong>需求描述</strong>：设备应检查通过并由6.2.1保存后确认接收；失败说明原因；重复任务返回同一接收结果。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>家长知道任务是否真实送达。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备任务与执行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>3.1.1检查结果、6.2.1任务保存事实</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>真实接收结果或失败原因</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>检查通过且保存成功才确认接收</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>INIT / 任务有效性；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>检查/保存失败说明原因；重复任务沿用同一接收结果</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-03消费后台接收事实，不新增接收页面</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>检查并成功保存后才确认接收；重复投递不产生多条不同接收事实。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-TASK-001、FR-SPORT-001；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 3.1.2 反馈任务接收结果；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §3.1。</li>
+<li>PAGE: PAGE-03消费后台接收事实，不新增接收页面；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: INIT / 任务有效性；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-313">Function 3.1.3：展示任务内容与执行状态</h5>
+<p><strong>用户场景</strong>：在运动任务与执行的展示任务内容与执行状态环节，家庭需要“儿童明白为什么做、做多少。”。</p>
+<p><strong>需求描述</strong>：设备应提供动作、目标与来源，呈现设备执行状态；平台任务撤销等有效规则另行确认，不由设备自建发布规则。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>儿童明白为什么做、做多少。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备任务与执行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>任务动作、目标、来源和设备执行状态</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>儿童可理解任务内容与状态</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>存在可查看任务事实；列表/详情拆分TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>INIT / 任务有效性；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>无任务/任务无效如实表达；撤销/过期细则TBD</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-03</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>动作、目标、来源及执行状态一致，不静默改家长目标或自建发布规则。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>任务状态及撤销规则待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-TASK-001、FR-SPORT-001；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 3.1.3 展示任务内容与执行状态；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §3.1。</li>
+<li>PAGE: PAGE-03；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: INIT / 任务有效性；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-314">Function 3.1.4：动作与目标确认</h5>
+<p><strong>用户场景</strong>：在运动任务与执行的动作与目标确认环节，家庭需要“运动目标清楚，自主运动与家长任务不混淆。”。</p>
+<p><strong>需求描述</strong>：设备应执行任务时确认已下发动作和目标；自主运动时选择支持动作及允许目标，不擅自修改家长任务。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>运动目标清楚，自主运动与家长任务不混淆。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备任务与执行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>自主选择的支持动作/允许目标，或已下发任务动作/目标</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>明确的运动目标、来源与归属上下文</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>当前儿童及目标有效；自主目标范围TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>INIT / 任务有效性；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>不支持动作或无效目标不伪装可开始</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-02/03</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>自主与任务来源区分；家长任务只确认原目标，自主目标允许范围另评审。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>自主目标范围待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-TASK-001、FR-SPORT-001；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 3.1.4 动作与目标确认；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §3.1。</li>
+<li>PAGE: PAGE-02/03；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: INIT / 任务有效性；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h4 id="32">二级功能 3.2：运动准备与开始</h4>
+<h5 id="function-321">Function 3.2.1：动作说明</h5>
+<p><strong>用户场景</strong>：在运动任务与执行的动作说明环节，家庭需要“减少不理解动作造成的失败。”。</p>
+<p><strong>需求描述</strong>：设备应开始前提供经审核、儿童可理解的动作与安全说明。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>减少不理解动作造成的失败。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备任务与执行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>已确认动作、经审核动作与安全说明</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>儿童可理解的动作/安全说明</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>开始前已选定动作；媒体形态和跳过规则TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>READY / COUNTDOWN；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>资源缺失/加载失败规则TBD，安全前置不能自行省略</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-04</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>说明有审核依据；不将AI生成示范当成有效动作规则或默认视频方案。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>媒体形态/可跳过规则待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-002、FR-SPORT-003、FR-SPORT-004；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 3.2.1 动作说明；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §3.2。</li>
+<li>PAGE: PAGE-04；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: READY / COUNTDOWN；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-322">Function 3.2.2：入镜准备引导</h5>
+<p><strong>用户场景</strong>：在运动任务与执行的入镜准备引导环节，家庭需要“知道如何站好，准备完成后再开练。”。</p>
+<p><strong>需求描述</strong>：设备应根据第4章识别结果提示调整站位；准备不足时不开始运动。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>知道如何站好，准备完成后再开练。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备任务与执行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>4.1.1画面/人体可用性与准备原因</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>主要站位调整提示及准备状态</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>目标与归属明确，隐私允许才识别准备</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>READY / COUNTDOWN；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>无人、身体不完整、画面不可用则调整并复核</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-04；PAGE-09仅候选复用依据</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>准备不足不得开始；提示依据检测事实，不默认视频预览或骨架显示。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>准备完成条件待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-002、FR-SPORT-003、FR-SPORT-004；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 3.2.2 入镜准备引导；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §3.2。</li>
+<li>PAGE: PAGE-04；PAGE-09仅候选复用依据；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: READY / COUNTDOWN；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-323">Function 3.2.3：开始确认与倒计时</h5>
+<p><strong>用户场景</strong>：在运动任务与执行的开始确认与倒计时环节，家庭需要“有时间准备，避免突然计数。”。</p>
+<p><strong>需求描述</strong>：设备应儿童明确开始且准备满足后倒计时，结束再检查开始条件。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>有时间准备，避免突然计数。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备任务与执行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>儿童明确开始意愿、准备满足与隐私事实</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>倒计时与结束后的开始资格复核</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>准备满足、隐私允许、儿童明确开始</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>READY / COUNTDOWN；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>取消/离画回准备；隐私失效阻断；时长TBD</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-04/05</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>准备/倒计时不计数；倒计时结束仍须复核；恢复是否再倒计时TBD。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>输入方式待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-002、FR-SPORT-003、FR-SPORT-004；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 3.2.3 开始确认与倒计时；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §3.2。</li>
+<li>PAGE: PAGE-04/05；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: READY / COUNTDOWN；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h4 id="33">二级功能 3.3：暂停、继续与结束</h4>
+<h5 id="function-331">Function 3.3.1：暂停与成绩保留</h5>
+<p><strong>用户场景</strong>：在运动任务与执行的暂停与成绩保留环节，家庭需要“已完成努力不因中断消失。”。</p>
+<p><strong>需求描述</strong>：设备应主动暂停或离画/识别异常时停止新增成绩，保留已确认次数。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>已完成努力不因中断消失。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备任务与执行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>主动暂停或已判定需暂停的离画/识别异常</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>暂停状态、原因及已确认次数</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>运动正在执行；暂停触发判定按所属功能</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>RUNNING / PAUSED / FINISHED；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>单个不确定事件不一律暂停；异常阈值TBD</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-06/04；再次经过PAGE-05与否TBD</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>暂停停止新增成绩并保留已确认次数，不清零努力。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-006、FR-SPORT-007；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 3.3.1 暂停与成绩保留；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §3.3。</li>
+<li>PAGE: PAGE-06/04；再次经过PAGE-05与否TBD；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: RUNNING / PAUSED / FINISHED；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-332">Function 3.3.2：恢复运动</h5>
+<p><strong>用户场景</strong>：在运动任务与执行的恢复运动环节，家庭需要“安全且连贯地继续运动。”。</p>
+<p><strong>需求描述</strong>：设备应重新检查隐私和准备，明确恢复后从已确认成绩继续。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>安全且连贯地继续运动。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备任务与执行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>继续意愿、已确认成绩、隐私与准备复核结果</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>获准恢复或仍需处理原因</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>重新检查隐私/准备并明确恢复</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>RUNNING / PAUSED / FINISHED；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>隐私或准备不足不能恢复；恢复确认/再倒计时TBD</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-06/04；再次经过PAGE-05与否TBD</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>从保留成绩继续，重新判断动作起点/重置半周期；不能直接绕过准备恢复。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>恢复时重新判断动作起点；恢复确认方式待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-006、FR-SPORT-007；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 3.3.2 恢复运动；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §3.3。</li>
+<li>PAGE: PAGE-06/04；再次经过PAGE-05与否TBD；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: RUNNING / PAUSED / FINISHED；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-333">Function 3.3.3：达标与提前结束</h5>
+<p><strong>用户场景</strong>：在运动任务与执行的达标与提前结束环节，家庭需要“不强迫继续，不伪造达标。”。</p>
+<p><strong>需求描述</strong>：设备应达标停止确认动作；主动结束保留实际与真实未完成状态。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>不强迫继续，不伪造达标。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备任务与执行；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>真实成绩、目标、主动结束意愿或已确认中断规则</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>真实达标或提前结束事实</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>达标、主动结束或已确认规则生效</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>FINISHED；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>自动超时结束规则TBD，不凭空结束并声称达标</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-06 → PAGE-07</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>结束停止新增计数；提前结束保留实际成绩和真实未达标状态。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>自动超时结束规则待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-006、FR-SPORT-007；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 3.3.3 达标与提前结束；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §3.3。</li>
+<li>PAGE: PAGE-06 → PAGE-07；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: FINISHED；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h3 id="54">5.4 一级功能：动作识别与计数</h3>
+<h4 id="41">二级功能 4.1：识别状态与有效计数</h4>
+<h5 id="function-411">Function 4.1.1：人体与画面可用性检测</h5>
+<p><strong>用户场景</strong>：在动作识别与计数的人体与画面可用性检测环节，家庭需要“避免在看不清动作时开始计数。”。</p>
+<p><strong>需求描述</strong>：设备应判断是否有人、身体是否完整及画面是否满足识别条件，输出准备状态和原因；引导由3.2.2负责。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>避免在看不清动作时开始计数。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备识别能力；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>有效授权下的人体和画面输入</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>有人/完整性/画面可用状态及主要原因</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>授权及本地隐私允许且状态可确认</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>READY / COUNTDOWN / RUNNING / PAUSED；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>无人、身体不完整、遮挡/画面不可用；多人/距离TBD</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-04/05/06；PAGE-09仅候选复用依据</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>检测结果提供给准备与异常处理，不在画面不满足条件时开始可信计数。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>多人处理及适用距离待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-003、FR-SPORT-005、FR-SPORT-006；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 4.1.1 人体与画面可用性检测；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §4.1。</li>
+<li>PAGE: PAGE-04/05/06；PAGE-09仅候选复用依据；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: READY / COUNTDOWN / RUNNING / PAUSED；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-412">Function 4.1.2：有效动作计数</h5>
+<p><strong>用户场景</strong>：在动作识别与计数的有效动作计数环节，家庭需要“孩子和家长得到可信成绩。”。</p>
+<p><strong>需求描述</strong>：设备应依据审核规则仅累计完整有效周期，未完成、重复或不确定事件不计。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>孩子和家长得到可信成绩。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备识别能力；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>审核动作规则和已判定完整有效周期事件</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>已确认有效次数</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>RUNNING且隐私/识别准入有效；规则阈值TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>READY / COUNTDOWN / RUNNING / PAUSED；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>不完整、重复、不确定事件不计；异常由4.1.3判定</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-06，异常准备原因由PAGE-04承接</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>一次完整有效周期只计一次，未完成/重复/不确定事件不增加成绩；量化阈值TBD。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>阈值待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-003、FR-SPORT-005、FR-SPORT-006；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 4.1.2 有效动作计数；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §4.1。</li>
+<li>PAGE: PAGE-06，异常准备原因由PAGE-04承接；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: READY / COUNTDOWN / RUNNING / PAUSED；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-413">Function 4.1.3：判定运动识别异常</h5>
+<p><strong>用户场景</strong>：在动作识别与计数的判定运动识别异常环节，家庭需要“知道如何调整，而非被错误指责。”。</p>
+<p><strong>需求描述</strong>：设备应根据4.1.1画面状态和4.2动作判定输出无人、遮挡、识别不确定或不可用原因；暂停由3.3.1处理，提示由5.1.2呈现。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>知道如何调整，而非被错误指责。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备识别能力；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>4.1.1画面状态和4.2动作判定</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>无人、遮挡、识别不确定或不可用原因</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>识别事实可确认</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>READY / COUNTDOWN / RUNNING / PAUSED；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>单次不确定与需暂停异常分开，判定阈值TBD</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-06，异常准备原因由PAGE-04承接</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>只输出已判定原因；暂停交3.3.1，调整提示交5.1.2，低置信度不作确定纠错。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-003、FR-SPORT-005、FR-SPORT-006；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 4.1.3 判定运动识别异常；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §4.1。</li>
+<li>PAGE: PAGE-06，异常准备原因由PAGE-04承接；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: READY / COUNTDOWN / RUNNING / PAUSED；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h4 id="42">二级功能 4.2：三种动作识别</h4>
+<h5 id="function-421">Function 4.2.1：开合跳动作判定</h5>
+<p><strong>用户场景</strong>：在动作识别与计数的开合跳动作判定环节，家庭需要“完整开合跳被可信记录。”。</p>
+<p><strong>需求描述</strong>：设备应判断并拢、打开、回收是否形成完整有效周期，供4.1.2累计次数。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>完整开合跳被可信记录。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备识别能力；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>开合跳阶段事实及审核有效规则</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>供4.1.2使用的完整有效周期间事实</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>当前动作是开合跳且处于RUNNING；幅度/规则TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>RUNNING；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>半周期/不确定判定不作有效事件</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-06计数依据，不新增动作范围</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>并拢→打开→回收符合审核规则才构成周期；不自定幅度阈值。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>有效幅度与规则待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-005；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 4.2.1 开合跳动作判定；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §4.2。</li>
+<li>PAGE: PAGE-06计数依据，不新增动作范围；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: RUNNING；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-422">Function 4.2.2：深蹲起动作判定</h5>
+<p><strong>用户场景</strong>：在动作识别与计数的深蹲起动作判定环节，家庭需要“完整深蹲被可信记录。”。</p>
+<p><strong>需求描述</strong>：设备应判断站立、有效下蹲、回站立是否形成完整周期，供4.1.2累计次数。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>完整深蹲被可信记录。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备识别能力；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>站立、下蹲、回站立阶段及审核规则</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>供4.1.2使用的完整有效周期事实</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>当前动作是深蹲起且处于RUNNING；安全/幅度TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>RUNNING；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>未完整回站立或不确定事件不作有效周期</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-06计数依据，不新增动作范围</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>站立→有效下蹲→回站立按审核规则判定；不自定安全或角度标准。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>安全与有效幅度规则待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-005；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 4.2.2 深蹲起动作判定；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §4.2。</li>
+<li>PAGE: PAGE-06计数依据，不新增动作范围；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: RUNNING；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-423">Function 4.2.3：高抬腿动作判定</h5>
+<p><strong>用户场景</strong>：在动作识别与计数的高抬腿动作判定环节，家庭需要“目标与实际成绩使用一致口径。”。</p>
+<p><strong>需求描述</strong>：设备应判断有效抬腿与落下事件，按统一左右侧规则供4.1.2累计次数。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>目标与实际成绩使用一致口径。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备识别能力；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>抬腿/落下及左右侧事件、审核计数口径</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>按一致左右规则供4.1.2使用的事件</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>当前动作是高抬腿且处于RUNNING；单/双侧口径TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>RUNNING；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>目标与成绩口径未确认不得写成固定规则</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-06计数依据，不新增动作范围</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>目标与结果采用同一已确认左右侧规则；本稿不选择单侧一次或双侧一轮。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>单侧一次或双侧一轮待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-005；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 4.2.3 高抬腿动作判定；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §4.2。</li>
+<li>PAGE: PAGE-06计数依据，不新增动作范围；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: RUNNING；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h3 id="55">5.5 一级功能：运动反馈与结果展示</h3>
+<h4 id="51_1">二级功能 5.1：即时反馈</h4>
+<h5 id="function-511">Function 5.1.1：次数与进度反馈</h5>
+<p><strong>用户场景</strong>：在运动反馈与结果展示的次数与进度反馈环节，家庭需要“看见实际努力和距目标的差距。”。</p>
+<p><strong>需求描述</strong>：设备应呈现设备已确认次数与目标进度，必要短语音与数字保持一致。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>看见实际努力和距目标的差距。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备反馈呈现；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>设备已确认次数、目标与识别状态</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>一致的次数、进度与必要短语音</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>存在真实已确认成绩；反馈频率TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>RUNNING / FINISHED；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>未确认事件不进入显示成绩；异常依5.1.2</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-06</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>数字和短语音基于同一设备成绩，不由页面/App另行递增。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>频率待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-005、FR-DEVICE-002；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 5.1.1 次数与进度反馈；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §5.1。</li>
+<li>PAGE: PAGE-06；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: RUNNING / FINISHED；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-512">Function 5.1.2：动作反馈与调整提示</h5>
+<p><strong>用户场景</strong>：在运动反馈与结果展示的动作反馈与调整提示环节，家庭需要“得到可理解指导且减少挫败。”。</p>
+<p><strong>需求描述</strong>：设备应有效动作给正向回应；无效或识别不确定给一个可处理原因。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>得到可理解指导且减少挫败。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备反馈呈现；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>有效/无效/不确定动作及已判定主要原因</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>正向回应或一个可处理调整提示</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>反馈依据已确认识别事实</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>RUNNING / FINISHED；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>低置信度如实说明不确定，不确定纠错或责备</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-06</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>有效动作获得适度回应，异常提示具体且可处理；不作医疗/身材评价。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-005、FR-DEVICE-002；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 5.1.2 动作反馈与调整提示；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §5.1。</li>
+<li>PAGE: PAGE-06；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: RUNNING / FINISHED；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-513">Function 5.1.3：完成鼓励</h5>
+<p><strong>用户场景</strong>：在运动反馈与结果展示的完成鼓励环节，家庭需要“获得尊重真实努力的反馈。”。</p>
+<p><strong>需求描述</strong>：设备应真实结束后提供适度鼓励，区分达标和提前结束。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>获得尊重真实努力的反馈。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备反馈呈现；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>真实结束、达标或提前结束事实</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>尊重真实努力的适度完成鼓励</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>运动确已结束；运动星/PB深度TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>RUNNING / FINISHED；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>提前结束不得表达为达标；候选成长深度不默认开放</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-07</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>达标与提前结束分别表达，保留原P0基础鼓励，不扩展成长体系。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>运动星/PB深度待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-005、FR-DEVICE-002；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 5.1.3 完成鼓励；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §5.1。</li>
+<li>PAGE: PAGE-07；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: RUNNING / FINISHED；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h4 id="52_1">二级功能 5.2：结果查看与保存提示</h4>
+<h5 id="function-521">Function 5.2.1：运动结果查看</h5>
+<p><strong>用户场景</strong>：在运动反馈与结果展示的运动结果查看环节，家庭需要“儿童结束后能理解本次努力。”。</p>
+<p><strong>需求描述</strong>：设备应在设备端显示动作、目标、实际次数、用时和达标或提前结束状态；家长端展示不属于此项。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>儿童结束后能理解本次努力。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备反馈呈现；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>已保存的动作、目标、实际次数、用时、结束原因</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>设备端简要真实结果</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>本地结果保存事实可确认；用时是否含暂停TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>FINISHED / SAVED / SYNCING / SYNCED；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>保存失败与同步状态分别说明，不称未确认结果完成</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-07</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>儿童能辨认实际与目标以及达标/提前结束；用时定义不在本稿冻结。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>用时是否含暂停待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-007；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 5.2.1 运动结果查看；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §5.2。</li>
+<li>PAGE: PAGE-07；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: FINISHED / SAVED / SYNCING / SYNCED；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-522">Function 5.2.2：保存与同步提示</h5>
+<p><strong>用户场景</strong>：在运动反馈与结果展示的保存与同步提示环节，家庭需要“不把运动结束误解为已回传。”。</p>
+<p><strong>需求描述</strong>：设备应分别说明本地已保存、等待同步、同步成功或失败。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>不把运动结束误解为已回传。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备反馈呈现；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>本地保存结果与独立平台同步确认</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>未保存/已保存/待同步/成功或失败提示</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>相应保存或同步事实可确认</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>FINISHED / SAVED / SYNCING / SYNCED；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>保存失败不称已记录；发送完成不称平台已收到</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-07；必要同步提示PAGE-01</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>运动结束、本地保存、业务接收各自表达，可以同时呈现提前结束/已保存/待同步。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-007；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 5.2.2 保存与同步提示；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §5.2。</li>
+<li>PAGE: PAGE-07；必要同步提示PAGE-01；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: FINISHED / SAVED / SYNCING / SYNCED；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h3 id="56">5.6 一级功能：运动记录与同步</h3>
+<h4 id="61">二级功能 6.1：运动记录</h4>
+<h5 id="function-611">Function 6.1.1：记录创建与归属</h5>
+<p><strong>用户场景</strong>：在运动记录与同步的记录创建与归属环节，家庭需要“每次运动可以追溯到正确儿童。”。</p>
+<p><strong>需求描述</strong>：设备应建立唯一运动记录并关联儿童、任务或自主来源及动作目标。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>每次运动可以追溯到正确儿童。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备记录与同步；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>当前儿童、任务或自主来源、动作与目标上下文</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>唯一运动记录归属</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>来源和归属明确；创建时机TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>创建时机TBD / FINISHED；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>归属不明不得错分成绩；重复操作不重建同一结果</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-02/03/06/07共用事实支撑，无重复记录系统</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>同一运动可追溯至正确儿童及来源；不把INIT等同记录已创建。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>开始记录时机待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-007；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 6.1.1 记录创建与归属；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §6.1。</li>
+<li>PAGE: PAGE-02/03/06/07共用事实支撑，无重复记录系统；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 创建时机TBD / FINISHED；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-612">Function 6.1.2：生成运动结果记录</h5>
+<p><strong>用户场景</strong>：在运动记录与同步的生成运动结果记录环节，家庭需要“可信查看真实完成情况。”。</p>
+<p><strong>需求描述</strong>：设备应汇总已确认次数、目标、用时与结束原因，输出唯一记录内容；本地写入归6.2.1。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>可信查看真实完成情况。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备记录与同步；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>已确认次数、目标、用时、真实结束原因</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>同一运动的唯一结果内容</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>真实结束且事实可汇总；用时定义TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>创建时机TBD / FINISHED；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>不完整/未知内容不伪造；写入由6.2.1执行</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-02/03/06/07共用事实支撑，无重复记录系统</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>输出真实结果及同一记录内容，提前结束不伪称达标。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-007；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 6.1.2 生成运动结果记录；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §6.1。</li>
+<li>PAGE: PAGE-02/03/06/07共用事实支撑，无重复记录系统；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 创建时机TBD / FINISHED；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h4 id="62">二级功能 6.2：本地保存与记录恢复</h4>
+<h5 id="function-621">Function 6.2.1：本地保存</h5>
+<p><strong>用户场景</strong>：在运动记录与同步的本地保存环节，家庭需要“离线可使用、不丢记录。”。</p>
+<p><strong>需求描述</strong>：设备应保存已缓存任务、实际结果和必要待同步信息。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>离线可使用、不丢记录。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备记录与同步；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>已缓存任务、实际结果、必要待同步信息</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>本地保存成功或失败事实</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>需保存的任务/结果存在；容量/周期TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>保存维度：SAVED / 未保存；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>保存失败交6.2.3，未经保存不按已保存结果同步</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-01/03/06/07消费保存恢复事实；后台处理</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>本地保存状态有真实依据；原始摄像帧不写入记录、日志或缓存。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>存储容量/保留周期待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-007、FR-DEVICE-001；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 6.2.1 本地保存；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §6.2。</li>
+<li>PAGE: PAGE-01/03/06/07消费保存恢复事实；后台处理；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 保存维度：SAVED / 未保存；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-622">Function 6.2.2：已保存记录恢复</h5>
+<p><strong>用户场景</strong>：在运动记录与同步的已保存记录恢复环节，家庭需要“重启后不产生重复或虚假的运动记录。”。</p>
+<p><strong>需求描述</strong>：设备应读取可恢复的任务、运动记录及待同步信息，保持真实已确认成绩，向1.1.2提供恢复结果。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>重启后不产生重复或虚假的运动记录。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备记录与同步；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>本地可恢复的任务、运动记录、待同步信息</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>可恢复真实事实供1.1.2使用</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>启动/重启需恢复；保存频率与断电范围TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>保存/恢复：SAVED或失败；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>不可恢复部分如实说明，不补造成绩或重复记录</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-01/03/06/07消费保存恢复事实；后台处理</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>仅恢复可确认成绩与同步事实，不自动续计；断电可恢复保证TBD。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>保存频率及断电可恢复范围待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-007、FR-DEVICE-001；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 6.2.2 已保存记录恢复；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §6.2。</li>
+<li>PAGE: PAGE-01/03/06/07消费保存恢复事实；后台处理；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 保存/恢复：SAVED或失败；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-623">Function 6.2.3：保存失败处理</h5>
+<p><strong>用户场景</strong>：在运动记录与同步的保存失败处理环节，家庭需要“不误导家长或静默丢失。”。</p>
+<p><strong>需求描述</strong>：设备应明确未保存并保留可恢复结果供重试。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>不误导家长或静默丢失。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备记录与同步；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>保存失败事实及仍可恢复的结果</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>尚未保存说明与可恢复结果重试</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>本地写入失败已判定</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>保存/恢复：SAVED或失败；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>恢复保证、退出/不可恢复处理TBD</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-01/03/06/07消费保存恢复事实；后台处理</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>失败不称保存成功，保留可恢复结果供重试；不承诺未经验证的零丢失保证。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>失败恢复保证待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-007、FR-DEVICE-001；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 6.2.3 保存失败处理；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §6.2。</li>
+<li>PAGE: PAGE-01/03/06/07消费保存恢复事实；后台处理；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 保存/恢复：SAVED或失败；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h4 id="63">二级功能 6.3：结果同步</h4>
+<h5 id="function-631">Function 6.3.1：上传结果并更新同步状态</h5>
+<p><strong>用户场景</strong>：在运动记录与同步的上传结果并更新同步状态环节，家庭需要“家长查看同一真实记录。”。</p>
+<p><strong>需求描述</strong>：设备应发送已保存结果，依据平台业务接收确认更新同步状态；不把网络发送完成视为成功接收。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>家长查看同一真实记录。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备记录与同步；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>已保存结果、原记录标识、平台业务接收确认</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>独立上传/同步状态</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>记录已保存且允许上传；协议TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>SAVED / SYNCING / SYNCED；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>发送/上传失败或无业务确认保持待确认/待补传</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-07/01消费独立同步状态，后台处理</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>仅平台业务接收确认后表示SYNCED；网络发送完成不作为成功接收。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>协议待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-007；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 6.3.1 上传结果并更新同步状态；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §6.3。</li>
+<li>PAGE: PAGE-07/01消费独立同步状态，后台处理；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: SAVED / SYNCING / SYNCED；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-632">Function 6.3.2：补传失败结果并防重复</h5>
+<p><strong>用户场景</strong>：在运动记录与同步的补传失败结果并防重复环节，家庭需要“没有重复记录或虚假成长。”。</p>
+<p><strong>需求描述</strong>：设备应设备沿用原记录标识补传；平台按同一标识去重。设备不重复生成结果或发放已批准奖励。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>没有重复记录或虚假成长。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备记录与同步；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>原记录标识及失败待补传记录</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>同一记录补传及防重复结果</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>同一结果已保存但未获确认；重试/冲突TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>SAVED / SYNCING / SYNCED；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>失败按契约继续待补传，不重建记录</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-07/01消费独立同步状态，后台处理</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>设备沿用原标识，平台按标识去重，不重复生成结果或发放已批准奖励。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>重试/冲突策略待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-007；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 6.3.2 补传失败结果并防重复；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §6.3。</li>
+<li>PAGE: PAGE-07/01消费独立同步状态，后台处理；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: SAVED / SYNCING / SYNCED；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h3 id="57">5.7 一级功能：联网与使用者管理</h3>
+<h4 id="71">二级功能 7.1：网络连接与状态提示</h4>
+<h5 id="function-711">Function 7.1.1：网络连接管理</h5>
+<p><strong>用户场景</strong>：在联网与使用者管理的网络连接管理环节，家庭需要“可完成连接并理解故障。”。</p>
+<p><strong>需求描述</strong>：设备应提供必要联网配置及连接状态，失败给出可操作原因。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>可完成连接并理解故障。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备联网与使用者管理；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>允许的联网配置及真实连接状态</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>连接状态或可处理失败原因</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>需要完成联网；流程/责任端TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>在线/离线（独立维度）；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>连接失败如实说明，不能由断网解除绑定</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-00/08；PAGE-01必要状态提示</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>必要配置和连接状态可理解，不默认新增网络诊断工具。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>配网流程及责任端待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-TASK-001、FR-SPORT-007；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 7.1.1 网络连接管理；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §7.1。</li>
+<li>PAGE: PAGE-00/08；PAGE-01必要状态提示；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 在线/离线（独立维度）；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-712">Function 7.1.2：联网状态提示</h5>
+<p><strong>用户场景</strong>：在联网与使用者管理的联网状态提示环节，家庭需要“理解联网状态与当前可用能力。”。</p>
+<p><strong>需求描述</strong>：设备应显示在线、离线或恢复连接；离线继续运动由第3章支持，本地保存与补传由第6章负责。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>理解联网状态与当前可用能力。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备联网与使用者管理；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>在线/离线/恢复连接事实</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>与本地可用能力一致的网络提示</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>连接状态可确认</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>在线/离线（独立维度）；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>断网影响新任务/同步，不等同暂停或解绑</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-00/08；PAGE-01必要状态提示</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>离线提示区分已缓存任务和未送达任务；允许本地运动、保存与后续补传保持。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-TASK-001、FR-SPORT-007；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 7.1.2 联网状态提示；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §7.1。</li>
+<li>PAGE: PAGE-00/08；PAGE-01必要状态提示；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 在线/离线（独立维度）；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h4 id="72">二级功能 7.2：平台状态同步与使用者确认</h4>
+<h5 id="function-721">Function 7.2.1：设备状态同步</h5>
+<p><strong>用户场景</strong>：在联网与使用者管理的设备状态同步环节，家庭需要“家长端了解设备可用状态。”。</p>
+<p><strong>需求描述</strong>：设备应向平台同步必要的在线状态、运行状态及软件版本；任务接收确认由3.1.2负责，运动结果由6.3负责。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>家长端了解设备可用状态。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备联网与使用者管理；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>必要在线/运行状态及软件版本</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>供平台传递/保存的必要设备状态</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>状态来源真实；内容/时机/连接方式TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>绑定/儿童/设备状态；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>状态发送失败处理TBD，不代替任务/结果回执</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>后台同步支撑，非独立页面</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>只同步必要设备事实；任务接收归3.1.2，结果同步归6.3。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>同步内容、时机与连接方式待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-TASK-001、FR-DEVICE-003；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 7.2.1 设备状态同步；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §7.2。</li>
+<li>PAGE: 后台同步支撑，非独立页面；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 绑定/儿童/设备状态；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-723">Function 7.2.3：绑定状态与当前儿童确认</h5>
+<p><strong>用户场景</strong>：在联网与使用者管理的绑定状态与当前儿童确认环节，家庭需要“避免记录分配给错误儿童。”。</p>
+<p><strong>需求描述</strong>：设备应读取并确认设备绑定关系及当前儿童身份，供任务和运动记录关联使用；不默认以人脸识别确认身份。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>避免记录分配给错误儿童。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备联网与使用者管理；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>平台有效绑定关系与当前儿童上下文</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>供任务/记录使用的确认归属</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>有效绑定和儿童事实需确认；流程/切换TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>绑定/儿童/设备状态；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>绑定失败或儿童不明按准入分支；断网不自动解绑</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-00/08；PAGE-01使用有效上下文</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>成绩归属正确儿童，不默认人脸识别，不自行创建账号或云端关系。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>绑定流程、多儿童切换待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-TASK-001、FR-DEVICE-003；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 7.2.3 绑定状态与当前儿童确认；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §7.2。</li>
+<li>PAGE: PAGE-00/08；PAGE-01使用有效上下文；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 绑定/儿童/设备状态；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h3 id="58">5.8 一级功能：隐私控制与数据管理</h3>
+<h4 id="81">二级功能 8.1：摄像头使用控制</h4>
+<h5 id="function-811">Function 8.1.1：检查授权并阻断不允许的采集</h5>
+<p><strong>用户场景</strong>：在隐私控制与数据管理的检查授权并阻断不允许的采集环节，家庭需要“家长边界可控且可解释。”。</p>
+<p><strong>需求描述</strong>：设备应检查有效授权及本地隐私状态，输出允许或阻断；未授权、关闭或未知禁止采集，不负责家长账号授权流程。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>家长边界可控且可解释。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备隐私与权限；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>有效授权及真实本地隐私/硬件状态</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>允许采集或阻断事实</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>采集前及继续识别时需满足授权/隐私条件</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>隐私准入/采集状态；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>未授权、关闭、撤权或未知均阻断</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-04/05/06/08，PAGE-01必要提示；PAGE-09获准后亦须遵守</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>所有采集入口遵守同一守卫；远程任务无法绕过本地关闭。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-003、FR-SPORT-006、FR-DEVICE-003；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 8.1.1 检查授权并阻断不允许的采集；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §8.1。</li>
+<li>PAGE: PAGE-04/05/06/08，PAGE-01必要提示；PAGE-09获准后亦须遵守；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 隐私准入/采集状态；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-812">Function 8.1.2：摄像头状态提示与关闭</h5>
+<p><strong>用户场景</strong>：在隐私控制与数据管理的摄像头状态提示与关闭环节，家庭需要“知道摄像头是否工作，并能停止采集。”。</p>
+<p><strong>需求描述</strong>：设备应显示真实采集状态；运动退出或授权撤销后停止采集，不能通过远程任务绕过本地关闭状态。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>知道摄像头是否工作，并能停止采集。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备隐私与权限；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>真实采集状态、运动退出或撤权事实</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>摄像头状态提示及停止采集事实</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>状态可确认；提示方式与撤权响应TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>隐私准入/采集状态；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>撤权/关闭或状态未知先阻断；响应时限TBD</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-04/05/06/08，PAGE-01必要提示；PAGE-09获准后亦须遵守</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>退出/结束或撤权停止采集；显示真实状态，不由远程请求强制开启。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>状态提示方式与撤权响应待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-SPORT-003、FR-SPORT-006、FR-DEVICE-003；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 8.1.2 摄像头状态提示与关闭；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §8.1。</li>
+<li>PAGE: PAGE-04/05/06/08，PAGE-01必要提示；PAGE-09获准后亦须遵守；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 隐私准入/采集状态；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h4 id="82">二级功能 8.2：数据权限与提醒控制</h4>
+<h5 id="function-822">Function 8.2.2：处理设备数据权限与删除请求</h5>
+<p><strong>用户场景</strong>：在隐私控制与数据管理的处理设备数据权限与删除请求环节，家庭需要“可管理设备数据的使用和清理。”。</p>
+<p><strong>需求描述</strong>：设备应执行设备本地访问权限和规定的数据清理，反馈执行结果；不负责账号注销、云端全量删除或授权关系创建。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>可管理设备数据的使用和清理。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备隐私与权限；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>有效家长权限、设备本地访问或规定清理请求</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>本地执行结果回执</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>权限有效且设备处置范围已明确；范围/离线响应TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>权限/提醒约束；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>权限不足不执行；删除及离线队列处置细则TBD</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>后台执行与回执；PAGE-08设备端入口TBD</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>仅执行设备本地权限和规定清理；不把本地删除当账号注销或云端全量删除。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>删除范围与离线响应待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-DEVICE-002、FR-DEVICE-003；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 8.2.2 处理设备数据权限与删除请求；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §8.2。</li>
+<li>PAGE: 后台执行与回执；PAGE-08设备端入口TBD；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 权限/提醒约束；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h5 id="function-823">Function 8.2.3：提醒时段与频率控制</h5>
+<p><strong>用户场景</strong>：在隐私控制与数据管理的提醒时段与频率控制环节，家庭需要“减少重复催促和夜间打扰。”。</p>
+<p><strong>需求描述</strong>：设备应按已设定时段和频率限制输出提醒，抑制重复提示；提示内容由第5章提供。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>产品需求与边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户价值</td>
+<td>减少重复催促和夜间打扰。</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>P0（继承F；不调整）</td>
+</tr>
+<tr>
+<td>Requirement Status</td>
+<td>Pending Review（源状态：待评审）</td>
+</tr>
+<tr>
+<td>Behavior Owner</td>
+<td>设备隐私与权限；人员Owner TBD</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>已设定提醒时段/频率与第5章提示内容</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>受时段/频率约束的提醒</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>存在有效提醒策略；设置责任端/参数TBD</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>权限/提醒约束；仅业务/展示语义，工程枚举TBD</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>重复/夜间打扰受策略抑制，不默认设备声音设置入口</td>
+</tr>
+<tr>
+<td>关联页面</td>
+<td>PAGE-01/06/07等提示输出约束；PAGE-08设置入口TBD，不等于声音控制</td>
+</tr>
+<tr>
+<td>验收标准（评审检查点）</td>
+<td>按已确认策略限制输出与抑制重复；未冻结时段和频率不填入数值。 正式测试方法/指标/用例TC-TBD。</td>
+</tr>
+<tr>
+<td>原待确认项（保留）</td>
+<td>设置责任端、时段与频率待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traceability</strong></p>
+<ul>
+<li>Baseline: B §3，FR-DEVICE-002、FR-DEVICE-003；属需求意图/约束关联，正式FR逐项映射待评审。</li>
+<li>Function: 8.2.3 提醒时段与频率控制；Source: <a href="Teamo_Device_Function_Specification_v0.5.2.md">Function Specification v0.5.2</a> §8.2。</li>
+<li>PAGE: PAGE-01/06/07等提示输出约束；PAGE-08设置入口TBD，不等于声音控制；Source: <a href="Teamo_Device_UE_IA_v0.3.1.md">UE IA v0.3.1</a> §6。</li>
+<li>State: 权限/提醒约束；Source: U §6、<a href="Teamo_Device_UE_Engineering_Reference_v0.1.0.md">UE Engineering Reference v0.1.0</a> A/B。</li>
+<li>Test Case: TC-TBD；没有新增测试编号或通过证据。</li>
+</ul>
+<h3 id="59-mvp">5.9 历史候选：不纳入默认MVP交付</h3>
+<p>以下20项沿用F已有编号和描述，均Candidate / Pending Review / 优先级TBD。输入、输出、守卫、异常及验收细则未冻结；表中的行为只在候选获准时成立。PAGE只记录F §14.2的候选关系，不代表U已批准独立功能或入口。不得为候选补造State/API/Test Case。Source: F §1–8/14.2；U §5/6；E D/E。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>Function ID</th>
+<th>功能</th>
+<th>候选行为（保留）</th>
+<th>用户价值</th>
+<th>Behavior Owner</th>
+<th>待确认内容</th>
+<th>PAGE / State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.2.6</td>
+<td>查看设备基本信息</td>
+<td>提供设备名称和设备标识（如SN），便于家长辨识设备。</td>
+<td>便于绑定及支持定位。</td>
+<td>设备运行管理；人员TBD</td>
+<td>名称/SN展示必要性与来源待确认</td>
+<td>PAGE-08；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>1.2.7</td>
+<td>恢复设备出厂状态</td>
+<td>经有效家长授权执行已确认的本地重置，说明清理范围并反馈结果；不等同账号注销或云端解绑。</td>
+<td>支持重新配置设备。</td>
+<td>设备运行管理；人员TBD</td>
+<td>清理范围、授权及绑定关系处理待确认</td>
+<td>PAGE-08/PAGE-00；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>1.2.8</td>
+<td>检查设备软件更新</td>
+<td>若OTA能力获准，查询并反馈可用更新状态；不自动承诺下载安装。</td>
+<td>了解软件维护状态。</td>
+<td>设备运行管理；人员TBD</td>
+<td>是否纳入、提供端与OTA优先级待确认</td>
+<td>PAGE-08；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>2.1.3</td>
+<td>展示今日运动与任务摘要</td>
+<td>显示当前儿童今日任务数量和已确认运动完成摘要。</td>
+<td>快速理解今天还需要做什么。</td>
+<td>设备交互；人员TBD</td>
+<td>日期、次数、跨端聚合口径及信息来源待确认</td>
+<td>PAGE-01；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>2.2.3</td>
+<td>调整设备提示音量</td>
+<td>在授权范围内调整设备声音音量，并反馈生效状态。</td>
+<td>适应家庭环境，减少打扰。</td>
+<td>设备交互；人员TBD</td>
+<td>操作端、范围和必要提示规则待确认</td>
+<td>PAGE-08；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>2.2.4</td>
+<td>设置运动提示音开关</td>
+<td>按允许策略开启或关闭提示音，反馈当前设置。</td>
+<td>控制声音打扰。</td>
+<td>设备交互；人员TBD</td>
+<td>安全必要提示能否关闭、授权与操作端待确认</td>
+<td>PAGE-08；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>3.1.5</td>
+<td>查看今日家长任务列表</td>
+<td>汇总当前儿童可查看的家长任务，显示动作、目标与执行状态。</td>
+<td>找到要完成的任务。</td>
+<td>设备任务管理；人员TBD</td>
+<td>今日口径、任务顺序及离线列表范围待确认</td>
+<td>PAGE-03；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>3.1.6</td>
+<td>查看家长任务详情</td>
+<td>提供单项任务的动作、目标、来源和执行条件；创建时间/名称是否显示待确认。</td>
+<td>理解家长任务要求。</td>
+<td>设备任务管理；人员TBD</td>
+<td>已有3.1.3呈现的细化提议，列表/详情是否分开待确认</td>
+<td>PAGE-03；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>4.3.1</td>
+<td>启动与退出独立动作辅助检测</td>
+<td>若独立工具获准，经明确授权开始检测、提供已验证站位提示，退出停止采集；不生成运动计数或健康评分。</td>
+<td>可单独理解站位与动作准备。</td>
+<td>设备识别能力；人员TBD</td>
+<td>区别于3.2.2运动准备；独立场景、提示范围待确认</td>
+<td>PAGE-09；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>4.3.2</td>
+<td>显示姿态关键点辅助信息</td>
+<td>若显示方案获准，呈现用于理解站位或动作的必要关键点信息。</td>
+<td>帮助理解动作姿态。</td>
+<td>设备识别呈现；人员TBD</td>
+<td>屏幕可理解性、是否必要及隐私边界待确认</td>
+<td>PAGE-09；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>7.1.3</td>
+<td>更换设备连接网络</td>
+<td>提供经允许的网络重新配置流程，反馈连接或失败状态。</td>
+<td>搬动或网络变化后可继续使用。</td>
+<td>设备联网管理；人员TBD</td>
+<td>沿用7.1.1能力，家长端/设备端操作归属待确认</td>
+<td>PAGE-08/PAGE-00；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>7.1.4</td>
+<td>检查设备联网情况</td>
+<td>在已有连接能力范围内报告是否联网及可处理失败原因。</td>
+<td>理解联网问题。</td>
+<td>设备联网管理；人员TBD</td>
+<td>7.1.1/7.1.2细化；不默认新增网络诊断工具</td>
+<td>PAGE-08；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>7.2.4</td>
+<td>引导首次设备绑定</td>
+<td>未绑定时引导家长完成联网、家庭关联和当前儿童确认，再反馈有效绑定状态。</td>
+<td>第一次使用能完成必要配置。</td>
+<td>设备使用者管理；人员TBD</td>
+<td>绑定方案和联网先后依赖待确认</td>
+<td>PAGE-00；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>7.2.5</td>
+<td>展示设备绑定二维码</td>
+<td>仅在二维码方案获准时展示有效绑定凭据；凭据由哪端签发待确认。</td>
+<td>家长可扫码关联设备。</td>
+<td>设备使用者管理；人员TBD</td>
+<td>新提议，不默认设备生成唯一凭据</td>
+<td>PAGE-00；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>7.2.6</td>
+<td>更新失效绑定二维码</td>
+<td>若二维码方案获准，在凭据过期或失效后取得有效凭据，反馈可重试状态。</td>
+<td>绑定失败后有恢复路径。</td>
+<td>设备使用者管理；人员TBD</td>
+<td>若为唯一绑定路径，优先级与核心绑定共同评审，不默认P1</td>
+<td>PAGE-00；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>7.2.7</td>
+<td>提供设备绑定帮助</td>
+<td>说明家长如何完成当前采用的绑定步骤及失败恢复。</td>
+<td>减少首次配置困难。</td>
+<td>设备使用者管理；人员TBD</td>
+<td>帮助范围与是否独立功能待确认</td>
+<td>PAGE-00；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>7.2.8</td>
+<td>切换当前使用儿童</td>
+<td>执行经家长端/平台确认的儿童切换并反馈身份，不修改账号关系。</td>
+<td>记录归属正确儿童。</td>
+<td>设备使用者管理；人员TBD</td>
+<td>授权、切换端及运动中是否允许待确认</td>
+<td>PAGE-08；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>7.2.9</td>
+<td>执行设备解绑请求</td>
+<td>处理有效解绑指令，更新设备本地绑定状态；数据清理由8.2.2按规则协调。</td>
+<td>家庭可转移或停止使用设备。</td>
+<td>设备使用者管理；人员TBD</td>
+<td>平台授权、离线响应和本地数据处置待确认</td>
+<td>PAGE-08；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>8.1.3</td>
+<td>设置本地摄像头使用状态</td>
+<td>在有效授权范围内请求开启或关闭采集允许状态，真实结果仍以8.1.1守卫与硬件状态为准。</td>
+<td>设备使用者可明确控制采集。</td>
+<td>设备隐私控制；人员TBD</td>
+<td>输入方式、家长权限与硬件关闭优先级待确认</td>
+<td>PAGE-08；State TBD；Candidate</td>
+</tr>
+<tr>
+<td>8.2.4</td>
+<td>查看设备数据使用说明</td>
+<td>说明设备采集用途、结构化记录及原始视频不保存边界。</td>
+<td>家庭理解隐私和数据用途。</td>
+<td>设备权限管理；人员TBD</td>
+<td>呈现位置、内容及是否独立条目待确认</td>
+<td>PAGE-08；State TBD；Candidate</td>
+</tr>
+</tbody>
+</table></div>
+<p>每项候选的Traceability为本行Function（F §14.2）、本行候选PAGE关系（F/U）、State TBD（E），Test Case TC-TBD。候选无独立已批准验收承诺；输入/输出/前置/异常全部待其范围获准后在FR细化，不以需求卡模板填满而创造实现要求。</p>
+<h3 id="510-p1">5.10 停用编号与原P1/未决范围</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>原编号</th>
+<th>去向</th>
+<th>本稿处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7.2.2 运动结果通信（历史）</td>
+<td>合并至6.3.1</td>
+<td>保留追溯，不重复实现/计数</td>
+</tr>
+<tr>
+<td>8.2.1 儿童视频不保存（历史）</td>
+<td>移为F §8.3全局约束</td>
+<td>原约束仍适用于全部功能和PAGE</td>
+</tr>
+</tbody>
+</table></div>
+<p>Source: F §7.2/8.2/14；U §6历史追踪。原P1四类与学校/体态/OTA/诊断的原追踪按§1.3保持，不新增编号。B FR-POSTURE-001是已有更广场景，当前F的独立辅助候选不与其自动合并；非运动体态范围仍按OQ-06/16、UE-OQ-08评审。</p>
+<h2 id="5_1">5. 状态、异常与问题映射</h2>
+<h2 id="6">6. 状态模型</h2>
+<h3 id="61_1">6.1 会话、保存与同步状态</h3>
+<p>Source: E A §5.1；U §4.2；F §11.3。全部Pending Review；下表保留原详细进入、行为、退出及PAGE关系，不定义客户端实现枚举。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>状态</th>
+<th>进入条件</th>
+<th>可执行行为</th>
+<th>退出条件 / 去向</th>
+<th>关联PAGE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INIT</td>
+<td>已进入自主选择或任务确认上下文；不等于设备开机</td>
+<td>确认儿童、来源、支持动作与目标；返回</td>
+<td>上下文有效进入准备；取消退出，记录创建时机TBD</td>
+<td>PAGE-02/03，儿童确认PAGE-00/08</td>
+</tr>
+<tr>
+<td>READY</td>
+<td>有效动作、目标和归属进入准备阶段</td>
+<td>看说明、隐私检查、必要时调整站位、明确开始或取消</td>
+<td>条件满足且明确开始→COUNTDOWN；不足停留；恢复路线TBD</td>
+<td>PAGE-04</td>
+</tr>
+<tr>
+<td>COUNTDOWN</td>
+<td>开始意愿明确且准备满足</td>
+<td>等待、取消；禁止计数</td>
+<td>完成后复核通过→RUNNING；取消/离画→READY；隐私失效阻断</td>
+<td>PAGE-05</td>
+</tr>
+<tr>
+<td>RUNNING</td>
+<td>初次开始或恢复获准，隐私及准备有效</td>
+<td>可信计数与反馈、暂停、提前结束</td>
+<td>暂停/判定异常→PAUSED；达标或明确结束→FINISHED</td>
+<td>PAGE-06</td>
+</tr>
+<tr>
+<td>PAUSED</td>
+<td>主动暂停或离画/识别异常已判定需暂停</td>
+<td>保留次数，说明原因，继续或结束；不累计</td>
+<td>继续→READY重新检查；结束→FINISHED；超时TBD</td>
+<td>PAGE-06→04</td>
+</tr>
+<tr>
+<td>FINISHED</td>
+<td>达标、主动结束或已确认中断规则生效</td>
+<td>停止采集/计数，生成真实结果并交给保存</td>
+<td>执行事实保持结束；保存成功增加SAVED事实，失败走异常分支</td>
+<td>PAGE-06→07保存衔接</td>
+</tr>
+<tr>
+<td>SAVED</td>
+<td>6.2.1确认本地结果保存成功</td>
+<td>看真实结果、返回首页；允许时后台上传</td>
+<td>已保存事实保持；同步进SYNCING，或离线待同步</td>
+<td>PAGE-07；PAGE-01提示承载</td>
+</tr>
+<tr>
+<td>SYNCING</td>
+<td>已保存且正在上传/补传，尚未获平台业务接收确认</td>
+<td>查看状态；按契约重试，沿用原记录标识</td>
+<td>业务确认→SYNCED；失败→待补传；重试参数TBD</td>
+<td>PAGE-07/01；后台状态</td>
+</tr>
+<tr>
+<td>SYNCED</td>
+<td>平台确认接收同一结果记录</td>
+<td>查看已同步状态，不重复生成结果或奖励</td>
+<td>终态事实保持；冲突处理契约TBD</td>
+<td>PAGE-07/01；后台状态</td>
+</tr>
+</tbody>
+</table></div>
+<p>INIT为任务/自主上下文确认，不能用于设备开机；READY包含准备检查，不等于已满足开始。准备/倒计时/暂停不累计成绩。PAUSED恢复重新检查隐私和准备、明确恢复并重置半周期；是否再次COUNTDOWN TBD。</p>
+<h3 id="62_1">6.2 三个独立维度</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>事实</th>
+<th>不得混同</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>执行</td>
+<td>RUNNING/PAUSED/FINISHED等真实运动过程</td>
+<td>FINISHED不代表已保存</td>
+</tr>
+<tr>
+<td>保存</td>
+<td>待保存/保存中/失败/SAVED</td>
+<td>SAVED不代表平台已收到；未保存不作为已保存记录上传</td>
+</tr>
+<tr>
+<td>同步</td>
+<td>待同步/SYNCING/失败待补传/SYNCED</td>
+<td>只有平台业务接收确认才SYNCED，发送完成不能代替</td>
+</tr>
+</tbody>
+</table></div>
+<p>可同时表达“提前结束 / 已保存 / 待同步”；返回首页不改变成绩、归属或同步事实，不要求等待上传后才能进行允许的本地运动。Source: E A §5.3；F §6/11；U §4.2/5。</p>
+<h3 id="63_1">6.3 绑定、网络与隐私</h3>
+<p>绑定展示为未绑定→等待绑定→处理中→成功→当前儿童确认→正常使用，解绑/失败是有依据的分支。断网不解除有效绑定；扫码和请求发送不等于成功；儿童归属未知不能分配成绩。网络、隐私、绑定与运动状态分别维护，不强套运动标签。具体绑定方式、超时、撤权响应、实际状态枚举TBD。（Source: E A §5.2；U §4.2；F §7/8）</p>
+<h2 id="8">8. 异常流程</h2>
+<p>每个异常先确认原因与影响，再表达可行去向；原因未知如实说明。所有处理仍Pending Review，工程细则TBD / FR阶段定义。Source: E B（详细业务依据）及U §4.3；对应原Function与PAGE见表。State是发生阶段/业务去向，不新增状态枚举。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>异常 / 原因</th>
+<th>发生阶段</th>
+<th>用户影响</th>
+<th>页面 / 功能依据</th>
+<th>用户反馈</th>
+<th>处理与恢复路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>初始化或必要运行服务不可用</td>
+<td>启动/运行</td>
+<td>无法进入可用状态</td>
+<td>PAGE-00/01；1.1、1.2.2</td>
+<td>说明当前启动/服务不可用，具体原因可确认才显示</td>
+<td>约定重试/返回/必要重启→重新初始化；故障范围/时限TBD</td>
+</tr>
+<tr>
+<td>网络断开</td>
+<td>首页/任务/结果</td>
+<td>新任务获取或结果同步受影响</td>
+<td>PAGE-01/03/07/08；7.1、6.3</td>
+<td>说明离线与记录真实同步状态</td>
+<td>保留有效绑定；继续允许的缓存/本地能力；连接恢复按契约补传</td>
+</tr>
+<tr>
+<td>绑定请求失败或关系不可确认</td>
+<td>首次使用/启动</td>
+<td>无法完成有效绑定准入</td>
+<td>PAGE-00；7.2.3</td>
+<td>区分未绑定、处理中失败、关系失效；不称成功</td>
+<td>回等待/引导或既有有效关系状态；恢复契约TBD，不静默解绑</td>
+</tr>
+<tr>
+<td>当前儿童归属不明确</td>
+<td>任务/自主确认</td>
+<td>不能正确关联成绩</td>
+<td>PAGE-00/08，承载TBD；7.2.3、6.1.1</td>
+<td>说明儿童未确认，需完成归属确认</td>
+<td>按有效上下文确认后回原任务/自主准备；不默认人脸识别</td>
+</tr>
+<tr>
+<td>动作/目标/任务有效条件不满足</td>
+<td>选择/任务详情</td>
+<td>无法开始该运动</td>
+<td>PAGE-02/03；3.1.1、3.1.3、3.1.4</td>
+<td>给出已验证的不支持动作、目标无效或任务无效原因</td>
+<td>自主重新选择允许目标，任务返回列表；撤销/过期细则TBD，不静默改家长目标</td>
+</tr>
+<tr>
+<td>隐私关闭、未授权、撤权或状态未知</td>
+<td>准备/倒计时/运动</td>
+<td>无法采集或继续识别</td>
+<td>PAGE-04/05/06/08；8.1</td>
+<td>真实说明采集已阻断/停止及对应隐私原因</td>
+<td>停止采集和新增成绩；有效授权及本地条件恢复后重新准备并确认，响应时限TBD</td>
+</tr>
+<tr>
+<td>无人、身体不完整或画面不可用</td>
+<td>准备/倒计时</td>
+<td>未满足开始条件</td>
+<td>PAGE-04/05；4.1.1、3.2.2</td>
+<td>给一个主要站位/入镜原因</td>
+<td>调整后重新检查；倒计时离画回PAGE-04，不提前计数</td>
+</tr>
+<tr>
+<td>离画、遮挡或识别不可用需暂停</td>
+<td>运动中</td>
+<td>暂停新增成绩</td>
+<td>PAGE-06；4.1.3、3.3.1、5.1.2</td>
+<td>说明已判定原因及成绩保留</td>
+<td>暂停→调整→选择继续→PAGE-04重新准入；可按原规则结束</td>
+</tr>
+<tr>
+<td>单个动作事件不完整/不确定</td>
+<td>运动中</td>
+<td>该事件不计</td>
+<td>PAGE-06；4.1.2、5.1.2</td>
+<td>必要时说明当前无法确认，不作确定纠错</td>
+<td>不计该事件，不必一律暂停；若判定识别异常，按暂停分支处理；阈值TBD</td>
+</tr>
+<tr>
+<td>本地保存失败</td>
+<td>结束保存</td>
+<td>结果尚未可靠记录</td>
+<td>PAGE-07；6.2.3、5.2.2</td>
+<td>说明尚未保存，不能称已记录</td>
+<td>保留可恢复结果供重试；成功后展示已保存，失败恢复保证/退出规则TBD</td>
+</tr>
+<tr>
+<td>上传失败或缺少业务接收确认</td>
+<td>同步</td>
+<td>家长端尚未确认收到</td>
+<td>PAGE-07/01；6.3、5.2.2</td>
+<td>保持已保存，说明待同步/失败待补传</td>
+<td>按契约重试，沿用原记录标识；平台去重，不阻断允许本地运动</td>
+</tr>
+<tr>
+<td>重启/断电后恢复范围不足</td>
+<td>日常启动</td>
+<td>本次进度或记录可能不完整</td>
+<td>PAGE-01/06/07，承载TBD；1.1.2、6.2.2</td>
+<td>仅说明可恢复真实成绩和不能确认部分</td>
+<td>恢复已保存事实，不自动续计或伪造完成；不可恢复处理TBD</td>
+</tr>
+<tr>
+<td>家长权限不满足/不可确认</td>
+<td>受限设备管理</td>
+<td>不能执行该管理操作</td>
+<td>PAGE-08；7.2.3、8.2.2</td>
+<td>说明需有效家长权限，未执行</td>
+<td>保持原有效状态，按责任端重新完成权限确认；入口及方式TBD</td>
+</tr>
+<tr>
+<td>候选绑定二维码凭据失效</td>
+<td>仅二维码获准后</td>
+<td>无法继续该绑定路径</td>
+<td>PAGE-00；候选能力 / Pending Review / 优先级TBD</td>
+<td>区分凭据过期与已有关系失败</td>
+<td>按获准方案重取或替代路径；当前不承诺此技术方案</td>
+</tr>
+</tbody>
+</table></div>
+<p>无人/遮挡在准备中意味着未满足开始条件；在运动中只有被判定需暂停才进入PAUSED。单次动作不完整/不确定仅不计该事件，不能自动等同所有识别失败。保存失败不伪称已记录，同步失败不改变达标事实；不解绑、不清零、不重建结果。（Source: F 3.3/4.1/6；U §4.3；E B）</p>
+<h3 id="oque-oq">原OQ与UE-OQ完整关联</h3>
+<h3 id="132-ue">13.2 与UE评审问题的关联</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>UE问题</th>
+<th>功能大纲关联</th>
+<th>需形成的结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UE-OQ-01 绑定链路</td>
+<td>7.1、7.2.3–7.2.7</td>
+<td>先后依赖、成功确认、异常恢复；二维码仍候选</td>
+</tr>
+<tr>
+<td>UE-OQ-02 页面/输入承载</td>
+<td>OQ-02、2.2.2、3.1.3/3.1.5/3.1.6</td>
+<td>逻辑PAGE到实际承载，列表/详情是否拆分；不决定硬件</td>
+</tr>
+<tr>
+<td>UE-OQ-03 动作/目标</td>
+<td>OQ-01/03、3.1.4、4.2</td>
+<td>三/七动作、目标范围与计数单位</td>
+</tr>
+<tr>
+<td>UE-OQ-04 任务/儿童</td>
+<td>OQ-04/09、3.1、7.2.3/7.2.8/7.2.9</td>
+<td>有效性、重复投递、切换与记录归属</td>
+</tr>
+<tr>
+<td>UE-OQ-05 开始/恢复</td>
+<td>OQ-07、3.2/3.3、4.1.1</td>
+<td>准备、跳过、超时和再倒计时</td>
+</tr>
+<tr>
+<td>UE-OQ-06 保存/同步</td>
+<td>OQ-08/09、5.2、6章</td>
+<td>用时、失败/断电恢复、业务确认与防重复</td>
+</tr>
+<tr>
+<td>UE-OQ-07 角色/鼓励</td>
+<td>OQ-05、2.1.2、5.1.3</td>
+<td>最小深度，原P0不变，不扩成长体系</td>
+</tr>
+<tr>
+<td>UE-OQ-08 独立辅助</td>
+<td>OQ-06、4.3.1/4.3.2候选</td>
+<td>明确用户任务与必要性，授权/退出；当前不开放入口</td>
+</tr>
+<tr>
+<td>UE-OQ-09 候选设置</td>
+<td>1.2.6–1.2.8、2.1.3、2.2.3/2.2.4、7.1.3/7.1.4、7.2.5–7.2.7、8.2.4等</td>
+<td>逐项必要性/责任/去向，不批量批准</td>
+</tr>
+<tr>
+<td>UE-OQ-10 跨端管理</td>
+<td>OQ-11、7章/8章/12章</td>
+<td>发起、权限、设备回执、离线与本地/云端边界</td>
+</tr>
+<tr>
+<td>UE-OQ-11 责任/引用</td>
+<td>OQ-12、全部功能及14章</td>
+<td>Owner、Reviewer、引用版本及批准/延期记录</td>
+</tr>
+</tbody>
+</table></div>
+<p>完整问题可在UE IA第8章展开，背景与输入在工程附录E。建议参与方不等于已指派Owner；候选合并/纳入均须评审，TC-TBD不得当验收通过。</p>
+<h3 id="_3">来源差异与工程未决</h3>
+<h3 id="94">9.4 输入差异与评审处理</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>差异</th>
+<th>固定输入证据</th>
+<th>本稿保留状态</th>
+<th>原问题入口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>七动作与三动作</td>
+<td>B §2/FR-SPORT-001/005保留七动作；F §4.2列三动作提议，U §5未冻结关系</td>
+<td>不扩动作号或删除上游追踪；演示/产品范围TBD</td>
+<td>OQ-01/03、UE-OQ-03</td>
+</tr>
+<tr>
+<td>倒计时数值</td>
+<td>B FR-SPORT-004写3/2/1；U §4.2写时长TBD，E恢复是否再倒计时TBD</td>
+<td>不把三秒写成冻结验收值；时间与恢复路径TBD</td>
+<td>OQ-07、UE-OQ-05</td>
+</tr>
+<tr>
+<td>API字段与部署</td>
+<td>B §3列字段/版本线索；F §0.5与E不定义API结构、枚举或算法实现</td>
+<td>作为业务信息，不生成已批准字段规范、部署方案或数值</td>
+<td>OQ-09/10/12、UE-OQ-06/11</td>
+</tr>
+<tr>
+<td>维护/体态较广表述</td>
+<td>B FR-DEVICE-003/FR-POSTURE-001含广范围；F §9/10、U §5保持OTA/体态等未决</td>
+<td>原追踪保留，本稿不纳入默认MVP，也不删除</td>
+<td>OQ-06/15/16、UE-OQ-08/09</td>
+</tr>
+<tr>
+<td>交付细化顺序</td>
+<td>F §0.5写UE→UI Flow→FR；§13.1另有FR/TR表述</td>
+<td>按用户本次要求展示PRD→FR→UI Flow→Test Case，交付物互相校验，次序不构成范围批准</td>
+<td>OQ-12、UE-OQ-11</td>
+</tr>
+</tbody>
+</table></div>
+<p>没有新增OQ编号；差异复用现有未决项。待评审决定必须按“旧口径—新证据—建议修改”记录；未提供新证据时不能修改既有产品/功能口径。上述表是差异登记，不是已批准决策。</p>
+<h2 id="feature-specification-v06">Feature Specification v0.6 — 完整源条目</h2>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>功能点</th>
+<th>功能描述</th>
+<th>用户价值</th>
+<th>优先级</th>
+<th>状态</th>
+<th>行为归属</th>
+<th>待确认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.1.1</td>
+<td>开机与初始化</td>
+<td>启动软件并验证必要运行条件，进入可用或明确异常状态。</td>
+<td>让家庭知道设备能否开始使用。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备启动与运行</td>
+<td>启动时长待确认</td>
+</tr>
+<tr>
+<td>1.1.2</td>
+<td>恢复启动状态</td>
+<td>根据6.2.2恢复的任务、结果和隐私状态，输出待机、恢复提示或异常；不重复负责读取记录。</td>
+<td>重启后回到正确状态，不自动续计或伪称完成。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备启动与运行</td>
+<td>恢复进入哪个状态待确认</td>
+</tr>
+<tr>
+<td>1.2.1</td>
+<td>设备运行状态管理</td>
+<td>统一维护当前运行状态和允许的操作；运动过程的暂停、恢复与结束由第3章定义。</td>
+<td>状态一致，避免同一操作在不同入口产生冲突。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备启动与运行</td>
+<td>—</td>
+</tr>
+<tr>
+<td>1.2.2</td>
+<td>设备故障处理</td>
+<td>处理启动失败、运行服务不可用等设备级故障，给出重试、返回或重启入口；识别异常由4.1.3判断。</td>
+<td>故障时能够理解原因并恢复使用。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备启动与运行</td>
+<td>故障范围与恢复时限待确认</td>
+</tr>
+<tr>
+<td>1.2.3</td>
+<td>查看设备软件版本</td>
+<td>提供当前软件版本，供家长或维护人员核对；属于维护支撑，不扩展OTA或远程运维。</td>
+<td>便于核对设备版本和定位兼容问题。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备启动与运行</td>
+<td>—</td>
+</tr>
+<tr>
+<td>1.2.4</td>
+<td>故障信息记录</td>
+<td>记录必要的故障原因和发生时间，供诊断使用。</td>
+<td>故障可定位、可复盘。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备启动与运行</td>
+<td>日志内容与保存周期待确认</td>
+</tr>
+<tr>
+<td>1.2.5</td>
+<td>设备重启</td>
+<td>提供必要重启操作，重启后按1.1.2恢复状态。</td>
+<td>无法正常使用时有恢复入口。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备启动与运行</td>
+<td>重启触发方式待确认</td>
+</tr>
+<tr>
+<td>1.2.6</td>
+<td>查看设备基本信息</td>
+<td>提供设备名称和设备标识（如SN），便于家长辨识设备。</td>
+<td>便于绑定及支持定位。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备运行管理</td>
+<td>名称/SN展示必要性与来源待确认</td>
+</tr>
+<tr>
+<td>1.2.7</td>
+<td>恢复设备出厂状态</td>
+<td>经有效家长授权执行已确认的本地重置，说明清理范围并反馈结果；不等同账号注销或云端解绑。</td>
+<td>支持重新配置设备。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备运行管理</td>
+<td>清理范围、授权及绑定关系处理待确认</td>
+</tr>
+<tr>
+<td>1.2.8</td>
+<td>检查设备软件更新</td>
+<td>若OTA能力获准，查询并反馈可用更新状态；不自动承诺下载安装。</td>
+<td>了解软件维护状态。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备运行管理</td>
+<td>是否纳入、提供端与OTA优先级待确认</td>
+</tr>
+<tr>
+<td>2.1.1</td>
+<td>运动入口</td>
+<td>提供任务与自主运动入口，显示必要可用状态。</td>
+<td>减少寻找入口和开练阻力。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备交互</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2.1.2</td>
+<td>显示角色状态表情</td>
+<td>按已有运动状态显示固定表情，输出一致的角色回应；鼓励及提示内容由第5章决定。</td>
+<td>运动中获得一致且适度的角色回应。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备交互</td>
+<td>表情事件与资源待确认</td>
+</tr>
+<tr>
+<td>2.1.3</td>
+<td>展示今日运动与任务摘要</td>
+<td>显示当前儿童今日任务数量和已确认运动完成摘要。</td>
+<td>快速理解今天还需要做什么。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备交互</td>
+<td>日期、次数、跨端聚合口径及信息来源待确认</td>
+</tr>
+<tr>
+<td>2.2.1</td>
+<td>设备状态提示</td>
+<td>呈现设备不可用、操作不可执行等通用状态；任务内容、实时成绩和结束结果分别由第3章和第5章定义。</td>
+<td>知道设备当前是否可用，以及怎样处理问题。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备交互</td>
+<td>表达方式待确认</td>
+</tr>
+<tr>
+<td>2.2.2</td>
+<td>操作接收与确认</td>
+<td>接收选择、开始、取消、暂停、继续、结束及返回操作，并告知是否接受；各操作业务结果由所属功能负责。</td>
+<td>清楚操作是否生效。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备交互</td>
+<td>触控、按键或其他输入方式待确认</td>
+</tr>
+<tr>
+<td>2.2.3</td>
+<td>调整设备提示音量</td>
+<td>在授权范围内调整设备声音音量，并反馈生效状态。</td>
+<td>适应家庭环境，减少打扰。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备交互</td>
+<td>操作端、范围和必要提示规则待确认</td>
+</tr>
+<tr>
+<td>2.2.4</td>
+<td>设置运动提示音开关</td>
+<td>按允许策略开启或关闭提示音，反馈当前设置。</td>
+<td>控制声音打扰。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备交互</td>
+<td>安全必要提示能否关闭、授权与操作端待确认</td>
+</tr>
+<tr>
+<td>3.1.1</td>
+<td>接收并检查运动任务</td>
+<td>检查送达任务的儿童归属、支持动作、目标和有效条件，输出接受资格或拒绝原因；最终接收回执由3.1.2负责。</td>
+<td>收到可执行而非无效任务。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备任务与执行</td>
+<td>任务检查规则待确认</td>
+</tr>
+<tr>
+<td>3.1.2</td>
+<td>反馈任务接收结果</td>
+<td>检查通过并由6.2.1保存后确认接收；失败说明原因；重复任务返回同一接收结果。</td>
+<td>家长知道任务是否真实送达。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备任务与执行</td>
+<td>—</td>
+</tr>
+<tr>
+<td>3.1.3</td>
+<td>展示任务内容与执行状态</td>
+<td>提供动作、目标与来源，呈现设备执行状态；平台任务撤销等有效规则另行确认，不由设备自建发布规则。</td>
+<td>儿童明白为什么做、做多少。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备任务与执行</td>
+<td>任务状态及撤销规则待确认</td>
+</tr>
+<tr>
+<td>3.1.4</td>
+<td>动作与目标确认</td>
+<td>执行任务时确认已下发动作和目标；自主运动时选择支持动作及允许目标，不擅自修改家长任务。</td>
+<td>运动目标清楚，自主运动与家长任务不混淆。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备任务与执行</td>
+<td>自主目标范围待确认</td>
+</tr>
+<tr>
+<td>3.1.5</td>
+<td>查看今日家长任务列表</td>
+<td>汇总当前儿童可查看的家长任务，显示动作、目标与执行状态。</td>
+<td>找到要完成的任务。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备任务管理</td>
+<td>今日口径、任务顺序及离线列表范围待确认</td>
+</tr>
+<tr>
+<td>3.1.6</td>
+<td>查看家长任务详情</td>
+<td>提供单项任务的动作、目标、来源和执行条件；创建时间/名称是否显示待确认。</td>
+<td>理解家长任务要求。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备任务管理</td>
+<td>已有3.1.3呈现的细化提议，列表/详情是否分开待确认</td>
+</tr>
+<tr>
+<td>3.2.1</td>
+<td>动作说明</td>
+<td>开始前提供经审核、儿童可理解的动作与安全说明。</td>
+<td>减少不理解动作造成的失败。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备任务与执行</td>
+<td>媒体形态/可跳过规则待确认</td>
+</tr>
+<tr>
+<td>3.2.2</td>
+<td>入镜准备引导</td>
+<td>根据第4章识别结果提示调整站位；准备不足时不开始运动。</td>
+<td>知道如何站好，准备完成后再开练。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备任务与执行</td>
+<td>准备完成条件待确认</td>
+</tr>
+<tr>
+<td>3.2.3</td>
+<td>开始确认与倒计时</td>
+<td>儿童明确开始且准备满足后倒计时，结束再检查开始条件。</td>
+<td>有时间准备，避免突然计数。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备任务与执行</td>
+<td>输入方式待确认</td>
+</tr>
+<tr>
+<td>3.3.1</td>
+<td>暂停与成绩保留</td>
+<td>主动暂停或离画/识别异常时停止新增成绩，保留已确认次数。</td>
+<td>已完成努力不因中断消失。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备任务与执行</td>
+<td>—</td>
+</tr>
+<tr>
+<td>3.3.2</td>
+<td>恢复运动</td>
+<td>重新检查隐私和准备，明确恢复后从已确认成绩继续。</td>
+<td>安全且连贯地继续运动。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备任务与执行</td>
+<td>恢复时重新判断动作起点；恢复确认方式待确认</td>
+</tr>
+<tr>
+<td>3.3.3</td>
+<td>达标与提前结束</td>
+<td>达标停止确认动作；主动结束保留实际与真实未完成状态。</td>
+<td>不强迫继续，不伪造达标。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备任务与执行</td>
+<td>自动超时结束规则待确认</td>
+</tr>
+<tr>
+<td>4.1.1</td>
+<td>人体与画面可用性检测</td>
+<td>判断是否有人、身体是否完整及画面是否满足识别条件，输出准备状态和原因；引导由3.2.2负责。</td>
+<td>避免在看不清动作时开始计数。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备识别能力</td>
+<td>多人处理及适用距离待确认</td>
+</tr>
+<tr>
+<td>4.1.2</td>
+<td>有效动作计数</td>
+<td>依据审核规则仅累计完整有效周期，未完成、重复或不确定事件不计。</td>
+<td>孩子和家长得到可信成绩。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备识别能力</td>
+<td>阈值待确认</td>
+</tr>
+<tr>
+<td>4.1.3</td>
+<td>判定运动识别异常</td>
+<td>根据4.1.1画面状态和4.2动作判定输出无人、遮挡、识别不确定或不可用原因；暂停由3.3.1处理，提示由5.1.2呈现。</td>
+<td>知道如何调整，而非被错误指责。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备识别能力</td>
+<td>—</td>
+</tr>
+<tr>
+<td>4.2.1</td>
+<td>开合跳动作判定</td>
+<td>判断并拢、打开、回收是否形成完整有效周期，供4.1.2累计次数。</td>
+<td>完整开合跳被可信记录。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备识别能力</td>
+<td>有效幅度与规则待确认</td>
+</tr>
+<tr>
+<td>4.2.2</td>
+<td>深蹲起动作判定</td>
+<td>判断站立、有效下蹲、回站立是否形成完整周期，供4.1.2累计次数。</td>
+<td>完整深蹲被可信记录。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备识别能力</td>
+<td>安全与有效幅度规则待确认</td>
+</tr>
+<tr>
+<td>4.2.3</td>
+<td>高抬腿动作判定</td>
+<td>判断有效抬腿与落下事件，按统一左右侧规则供4.1.2累计次数。</td>
+<td>目标与实际成绩使用一致口径。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备识别能力</td>
+<td>单侧一次或双侧一轮待确认</td>
+</tr>
+<tr>
+<td>4.3.1</td>
+<td>启动与退出独立动作辅助检测</td>
+<td>若独立工具获准，经明确授权开始检测、提供已验证站位提示，退出停止采集；不生成运动计数或健康评分。</td>
+<td>可单独理解站位与动作准备。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备识别能力</td>
+<td>区别于3.2.2运动准备；独立场景、提示范围待确认</td>
+</tr>
+<tr>
+<td>4.3.2</td>
+<td>显示姿态关键点辅助信息</td>
+<td>若显示方案获准，呈现用于理解站位或动作的必要关键点信息。</td>
+<td>帮助理解动作姿态。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备识别呈现</td>
+<td>屏幕可理解性、是否必要及隐私边界待确认</td>
+</tr>
+<tr>
+<td>5.1.1</td>
+<td>次数与进度反馈</td>
+<td>呈现设备已确认次数与目标进度，必要短语音与数字保持一致。</td>
+<td>看见实际努力和距目标的差距。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备反馈呈现</td>
+<td>频率待确认</td>
+</tr>
+<tr>
+<td>5.1.2</td>
+<td>动作反馈与调整提示</td>
+<td>有效动作给正向回应；无效或识别不确定给一个可处理原因。</td>
+<td>得到可理解指导且减少挫败。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备反馈呈现</td>
+<td>—</td>
+</tr>
+<tr>
+<td>5.1.3</td>
+<td>完成鼓励</td>
+<td>真实结束后提供适度鼓励，区分达标和提前结束。</td>
+<td>获得尊重真实努力的反馈。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备反馈呈现</td>
+<td>运动星/PB深度待确认</td>
+</tr>
+<tr>
+<td>5.2.1</td>
+<td>运动结果查看</td>
+<td>在设备端显示动作、目标、实际次数、用时和达标或提前结束状态；家长端展示不属于此项。</td>
+<td>儿童结束后能理解本次努力。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备反馈呈现</td>
+<td>用时是否含暂停待确认</td>
+</tr>
+<tr>
+<td>5.2.2</td>
+<td>保存与同步提示</td>
+<td>分别说明本地已保存、等待同步、同步成功或失败。</td>
+<td>不把运动结束误解为已回传。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备反馈呈现</td>
+<td>—</td>
+</tr>
+<tr>
+<td>6.1.1</td>
+<td>记录创建与归属</td>
+<td>建立唯一运动记录并关联儿童、任务或自主来源及动作目标。</td>
+<td>每次运动可以追溯到正确儿童。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备记录与同步</td>
+<td>开始记录时机待确认</td>
+</tr>
+<tr>
+<td>6.1.2</td>
+<td>生成运动结果记录</td>
+<td>汇总已确认次数、目标、用时与结束原因，输出唯一记录内容；本地写入归6.2.1。</td>
+<td>可信查看真实完成情况。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备记录与同步</td>
+<td>—</td>
+</tr>
+<tr>
+<td>6.2.1</td>
+<td>本地保存</td>
+<td>保存已缓存任务、实际结果和必要待同步信息。</td>
+<td>离线可使用、不丢记录。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备记录与同步</td>
+<td>存储容量/保留周期待确认</td>
+</tr>
+<tr>
+<td>6.2.2</td>
+<td>已保存记录恢复</td>
+<td>读取可恢复的任务、运动记录及待同步信息，保持真实已确认成绩，向1.1.2提供恢复结果。</td>
+<td>重启后不产生重复或虚假的运动记录。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备记录与同步</td>
+<td>保存频率及断电可恢复范围待确认</td>
+</tr>
+<tr>
+<td>6.2.3</td>
+<td>保存失败处理</td>
+<td>明确未保存并保留可恢复结果供重试。</td>
+<td>不误导家长或静默丢失。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备记录与同步</td>
+<td>失败恢复保证待确认</td>
+</tr>
+<tr>
+<td>6.3.1</td>
+<td>上传结果并更新同步状态</td>
+<td>发送已保存结果，依据平台业务接收确认更新同步状态；不把网络发送完成视为成功接收。</td>
+<td>家长查看同一真实记录。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备记录与同步</td>
+<td>协议待确认</td>
+</tr>
+<tr>
+<td>6.3.2</td>
+<td>补传失败结果并防重复</td>
+<td>设备沿用原记录标识补传；平台按同一标识去重。设备不重复生成结果或发放已批准奖励。</td>
+<td>没有重复记录或虚假成长。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备记录与同步</td>
+<td>重试/冲突策略待确认</td>
+</tr>
+<tr>
+<td>7.1.1</td>
+<td>网络连接管理</td>
+<td>提供必要联网配置及连接状态，失败给出可操作原因。</td>
+<td>可完成连接并理解故障。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备联网与使用者管理</td>
+<td>配网流程及责任端待确认</td>
+</tr>
+<tr>
+<td>7.1.2</td>
+<td>联网状态提示</td>
+<td>显示在线、离线或恢复连接；离线继续运动由第3章支持，本地保存与补传由第6章负责。</td>
+<td>理解联网状态与当前可用能力。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备联网与使用者管理</td>
+<td>—</td>
+</tr>
+<tr>
+<td>7.1.3</td>
+<td>更换设备连接网络</td>
+<td>提供经允许的网络重新配置流程，反馈连接或失败状态。</td>
+<td>搬动或网络变化后可继续使用。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备联网管理</td>
+<td>沿用7.1.1能力，家长端/设备端操作归属待确认</td>
+</tr>
+<tr>
+<td>7.1.4</td>
+<td>检查设备联网情况</td>
+<td>在已有连接能力范围内报告是否联网及可处理失败原因。</td>
+<td>理解联网问题。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备联网管理</td>
+<td>7.1.1/7.1.2细化；不默认新增网络诊断工具</td>
+</tr>
+<tr>
+<td>7.2.1</td>
+<td>设备状态同步</td>
+<td>向平台同步必要的在线状态、运行状态及软件版本；任务接收确认由3.1.2负责，运动结果由6.3负责。</td>
+<td>家长端了解设备可用状态。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备联网与使用者管理</td>
+<td>同步内容、时机与连接方式待确认</td>
+</tr>
+<tr>
+<td>7.2.2</td>
+<td>运动结果通信（历史）</td>
+<td>已合并到6.3.1，不重复实现。</td>
+<td>保留追溯。</td>
+<td>历史P0，不计有效范围</td>
+<td>已停用（保留追溯）</td>
+<td>6.3结果同步</td>
+<td>v0.3已合并</td>
+</tr>
+<tr>
+<td>7.2.3</td>
+<td>绑定状态与当前儿童确认</td>
+<td>呈现真实连接/绑定状态，执行平台认可的家庭绑定上下文并确认当前儿童，失败说明真实原因；供任务和运动记录关联使用，不在设备创建账号或默认人脸识别。</td>
+<td>避免记录分配给错误儿童。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备联网与使用者管理</td>
+<td>绑定流程、多儿童切换待确认</td>
+</tr>
+<tr>
+<td>7.2.4</td>
+<td>引导首次设备绑定</td>
+<td>未绑定时引导家长完成联网、家庭关联和当前儿童确认，再反馈有效绑定状态。</td>
+<td>第一次使用能完成必要配置。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备使用者管理</td>
+<td>绑定方案和联网先后依赖待确认</td>
+</tr>
+<tr>
+<td>7.2.5</td>
+<td>展示设备绑定二维码</td>
+<td>仅在二维码方案获准时展示有效绑定凭据；凭据由哪端签发待确认。</td>
+<td>家长可扫码关联设备。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备使用者管理</td>
+<td>新提议，不默认设备生成唯一凭据</td>
+</tr>
+<tr>
+<td>7.2.6</td>
+<td>更新失效绑定二维码</td>
+<td>若二维码方案获准，在凭据过期或失效后取得有效凭据，反馈可重试状态。</td>
+<td>绑定失败后有恢复路径。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备使用者管理</td>
+<td>若为唯一绑定路径，优先级与核心绑定共同评审，不默认P1</td>
+</tr>
+<tr>
+<td>7.2.7</td>
+<td>提供设备绑定帮助</td>
+<td>说明家长如何完成当前采用的绑定步骤及失败恢复。</td>
+<td>减少首次配置困难。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备使用者管理</td>
+<td>帮助范围与是否独立功能待确认</td>
+</tr>
+<tr>
+<td>7.2.8</td>
+<td>切换当前使用儿童</td>
+<td>执行经家长端/平台确认的儿童切换并反馈身份，不修改账号关系。</td>
+<td>记录归属正确儿童。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备使用者管理</td>
+<td>授权、切换端及运动中是否允许待确认</td>
+</tr>
+<tr>
+<td>7.2.9</td>
+<td>执行设备解绑请求</td>
+<td>处理有效解绑指令，更新设备本地绑定状态；数据清理由8.2.2按规则协调。</td>
+<td>家庭可转移或停止使用设备。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备使用者管理</td>
+<td>平台授权、离线响应和本地数据处置待确认</td>
+</tr>
+<tr>
+<td>8.1.1</td>
+<td>检查授权并阻断不允许的采集</td>
+<td>检查有效授权及本地隐私状态，输出允许或阻断；未授权、关闭或未知禁止采集，不负责家长账号授权流程。</td>
+<td>家长边界可控且可解释。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备隐私与权限</td>
+<td>—</td>
+</tr>
+<tr>
+<td>8.1.2</td>
+<td>摄像头状态提示与关闭</td>
+<td>显示真实采集状态；运动退出或授权撤销后停止采集，不能通过远程任务绕过本地关闭状态。</td>
+<td>知道摄像头是否工作，并能停止采集。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备隐私与权限</td>
+<td>状态提示方式与撤权响应待确认</td>
+</tr>
+<tr>
+<td>8.1.3</td>
+<td>设置本地摄像头使用状态</td>
+<td>在有效授权范围内请求开启或关闭采集允许状态，真实结果仍以8.1.1守卫与硬件状态为准。</td>
+<td>设备使用者可明确控制采集。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备隐私控制</td>
+<td>输入方式、家长权限与硬件关闭优先级待确认</td>
+</tr>
+<tr>
+<td>8.2.1</td>
+<td>儿童视频不保存（历史）</td>
+<td>移为8.3全局约束。</td>
+<td>保护隐私。</td>
+<td>历史P0，不计有效范围</td>
+<td>已停用（保留追溯）</td>
+<td>全局约束</td>
+<td>v0.3已移为约束</td>
+</tr>
+<tr>
+<td>8.2.2</td>
+<td>处理设备数据权限与删除请求</td>
+<td>执行设备本地访问权限和规定的数据清理，反馈执行结果；不负责账号注销、云端全量删除或授权关系创建。</td>
+<td>可管理设备数据的使用和清理。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备隐私与权限</td>
+<td>删除范围与离线响应待确认</td>
+</tr>
+<tr>
+<td>8.2.3</td>
+<td>提醒时段与频率控制</td>
+<td>按已设定时段和频率限制输出提醒，抑制重复提示；提示内容由第5章提供。</td>
+<td>减少重复催促和夜间打扰。</td>
+<td>P0</td>
+<td>待评审</td>
+<td>设备隐私与权限</td>
+<td>设置责任端、时段与频率待确认</td>
+</tr>
+<tr>
+<td>8.2.4</td>
+<td>查看设备数据使用说明</td>
+<td>说明设备采集用途、结构化记录及原始视频不保存边界。</td>
+<td>家庭理解隐私和数据用途。</td>
+<td>待确认</td>
+<td>待评审</td>
+<td>设备权限管理</td>
+<td>呈现位置、内容及是否独立条目待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><a id="feature-state-reference"></a></p>
+<h2 id="feature-state-mapping">Feature-State Mapping</h2>
+<h3 id="113-ue">11.3 UE业务状态引用</h3>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>UE标签</th>
+<th>业务含义 / 关联</th>
+<th>展示PAGE</th>
+<th>约束</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>INIT</td>
+<td>自主/任务上下文确认，3.1.4</td>
+<td>PAGE-02/03；儿童确认PAGE-00/08</td>
+<td>不等于设备开机；6.1.1创建时机TBD</td>
+</tr>
+<tr>
+<td>READY</td>
+<td>运动准备，3.2.1/3.2.2</td>
+<td>PAGE-04</td>
+<td>不是单凭标签允许开始，隐私/准备需满足</td>
+</tr>
+<tr>
+<td>COUNTDOWN</td>
+<td>明确开始时机，3.2.3</td>
+<td>PAGE-05</td>
+<td>不计数，结束复核条件</td>
+</tr>
+<tr>
+<td>RUNNING</td>
+<td>有效计数/反馈，第3–5章</td>
+<td>PAGE-06</td>
+<td>不确定事件不计，低置信度不确定纠错</td>
+</tr>
+<tr>
+<td>PAUSED</td>
+<td>暂停与成绩保留，3.3.1/3.3.2</td>
+<td>PAGE-06；继续回PAGE-04</td>
+<td>不新增/清零，恢复准入和再倒计时TBD</td>
+</tr>
+<tr>
+<td>FINISHED</td>
+<td>真实结束，3.3.3/6.1.2</td>
+<td>PAGE-06/07</td>
+<td>区分达标和提前结束，不代表保存</td>
+</tr>
+<tr>
+<td>SAVED</td>
+<td>本地已保存，6.2.1</td>
+<td>PAGE-07/01</td>
+<td>不代表已同步，保证/周期TBD</td>
+</tr>
+<tr>
+<td>SYNCING</td>
+<td>正在上传/补传，6.3</td>
+<td>PAGE-07/01，后台</td>
+<td>记录独立状态，不阻断允许本地运动</td>
+</tr>
+<tr>
+<td>SYNCED</td>
+<td>平台业务确认，6.3.1</td>
+<td>PAGE-07/01，后台</td>
+<td>发送成功不等于业务接收</td>
+</tr>
+</tbody>
+</table></div>
+<p>英文标签仅为UE沟通语义，不定义API字段、数据结构或客户端枚举。执行、保存、同步是不同维度；完成运动≠已保存，已保存≠已同步。绑定/网络/隐私各有独立状态，不强行套入运动标签。准备/倒计时/暂停不累计成绩，恢复重查隐私与准备；具体阈值、时长、重试、断电和撤权响应TBD。</p>
+<p>详细状态与PAGE线框见UE工程附录A，异常业务依据见附录B；已有第11.2状态规则保留，工程细则TBD / FR阶段定义。</p>
+<h3 id="142-ue">14.2 历史候选与UE页面关联</h3>
+<p>以下为v0.5已登记的20个候选/细化号，全部Candidate / Pending Review / 优先级TBD，不是本次新增、不是已批准独立功能，也不计入UE原47项核心映射。合并或停用须另评审，不擅自改号或状态。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>功能编号</th>
+<th>页面编号</th>
+<th>处理类型</th>
+<th>既有功能关系/边界</th>
+<th>UE问题</th>
+<th>Test Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.2.6</td>
+<td>PAGE-08</td>
+<td>独立候选</td>
+<td>1.2.3仅版本，不含名称/SN</td>
+<td>UE-OQ-09</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>1.2.7</td>
+<td>PAGE-08/PAGE-00</td>
+<td>独立候选</td>
+<td>1.2.5仅重启；重置不等于解绑</td>
+<td>UE-OQ-09/10</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>1.2.8</td>
+<td>PAGE-08</td>
+<td>独立候选</td>
+<td>9章OTA追踪，不承诺下载/安装</td>
+<td>UE-OQ-09</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>2.1.3</td>
+<td>PAGE-01</td>
+<td>独立呈现候选</td>
+<td>3.1.3/5.2已有事实，聚合未确认</td>
+<td>UE-OQ-09</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>2.2.3</td>
+<td>PAGE-08</td>
+<td>独立设置候选</td>
+<td>8.2.3提醒约束不等于音量控制</td>
+<td>UE-OQ-09/10</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>2.2.4</td>
+<td>PAGE-08</td>
+<td>独立设置候选</td>
+<td>8.2.3不证明提示音开关获准</td>
+<td>UE-OQ-09/10</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>3.1.5</td>
+<td>PAGE-03</td>
+<td>已有呈现细化待审</td>
+<td>3.1.3负责任务内容/状态；今日聚合候选</td>
+<td>UE-OQ-02/04</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>3.1.6</td>
+<td>PAGE-03</td>
+<td>已有呈现细化待审</td>
+<td>3.1.3/3.1.4主功能；列表/详情拆分TBD</td>
+<td>UE-OQ-02/04</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>7.1.3</td>
+<td>PAGE-08/PAGE-00</td>
+<td>已有联网细化待审</td>
+<td>7.1.1主功能；更换网络入口候选</td>
+<td>UE-OQ-09/10</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>7.1.4</td>
+<td>PAGE-08</td>
+<td>已有联网细化待审</td>
+<td>7.1.1/7.1.2主功能；非独立诊断承诺</td>
+<td>UE-OQ-09/10</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>7.2.4</td>
+<td>PAGE-00</td>
+<td>已有绑定细化待审</td>
+<td>7.2.3主功能；不另建账号体系</td>
+<td>UE-OQ-01/10</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>7.2.5</td>
+<td>PAGE-00</td>
+<td>二维码方案候选</td>
+<td>7.2.3不指定二维码</td>
+<td>UE-OQ-01</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>7.2.6</td>
+<td>PAGE-00</td>
+<td>二维码条件候选</td>
+<td>仅二维码获准后适用，与绑定一并评审</td>
+<td>UE-OQ-01</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>7.2.7</td>
+<td>PAGE-00</td>
+<td>绑定帮助候选</td>
+<td>7.2.3主功能；是否独立条目TBD</td>
+<td>UE-OQ-01/09</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>7.2.8</td>
+<td>PAGE-08</td>
+<td>已有儿童确认细化待审</td>
+<td>7.2.3主功能；切换端/条件TBD</td>
+<td>UE-OQ-04/10</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>7.2.9</td>
+<td>PAGE-08</td>
+<td>既有关系处置细化待审</td>
+<td>7.2.3/8.2.2主责任；不承诺本机入口</td>
+<td>UE-OQ-04/10</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>8.1.3</td>
+<td>PAGE-08</td>
+<td>既有隐私控制细化待审</td>
+<td>8.1.1/8.1.2已有阻断/关闭；开关形式候选</td>
+<td>UE-OQ-10</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>8.2.4</td>
+<td>PAGE-08</td>
+<td>历史说明候选</td>
+<td>UE3.1未将说明独立纳入；继续追踪</td>
+<td>UE-OQ-09/10</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>4.3.1</td>
+<td>PAGE-09</td>
+<td>独立辅助候选</td>
+<td>4.1.1/3.2.2仅复用依据，不代表独立批准</td>
+<td>UE-OQ-08</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>4.3.2</td>
+<td>PAGE-09</td>
+<td>关键点显示候选</td>
+<td>运动准备与独立显示均不默认支持</td>
+<td>UE-OQ-08/09</td>
+<td>TC-TBD</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="143">14.3 变更管理结果</h3>
+<p>原47项P0保留，新增20项待评审候选，共67项在评审清单中；2项历史停用另列。新增不是已批准交付范围，独立姿态与更新查询不能据清单推断已支持。变更批准人、日期及优先级均待确认。原v0.4、UE v0.1及更早版本保持原样。</p>
+<p>部分条目属于已有功能的显性细化，而非新能力；评审若决定合并，保留新号并标记停用去向，不重用编号。本文不定义UI位置、协议、算法或新增云端系统。</p>
+<hr />
+<h3 id="144-page">14.4 核心需求—功能—PAGE—状态—测试追踪</h3>
+<p>本表同步UE IA v0.3.1第6章，以v0.4原47项P0为核心基线，与本大纲原47项编号、行为、优先级一致。Requirement为已有需求意图，不是新Requirement ID；PAGE包括展示/触发和后台支撑，不将后台功能变成页面；State不是实现枚举；用例未建立/确认均TC-TBD。</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Function</th>
+<th>PAGE / 关系</th>
+<th>State</th>
+<th>Test Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>让家庭知道设备能否开始使用。</td>
+<td>1.1.1 开机与初始化</td>
+<td>PAGE-00/01启动路由支撑，无新增启动PAGE</td>
+<td>启动/恢复（非INIT）</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>重启后回到正确状态，不自动续计或伪称完成。</td>
+<td>1.1.2 恢复启动状态</td>
+<td>PAGE-00/01启动路由支撑，无新增启动PAGE</td>
+<td>启动/恢复（非INIT）</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>状态一致，避免同一操作在不同入口产生冲突。</td>
+<td>1.2.1 设备运行状态管理</td>
+<td>PAGE-00–08状态与异常支撑</td>
+<td>设备/故障展示</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>故障时能够理解原因并恢复使用。</td>
+<td>1.2.2 设备故障处理</td>
+<td>PAGE-00–08状态与异常支撑</td>
+<td>设备/故障展示</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>便于核对设备版本和定位兼容问题。</td>
+<td>1.2.3 查看设备软件版本</td>
+<td>PAGE-08设备状态</td>
+<td>设备/故障展示</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>故障可定位、可复盘。</td>
+<td>1.2.4 故障信息记录</td>
+<td>后台记录支撑，无独立页面承诺</td>
+<td>设备/故障展示</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>无法正常使用时有恢复入口。</td>
+<td>1.2.5 设备重启</td>
+<td>PAGE-08系统设置</td>
+<td>设备/故障展示</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>减少寻找入口和开练阻力。</td>
+<td>2.1.1 运动入口</td>
+<td>PAGE-01/02/03</td>
+<td>首页/运动状态回应</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>运动中获得一致且适度的角色回应。</td>
+<td>2.1.2 显示角色状态表情</td>
+<td>PAGE-01；PAGE-04–07按已有运动事件回应，承载TBD</td>
+<td>首页/运动状态回应</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>知道设备当前是否可用，以及怎样处理问题。</td>
+<td>2.2.1 设备状态提示</td>
+<td>PAGE-00–08通用支撑</td>
+<td>操作反馈/状态展示</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>清楚操作是否生效。</td>
+<td>2.2.2 操作接收与确认</td>
+<td>PAGE-00–08通用支撑</td>
+<td>操作反馈/状态展示</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>收到可执行而非无效任务。</td>
+<td>3.1.1 接收并检查运动任务</td>
+<td>PAGE-03消费后台接收事实，不新增接收页面</td>
+<td>INIT / 任务有效性</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>家长知道任务是否真实送达。</td>
+<td>3.1.2 反馈任务接收结果</td>
+<td>PAGE-03消费后台接收事实，不新增接收页面</td>
+<td>INIT / 任务有效性</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>儿童明白为什么做、做多少。</td>
+<td>3.1.3 展示任务内容与执行状态</td>
+<td>PAGE-03</td>
+<td>INIT / 任务有效性</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>运动目标清楚，自主运动与家长任务不混淆。</td>
+<td>3.1.4 动作与目标确认</td>
+<td>PAGE-02/03</td>
+<td>INIT / 任务有效性</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>减少不理解动作造成的失败。</td>
+<td>3.2.1 动作说明</td>
+<td>PAGE-04</td>
+<td>READY / COUNTDOWN</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>知道如何站好，准备完成后再开练。</td>
+<td>3.2.2 入镜准备引导</td>
+<td>PAGE-04；PAGE-09仅候选复用依据</td>
+<td>READY / COUNTDOWN</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>有时间准备，避免突然计数。</td>
+<td>3.2.3 开始确认与倒计时</td>
+<td>PAGE-04/05</td>
+<td>READY / COUNTDOWN</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>已完成努力不因中断消失。</td>
+<td>3.3.1 暂停与成绩保留</td>
+<td>PAGE-06/04；再次经过PAGE-05与否TBD</td>
+<td>RUNNING / PAUSED / FINISHED</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>安全且连贯地继续运动。</td>
+<td>3.3.2 恢复运动</td>
+<td>PAGE-06/04；再次经过PAGE-05与否TBD</td>
+<td>RUNNING / PAUSED / FINISHED</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>不强迫继续，不伪造达标。</td>
+<td>3.3.3 达标与提前结束</td>
+<td>PAGE-06 → PAGE-07</td>
+<td>FINISHED</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>避免在看不清动作时开始计数。</td>
+<td>4.1.1 人体与画面可用性检测</td>
+<td>PAGE-04/05/06；PAGE-09仅候选复用依据</td>
+<td>READY / COUNTDOWN / RUNNING / PAUSED</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>孩子和家长得到可信成绩。</td>
+<td>4.1.2 有效动作计数</td>
+<td>PAGE-06，异常准备原因由PAGE-04承接</td>
+<td>READY / COUNTDOWN / RUNNING / PAUSED</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>知道如何调整，而非被错误指责。</td>
+<td>4.1.3 判定运动识别异常</td>
+<td>PAGE-06，异常准备原因由PAGE-04承接</td>
+<td>READY / COUNTDOWN / RUNNING / PAUSED</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>完整开合跳被可信记录。</td>
+<td>4.2.1 开合跳动作判定</td>
+<td>PAGE-06计数依据，不新增动作范围</td>
+<td>RUNNING</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>完整深蹲被可信记录。</td>
+<td>4.2.2 深蹲起动作判定</td>
+<td>PAGE-06计数依据，不新增动作范围</td>
+<td>RUNNING</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>目标与实际成绩使用一致口径。</td>
+<td>4.2.3 高抬腿动作判定</td>
+<td>PAGE-06计数依据，不新增动作范围</td>
+<td>RUNNING</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>看见实际努力和距目标的差距。</td>
+<td>5.1.1 次数与进度反馈</td>
+<td>PAGE-06</td>
+<td>RUNNING / FINISHED</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>得到可理解指导且减少挫败。</td>
+<td>5.1.2 动作反馈与调整提示</td>
+<td>PAGE-06</td>
+<td>RUNNING / FINISHED</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>获得尊重真实努力的反馈。</td>
+<td>5.1.3 完成鼓励</td>
+<td>PAGE-07</td>
+<td>RUNNING / FINISHED</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>儿童结束后能理解本次努力。</td>
+<td>5.2.1 运动结果查看</td>
+<td>PAGE-07</td>
+<td>FINISHED / SAVED / SYNCING / SYNCED</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>不把运动结束误解为已回传。</td>
+<td>5.2.2 保存与同步提示</td>
+<td>PAGE-07；必要同步提示PAGE-01</td>
+<td>FINISHED / SAVED / SYNCING / SYNCED</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>每次运动可以追溯到正确儿童。</td>
+<td>6.1.1 记录创建与归属</td>
+<td>PAGE-02/03/06/07共用事实支撑，无重复记录系统</td>
+<td>创建时机TBD / FINISHED</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>可信查看真实完成情况。</td>
+<td>6.1.2 生成运动结果记录</td>
+<td>PAGE-02/03/06/07共用事实支撑，无重复记录系统</td>
+<td>创建时机TBD / FINISHED</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>离线可使用、不丢记录。</td>
+<td>6.2.1 本地保存</td>
+<td>PAGE-01/03/06/07消费保存恢复事实；后台处理</td>
+<td>保存维度：SAVED / 未保存</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>重启后不产生重复或虚假的运动记录。</td>
+<td>6.2.2 已保存记录恢复</td>
+<td>PAGE-01/03/06/07消费保存恢复事实；后台处理</td>
+<td>保存/恢复：SAVED或失败</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>不误导家长或静默丢失。</td>
+<td>6.2.3 保存失败处理</td>
+<td>PAGE-01/03/06/07消费保存恢复事实；后台处理</td>
+<td>保存/恢复：SAVED或失败</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>家长查看同一真实记录。</td>
+<td>6.3.1 上传结果并更新同步状态</td>
+<td>PAGE-07/01消费独立同步状态，后台处理</td>
+<td>SAVED / SYNCING / SYNCED</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>没有重复记录或虚假成长。</td>
+<td>6.3.2 补传失败结果并防重复</td>
+<td>PAGE-07/01消费独立同步状态，后台处理</td>
+<td>SAVED / SYNCING / SYNCED</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>可完成连接并理解故障。</td>
+<td>7.1.1 网络连接管理</td>
+<td>PAGE-00/08；PAGE-01必要状态提示</td>
+<td>在线/离线（独立维度）</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>理解联网状态与当前可用能力。</td>
+<td>7.1.2 联网状态提示</td>
+<td>PAGE-00/08；PAGE-01必要状态提示</td>
+<td>在线/离线（独立维度）</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>家长端了解设备可用状态。</td>
+<td>7.2.1 设备状态同步</td>
+<td>后台同步支撑，非独立页面</td>
+<td>绑定/儿童/设备状态</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>避免记录分配给错误儿童。</td>
+<td>7.2.3 绑定状态与当前儿童确认</td>
+<td>PAGE-00/08；PAGE-01使用有效上下文</td>
+<td>绑定/儿童/设备状态</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>家长边界可控且可解释。</td>
+<td>8.1.1 检查授权并阻断不允许的采集</td>
+<td>PAGE-04/05/06/08，PAGE-01必要提示；PAGE-09获准后亦须遵守</td>
+<td>隐私准入/采集状态</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>知道摄像头是否工作，并能停止采集。</td>
+<td>8.1.2 摄像头状态提示与关闭</td>
+<td>PAGE-04/05/06/08，PAGE-01必要提示；PAGE-09获准后亦须遵守</td>
+<td>隐私准入/采集状态</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>可管理设备数据的使用和清理。</td>
+<td>8.2.2 处理设备数据权限与删除请求</td>
+<td>后台执行与回执；PAGE-08设备端入口TBD</td>
+<td>权限/提醒约束</td>
+<td>TC-TBD</td>
+</tr>
+<tr>
+<td>减少重复催促和夜间打扰。</td>
+<td>8.2.3 提醒时段与频率控制</td>
+<td>PAGE-01/06/07等提示输出约束；PAGE-08设置入口TBD，不等于声音控制</td>
+<td>权限/提醒约束</td>
+<td>TC-TBD</td>
+</tr>
+</tbody>
+</table></div>
+<p>7.2.2已停用并归6.3.1，8.2.1已停用并移8.3全局约束，不重复实现；约束适用于全部PAGE，测试引用TC-TBD。PAGE-09候选不与已批准独立功能绑定，4.3.1/4.3.2只在14.2候选层追踪。其他P1/未决追踪继续第9章，不虚构PAGE或测试编号。</p>
+<p>当前同步结果：47项原P0 / Pending Review、20项历史候选 / 优先级TBD、2项历史停用追溯；本次新增功能数为0。UE IA仍明确以v0.4核心作为引用基线，本大纲v0.5.2是核心与候选的同步评审清单，不代替范围批准。原始UI/FR/TR与测试未改写，后续引用应明确版本。</p>
+<h1 id="version-history">Version History</h1>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Status</th>
+<th>Change Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v1.0.0</td>
+<td>2026-10-12</td>
+<td>Codex（AI，执行用户指令）</td>
+<td>Review</td>
+<td>从PRD迁入69项追踪、47详细卡、状态/异常及问题关联，新增对应PRD业务章节；不新增需求编号或范围</td>
+</tr>
+</tbody>
+</table></div>
+<p>| v1.0.1 | 2026-10-12 | Codex（AI，执行用户指令） | Review | 记录用户确认MVP演示仅开合跳、深蹲起、高抬腿；保留整体七动作追踪与其他未决项，编号及优先级不变 |</p>
+<p>| v1.1.0 | 2026-10-12 | Codex（AI，执行用户指令） | Review | 接收功能规格原69项完整条目与功能状态/页面追踪，新增Excel同源导出；原PRD追踪保留 |</p>
+<h1 id="change-impact">Change Impact</h1>
+<p>原正文内部管理信息独立维护；来源、编号、优先级和未决项不变。风险Medium，需检查迁移完整性。详见<a href="../../governance/CHANGE-PRD-READABILITY-20261012.md">变更单</a>。</p>
+<h1 id="decision-log">Decision Log</h1>
+<p>无产品/架构决策；用户要求正文与追踪分离，既有ID继续沿用，无实际Test Case则TC-TBD。</p>
+<h3 id="change-impact-mvp">Change Impact — MVP演示三动作确认</h3>
+<p>演示动作范围从待确认改为用户已确认；其他范围/规则未变。详见<a href="../../governance/CHANGE-MVP-THREE-ACTIONS-CONFIRMED-20261012.md">变更单</a>。</p>
+<h3 id="decision-log-mvp">Decision Log — MVP演示三动作</h3>
+<p>2026-10-12用户确认MVP仅演示开合跳、深蹲起、高抬腿；这是已确认演示范围，整体产品七动作追踪及动作规则/单位仍未被本次决策删改。确认来源：用户本轮消息；具体执行Owner待指定。</p>
+<h3 id="change-impact-feature-separation">Change Impact — Feature separation</h3>
+<p>从功能大纲迁入机器追踪信息，功能与状态不变；<a href="../../governance/CHANGE-FEATURE-DOCUMENT-SEPARATION-20261012.md">变更单</a>。</p></main></div><footer>从固定Markdown导出；内容状态与来源追踪不变。Markdown SHA256：9cbb19c9c16b26bfdc3ccd80ef96840c54f53635b02c3d94e8bbb8c423a30ceb</footer></body></html>

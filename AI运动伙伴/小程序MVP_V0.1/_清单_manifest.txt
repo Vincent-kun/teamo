@@ -1,0 +1,67 @@
+# 微信小程序 MVP V0.1 文件清单（自动生成）
+# 归档时间: 2026-10-08
+
+README.md	3753B	60L
+miniprogram/app.js	1403B	39L
+miniprogram/app.json	977B	36L
+miniprogram/app.wxss	4511B	65L
+miniprogram/data/mock.js	3673B	39L
+miniprogram/pages/ai/index.js	3285B	67L
+miniprogram/pages/ai/index.json	44B	1L
+miniprogram/pages/ai/index.wxml	3893B	49L
+miniprogram/pages/ai/index.wxss	4244B	32L
+miniprogram/pages/analysis/index.js	505B	12L
+miniprogram/pages/analysis/index.json	42B	1L
+miniprogram/pages/analysis/index.wxml	2132B	30L
+miniprogram/pages/analysis/index.wxss	1699B	12L
+miniprogram/pages/device/index.js	4306B	75L
+miniprogram/pages/device/index.json	42B	1L
+miniprogram/pages/device/index.wxml	4990B	51L
+miniprogram/pages/device/index.wxss	4548B	36L
+miniprogram/pages/growth/index.js	722B	9L
+miniprogram/pages/growth/index.json	36B	1L
+miniprogram/pages/growth/index.wxml	2690B	41L
+miniprogram/pages/growth/index.wxss	4714B	33L
+miniprogram/pages/home/index.js	1981B	37L
+miniprogram/pages/home/index.json	36B	1L
+miniprogram/pages/home/index.wxml	4670B	74L
+miniprogram/pages/home/index.wxss	7257B	54L
+miniprogram/pages/library/index.js	1813B	29L
+miniprogram/pages/library/index.json	39B	1L
+miniprogram/pages/library/index.wxml	1573B	18L
+miniprogram/pages/library/index.wxss	3090B	17L
+miniprogram/pages/mine/index.js	1148B	19L
+miniprogram/pages/mine/index.json	36B	1L
+miniprogram/pages/mine/index.wxml	2181B	25L
+miniprogram/pages/mine/index.wxss	1758B	16L
+miniprogram/pages/posture/index.js	125B	2L
+miniprogram/pages/posture/index.json	42B	1L
+miniprogram/pages/posture/index.wxml	1452B	4L
+miniprogram/pages/posture/index.wxss	1690B	2L
+miniprogram/pages/profile/index.js	964B	15L
+miniprogram/pages/profile/index.json	42B	1L
+miniprogram/pages/profile/index.wxml	1176B	1L
+miniprogram/pages/profile/index.wxss	1224B	2L
+miniprogram/pages/records/index.js	429B	10L
+miniprogram/pages/records/index.json	42B	1L
+miniprogram/pages/records/index.wxml	1168B	3L
+miniprogram/pages/records/index.wxss	1569B	3L
+miniprogram/pages/tasks/index.js	5229B	104L
+miniprogram/pages/tasks/index.json	36B	1L
+miniprogram/pages/tasks/index.wxml	4385B	53L
+miniprogram/pages/tasks/index.wxss	4862B	39L
+miniprogram/services/api.js	2004B	49L
+miniprogram/sitemap.json	100B	4L
+project.config.json	876B	36L
+project.private.config.json	551B	21L
+小程序产品与UI整改说明_V0.8.md	3534B	51L
+接口对接说明.md	2951B	106L
+
+## 按类型统计
+.json: 15
+.js: 14
+.wxss: 12
+.wxml: 11
+.md: 3
+
+总代码行数(约): 1491

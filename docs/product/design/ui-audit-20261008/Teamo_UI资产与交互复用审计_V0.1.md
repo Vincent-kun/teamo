@@ -1,3 +1,17 @@
+# Document Control
+
+| 字段 | 内容 |
+|---|---|
+| Document Type | UX Design / Research |
+| Current Version | v0.1.1 |
+| Status | Draft |
+| Owner | 待确认（项目协调：魏子奇；不等同文档审批责任人） |
+| Reviewer | 待指派 |
+| Created Date | 2026-10-08 |
+| Last Updated | 2026-10-12 |
+
+> 文档控制版本以本表为准；原文件名和正文版本标识保留为历史业务版本。Draft/Review 为本次治理提交状态，非产品审批结论。创建日期取自原标识，待 Owner 核实。
+
 # Teamo UI资产与交互复用审计 V0.1
 
 复核：2026-10-08。范围：本地工作树、GitHub main与feat/research-and-prototype；重点是交互职责与可靠状态。此报告提出改造建议，不修改原需求或替PM裁剪MVP。
@@ -90,3 +104,37 @@
 下一评审需要：真实屏幕与输入方式、展示动作/计数质量依据、实际开发责任人与容量、平台交付范围。完整框架继续保留，11/15只交已确认切片。没有提交/推送或改写生产工程。
 
 附件：[逐文件CSV](UI资产逐文件索引.csv)、[JSON](UI资产逐文件索引.json)、[统计](审计统计.json)。
+
+
+---
+
+# Version History
+
+| Version | Date | Author | Status | Change Summary |
+|---|---|---|---|---|
+| v0.1.0 | 待核实 | 原作者待核实 | 待核实 | 登记导入前现存正文基线；已有版本标识，既有版本记录仍保留在正文；不推断历史修改或批准 |
+| v0.1.1 | 2026-10-12 | Codex（AI，执行用户指令） | Draft | 新增 Document Control、标准 Version History、Change Impact 与 Decision Log；保留既有业务正文及历史记录 |
+
+> 本表仅登记已验证的现存基线与本次修改。历史日期、作者和状态待核实；原有版本记录是补录证据入口，不能据文件名编造缺失版本。
+
+# Change Impact
+
+### Modified Sections
+
+- Section: 文档顶部与治理附录。
+- Before: 缺少统一的文档控制表和标准版本记录。
+- After: 增加控制表、基线与 Patch 历史、影响分析和决策记录入口；原业务正文保留。
+
+### Impact Scope
+
+Affected:
+- 本文及引用本文的项目文档；本次无业务要求变更。
+- 逐文件版本、备份和修改报告见 docs/governance/CHANGELOG-20261012.md。
+
+### Risk
+
+Low。Owner、Reviewer、历史审批状态仍待确认；本次结构治理不冻结产品需求。
+
+# Decision Log
+
+本次未修改产品方向、功能取舍或系统架构。既有决策及待决事项保留在正文，尚未逐条验证迁入；后续涉及这些事项时按 docs/governance/DOCUMENT_VERSION_POLICY.md 记录，建议与已批准决策必须区分。

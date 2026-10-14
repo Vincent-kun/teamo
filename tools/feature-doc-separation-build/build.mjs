@@ -1,0 +1,28 @@
+import fs from 'node:fs/promises';
+import {Workbook, SpreadsheetFile} from '@oai/artifact-tool';
+const output='D:/work/sportmate/docs/product/requirements/Teamo_Device_Requirement_Traceability_Matrix_v0.1.xlsx';
+const rows=JSON.parse(await fs.readFile(new URL('./rtm-data.json',import.meta.url),'utf8'));
+const wb=Workbook.create();const sheet=wb.worksheets.add('RTM');
+sheet.getRange('A1:K1').merge();sheet.getRange('A1').values=[['Teamo设备端需求追踪矩阵 · v0.1.0 · Review']];
+sheet.getRange('A2:K2').merge();sheet.getRange('A2').values=[['69项原功能：47核心、20待确认、2停用；不新增REQ/PAGE/State/TC编号，实际测试未建立。']];
+sheet.getRange('A3:K3').merge();sheet.getRange('A3').values=[['Source: Feature Specification v0.6.0；UE IA v0.3.2；Requirement Baseline v0.1.2；RTM Markdown v1.1.0。Excel为固定导出，不独立裁决范围。']];
+const headers=['Requirement（已有意图）','需求描述','Function','Page / UI关系','State（业务）','Test Case','Priority','状态','行为归属','待确认','原功能描述'];
+sheet.getRange('A5:K74').values=[headers,...rows];
+sheet.getRange('A1:K74').format.font.name='Microsoft YaHei';sheet.getRange('A1:K74').format.font.size=11;
+sheet.getRange('A1:K74').format.font.color='#222222';sheet.getRange('A1:K74').format.wrapText=true;
+sheet.getRange('A1:K74').format.verticalAlignment='top';sheet.getRange('A1:K74').format.fill='#ffffff';
+sheet.getRange('A1:K1').format.font.bold=true;sheet.getRange('A1:K1').format.font.size=16;
+sheet.getRange('A1:K1').format.rowHeight=32;sheet.getRange('A2:K3').format.rowHeight=30;
+sheet.getRange('A5:K5').format.font.bold=true;sheet.getRange('A5:K5').format.fill='#e8e8e8';sheet.getRange('A5:K5').format.rowHeight=36;
+sheet.getRange('A6:K74').format.rowHeight=80;
+for(const [column,width] of [['A',30],['B',26],['C',12],['D',38],['E',27],['F',14],['G',20],['H',24],['I',25],['J',45],['K',65]])sheet.getRange(`${column}1:${column}74`).format.columnWidth=width;
+sheet.freezePanes.freezeRows(5);sheet.freezePanes.freezeColumns(3);
+const table=sheet.tables.add('A5:K74',true,'DeviceRTM');table.showFilterButton=true;
+// Override native table's theme so it remains neutral rather than blue.
+sheet.getRange('A5:K74').format.font.color='#222222';sheet.getRange('A5:K74').format.fill='#ffffff';sheet.getRange('A5:K5').format.fill='#e8e8e8';
+await wb.recalculate();
+console.log((await wb.inspect({kind:'region',sheetId:'RTM',range:'A5:K8',maxChars:1800,tableMaxRows:4,tableMaxCols:6})).ndjson);
+const file=await SpreadsheetFile.exportXlsx(wb);await file.save(output);
+const preview=await wb.render({sheetName:'RTM',range:'A1:K8',scale:1,format:'png'});
+await fs.writeFile(new URL('./preview.png',import.meta.url),new Uint8Array(await preview.arrayBuffer()));
+console.log('EXPORTED '+output+'; rows='+rows.length);

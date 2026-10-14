@@ -1,0 +1,6 @@
+{
+  "status": "not-run",
+  "reason": "Headless browser launch unavailable; subsequent file:// tool access rejected by browser policy. Browser layout and interaction acceptance remain pending.",
+  "checks": [],
+  "realHardwareAcceptance": false
+}

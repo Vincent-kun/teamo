@@ -1,0 +1,53 @@
+<view class="page">
+  <view class="brand-kicker">PARENT JOURNEY <text>01</text></view>
+  <view class="hero-title">运动邀请</view>
+  <view class="hero-sub">发出邀请，Teamo 陪孩子完成挑战</view>
+
+  <view class="journey">
+    <view class="journey-item active"><text>1</text><view>发出邀请</view></view><view class="journey-line"></view>
+    <view class="journey-item"><text>2</text><view>设备提醒</view></view><view class="journey-line"></view>
+    <view class="journey-item"><text>3</text><view>完成得星</view></view>
+  </view>
+
+  <view class="tabs">
+    <button class="{{filter==='today'?'active':''}}" data-value="today" bindtap="setFilter">待进行</button>
+    <button class="{{filter==='future'?'active':''}}" data-value="future" bindtap="setFilter">计划中</button>
+    <button class="{{filter==='done'?'active':''}}" data-value="done" bindtap="setFilter">历史</button>
+  </view>
+  <button class="btn btn-primary create" bindtap="openCreate">＋ 创建运动邀请</button>
+  <view class="receipt-banner" wx:if="{{lastReceipt}}"><text>✓</text><view><view class="strong">设备已确认接收</view><view class="small">{{lastReceipt}}</view></view></view>
+
+  <view class="create-panel" wx:if="{{showCreate}}">
+    <view class="sheet-head"><view><view class="strong">创建运动邀请</view><view class="small muted">选择动作、次数和提醒周期</view></view><text bindtap="closeCreate">×</text></view>
+    <view class="form-label">邀请类型</view><view class="type-switch"><button class="{{taskType==='action'?'active':''}}" data-value="action" bindtap="chooseType">单项运动</button><button class="{{taskType==='plan'?'active':''}}" data-value="plan" bindtap="chooseType">AI计划</button></view>
+    <block wx:if="{{taskType==='action'}}"><view class="form-label">选择运动</view>
+    <view class="choices">
+      <button wx:for="{{actions}}" wx:key="id" class="choice {{selected===item.id?'active':''}}" data-id="{{item.id}}" bindtap="chooseAction">
+        <view class="strong">{{item.name}}</view><view class="small">{{item.type}}</view>
+      </button>
+    </view>
+    <view class="form-label">目标次数</view>
+    <view class="target"><button data-step="-5" bindtap="changeTarget">−</button><text>{{target}}</text><button data-step="5" bindtap="changeTarget">＋</button></view></block>
+    <view class="plan-choice" wx:else><view class="strong">{{state.plans[0].name}}</view><view class="small muted">发送计划中的今日动作组合</view></view>
+    <view class="form-label">执行周期</view>
+    <view class="chips"><button wx:for="{{schedules}}" wx:key="id" class="chip {{schedule===item.id?'active':''}}" data-id="{{item.id}}" bindtap="chooseSchedule">{{item.name}}</button></view>
+    <view class="form-label">提醒时间</view>
+    <picker mode="time" value="{{scheduledTime}}" bindchange="chooseTime"><view class="time-picker"><text>{{scheduledTime}}</text><text>点击修改 ›</text></view></picker>
+    <view class="device-choice"><view class="device-dot"></view><view class="grow"><view class="strong">发送至 {{state.device.name}}</view><view class="small muted">{{state.device.online?'设备在线，可立即接收':'设备离线，联网后自动同步'}}</view></view><text>✓</text></view>
+    <view class="send-note">到点后设备会通过语音和可爱表情提醒孩子，无需孩子确认接收。</view>
+    <button class="btn btn-primary full" loading="{{submitting}}" disabled="{{submitting}}" bindtap="sendTask">{{submitting?'正在布置':'确认邀请'}}</button>
+  </view>
+
+  <view class="section-title">任务列表</view>
+  <view class="list">
+    <block wx:for="{{visibleTasks}}" wx:key="id">
+      <view class="list-item">
+        <view class="round">{{index+1}}</view>
+        <view class="grow"><view class="strong">{{item.name}}</view><view class="small muted">{{item.source}} · {{item.target}}{{item.unit}} · {{item.time}}</view><view class="task-receipt">{{item.receipt}}</view></view>
+        <view class="task-side"><view class="pill">{{item.status}}</view><button wx:if="{{item.status==='待执行' || item.status==='已计划'}}" class="cancel" data-id="{{item.id}}" catchtap="cancelTask">取消</button></view>
+      </view>
+    </block>
+    <view class="empty" wx:if="{{visibleTasks.length===0}}">这个分类下还没有任务</view>
+  </view>
+
+</view>

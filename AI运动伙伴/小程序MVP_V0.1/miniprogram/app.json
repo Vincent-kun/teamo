@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/tasks/index",
+    "pages/ai/index",
+    "pages/growth/index",
+    "pages/mine/index",
+    "pages/device/index",
+    "pages/analysis/index",
+    "pages/library/index",
+    "pages/records/index",
+    "pages/posture/index",
+    "pages/profile/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "Teamo",
+    "navigationBarBackgroundColor": "#f2f8f7",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#eef5f4"
+  },
+  "tabBar": {
+    "color": "#8b908d",
+    "selectedColor": "#111816",
+    "backgroundColor": "#f9fbfa",
+    "borderStyle": "white",
+    "list": [
+      {"pagePath": "pages/home/index", "text": "首页"},
+      {"pagePath": "pages/tasks/index", "text": "任务"},
+      {"pagePath": "pages/ai/index", "text": "AI"},
+      {"pagePath": "pages/growth/index", "text": "成长"},
+      {"pagePath": "pages/mine/index", "text": "我的"}
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

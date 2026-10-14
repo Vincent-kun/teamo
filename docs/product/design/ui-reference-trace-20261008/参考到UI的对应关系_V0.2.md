@@ -1,3 +1,17 @@
+# Document Control
+
+| 字段 | 内容 |
+|---|---|
+| Document Type | UX Design / Research |
+| Current Version | v0.2.1 |
+| Status | Draft |
+| Owner | 待确认（项目协调：魏子奇；不等同文档审批责任人） |
+| Reviewer | 待指派 |
+| Created Date | 2026-10-08 |
+| Last Updated | 2026-10-12 |
+
+> 文档控制版本以本表为准；原文件名和正文版本标识保留为历史业务版本。Draft/Review 为本次治理提交状态，非产品审批结论。创建日期取自原标识，待 Owner 核实。
+
 # 参考原图 → 特征 → Teamo转译 → 同四屏方案
 
 2026-10-08 · V0.2视觉探索。针对“参考与示意联系不清”的批注重做。下列三个独立图稿已分别附真实截图生成，序号按本轮聊天显示顺序。旧评审板仅是内容线框，不能用于风格选型。本页是设计证据，不是可点击原型或已实现软件。
@@ -73,3 +87,37 @@
 ## 下一轮
 
 选择或指定要混合的特征后，先修正选定稿，再交互实现。继续复用已审计页面结构；命令/回执/会话/保存/补传遵循前轮审计，不因视觉变化改变。MVP范围由PM确定，不在本轮美化中删改产品承诺。
+
+
+---
+
+# Version History
+
+| Version | Date | Author | Status | Change Summary |
+|---|---|---|---|---|
+| v0.2.0 | 待核实 | 原作者待核实 | 待核实 | 登记导入前现存正文基线；已有版本标识，既有版本记录仍保留在正文；不推断历史修改或批准 |
+| v0.2.1 | 2026-10-12 | Codex（AI，执行用户指令） | Draft | 新增 Document Control、标准 Version History、Change Impact 与 Decision Log；保留既有业务正文及历史记录 |
+
+> 本表仅登记已验证的现存基线与本次修改。历史日期、作者和状态待核实；原有版本记录是补录证据入口，不能据文件名编造缺失版本。
+
+# Change Impact
+
+### Modified Sections
+
+- Section: 文档顶部与治理附录。
+- Before: 缺少统一的文档控制表和标准版本记录。
+- After: 增加控制表、基线与 Patch 历史、影响分析和决策记录入口；原业务正文保留。
+
+### Impact Scope
+
+Affected:
+- 本文及引用本文的项目文档；本次无业务要求变更。
+- 逐文件版本、备份和修改报告见 docs/governance/CHANGELOG-20261012.md。
+
+### Risk
+
+Low。Owner、Reviewer、历史审批状态仍待确认；本次结构治理不冻结产品需求。
+
+# Decision Log
+
+本次未修改产品方向、功能取舍或系统架构。既有决策及待决事项保留在正文，尚未逐条验证迁入；后续涉及这些事项时按 docs/governance/DOCUMENT_VERSION_POLICY.md 记录，建议与已批准决策必须区分。

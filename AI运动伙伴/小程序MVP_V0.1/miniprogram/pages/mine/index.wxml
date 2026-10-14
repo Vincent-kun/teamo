@@ -1,0 +1,25 @@
+<view class="page">
+  <view class="brand-kicker">TEAMO FAMILY <text>PROFILE</text></view>
+  <view class="profile-card">
+    <view class="avatar">夏</view>
+    <view><view class="name">{{state.profile.parentName}}</view><view class="small">{{state.profile.childName}}的家长 · 一起见证成长</view></view>
+  </view>
+
+  <view class="family-switch">
+    <view class="small muted">当前孩子</view><view class="child-pill"><text>{{state.profile.childName}}</text><text>{{state.profile.age}}岁</text></view><view class="switch-action">单孩子模式</view>
+  </view>
+
+  <view class="section-title">家庭与设备</view>
+  <view class="list">
+    <view class="list-item" bindtap="openProfile"><view class="icon">童</view><view class="grow"><view class="strong">孩子信息</view><view class="small muted">{{state.profile.childName}} · {{state.profile.age}}岁 · {{state.profile.goal}}</view></view><text>›</text></view>
+    <view class="list-item" bindtap="openDevice"><view class="icon dark">器</view><view class="grow"><view class="strong">我的设备</view><view class="small muted">1 台 · {{state.device.name}} · {{state.device.online?'在线':'离线'}}</view></view><text>›</text></view>
+  </view>
+
+  <view class="section-title">设置</view>
+  <view class="list">
+    <view class="list-item"><view class="grow"><view class="strong">消息提醒</view><view class="small muted">任务完成、设备离线与姿态提醒</view></view><switch color="#0e5662" checked="{{state.notifications}}" data-key="notifications" bindchange="toggleSetting"/></view>
+    <view class="list-item" bindtap="showPrivacy"><view class="grow"><view class="strong">隐私与儿童数据</view><view class="small muted">查看采集范围和数据保存规则</view></view><text>›</text></view>
+    <view class="list-item" bindtap="showHelp"><view class="grow"><view class="strong">使用帮助</view><view class="small muted">连接设备、布置任务与查看结果</view></view><text>›</text></view>
+    <view class="list-item" bindtap="resetDemo"><view class="grow"><view class="strong danger">重置演示数据</view></view><text>›</text></view>
+  </view>
+</view>

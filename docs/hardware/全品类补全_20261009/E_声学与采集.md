@@ -1,3 +1,17 @@
+# Document Control
+
+| 字段 | 内容 |
+|---|---|
+| Document Type | Hardware Requirement / Research |
+| Current Version | v0.1.1 |
+| Status | Draft |
+| Owner | 待确认（项目协调：魏子奇；不等同文档审批责任人） |
+| Reviewer | 待指派 |
+| Created Date | 2026-10-09 |
+| Last Updated | 2026-10-12 |
+
+> 文档控制版本以本表为准；原文件名和正文版本标识保留为历史业务版本。Draft/Review 为本次治理提交状态，非产品审批结论。创建日期取自原标识，待 Owner 核实。
+
 # E 工作包 · 功放与麦克风/音频采集补全（2026-10-09）
 
 项目：儿童 AI 运动陪伴机器人 | 主控：RV1106（Rockchip RV1106G2）| MVP 开发板验证
@@ -113,3 +127,37 @@
 - 新增 5 条：AMP03（NS4168，I²S 数字）、AMP04（NS4150，模拟 Class-D）、MIC02（MSM261S4030H0R，数字 MEMS）、MIC03（IM69D130，PDM）、MIC04（CMM-2718AT-38164W-TR，模拟 MEMS）。
 - 产品图：成功 3（AMP04 电路图 / MIC03 官方实物 / MIC04 实物），失败 2（NS4168：渠道页 JS 动态加载 + LCSC API 502；MSM261：仅拿到占位图，弃用）。
 - 主要待核项：MSM261 输出类型终核、RV1106 TRM PDM 支持、IM69D130 替代型号（原厂标 not for new design）、NS4168 8Ω 额定、各条目价格。
+
+
+---
+
+# Version History
+
+| Version | Date | Author | Status | Change Summary |
+|---|---|---|---|---|
+| v0.1.0 | 待核实 | 原作者待核实 | 待核实 | 登记导入前现存正文基线；无版本标识，治理初始化编号，不代表历史首次发布；不推断历史修改或批准 |
+| v0.1.1 | 2026-10-12 | Codex（AI，执行用户指令） | Draft | 新增 Document Control、标准 Version History、Change Impact 与 Decision Log；保留既有业务正文及历史记录 |
+
+> 本表仅登记已验证的现存基线与本次修改。历史日期、作者和状态待核实；原有版本记录是补录证据入口，不能据文件名编造缺失版本。
+
+# Change Impact
+
+### Modified Sections
+
+- Section: 文档顶部与治理附录。
+- Before: 缺少统一的文档控制表和标准版本记录。
+- After: 增加控制表、基线与 Patch 历史、影响分析和决策记录入口；原业务正文保留。
+
+### Impact Scope
+
+Affected:
+- 本文及引用本文的项目文档；本次无业务要求变更。
+- 逐文件版本、备份和修改报告见 docs/governance/CHANGELOG-20261012.md。
+
+### Risk
+
+Low。Owner、Reviewer、历史审批状态仍待确认；本次结构治理不冻结产品需求。
+
+# Decision Log
+
+本次未修改产品方向、功能取舍或系统架构。既有决策及待决事项保留在正文，尚未逐条验证迁入；后续涉及这些事项时按 docs/governance/DOCUMENT_VERSION_POLICY.md 记录，建议与已批准决策必须区分。

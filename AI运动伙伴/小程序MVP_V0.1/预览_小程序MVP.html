@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teamo 家长端小程序 MVP V0.1 · 预览</title>
+<style>
+  :root{
+    --green:#bdf52d; --green-dark:#111816; --mint:#effbcf; --ink:#121816;
+    --muted:#777d79; --line:#e6e3da; --orange:#ff7a32; --danger:#d9564d;
+    --pink:#f7d3e8; --lavender:#dedcf8; --sky:#d8eef1; --peach:#ffe3d2;
+    --teal:#0e5662;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:radial-gradient(1200px 700px at 80% -5%,#1c2630,#0c1116);
+    color:#e8eef0; min-height:100vh; padding:26px 16px 60px;
+    display:flex; flex-direction:column; align-items:center; gap:18px;
+  }
+  .topbar{width:100%;max-width:1080px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .topbar h1{font-size:18px;font-weight:800;letter-spacing:.3px}
+  .topbar .sub{color:#9fb0b6;font-size:12px;margin-top:3px}
+  .pagemenu{display:flex;flex-wrap:wrap;gap:7px}
+  .pagemenu button{
+    background:rgba(255,255,255,.08);color:#cdd9dd;border:1px solid rgba(255,255,255,.12);
+    padding:6px 11px;border-radius:999px;font-size:12px;cursor:pointer;transition:.15s;
+  }
+  .pagemenu button:hover{background:rgba(189,245,45,.18);color:#eaffc0}
+  .pagemenu button.active{background:var(--green);color:#111816;font-weight:700;border-color:var(--green)}
+
+  .stage{display:flex;gap:30px;align-items:flex-start;flex-wrap:wrap;justify-content:center}
+  /* phone */
+  .phone{
+    width:390px;flex:none;background:#0b0f12;border-radius:46px;padding:12px;
+    box-shadow:0 40px 90px rgba(0,0,0,.55),inset 0 0 0 2px #1b2228;
+    position:relative;
+  }
+  .notch{position:absolute;top:20px;left:50%;transform:translateX(-50%);width:120px;height:26px;background:#000;border-radius:0 0 16px 16px;z-index:30}
+  .screen{
+    width:100%;height:760px;background:
+      radial-gradient(circle at 88% 6%, rgba(210,226,255,.5) 0, rgba(210,226,255,0) 34%),
+      radial-gradient(circle at 7% 30%, rgba(242,220,237,.42) 0, rgba(242,220,237,0) 32%),
+      linear-gradient(165deg,#edf6f5 0%,#f8f7f3 55%,#eef4f3 100%);
+    border-radius:36px;overflow:hidden;position:relative;color:var(--ink);
+    display:flex;flex-direction:column;
+  }
+  .viewport{flex:1;overflow-y:auto;overflow-x:hidden;padding-bottom:64px}
+  .viewport::-webkit-scrollbar{width:0}
+  .page{min-height:100%;padding:18px 16px 26px}
+  .brand-kicker{color:#707671;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+  .brand-kicker text{color:#7cad10}
+  .hero-title{font-size:25px;font-weight:850;line-height:1.18;letter-spacing:-.3px}
+  .hero-sub{color:var(--muted);font-size:12px;margin-top:5px}
+  .section-title{font-weight:800;font-size:15px;margin:20px 2px 9px;display:flex;align-items:center;justify-content:space-between}
+  .section-title .link{color:#66700a;font-size:12px;font-weight:700}
+  .card{background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.82);border-radius:18px;padding:15px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 10px 24px rgba(48,66,64,.09);
+    -webkit-backdrop-filter:blur(20px) saturate(145%);backdrop-filter:blur(20px) saturate(145%)}
+  .row{display:flex;align-items:center;gap:11px}
+  .grow{flex:1;min-width:0}
+  .muted{color:var(--muted)}
+  .small{font-size:11px}
+  .strong{font-weight:750}
+  .pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:4px 9px;color:var(--green-dark);background:var(--mint);font-size:11px;font-weight:650;white-space:nowrap}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+  .dot.offline{background:#a8b3af}
+  .btn{min-height:46px;border-radius:14px;padding:12px 15px;font-size:14px;font-weight:750;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+  .btn-primary{background:var(--green);color:#111816}
+  .btn-soft{background:rgba(239,251,207,.76);color:var(--green-dark);border:1px solid rgba(255,255,255,.72)}
+  .btn-line{background:rgba(255,255,255,.62);color:var(--ink);border:1px solid rgba(255,255,255,.85)}
+  .btn-danger{background:#fff0ee;color:var(--danger)}
+  .btn-disabled{background:#e7e9e6;color:#9aa}
+  .split{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .metric{padding:12px 6px;text-align:center;border-radius:14px;background:rgba(255,255,255,.48);border:1px solid rgba(255,255,255,.62)}
+  .metric b{display:block;font-weight:850;font-size:19px}
+  .metric span{color:var(--muted);font-size:10px}
+  .list{overflow:hidden;border-radius:18px;background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.82);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 9px 22px rgba(54,70,68,.075);
+    -webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%)}
+  .list-item{display:flex;align-items:center;gap:11px;padding:13px;border-bottom:1px solid rgba(128,143,138,.12)}
+  .list-item:last-child{border-bottom:0}
+  .empty{text-align:center;color:var(--muted);padding:34px 14px;font-size:12px}
+  .progress{height:8px;border-radius:999px;overflow:hidden;background:#e9efec}
+  .progress>div{height:100%;border-radius:999px;background:linear-gradient(90deg,#d1ff4f,#9bdc11)}
+  .hidden{display:none!important}
+
+  /* home specifics */
+  .header-row{display:flex;align-items:flex-start;justify-content:space-between}
+  .hello{color:#778681;font-size:12px;margin-bottom:5px}
+  .avatar{width:42px;height:42px;border-radius:14px;background:rgba(255,255,255,.56);border:1px solid rgba(255,255,255,.9);
+    display:grid;place-items:center;font-weight:800;box-shadow:0 8px 18px rgba(60,80,78,.09);backdrop-filter:blur(18px)}
+  .notice{display:flex;align-items:center;gap:11px;background:linear-gradient(135deg,rgba(255,255,255,.58),rgba(246,218,237,.48));
+    border:1px solid rgba(255,255,255,.82);border-radius:20px;padding:14px;margin-top:18px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 10px 24px rgba(86,66,81,.09);backdrop-filter:blur(20px)}
+  .spark{width:30px;height:30px;border-radius:10px;background:#111816;color:#c9ff39;display:grid;place-items:center;font-size:10px;font-weight:900}
+  .device-card{display:flex;gap:13px;align-items:center;background:linear-gradient(135deg,rgba(255,255,255,.72),rgba(218,239,241,.48));border-color:rgba(255,255,255,.88)}
+  .robot{width:66px;height:88px;border-radius:26px 26px 22px 22px;background:linear-gradient(145deg,#fff,#e9e8e3);border:1px solid #dedbd3;position:relative;flex:none;box-shadow:0 10px 18px rgba(34,34,31,.12);padding-top:19px}
+  .privacy-slider{position:absolute;width:31px;height:10px;border-radius:99px;background:#151a19;left:18px;top:6px}
+  .slider-knob{position:absolute;right:1px;top:1px;width:11px;height:8px;border-radius:99px;background:#ff7836}
+  .camera{width:9px;height:9px;border-radius:50%;background:#0b1211;position:absolute;left:29px;top:6px;box-shadow:0 0 0 2px #555a57}
+  .face{width:48px;height:44px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#26302e,#080c0c 66%);margin:auto;display:flex;align-items:center;justify-content:center;gap:11px;position:relative}
+  .face .eye{width:5px;height:13px;border-radius:5px;background:#f6f7ef;box-shadow:0 0 6px rgba(255,255,255,.55)}
+  .teamo-mark{position:absolute;bottom:5px;font-size:5px;letter-spacing:1px;color:#777f7b}
+  .robot-key{width:11px;height:11px;border-radius:50%;border:1px solid #b6b5af;margin:4px auto 0}
+  .device-name{font-size:16px;font-weight:850}
+  .status{margin:6px 0}
+  .arrow{font-size:22px;color:#a0aba7}
+  .ai-cta{display:flex;align-items:center;gap:11px;width:100%;margin-top:11px;padding:14px;border-radius:20px;
+    background:linear-gradient(145deg,rgba(12,69,79,.95),rgba(14,86,98,.82));color:#fff;border:1px solid rgba(255,255,255,.18);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 12px 26px rgba(14,86,98,.18)}
+  .ai-mark{width:32px;height:32px;border-radius:11px;background:#c7fa36;color:#111816;display:grid;place-items:center;font-size:15px;font-weight:900}
+  .shortcut-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}
+  .shortcut{display:grid;grid-template-columns:28px 1fr 10px;align-items:center;gap:7px;padding:12px 10px;border-radius:18px;
+    background:linear-gradient(135deg,rgba(255,255,255,.58),rgba(222,220,248,.5));border:1px solid rgba(255,255,255,.8);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.94),0 8px 18px rgba(66,70,92,.07);backdrop-filter:blur(18px)}
+  .shortcut:nth-child(2){background:linear-gradient(135deg,rgba(255,255,255,.6),rgba(216,238,241,.52));border-color:rgba(255,255,255,.82)}
+  .shortcut-icon{width:28px;height:28px;border-radius:10px;background:#fff;display:grid;place-items:center;color:#4c4370;font-weight:850;font-size:13px}
+  .shortcut-icon.dark{color:#0e5662}
+  .task-icon{width:34px;height:34px;border-radius:12px;background:var(--mint);color:#111816;display:grid;place-items:center;font-weight:800;font-size:14px}
+  .receipt{font-size:10px;color:#16815e;margin-top:4px}
+  .action-scroll{overflow-x:auto;white-space:nowrap;margin:0 -2px}
+  .action-scroll::-webkit-scrollbar{height:0}
+  .action-row{display:flex;gap:8px;padding:2px 2px 8px}
+  .action-card{width:104px;flex:none;display:inline-flex;flex-direction:column;gap:5px;padding:12px;border-radius:18px;
+    background:linear-gradient(145deg,rgba(255,255,255,.68),rgba(255,255,255,.38));border:1px solid rgba(255,255,255,.84);
+    box-shadow:inset 0 1px 0 #fff,0 8px 20px rgba(54,70,68,.075);backdrop-filter:blur(18px) saturate(140%)}
+  .action-symbol{width:30px;height:30px;border-radius:10px;background:rgba(255,255,255,.8);display:grid;place-items:center;font-weight:900}
+  .action-card.pink{background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(247,211,232,.48))}
+  .action-card.purple{background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(222,220,248,.52))}
+  .action-card.blue{background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(216,238,241,.54))}
+  .action-card.peach{background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(255,227,210,.52))}
+  .action-card.mint{background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(239,251,207,.52))}
+  .split .metric:nth-child(1){background:rgba(247,211,232,.38)}.split .metric:nth-child(2){background:rgba(222,220,248,.4)}.split .metric:nth-child(3){background:rgba(216,238,241,.44)}
+  .score{width:42px;height:42px;border-radius:50%;background:#111816;color:#c7fa36;display:grid;place-items:center;font-size:17px;font-weight:850;flex:none}
+  .privacy-note{text-align:center;color:#777d79;font-size:11px;margin:16px 6px 0}
+  .privacy-note b{color:#111816;margin-right:5px}
+
+  /* device page */
+  .device-shell{width:264px;margin:0 auto 16px;padding:38px 16px 12px;border-radius:58px 58px 40px 40px;
+    background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(211,232,235,.52));border:1px solid rgba(255,255,255,.92);
+    box-shadow:inset 0 2px 1px rgba(255,255,255,.95),inset -10px -12px 28px rgba(127,158,159,.12),0 22px 46px rgba(45,72,73,.17);
+    backdrop-filter:blur(22px) saturate(145%);position:relative}
+  .privacy-track{position:absolute;top:14px;left:88px;width:90px;height:15px;border-radius:99px;background:#161c1b;box-shadow:inset 0 2px 6px rgba(0,0,0,.65)}
+  .privacy-knob{position:absolute;right:2px;top:2px;width:28px;height:11px;border-radius:99px;background:#ff7734}
+  .camera2{width:12px;height:12px;border-radius:50%;background:#050a09;position:absolute;top:15px;left:128px;box-shadow:0 0 0 3px #565c59}
+  .screen2{height:248px;border:5px solid #303735;border-radius:50%;background:radial-gradient(circle at 50% 30%,#26312f,#070b0b 66%);color:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;text-align:center}
+  .eyes{display:flex;gap:40px;margin-bottom:30px}
+  .eyes .eye2{width:15px;height:40px;border-radius:9px;background:#f8f9f1;box-shadow:0 0 10px rgba(255,255,255,.5)}
+  .screen-title{font-size:20px;font-weight:850}
+  .screen-copy{color:#a9beb8;font-size:12px;margin-top:9px}
+  .big-count{font-size:64px;font-weight:900;line-height:1;margin:18px 0}
+  .big-count span{font-size:18px;color:#9eb6af}
+  .device-progress{width:85%;height:8px;border-radius:99px;background:#1b3a34;overflow:hidden}
+  .device-progress>div{height:100%;background:#c8fb37}
+  .device-base{width:96px;height:9px;border-radius:99px;background:#bbc9c3;margin:11px auto 0}
+  .privacy-tip{display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.62),rgba(255,227,210,.46));border:1px solid rgba(255,255,255,.8);margin-bottom:11px}
+  .shield{width:26px;height:26px;border-radius:10px;background:#ff7734;color:#fff;display:grid;place-items:center;font-weight:900}
+  .device-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:13px}
+  .device-meta>div{background:rgba(247,211,232,.34);border:1px solid rgba(255,255,255,.62);border-radius:13px;padding:10px 4px;text-align:center}
+  .device-meta>div:nth-child(2){background:rgba(222,220,248,.38)}
+  .device-meta>div:nth-child(3){background:rgba(216,238,241,.42)}
+  .device-meta b{display:block;font-size:12px;font-weight:750}.device-meta span{display:block;font-size:10px;color:#7d827f;margin-top:2px}
+  .controls{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:11px}
+  .current-task{margin-top:10px;padding:10px;border-radius:13px;background:rgba(237,246,245,.58);border:1px solid rgba(255,255,255,.68)}
+  .sync{padding:4px 7px;border-radius:99px;background:#eaf8f1;color:#16815e;font-size:10px;font-weight:800}
+  .timeline{padding:4px 13px;border-radius:18px;background:rgba(255,255,255,.56);border:1px solid rgba(255,255,255,.82);backdrop-filter:blur(18px)}
+  .timeline-item{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid #e9e5dd}
+  .timeline-item:last-child{border:0}
+  .timeline-dot{width:10px;height:10px;margin-top:4px;border-radius:50%;background:#c8fb37;box-shadow:0 0 0 4px #effbcf;flex:none}
+
+  /* library */
+  .library-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
+  .move-card{padding:13px;border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.68),rgba(255,255,255,.4));border:1px solid rgba(255,255,255,.84);box-shadow:inset 0 1px 0 #fff,0 8px 20px rgba(54,70,68,.07);backdrop-filter:blur(18px)}
+  .move-card.pink{background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(247,211,232,.48))}
+  .move-card.purple{background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(222,220,248,.52))}
+  .move-card.blue{background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(216,238,241,.54))}
+  .move-card.peach{background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(255,227,210,.52))}
+  .move-card.mint{background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(239,251,207,.52))}
+  .move-card.unavailable{opacity:.62}
+  .move-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+  .symbol{width:30px;height:30px;border-radius:10px;background:rgba(255,255,255,.8);display:grid;place-items:center;font-weight:900}
+  .stage-tag{font-size:9px;font-weight:700;padding:3px 7px;border-radius:999px;background:#eef0ec;color:#8a8f8b}
+  .stage-tag.ready{background:var(--mint);color:var(--green-dark)}
+  .target-label{font-size:10px;color:var(--muted);margin-top:8px}
+  .detail-card{margin-top:14px;padding:15px;border-radius:18px;background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.85);box-shadow:0 12px 28px rgba(54,70,68,.1);backdrop-filter:blur(20px)}
+  .detail-head{display:flex;align-items:flex-start;justify-content:space-between}
+  .detail-title{font-size:18px;font-weight:850;margin-top:2px}
+  .guide{font-size:12px;line-height:1.6;margin-top:8px}
+  .stepper{display:flex;align-items:center;gap:14px;margin:6px 0}
+  .stepper button{width:34px;height:34px;border-radius:11px;border:1px solid rgba(0,0,0,.1);background:#fff;font-size:18px;font-weight:800;cursor:pointer}
+  .hint{font-size:11px;color:var(--muted);margin-top:8px;padding:9px;border-radius:11px;background:rgba(239,251,207,.5)}
+
+  /* tasks */
+  .journey{display:flex;align-items:center;gap:6px;margin-top:16px}
+  .journey-item{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--muted)}
+  .journey-item text{width:22px;height:22px;border-radius:50%;background:#e7ece9;color:#8a8f8b;display:grid;place-items:center;font-size:11px}
+  .journey-item.active{color:var(--green-dark)}.journey-item.active text{background:var(--green);color:#111816}
+  .journey-line{flex:1;height:2px;background:#e3e8e5}
+  .tabs{display:flex;gap:7px;margin-top:16px}
+  .tabs button{flex:1;padding:9px;border-radius:12px;border:1px solid rgba(0,0,0,.08);background:#fff;font-size:12px;font-weight:700;cursor:pointer}
+  .tabs button.active{background:var(--green-dark);color:#fff;border-color:var(--green-dark)}
+  .create{width:100%;margin-top:11px}
+  .receipt-banner{display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:15px;background:#eaf8f1;color:#16815e;margin-top:11px}
+  .list-item .round{width:30px;height:30px;border-radius:50%;background:var(--mint);color:#111816;display:grid;place-items:center;font-weight:800;font-size:13px;flex:none}
+  .task-receipt{font-size:10px;color:#16815e;margin-top:4px}
+  .pill.cancel-btn{border:0;background:#fff0ee;color:var(--danger);cursor:pointer}
+  .task-side{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+  .sheet-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:4px}
+  .type-switch,.choices,.chips{display:flex;gap:7px;flex-wrap:wrap}
+  .choices .choice,.type-switch button,.chips button{padding:9px 12px;border-radius:11px;border:1px solid rgba(0,0,0,.1);background:#fff;font-size:12px;cursor:pointer}
+  .choices .choice.active,.type-switch button.active,.chips button.active{background:var(--green);border-color:var(--green);font-weight:750}
+  .target{display:flex;align-items:center;gap:14px;margin-top:6px}
+  .target button{width:32px;height:32px;border-radius:10px;border:1px solid rgba(0,0,0,.12);background:#fff;font-size:17px;font-weight:800;cursor:pointer}
+  .time-picker{display:flex;align-items:center;justify-content:space-between;padding:12px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,.08);font-size:13px}
+  .device-choice{display:flex;align-items:center;gap:10px;padding:11px;border-radius:13px;background:#edf6f5;margin-top:10px}
+  .device-dot{width:10px;height:10px;border-radius:50%;background:var(--green)}
+  .send-note{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5}
+  .full{width:100%;margin-top:12px}
+
+  /* ai */
+  .ai-head{display:flex;align-items:center;gap:12px}
+  .orb{width:50px;height:50px;border-radius:18px;background:linear-gradient(145deg,#0e5662,#13808f);color:#c7fa36;display:grid;place-items:center;font-weight:900;font-size:16px;box-shadow:0 10px 22px rgba(14,86,98,.25)}
+  .insight-entry{display:flex;align-items:center;gap:11px;padding:13px;border-radius:16px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.82);margin-top:14px;backdrop-filter:blur(18px)}
+  .insight-score{width:38px;height:38px;border-radius:12px;background:#111816;color:#c7fa36;display:grid;place-items:center;font-weight:800}
+  .module-title{display:flex;align-items:center;justify-content:space-between;margin:18px 2px 9px}
+  .module-title .strong{font-size:15px}.module-title .small{font-size:11px}
+  .beta{font-size:10px;font-weight:700;color:#8a5fb0;background:#f0e9fb;padding:3px 8px;border-radius:999px}
+  .builder{margin-top:4px}
+  .generate{width:100%;margin-top:8px}
+  .plan-hero{padding:15px;border-radius:18px;background:linear-gradient(145deg,rgba(14,86,98,.92),rgba(19,128,143,.8));color:#fff;box-shadow:0 12px 26px rgba(14,86,98,.2)}
+  .plan-title{font-size:18px;font-weight:850;margin:3px 0}
+  .day-list .day{width:34px;height:34px;border-radius:50%;background:var(--mint);color:#111816;display:grid;place-items:center;font-weight:800;font-size:12px;flex:none}
+  .actions{display:flex;gap:8px;margin-top:12px}
+  .ask-card{padding:14px;border-radius:18px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.82);backdrop-filter:blur(18px)}
+  .ask-title{display:flex;align-items:center;gap:9px}
+  .mini-orb{width:30px;height:30px;border-radius:10px;background:#13808f;color:#c7fa36;display:grid;place-items:center;font-weight:900}
+  .quick-questions{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .quick-questions button{padding:7px 10px;border-radius:999px;background:#fff;border:1px solid rgba(0,0,0,.1);font-size:11px;cursor:pointer}
+  .ask-input{display:flex;gap:7px;margin-top:10px}
+  .ask-input input{flex:1;min-width:0;padding:10px 12px;border-radius:11px;border:1px solid rgba(0,0,0,.1);background:#fff;font-size:12px}
+  .ask-input button{padding:0 14px;border-radius:11px;border:0;background:var(--green);color:#111816;font-weight:750;cursor:pointer}
+  .ai-answer{margin-top:11px;padding:11px;border-radius:12px;background:#eef7ef;font-size:12px;line-height:1.6}
+  .ai-answer b{color:#16815e}
+  .history-card{display:flex;align-items:center;gap:11px;padding:12px;border-radius:15px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.8);margin-top:10px}
+  .history-mark{width:36px;height:36px;border-radius:12px;background:var(--mint);color:#111816;display:grid;place-items:center;font-weight:800;font-size:12px}
+  .ai-note{font-size:11px;color:var(--muted);margin-top:14px;line-height:1.5}
+
+  /* growth */
+  .buddy-card{display:flex;align-items:center;gap:12px;padding:14px;border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,.66),rgba(222,220,248,.5));border:1px solid rgba(255,255,255,.82);backdrop-filter:blur(20px);margin-top:14px}
+  .buddy-face{width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 50% 35%,#26302e,#080c0c 66%);display:flex;align-items:center;justify-content:center;gap:10px;flex:none}
+  .buddy-eye{width:6px;height:16px;border-radius:5px;background:#f6f7ef;box-shadow:0 0 6px rgba(255,255,255,.5)}
+  .buddy-kicker{font-size:11px;font-weight:700;color:var(--teal)}
+  .buddy-title{font-size:13px;font-weight:800;margin:3px 0}
+  .buddy-progress{height:7px;border-radius:99px;background:#e3e8e5;overflow:hidden;margin-top:6px}
+  .buddy-progress>div{height:100%;background:linear-gradient(90deg,#d1ff4f,#9bdc11)}
+  .star-count{font-weight:850;color:#caa21d;font-size:14px}
+  .overview .metric b{font-size:17px}
+  .chart{display:flex;align-items:flex-end;justify-content:space-between;gap:7px;height:130px;padding:16px 12px 10px}
+  .bar-wrap{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1}
+  .bar{width:18px;flex:1;display:flex;align-items:flex-end;border-radius:6px 6px 0 0;background:#eef2f0}
+  .bar>div{width:100%;border-radius:6px 6px 0 0;background:linear-gradient(180deg,#c8fb37,#9bdc11)}
+  .bar-wrap span{font-size:10px;color:var(--muted)}
+  .analysis-card{display:flex;align-items:center;gap:11px;padding:13px;border-radius:16px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.8);backdrop-filter:blur(18px)}
+  .analysis-card .small{font-size:11px;line-height:1.5}
+  .posture{display:flex;align-items:center;gap:11px;padding:13px;border-radius:16px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.8);backdrop-filter:blur(18px)}
+  .posture-icon{width:38px;height:38px;border-radius:12px;background:var(--sky);color:var(--teal);display:grid;place-items:center;font-weight:900;font-size:18px}
+  .highlight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .highlight-grid>div{padding:13px 6px;text-align:center;border-radius:14px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7)}
+  .highlight-grid b{display:block;font-size:19px;font-weight:850}.highlight-grid span{font-size:10px;color:var(--muted)}
+  .weekly-note{display:flex;align-items:center;gap:10px;padding:13px;border-radius:16px;background:linear-gradient(135deg,rgba(255,255,255,.6),rgba(222,220,248,.42));border:1px solid rgba(255,255,255,.8)}
+  .note-mark{width:30px;height:30px;border-radius:10px;background:#13808f;color:#c7fa36;display:grid;place-items:center;font-weight:900;flex:none}
+  .weekly-note .small{font-size:11px;line-height:1.5;margin-top:4px}
+
+  /* mine */
+  .profile-card{display:flex;align-items:center;gap:12px;padding:14px;border-radius:18px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.82);backdrop-filter:blur(18px);margin-top:14px}
+  .profile-card .avatar{width:50px;height:50px;border-radius:16px;font-size:18px}
+  .profile-card .name{font-size:16px;font-weight:850}
+  .family-switch{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:12px}
+  .child-pill{display:flex;gap:6px;align-items:center;background:var(--mint);color:#111816;padding:5px 11px;border-radius:999px;font-weight:700;font-size:12px}
+  .switch-action{margin-left:auto;color:var(--muted);font-size:11px}
+  .list-item .icon{width:34px;height:34px;border-radius:12px;background:var(--mint);color:#111816;display:grid;place-items:center;font-weight:800;font-size:14px;flex:none}
+  .list-item .icon.dark{background:var(--sky)}
+  .danger{color:var(--danger)!important}
+
+  /* records */
+  .record-summary{display:flex;gap:9px;margin-top:14px}
+  .record-summary>div{flex:1;text-align:center;padding:13px 4px;border-radius:15px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.75)}
+  .record-summary b{display:block;font-size:19px;font-weight:850}.record-summary span{font-size:10px;color:var(--muted)}
+  .record-list .record-item{display:flex;align-items:center;gap:11px;padding:13px;border-bottom:1px solid rgba(128,143,138,.12)}
+  .record-list .record-item:last-child{border:0}
+  .record-title{display:flex;align-items:center;gap:7px}
+  .record-status{font-size:10px;padding:2px 7px;border-radius:999px;background:var(--mint);color:#111816;font-weight:700}
+  .record-status.warn{background:#fff0ee;color:var(--danger)}
+  .source{font-size:10px;color:var(--muted);margin-top:3px}
+
+  /* analysis */
+  .analysis-hero{padding:14px;border-radius:18px;background:linear-gradient(145deg,rgba(14,86,98,.92),rgba(19,128,143,.8));color:#fff;margin-top:14px;box-shadow:0 12px 26px rgba(14,86,98,.2)}
+  .analysis-hero .small{color:#bfe9ef}
+  .hero-row{display:flex;align-items:center;gap:12px;margin-top:8px}
+  .analysis-hero .title{font-size:18px;font-weight:850}
+  .record-meta{font-size:10px;color:#bfe9ef;margin-top:3px}
+  .quality{display:flex;flex-direction:column;gap:12px}
+  .quality-row{display:flex;align-items:center;gap:10px;font-size:12px}
+  .quality-row>span:first-child{width:72px;color:var(--muted)}
+  .quality-row .progress{flex:1}
+  .quality-row>span:last-child{width:34px;text-align:right;font-weight:700}
+  .warn{width:26px;height:26px;border-radius:9px;background:#ff7734;color:#fff;display:grid;place-items:center;font-weight:900;flex:none}
+  .ai-advice{display:flex;gap:10px;padding:13px;border-radius:16px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.82);backdrop-filter:blur(18px);font-size:12px;line-height:1.6}
+  .ai-advice .ai{width:30px;height:30px;border-radius:10px;background:#13808f;color:#c7fa36;display:grid;place-items:center;font-weight:900;flex:none}
+  .advice-label{font-size:10px;color:var(--muted);display:block;margin-bottom:4px}
+  .privacy{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.5;text-align:center}
+
+  /* posture */
+  .posture-demo{padding:16px;border-radius:18px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.82);margin-top:14px;backdrop-filter:blur(18px)}
+  .posture-demo .row{margin:10px 0}
+  .posture-tag{font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;background:var(--sky);color:var(--teal)}
+
+  /* tabbar */
+  .tabbar{position:absolute;bottom:0;left:0;right:0;height:60px;background:rgba(249,251,250,.94);border-top:1px solid rgba(255,255,255,.7);
+    display:flex;backdrop-filter:blur(18px);z-index:20}
+  .tabbar button{flex:1;border:0;background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;color:#8b908d;font-size:10px}
+  .tabbar button .ic{font-size:19px;line-height:1}
+  .tabbar button.active{color:#111816;font-weight:800}
+  .tabbar button.active .ic{color:#111816}
+  .back{position:absolute;top:14px;left:14px;z-index:25;background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.8);border-radius:999px;padding:5px 12px;font-size:11px;font-weight:700;cursor:pointer;color:#111816;backdrop-filter:blur(10px);display:none}
+  .back.show{display:block}
+
+  /* side notes */
+  .notes{width:300px;flex:none;color:#cfdadb}
+  .notes h2{font-size:14px;margin-bottom:10px;color:#fff}
+  .notes .box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px;margin-bottom:12px}
+  .notes ul{list-style:none;font-size:12px;line-height:1.7}
+  .notes li{padding-left:14px;position:relative;color:#b9c6ca}
+  .notes li:before{content:"·";position:absolute;left:0;color:var(--green)}
+  .notes .k{color:#eaffc0;font-weight:700}
+  .tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:999px;background:rgba(189,245,45,.18);color:#c8fb37;margin:2px 3px 0 0}
+  .legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+  .legend span{display:flex;align-items:center;gap:4px;font-size:10px;color:#aebabf}
+  .legend i{width:11px;height:11px;border-radius:3px;display:inline-block}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div>
+    <h1>Teamo 家长端小程序 · MVP V0.1 预览</h1>
+    <div class="sub">AppID wxb6da3fa84f9053cb · 11 页面 / 55 文件 / 1491 行 · 纯 Mock 数据，可切真实后端（USE_MOCK）</div>
+  </div>
+  <div class="pagemenu" id="pagemenu"></div>
+</div>
+
+<div class="stage">
+  <div class="phone">
+    <div class="notch"></div>
+    <div class="screen">
+      <button class="back" id="backBtn" onclick="goHome()">‹ 返回</button>
+      <div class="viewport" id="viewport"></div>
+      <div class="tabbar" id="tabbar"></div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <h2>视觉与设计要点</h2>
+    <div class="box">
+      <div class="legend">
+        <span><i style="background:#bdf52d"></i>荧光绿·主操作</span>
+        <span><i style="background:#0e5662"></i>深青·状态/分析</span>
+        <span><i style="background:#ff7734"></i>橙·隐私滑盖</span>
+      </div>
+      <div class="legend" style="margin-top:6px">
+        <span><i style="background:#f7d3e8"></i>粉</span>
+        <span><i style="background:#dedcf8"></i>紫</span>
+        <span><i style="background:#d8eef1"></i>青</span>
+        <span><i style="background:#ffe3d2"></i>桃</span>
+      </div>
+      <p class="small" style="font-size:11px;color:#9fb0b6;margin-top:8px">V0.9 亚克力玻璃：环境光背景 → 半透明白卡（细描边+高光+模糊）→ 实色按钮。粉紫青桃仅作低饱和功能光晕。</p>
+    </div>
+    <h2>MVP 关键事实</h2>
+    <div class="box">
+      <ul>
+        <li>5 个 tabBar 主线：<span class="k">首页/任务/AI/成长/我的</span></li>
+        <li>6 个子页：设备/动作库/记录/分析/姿态/资料</li>
+        <li>动作库 7 类，仅 <span class="k">开合跳、深蹲起</span> 可发送（MVP已支持）</li>
+        <li>通信：小程序→(HTTPS/WS)→服务端→(MQTT)→设备</li>
+        <li>设备状态机 7 态：offline/idle/ready/running/paused/completed/error</li>
+        <li><span class="k">不做</span>：学校端、医疗判断、正式支付、家庭权限</li>
+      </ul>
+    </div>
+    <h2>待研发确认</h2>
+    <div class="box">
+      <span class="tag">登录/绑定/权限</span><span class="tag">状态去重</span>
+      <span class="tag">算法验收标准</span><span class="tag">儿童隐私规则</span>
+      <span class="tag">AI 正式服务</span><span class="tag">MQTT 选型</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const S = {
+  profile:{parentName:'夏先生',childName:'小夏',age:8,grade:'小学二年级',goal:'增强体能'},
+  device:{id:'TEAMO-DEMO-001',name:'客厅运动伙伴',online:true,status:'idle',battery:82,wifi:'家庭 Wi-Fi'},
+  todayMinutes:22, streak:5, stars:46, postureAlerts:2,
+  tasks:[
+    {id:'T001',name:'开合跳',target:20,unit:'次',source:'家长邀请',time:'今天 19:00',status:'待执行',receipt:'设备已收到'},
+    {id:'T002',name:'深蹲起',target:15,unit:'次',source:'家长邀请',time:'今天 18:20',status:'已完成',receipt:'结果已同步'}
+  ],
+  records:[
+    {id:'R001',name:'深蹲起',date:'今天 18:20',actual:15,target:15,valid:13,duration:65,score:86,status:'已完成',source:'家长邀请',deviceName:'客厅运动伙伴',issues:['2次动作幅度不足']},
+    {id:'R002',name:'开合跳',date:'昨天 19:10',actual:20,target:20,valid:18,duration:42,score:91,status:'已完成',source:'家长邀请',deviceName:'客厅运动伙伴',issues:['节奏稳定']}
+  ],
+  deviceTimeline:[
+    {time:'18:20',text:'完成深蹲起，结果已同步'},
+    {time:'17:58',text:'设备上线，网络状态良好'},
+    {time:'昨天',text:'完成开合跳 20 次'}
+  ],
+  actions:[
+    {id:'jumping_jack',name:'开合跳',short:'开',target:20,unit:'次',type:'协调与心肺',color:'purple',stage:'MVP已支持',available:true},
+    {id:'squat',name:'深蹲起',short:'蹲',target:15,unit:'次',type:'下肢力量',color:'peach',stage:'MVP已支持',available:true},
+    {id:'high_knee',name:'高抬腿',short:'抬',target:30,unit:'次',type:'心肺与节奏',color:'blue',stage:'算法评审中',available:false},
+    {id:'jump_rope',name:'双脚跳绳',short:'跳',target:30,unit:'次',type:'协调与心肺',color:'pink',stage:'后续适配',available:false},
+    {id:'push_up',name:'俯卧撑',short:'撑',target:8,unit:'次',type:'上肢力量',color:'mint',stage:'后续适配',available:false},
+    {id:'sit_up',name:'仰卧起坐',short:'起',target:12,unit:'次',type:'核心力量',color:'pink',stage:'后续适配',available:false},
+    {id:'plank',name:'平板支撑',short:'稳',target:30,unit:'秒',type:'核心稳定',color:'blue',stage:'后续适配',available:false}
+  ],
+  week:[{label:'一',value:12},{label:'二',value:20},{label:'三',value:8},{label:'四',value:25},{label:'五',value:18},{label:'六',value:30},{label:'日',value:22}],
+  plan:{name:'基础体能 · 7天陪伴计划',summary:'适合8岁儿童，每次约15分钟',days:[
+    {day:1,items:[{name:'开合跳',target:20,unit:'次'},{name:'深蹲起',target:12,unit:'次'}]},
+    {day:2,items:[{name:'高抬腿',target:30,unit:'次'},{name:'平板支撑',target:20,unit:'秒'}]},
+    {day:3,items:[{name:'轻松活动',target:10,unit:'分钟'}]},
+    {day:4,items:[{name:'开合跳',target:25,unit:'次'},{name:'深蹲起',target:15,unit:'次'}]},
+    {day:5,items:[{name:'高抬腿',target:40,unit:'次'}]},
+    {day:6,items:[{name:'亲子挑战',target:15,unit:'分钟'}]},
+    {day:7,items:[{name:'拉伸与复盘',target:10,unit:'分钟'}]}
+  ]}
+};
+
+const PAGES = {
+  home:{tab:'首页',icon:'⌂',html:homeHTML},
+  tasks:{tab:'任务',icon:'☰',html:tasksHTML},
+  ai:{tab:'AI',icon:'✦',html:aiHTML},
+  growth:{tab:'成长',icon:'★',html:growthHTML},
+  mine:{tab:'我的',icon:'☻',html:mineHTML},
+  device:{tab:null,html:deviceHTML},
+  library:{tab:null,html:libraryHTML},
+  records:{tab:null,html:recordsHTML},
+  analysis:{tab:null,html:analysisHTML},
+  posture:{tab:null,html:postureHTML},
+  profile:{tab:null,html:profileHTML}
+};
+const TABKEYS=['home','tasks','ai','growth','mine'];
+let current='home';
+
+function esc(s){return (s==null?'':String(s));}
+
+// ---- page builders ----
+function homeHTML(){
+  const quick=S.actions.slice(0,5).map(a=>`<div class="action-card ${a.color}"><div class="action-symbol">${a.short}</div><div class="strong">${a.name}</div><div class="small muted">建议 ${a.target}${a.unit}</div></div>`).join('');
+  const tasks=S.tasks.map(t=>`<div class="list-item"><div class="task-icon">动</div><div class="grow"><div class="strong">${t.name}</div><div class="small muted">${t.target}${t.unit} · ${t.time}</div><div class="receipt">✓ ${t.receipt}</div></div><div class="pill">${t.status}</div></div>`).join('');
+  const rec=S.records[0];
+  return `<div class="page">
+    <div class="header-row"><div><div class="brand-kicker">TEAMO <text>MOVE TOGETHER</text></div><div class="hello">晚上好，${S.profile.parentName}</div><div class="hero-title">一起动，<br>更靠近</div></div><div class="avatar">夏</div></div>
+    <div class="notice"><div class="spark">GO</div><div class="grow"><div class="strong">小宇，今天也一起动起来</div><div class="small muted">10 分钟轻运动计划已准备好</div></div><text>›</text></div>
+    <div class="section-title">我的设备</div>
+    <div class="card device-card"><div class="robot"><div class="privacy-slider"><div class="slider-knob"></div></div><div class="camera"></div><div class="face"><div class="eye"></div><div class="eye"></div><div class="teamo-mark">TEAMO</div></div><div class="robot-key"></div></div><div class="grow"><div class="device-name">${S.device.name}</div><div class="pill status"><div class="dot"></div>${S.device.online?'在线待机':'设备离线'}</div><div class="small muted">电量 ${S.device.battery}% · ${S.device.wifi} · 刚刚更新</div></div><text class="arrow">›</text></div>
+    <button class="ai-cta"><div class="ai-mark">✦</div><div class="grow"><div class="strong" style="color:#fff">AI 运动计划助手</div><div class="small" style="color:#cdeef2">结合最近表现，生成适合小宇的计划</div></div><text style="color:#fff">›</text></button>
+    <div class="shortcut-grid"><div class="shortcut" onclick="open('library')"><div class="shortcut-icon">动</div><div><div class="strong">快速训练</div><div class="small muted">7种动作任选</div></div><text>›</text></div><div class="shortcut" onclick="open('growth')"><div class="shortcut-icon dark">★</div><div><div class="strong">学伴成长</div><div class="small muted">${S.stars} 颗运动星</div></div><text>›</text></div></div>
+    <div class="section-title">今日运动</div>
+    <div class="card split"><div class="metric"><b>${S.todayMinutes}</b><span>分钟</span></div><div class="metric"><b>50%</b><span>任务进度</span></div><div class="metric"><b>${S.streak}天</b><span>连续运动</span></div></div>
+    <div class="section-title"><text>立即开始</text><text class="link" onclick="open('library')">查看动作库</text></div>
+    <div class="action-scroll"><div class="action-row">${quick}</div></div>
+    <div class="section-title"><text>今日任务</text><text class="link" onclick="open('tasks')">查看全部</text></div>
+    <div class="list">${tasks}</div>
+    <div class="section-title"><text>最近运动</text><text class="link" onclick="open('records')">全部记录</text></div>
+    <div class="card" style="display:flex;align-items:center;gap:12px" onclick="open('analysis')"><div class="score">${rec.score}</div><div class="grow"><div class="strong">${rec.name}</div><div class="small muted">${rec.date} · 有效 ${rec.valid}/${rec.target} 次</div></div><text>›</text></div>
+    <div class="privacy-note"><b>◉</b> 摄像头带物理遮挡，运动数据仅用于陪伴反馈</div>
+  </div>`;
+}
+
+function deviceHTML(){
+  const tl=S.deviceTimeline.map(t=>`<div class="timeline-item"><div class="timeline-dot"></div><div class="grow"><div class="strong">${t.text}</div><div class="small muted">${t.time}</div></div></div>`).join('');
+  const feats=[['摄像头与动作识别','用于入镜、动作计数和姿态判断',true],['语音与声音反馈','播报倒计时、动作提示和完成鼓励',true],['日常姿态提醒','提醒低头、距离过近和明显坐姿问题',true],['主动运动提醒','在非免打扰时段提醒未完成任务',true]];
+  const featHTML=feats.map(f=>`<div class="list-item"><div class="grow"><div class="strong">${f[0]}</div><div class="small muted">${f[1]}</div></div><div class="pill">${f[2]?'已开启':'已关闭'}</div></div>`).join('');
+  return `<div class="page">
+    <div class="brand-kicker">TEAMO <text>DEVICE</text></div><div class="hero-title">小宇的运动伙伴</div><div class="hero-sub">看见动作，也守护隐私</div>
+    <div class="device-shell"><div class="privacy-track"><div class="privacy-knob"></div></div><div class="camera2"></div><div class="screen2"><div class="eyes"><div class="eye2"></div><div class="eye2"></div></div><div class="screen-title">${S.device.online?'准备好陪你运动':'设备暂时离线'}</div><div class="screen-copy">${S.device.online?'选择任务后，设备会自动引导':'连接恢复后任务会自动同步'}</div></div><div class="device-base"></div></div>
+    <div class="privacy-tip"><div class="shield">✓</div><div><div class="strong">物理隐私滑盖</div><div class="small muted">橙色滑块关闭时，摄像头被真实遮挡</div></div></div>
+    <div class="card" style="margin-top:14px">
+      <div class="row"><div class="grow"><div class="strong">${S.device.name}</div><div class="small muted">设备编号 ${S.device.id}</div></div><div class="pill"><div class="dot"></div>在线</div></div>
+      <div class="device-meta"><div><b>${S.device.battery}%</b><span>电量</span></div><div><b>${S.device.wifi}</b><span>网络</span></div><div><b>在线待机</b><span>真实状态</span></div></div>
+    </div>
+    <div class="controls"><button class="btn btn-line">模拟离线</button><button class="btn btn-primary" onclick="open('library')">开始开合跳</button></div>
+    <div class="section-title">设备能力</div>
+    <div class="list">${featHTML}</div>
+    <div class="section-title">最近动态</div>
+    <div class="timeline">${tl}</div>
+  </div>`;
+}
+
+function libraryHTML(){
+  const cards=S.actions.map(a=>`<div class="move-card ${a.color} ${a.available?'':'unavailable'}" onclick="selLib('${a.id}')"><div class="move-top"><div class="symbol">${a.short}</div><div class="stage-tag ${a.available?'ready':''}">${a.stage}</div></div><div class="strong">${a.name}</div><div class="small muted">${a.type}</div><div class="target-label">建议 ${a.target}${a.unit}</div></div>`).join('');
+  return `<div class="page">
+    <div class="brand-kicker">MOVE LIBRARY <text>7 ACTIONS</text></div><div class="hero-title">今天想练什么？</div><div class="hero-sub">选择动作后，可调整目标并直接发送给设备</div>
+    <div class="library-grid">${cards}</div>
+    <div class="detail-card"><div class="detail-head"><div><div class="small muted">动作说明</div><div class="detail-title">开合跳</div></div><text>×</text></div><div class="guide">双脚打开时双手举过头顶，合拢时回到身体两侧。</div><div class="hint"><b>陪伴提示</b>　手脚同步，动作打开到位</div><div class="form-label" style="display:block;font-size:12px;color:var(--muted);margin:14px 0 6px">本次目标</div><div class="stepper"><button>−</button><div>20<span>次</span></div><button>＋</button></div><button class="btn btn-primary full">立即发送到设备</button></div>
+  </div>`;
+}
+function selLib(){ /* demo only */ }
+
+function tasksHTML(){
+  const list=S.tasks.map((t,i)=>`<div class="list-item"><div class="round">${i+1}</div><div class="grow"><div class="strong">${t.name}</div><div class="small muted">${t.source} · ${t.target}${t.unit} · ${t.time}</div><div class="task-receipt">${t.receipt}</div></div><div class="task-side"><div class="pill">${t.status}</div>${t.status==='待执行'?'<button class="pill cancel-btn">取消</button>':''}</div></div>`).join('');
+  return `<div class="page">
+    <div class="brand-kicker">PARENT JOURNEY <text>01</text></div><div class="hero-title">运动邀请</div><div class="hero-sub">发出邀请，Teamo 陪孩子完成挑战</div>
+    <div class="journey"><div class="journey-item active"><text>1</text>发出邀请</div><div class="journey-line"></div><div class="journey-item"><text>2</text>设备提醒</div><div class="journey-line"></div><div class="journey-item"><text>3</text>完成得星</div></div>
+    <div class="tabs"><button class="active">待进行</button><button>计划中</button><button>历史</button></div>
+    <button class="btn btn-primary create">＋ 创建运动邀请</button>
+    <div class="receipt-banner"><text>✓</text><div><div class="strong">设备已确认接收</div><div class="small">开合跳 · 今晚 19:00 已布置</div></div></div>
+    <div class="section-title">任务列表</div>
+    <div class="list">${list}</div>
+  </div>`;
+}
+
+function aiHTML(){
+  const days=S.plan.days.map(d=>`<div class="list-item"><div class="day">D${d.day}</div><div class="grow">${d.items.map(e=>`<div class="strong">${e.name} · ${e.target}${e.unit}</div>`).join('')}</div></div>`).join('');
+  return `<div class="page">
+    <div class="brand-kicker">TEAMO AI <text>PLAN WITH CARE</text></div>
+    <div class="ai-head"><div class="orb">AI</div><div><div class="hero-title">AI运动助手</div><div class="hero-sub">先看懂真实运动，再提供适度建议</div></div></div>
+    <div class="insight-entry" onclick="open('analysis')"><div class="insight-score">析</div><div class="grow"><div class="small">最近一次运动分析</div><div class="strong">查看动作完成度与非医疗建议</div></div><text>›</text></div>
+    <div class="module-title"><div><div class="strong">7天运动计划</div><div class="small muted">根据基础信息生成演示计划</div></div><div class="beta">体验功能</div></div>
+    <div class="plan-hero"><div class="small">AI 模拟计划已生成</div><div class="plan-title">${S.plan.name}</div><div class="small">${S.plan.summary}</div></div>
+    <div class="section-title">七天安排</div>
+    <div class="list">${days}</div>
+    <div class="actions"><button class="btn btn-line">调整条件</button><button class="btn btn-primary">发送今天计划</button></div>
+    <div class="section-title">问问 AI</div>
+    <div class="ask-card"><div class="ask-title"><div class="mini-orb">✦</div><div><div class="strong">关于孩子今天的运动</div><div class="small muted">当前为演示回答，正式版需接入AI服务</div></div></div><div class="quick-questions"><button>今天运动量够吗？</button><button>动作不标准怎么办？</button><button>如何坚持更久？</button></div><div class="ask-input"><input placeholder="也可以直接输入问题" readonly><button>发送</button></div><div class="ai-answer"><b>AI建议</b>　今天已累计 22 分钟，节奏稳定，明后天可保持类似安排，注意动作做到位。</div></div>
+    <div class="ai-note">AI 建议仅用于日常运动陪伴，不替代医疗或专业训练意见。</div>
+  </div>`;
+}
+
+function growthHTML(){
+  const bars=S.week.map(w=>`<div class="bar-wrap"><div class="bar"><div style="height:${w.value*3}px"></div></div><span>周${w.label}</span></div>`).join('');
+  const rec=S.records[0];
+  const totalValid=S.records.reduce((s,r)=>s+r.valid,0);
+  return `<div class="page">
+    <div class="brand-kicker">GROW TOGETHER <text>WEEKLY</text></div><div class="hero-title">成长</div><div class="hero-sub">把每一次运动变成看得见的进步</div>
+    <div class="buddy-card"><div class="buddy-face"><div class="buddy-eye"></div><div class="buddy-eye"></div></div><div class="grow"><div class="buddy-kicker">小宇的学伴 · Lv.2</div><div class="buddy-title">再获得 14 颗运动星就能升级</div><div class="buddy-progress"><div style="width:${S.stars}%"></div></div></div><div class="star-count">★ ${S.stars}</div></div>
+    <div class="card split overview"><div class="metric"><b>${S.todayMinutes}</b><span>今日分钟</span></div><div class="metric"><b>${S.streak}</b><span>连续天数</span></div><div class="metric"><b>${S.stars}</b><span>运动星</span></div></div>
+    <div class="section-title">本周运动</div>
+    <div class="card chart">${bars}</div>
+    <div class="section-title"><text>运动分析</text><text class="more link" onclick="open('records')">全部记录</text></div>
+    <div class="analysis-card" onclick="open('analysis')"><div class="score">${rec.score}</div><div class="grow"><div class="strong">最近一次动作完成良好</div><div class="small">有效动作 ${rec.valid}/${rec.target}，查看节奏与姿态表现</div></div><text>›</text></div>
+    <div class="section-title">日常姿态提醒</div>
+    <div class="card posture" onclick="open('posture')"><div class="posture-icon">↟</div><div class="grow"><div class="strong">今天提醒 ${S.postureAlerts} 次</div><div class="small muted">坐姿、低头与距离提醒</div></div><text>›</text></div>
+    <div class="section-title">本周亮点</div>
+    <div class="highlight-grid"><div><b>${rec.score}</b><span>最近得分</span></div><div><b>${totalValid}</b><span>累计有效动作</span></div><div><b>${S.records.length}</b><span>完成记录</span></div></div>
+    <div class="section-title">本周小结</div>
+    <div class="weekly-note"><div class="note-mark">✦</div><div class="grow"><div class="strong">稳定完成比追求速度更重要</div><div class="small">最近动作完成度较好，可以继续保持每次10–15分钟的轻量运动节奏。</div></div></div>
+  </div>`;
+}
+
+function mineHTML(){
+  return `<div class="page">
+    <div class="brand-kicker">TEAMO FAMILY <text>PROFILE</text></div>
+    <div class="profile-card"><div class="avatar">夏</div><div><div class="name">${S.profile.parentName}</div><div class="small">${S.profile.childName}的家长 · 一起见证成长</div></div></div>
+    <div class="family-switch"><div class="small muted">当前孩子</div><div class="child-pill"><text>${S.profile.childName}</text><text>${S.profile.age}岁</text></div><div class="switch-action">单孩子模式</div></div>
+    <div class="section-title">家庭与设备</div>
+    <div class="list">
+      <div class="list-item" onclick="open('profile')"><div class="icon">童</div><div class="grow"><div class="strong">孩子信息</div><div class="small muted">${S.profile.childName} · ${S.profile.age}岁 · ${S.profile.goal}</div></div><text>›</text></div>
+      <div class="list-item" onclick="open('device')"><div class="icon dark">器</div><div class="grow"><div class="strong">我的设备</div><div class="small muted">1 台 · ${S.device.name} · 在线</div></div><text>›</text></div>
+    </div>
+    <div class="section-title">设置</div>
+    <div class="list">
+      <div class="list-item"><div class="grow"><div class="strong">消息提醒</div><div class="small muted">任务完成、设备离线与姿态提醒</div></div><div class="pill">已开启</div></div>
+      <div class="list-item" onclick="open('posture')"><div class="grow"><div class="strong">隐私与儿童数据</div><div class="small muted">查看采集范围和数据保存规则</div></div><text>›</text></div>
+      <div class="list-item"><div class="grow"><div class="strong">使用帮助</div><div class="small muted">连接设备、布置任务与查看结果</div></div><text>›</text></div>
+      <div class="list-item"><div class="grow"><div class="strong danger">重置演示数据</div></div><text>›</text></div>
+    </div>
+  </div>`;
+}
+
+function recordsHTML(){
+  const total=S.records.length;
+  const avg=Math.round(S.records.reduce((s,r)=>s+r.score,0)/total);
+  const list=S.records.map(r=>`<div class="record-item" onclick="open('analysis')"><div class="score">${r.score}</div><div class="grow"><div class="record-title"><div class="strong">${r.name}</div><div class="record-status ${r.status==='已完成'?'':'warn'}">${r.status}</div></div><div class="small muted">${r.date} · ${r.actual}/${r.target} · ${r.duration}秒</div><div class="source">${r.source} · ${r.deviceName}</div></div><text>›</text></div>`).join('');
+  return `<div class="page"><div class="brand-kicker">MOVE HISTORY <text>PROGRESS</text></div><div class="hero-title">运动记录</div><div class="hero-sub">每一次完成，都值得被看见</div>
+    <div class="record-summary"><div><b>${total}</b><span>累计记录</span></div><div><b>${avg}</b><span>平均得分</span></div><div><b>${S.records[0].valid}</b><span>最近有效动作</span></div></div>
+    <div class="section-title">全部记录</div>
+    <div class="list record-list">${list}</div>
+  </div>`;
+}
+
+function analysisHTML(){
+  const r=S.records[0];
+  const completion=Math.round(r.actual/r.target*100);
+  const validRate=Math.round(r.valid/r.target*100);
+  const issues=r.issues.map(i=>`<div class="list-item"><div class="warn">!</div><div class="grow"><div class="strong">${i}</div><div class="small muted">下一次运动时，设备会继续提醒</div></div></div>`).join('');
+  return `<div class="page">
+    <div class="brand-kicker">MOVE REPORT <text>AI INSIGHT</text></div>
+    <div class="analysis-hero"><div class="small">最近一次运动</div><div class="hero-row"><div><div class="title">${r.name}</div><div class="small">${r.date} · 用时 ${r.duration} 秒</div><div class="record-meta">${r.status} · ${r.source} · ${r.deviceName}</div></div><div class="score">${r.score}</div></div></div>
+    <div class="section-title">完成情况</div>
+    <div class="card split"><div class="metric"><b>${completion}%</b><span>任务完成</span></div><div class="metric"><b>${r.valid}</b><span>有效动作</span></div><div class="metric"><b>${validRate}%</b><span>动作有效率</span></div></div>
+    <div class="section-title">动作质量</div>
+    <div class="card quality"><div class="quality-row"><span>动作完整度</span><div class="progress"><div style="width:${validRate}%"></div></div><span>${validRate}%</span></div><div class="quality-row"><span>节奏稳定性</span><div class="progress"><div style="width:88%"></div></div><span>88%</span></div><div class="quality-row"><span>站位情况</span><div class="progress"><div style="width:92%"></div></div><span>92%</span></div></div>
+    <div class="section-title">本次姿态提醒</div>
+    <div class="list">${issues}</div>
+    <div class="section-title">AI 建议</div>
+    <div class="ai-advice"><div class="ai">AI</div><div class="grow"><div class="advice-label">根据本次计数与动作事件生成</div>这次完成情况不错。下次可以保持速度，动作做到位后再加快节奏，不需要追求过快。</div></div>
+    <div class="privacy">分析结果用于日常运动反馈，不作为医疗判断。</div>
+  </div>`;
+}
+
+function postureHTML(){
+  return `<div class="page">
+    <div class="brand-kicker">POSTURE CARE <text>DAILY</text></div><div class="hero-title">日常姿态提醒</div><div class="hero-sub">温和提醒，不做医疗判断</div>
+    <div class="posture-demo"><div class="row"><div class="posture-tag">坐姿</div><div class="grow small muted">提醒孩子背部挺直、不瘫坐</div></div><div class="row"><div class="posture-tag">低头</div><div class="grow small muted">低头过久时轻轻提示抬 head</div></div><div class="row"><div class="posture-tag">距离</div><div class="grow small muted">设备过近时提醒保持安全距离</div></div></div>
+    <div class="card" style="margin-top:14px"><div class="strong">使用范围说明</div><div class="small muted" style="margin-top:6px;line-height:1.6">姿态提醒用于日常习惯引导，不能替代专业医疗或视力检查。如有持续不适，请咨询医生。</div></div>
+  </div>`;
+}
+
+function profileHTML(){
+  const p=S.profile;
+  return `<div class="page">
+    <div class="brand-kicker">CHILD PROFILE <text>EDIT</text></div><div class="hero-title">孩子资料</div>
+    <div class="profile-card"><div class="avatar" style="width:50px;height:50px;font-size:18px">${p.childName[0]}</div><div><div class="name">${p.childName}</div><div class="small">${p.grade} · ${p.goal}</div></div></div>
+    <div class="list" style="margin-top:14px">
+      <div class="list-item"><div class="grow"><div class="strong">年龄</div></div><div class="pill">${p.age} 岁</div></div>
+      <div class="list-item"><div class="grow"><div class="strong">运动目标</div></div><div class="pill">${p.goal}</div></div>
+      <div class="list-item"><div class="grow"><div class="strong">年级</div></div><div class="pill">${p.grade}</div></div>
+    </div>
+  </div>`;
+}
+
+// ---- render ----
+function render(){
+  const v=document.getElementById('viewport');
+  v.innerHTML=PAGES[current].html();
+  v.scrollTop=0;
+  // tabbar
+  const tb=document.getElementById('tabbar');
+  tb.innerHTML=TABKEYS.map(k=>`<button class="${k===current?'active':''}" onclick="go('${k}')"><span class="ic">${PAGES[k].icon}</span>${PAGES[k].tab}</button>`).join('');
+  // pagemenu
+  const pm=document.getElementById('pagemenu');
+  pm.innerHTML=Object.keys(PAGES).map(k=>`<button class="${k===current?'active':''}" onclick="go('${k}')">${PAGES[k].tab||k}</button>`).join('');
+  // back btn
+  document.getElementById('backBtn').className='back'+(TABKEYS.includes(current)?'':' show');
+}
+function go(k){current=k;render();}
+function open(k){current=k;render();}
+function goHome(){current='home';render();}
+render();
+</script>
+</body>
+</html>

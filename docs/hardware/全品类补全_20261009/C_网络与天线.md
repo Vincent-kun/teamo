@@ -1,3 +1,17 @@
+# Document Control
+
+| 字段 | 内容 |
+|---|---|
+| Document Type | Hardware Requirement / Research |
+| Current Version | v0.1.1 |
+| Status | Draft |
+| Owner | 待确认（项目协调：魏子奇；不等同文档审批责任人） |
+| Reviewer | 待指派 |
+| Created Date | 2026-10-09 |
+| Last Updated | 2026-10-12 |
+
+> 文档控制版本以本表为准；原文件名和正文版本标识保留为历史业务版本。Draft/Review 为本次治理提交状态，非产品审批结论。创建日期取自原标识，待 Owner 核实。
+
 # C 工作包：网络与天线补全 · 2026-10-09
 
 子代理执行记录。配套数据：[C_网络与天线.json](C_网络与天线.json)。前置输入沿用 [天线候选池_20261009.json](../天线候选池_20261009.json)、[天线选型与布置依据_20261009.md](../天线选型与布置依据_20261009.md) 与交接文档中的 N01–N06，不重复展开。
@@ -79,3 +93,37 @@ RV1106/Luckfox 生态证据链：Luckfox Pico SDK 支持列表含 AP6256、AIC88
 2. 4G 若保留：优先 N01（EC800G-CN，USB RNDIS/ECM 官方双系统证据）还是 N04（A7670C，RNDIS/ECM/PPP 全支持但 24×24 偏大）？N02 的 RNDIS 冲突请与合宙确认。
 3. 开发板阶段 USB Wi-Fi 是否允许用 TL-WN725N 这类 dongle 临时验证（不进 BOM）？
 4. 天线座若定 MHF4，ANT09 的 1461531100 与 ANT08（2069941100）同座可配，请确认座子选型后统一换算。
+
+
+---
+
+# Version History
+
+| Version | Date | Author | Status | Change Summary |
+|---|---|---|---|---|
+| v0.1.0 | 待核实 | 原作者待核实 | 待核实 | 登记导入前现存正文基线；无版本标识，治理初始化编号，不代表历史首次发布；不推断历史修改或批准 |
+| v0.1.1 | 2026-10-12 | Codex（AI，执行用户指令） | Draft | 新增 Document Control、标准 Version History、Change Impact 与 Decision Log；保留既有业务正文及历史记录 |
+
+> 本表仅登记已验证的现存基线与本次修改。历史日期、作者和状态待核实；原有版本记录是补录证据入口，不能据文件名编造缺失版本。
+
+# Change Impact
+
+### Modified Sections
+
+- Section: 文档顶部与治理附录。
+- Before: 缺少统一的文档控制表和标准版本记录。
+- After: 增加控制表、基线与 Patch 历史、影响分析和决策记录入口；原业务正文保留。
+
+### Impact Scope
+
+Affected:
+- 本文及引用本文的项目文档；本次无业务要求变更。
+- 逐文件版本、备份和修改报告见 docs/governance/CHANGELOG-20261012.md。
+
+### Risk
+
+Low。Owner、Reviewer、历史审批状态仍待确认；本次结构治理不冻结产品需求。
+
+# Decision Log
+
+本次未修改产品方向、功能取舍或系统架构。既有决策及待决事项保留在正文，尚未逐条验证迁入；后续涉及这些事项时按 docs/governance/DOCUMENT_VERSION_POLICY.md 记录，建议与已批准决策必须区分。
